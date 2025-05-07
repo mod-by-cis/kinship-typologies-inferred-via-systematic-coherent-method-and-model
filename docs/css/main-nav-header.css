@@ -1,0 +1,45 @@
+/* STICKY HEADER */
+#TopNav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4rem; /* zamiast 60px */
+  background-color: oklch(
+    60%
+    0.15
+    233deg
+    /
+    1
+  ); /* niebieski   oklch(from #0000FF calc(l + 0.1) c h) */
+  color: oklch(100% 0% 0deg / 1); /* biały */
+  display: flex;
+  align-items: center;
+  padding: 0 1.25rem; /* zamiast 20px */
+  box-shadow: 0 0.125rem 0.3125rem rgba(0 0 0 / 0.1);
+  z-index: 1000;
+}
+
+#TopNav h1 {
+  font-size: 1.2rem;
+  margin-right: 2rem;
+}
+
+/* NAVIGACJA */
+#TopNav nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+#TopNav nav a {
+  color: oklch(100% 0% 0deg / 1);
+  text-decoration: none;
+  padding: 0.5rem; /* 8px */
+  transition: background-color 0.2s;
+}
+
+#TopNav nav a:hover {
+  background-color: oklch(100% 0% 0deg / 0.2); /* biały 20% α */
+  border-radius: 0.25rem; /* 4px */
+}

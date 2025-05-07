@@ -1,0 +1,77 @@
+:root {
+  --box-container-size: 100%;
+  --box-font-size-root: 15px;
+  --box-font-name-root: "Nova Square, Arial";
+
+  /* podstawowe kolory */
+  --color-0-white: oklch(75% 2% 70 / 70%);
+  --color-0-black: oklch(25% 2% 70 / 70%);
+  --color-1-white: oklch(95% 2% 70 / 90%);
+  --color-1-black: oklch(20% 2% 70 / 90%);
+
+  /* nawigacja kolory  */
+  --color-nav-text: oklch(0.25 0.04 187);
+  --color-nav-hover: oklch(0.75 0.04 187);
+  --size-nav-height: 3.5em;
+}
+
+html {
+  font-size: var(--box-font-size-root);
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  background-color: var(--color-1-white);
+  color: var(--color-1-black);
+}
+
+* {
+  vertical-align: middle;
+  text-align: center;
+  font-family: var(--box-font-name-root);
+  box-sizing: border-box;
+}
+
+#boxContainer {
+  height: var(--box-container-size);
+  width: var(--box-container-size);
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-rows: var(--size-nav-height) auto;
+}
+
+#boxHead {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: inline-flex;
+  flex-flow: row nowrap;
+  justify-content: start;
+  align-items: center;
+  padding-left: 1em;
+  gap: 2em;
+}
+
+#boxHead a {
+  color: var(--color-nav-text);
+  font-weight: bold;
+  padding-inline: 0.5em;
+  padding-block: 0.25em;
+  border-radius: 0.5em;
+  &:hover {
+    background-color: var(--color-nav-hover);
+  }
+}
+
+#boxMain {
+  overflow: auto;
+  padding: 10px;
+}

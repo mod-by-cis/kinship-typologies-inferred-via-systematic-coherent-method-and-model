@@ -1,0 +1,20 @@
+* {
+  vertical-align: middle;
+  font-family: "Nova Square", Arial;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--size-root-1-rem);
+}
+
+body {
+  background-color: var(--color-1-white);
+  color: var(--color-1-black);
+  padding-top: 4rem;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}

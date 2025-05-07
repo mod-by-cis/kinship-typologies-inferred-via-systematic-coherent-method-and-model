@@ -1,0 +1,40 @@
+:root {
+  /* podstawowe kolory */
+  --color-0-white: oklch(75% 2% 70 / 70%);
+  --color-0-black: oklch(25% 2% 70 / 70%);
+  --color-1-white: oklch(95% 2% 70 / 90%);
+  --color-1-black: oklch(20% 2% 70 / 90%);
+
+  /* intensywność kolorów i przezroczystość*/
+  --bgV: / 60%;
+  --bgO: 95% 15%;
+  /* -odd- */
+  --bgE: 80% 25%;
+  /* -even- */
+  --bgA: 65% 35%;
+  /* -alt-even- */
+  --bgT: 99% 99%;
+  /* label */
+
+  /* kolory*/
+  --for-gene1: 260;
+  /* #DFB1FA */
+  --for-gene2: 230;
+  /* #DFB1FA */
+  --for-gene3: 200;
+  /* #DFB1FA */
+  --for-kid-S: 160;
+  /* #72E5AB */
+  --for-ego-S: 120;
+  /* #C6DF6E */
+  --for-dad-S: 65;
+  /* #F4B36B */
+  --for-dad-L: 45;
+  /* #FAA174 */
+  --for-mom-S: 25;
+  /* #E86A73 */
+  --for-mom-L: 5;
+  /* #E665A5 */
+
+  --size-root-1-rem: 62.5%; /* 62.5% z 16px = 10px */
+}
