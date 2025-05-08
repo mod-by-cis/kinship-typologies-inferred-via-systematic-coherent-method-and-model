@@ -1,0 +1,425 @@
+:root {
+  --color-gen-tier-A: oklch(0.89 0.012 212.0); /* #d2dddf */
+  --color-gen-tier-B: oklch(0.78 0.031 212.0); /* #a2bdc3 */
+  --color-gen-tier-C: oklch(0.67 0.050 212.0); /* #719ea7 */
+  --color-gen-tier-D: oklch(0.56 0.069 212.0); /* #3e7f8c */
+  --color-gen-tier-E: oklch(0.45 0.088 212.0); /* #006172 */
+  --color-gen-tier-F: oklch(0.34 0.107 212.0); /* #004458 */
+
+  --color-gen-span-A: oklch(0.89 0.012 282.0); /* #d9dae3 */
+  --color-gen-span-B: oklch(0.78 0.031 282.0); /* #b4b5cb */
+  --color-gen-span-C: oklch(0.67 0.050 282.0); /* #9092b4 */
+  --color-gen-span-D: oklch(0.56 0.069 282.0); /* #6e709c */
+  --color-gen-span-E: oklch(0.45 0.088 282.0); /* #4E4E85 */
+  --color-gen-span-F: oklch(0.34 0.107 282.0); /* #312D6D */
+
+  --color-gen-sor0-A: oklch(0.89 0.012 262.0); /* #d5dbe3 */
+  --color-gen-sor0-B: oklch(0.78 0.031 262.0); /* #aab9cb */
+  --color-gen-sor0-C: oklch(0.67 0.050 262.0); /* #7f98b4 */
+  --color-gen-sor0-D: oklch(0.56 0.069 262.0); /* #5E759D */
+  --color-gen-sor0-E: oklch(0.45 0.088 262.0); /* #3A5486 */
+  --color-gen-sor0-F: oklch(0.34 0.107 262.0); /* #17346E */
+
+  --color-gen-sor1-A: oklch(0.89 0.012 232.0); /* #D3DCE1 */
+  --color-gen-sor1-B: oklch(0.78 0.031 232.0); /* #A4BBC8 */
+  --color-gen-sor1-C: oklch(0.67 0.050 232.0); /* #769BAF */
+  --color-gen-sor1-D: oklch(0.56 0.069 232.0); /* #487C96 */
+  --color-gen-sor1-E: oklch(0.45 0.088 232.0); /* #0B5D7D */
+  --color-gen-sor1-F: oklch(0.34 0.107 232.0); /* #003F65 */
+
+  --color-kid-sosa-A: oklch(0.89 0.012 339.0); /* #e0d8dd */
+  --color-kid-sosa-B: oklch(0.78 0.031 339.0); /* #c6b0be */
+  --color-kid-sosa-C: oklch(0.67 0.050 339.0); /* #ab8a9f */
+  --color-kid-sosa-D: oklch(0.56 0.069 339.0); /* #906582 */
+  --color-kid-sosa-E: oklch(0.45 0.088 339.0); /* #754165 */
+  --color-kid-sosa-F: oklch(0.34 0.107 339.0); /* #4D2955 */
+
+  --color-ego-sosa-A: oklch(0.89 0.012 199.0); /* #d2ddde */
+  --color-ego-sosa-B: oklch(0.78 0.031 199.0); /* #a1bebf */
+  --color-ego-sosa-C: oklch(0.67 0.050 199.0); /* #719fa1 */
+  --color-ego-sosa-D: oklch(0.56 0.069 199.0); /* #3d8184 */
+  --color-ego-sosa-E: oklch(0.45 0.088 199.0); /* #006368 */
+  --color-ego-sosa-F: oklch(0.34 0.107 199.0); /* #00474D */
+
+  --color-dad-sosa-A: oklch(0.89 0.012 149.0); /* #d6ddd6 */
+  --color-dad-sosa-B: oklch(0.78 0.031 149.0); /* #aabdad */
+  --color-dad-sosa-C: oklch(0.67 0.050 149.0); /* #809e85 */
+  --color-dad-sosa-D: oklch(0.56 0.069 149.0); /* #57805e */
+  --color-dad-sosa-E: oklch(0.45 0.088 149.0); /* #2D6339 */
+  --color-dad-sosa-F: oklch(0.34 0.107 149.0); /* #004614 */
+
+  --color-dad-line-A: oklch(0.89 0.012 140.0); /* #d7ddd5 */
+  --color-dad-line-B: oklch(0.78 0.031 140.0); /* #adbdaa */
+  --color-dad-line-C: oklch(0.67 0.050 140.0); /* #859d80 */
+  --color-dad-line-D: oklch(0.56 0.069 140.0); /* #5f7f58 */
+  --color-dad-line-E: oklch(0.45 0.088 140.0); /* #396130 */
+  --color-dad-line-F: oklch(0.34 0.107 140.0); /* #114402 */
+
+  --color-mom-sosa-A: oklch(0.89 0.012 99.0); /* #dcdbd2 */
+  --color-mom-sosa-B: oklch(0.78 0.031 99.0); /* #bcb8a2 */
+  --color-mom-sosa-C: oklch(0.67 0.050 99.0); /* #9d9673 */
+  --color-mom-sosa-D: oklch(0.56 0.069 99.0); /* #7e7544 */
+  --color-mom-sosa-E: oklch(0.45 0.088 99.0); /* #62560C */
+  --color-mom-sosa-F: oklch(0.34 0.107 99.0); /* #463700 */
+
+  --color-mom-line-A: oklch(0.89 0.012 90.0); /* #dedbd2 */
+  --color-mom-line-B: oklch(0.78 0.031 90.0); /* #bfb7a1 */
+  --color-mom-line-C: oklch(0.67 0.050 90.0); /* #a19472 */
+  --color-mom-line-D: oklch(0.56 0.069 90.0); /* #847343 */
+  --color-mom-line-E: oklch(0.45 0.088 90.0); /* #685209 */
+  --color-mom-line-F: oklch(0.34 0.107 90.0); /* #4D3300 */
+}
+
+th, td {
+  border-radius: 0.5em;
+
+  &:hover {
+    -webkit-filter: invert(1);
+    filter: invert(1);
+  }
+}
+
+th {
+  text-align: left;
+  font-weight: bold;
+  padding-inline: 1em;
+  margin-inline: 1em;
+}
+
+td {
+  text-align: center;
+  font-weight: normal;
+  padding-inline: 2em;
+  margin-inline: 2em;
+}
+
+
+table {
+  width: 100%;
+}
+
+tr.gr-title {
+  width: 100%;
+}
+
+tr.gr-child {
+  display: none;
+}
+
+tr.base-sex > td,
+tr.base-dec > td{
+  font-weight: bold;
+}
+tr.base-bin > td{
+  font-weight: normal;
+}
+
+/* ---------------------------------------------- */
+
+tr.gen-tier-idn {
+  background-color: var(--color-gen-tier-A);
+  color: var(--color-gen-tier-F);
+}
+tr.gen-tier-idn > :is(th.name-row, th.name-rows) {
+  background-color: var(--color-gen-tier-F);
+  color: var(--color-gen-tier-C);
+}
+
+tr.gen-tier-idn.base-dec > td.cell-row:nth-child(even) {
+  background-color: var(--color-gen-tier-C);
+  color: var(--color-gen-tier-F);
+}
+tr.gen-tier-idn.base-dec > td.cell-row:nth-child(odd) {
+  background-color: var(--color-gen-tier-D);
+  color: var(--color-gen-tier-F);
+}
+tr.gen-tier-idn.base-bin > td.cell-row:nth-child(even) {
+  background-color: var(--color-gen-tier-E);
+  color: var(--color-gen-tier-A);
+}
+tr.gen-tier-idn.base-bin > td.cell-row:nth-child(odd) {
+  background-color: var(--color-gen-tier-F);
+  color: var(--color-gen-tier-A);
+}
+
+/* ---------------------------------------------- */
+
+tr.span-sosa-at-tier {
+  background-color: var(--color-gen-span-A);
+  color: var(--color-gen-span-F);
+}
+tr.span-sosa-at-tier > :is(th.name-row, th.name-rows) {
+  background-color: var(--color-gen-span-F);
+  color: var(--color-gen-span-C);
+}
+
+tr.span-sosa-at-tier.base-dec > td.cell-row:nth-child(even) {
+  background-color: var(--color-gen-span-C);
+  color: var(--color-gen-span-F);
+}
+tr.span-sosa-at-tier.base-dec > td.cell-row:nth-child(odd) {
+  background-color: var(--color-gen-span-D);
+  color: var(--color-gen-span-F);
+}
+tr.span-sosa-at-tier.base-bin > td.cell-row:nth-child(even) {
+  background-color: var(--color-gen-span-E);
+  color: var(--color-gen-span-A);
+}
+tr.span-sosa-at-tier.base-bin > td.cell-row:nth-child(odd) {
+  background-color: var(--color-gen-span-F);
+  color: var(--color-gen-span-A);
+}
+/* ---------------------------------------------- */
+
+tr.sort-sosa-at-tier-first0 {
+  background-color: var(--color-gen-sor0-A);
+  color: var(--color-gen-sor0-F);
+}
+tr.sort-sosa-at-tier-first0 > :is(th.name-row, th.name-rows) {
+  background-color: var(--color-gen-sor0-F);
+  color: var(--color-gen-sor0-C);
+}
+
+tr.sort-sosa-at-tier-first0.base-bin > td.cell-row:nth-child(even) {
+  background-color: var(--color-gen-sor0-C);
+  color: var(--color-gen-sor0-F);
+}
+tr.sort-sosa-at-tier-first0.base-bin > td.cell-row:nth-child(odd) {
+  background-color: var(--color-gen-sor0-D);
+  color: var(--color-gen-sor0-F);
+}
+tr.sort-sosa-at-tier-first0.base-dec > td.cell-row:nth-child(even) {
+  background-color: var(--color-gen-sor0-E);
+  color: var(--color-gen-sor0-A);
+}
+tr.sort-sosa-at-tier-first0.base-dec > td.cell-row:nth-child(odd) {
+  background-color: var(--color-gen-sor0-F);
+  color: var(--color-gen-sor0-A);
+}
+
+/* ---------------------------------------------- */
+
+tr.sort-sosa-at-tier-first1 {
+  background-color: var(--color-gen-sor1-A);
+  color: var(--color-gen-sor1-F);
+}
+tr.sort-sosa-at-tier-first1 > :is(th.name-row, th.name-rows) {
+  background-color: var(--color-gen-sor1-F);
+  color: var(--color-gen-sor1-C);
+}
+
+tr.sort-sosa-at-tier-first1.base-bin > td.cell-row:nth-child(even) {
+  background-color: var(--color-gen-sor1-C);
+  color: var(--color-gen-sor1-F);
+}
+tr.sort-sosa-at-tier-first1.base-bin > td.cell-row:nth-child(odd) {
+  background-color: var(--color-gen-sor1-D);
+  color: var(--color-gen-sor1-F);
+}
+tr.sort-sosa-at-tier-first1.base-dec > td.cell-row:nth-child(even) {
+  background-color: var(--color-gen-sor1-E);
+  color: var(--color-gen-sor1-A);
+}
+tr.sort-sosa-at-tier-first1.base-dec > td.cell-row:nth-child(odd) {
+  background-color: var(--color-gen-sor1-F);
+  color: var(--color-gen-sor1-A);
+}
+
+/* ---------------------------------------------- */
+
+tr.kid-sosa {
+  background-color: var(--color-kid-sosa-A);
+  color: var(--color-kid-sosa-F);
+}
+tr.kid-sosa > :is(th.name-row, th.name-rows) {
+  background-color: var(--color-kid-sosa-F);
+  color: var(--color-kid-sosa-C);
+}
+
+tr.kid-sosa.base-sex > td.cell-row:nth-child(even) {
+  background-color: var(--color-kid-sosa-A);
+  color: var(--color-kid-sosa-F);
+}
+tr.kid-sosa.base-sex > td.cell-row:nth-child(odd) {
+  background-color: var(--color-kid-sosa-B);
+  color: var(--color-kid-sosa-F);
+}
+tr.kid-sosa.base-bin > td.cell-row:nth-child(even) {
+  background-color: var(--color-kid-sosa-C);
+  color: var(--color-kid-sosa-F);
+}
+tr.kid-sosa.base-bin > td.cell-row:nth-child(odd) {
+  background-color: var(--color-kid-sosa-D);
+  color: var(--color-kid-sosa-F);
+}
+tr.kid-sosa.base-dec > td.cell-row:nth-child(even) {
+  background-color: var(--color-kid-sosa-E);
+  color: var(--color-kid-sosa-A);
+}
+tr.kid-sosa.base-dec > td.cell-row:nth-child(odd) {
+  background-color: var(--color-kid-sosa-F);
+  color: var(--color-kid-sosa-A);
+}
+
+/* ---------------------------------------------- */
+
+tr.ego-sosa {
+  background-color: var(--color-ego-sosa-A);
+  color: var(--color-ego-sosa-F);
+}
+tr.ego-sosa > :is(th.name-row, th.name-rows) {
+  background-color: var(--color-ego-sosa-F);
+  color: var(--color-ego-sosa-C);
+}
+
+tr.ego-sosa.base-sex > td.cell-row:nth-child(even) {
+  background-color: var(--color-ego-sosa-A);
+  color: var(--color-ego-sosa-F);
+}
+tr.ego-sosa.base-sex > td.cell-row:nth-child(odd) {
+  background-color: var(--color-ego-sosa-B);
+  color: var(--color-ego-sosa-F);
+}
+tr.ego-sosa.base-bin > td.cell-row:nth-child(even) {
+  background-color: var(--color-ego-sosa-C);
+  color: var(--color-ego-sosa-F);
+}
+tr.ego-sosa.base-bin > td.cell-row:nth-child(odd) {
+  background-color: var(--color-ego-sosa-D);
+  color: var(--color-ego-sosa-F);
+}
+tr.ego-sosa.base-dec > td.cell-row:nth-child(even) {
+  background-color: var(--color-ego-sosa-E);
+  color: var(--color-ego-sosa-A);
+}
+tr.ego-sosa.base-dec > td.cell-row:nth-child(odd) {
+  background-color: var(--color-ego-sosa-F);
+  color: var(--color-ego-sosa-A);
+}
+/* ---------------------------------------------- */
+
+tr.dad-sosa {
+  background-color: var(--color-dad-sosa-A);
+  color: var(--color-dad-sosa-F);
+}
+tr.dad-sosa > :is(th.name-row, th.name-rows) {
+  background-color: var(--color-dad-sosa-F);
+  color: var(--color-dad-sosa-C);
+}
+
+tr.dad-sosa.base-sex > td.cell-row:nth-child(even) {
+  background-color: var(--color-dad-sosa-A);
+  color: var(--color-dad-sosa-F);
+}
+tr.dad-sosa.base-sex > td.cell-row:nth-child(odd) {
+  background-color: var(--color-dad-sosa-B);
+  color: var(--color-dad-sosa-F);
+}
+tr.dad-sosa.base-bin > td.cell-row:nth-child(even) {
+  background-color: var(--color-dad-sosa-C);
+  color: var(--color-dad-sosa-F);
+}
+tr.dad-sosa.base-bin > td.cell-row:nth-child(odd) {
+  background-color: var(--color-dad-sosa-D);
+  color: var(--color-dad-sosa-F);
+}
+tr.dad-sosa.base-dec > td.cell-row:nth-child(even) {
+  background-color: var(--color-dad-sosa-E);
+  color: var(--color-dad-sosa-A);
+}
+tr.dad-sosa.base-dec > td.cell-row:nth-child(odd) {
+  background-color: var(--color-dad-sosa-F);
+  color: var(--color-dad-sosa-A);
+}
+
+/* ---------------------------------------------- */
+
+tr.dad-line {
+  background-color: var(--color-dad-line-A);
+  color: var(--color-dad-line-F);
+}
+tr.dad-line > :is(th.name-row, th.name-rows) {
+  background-color: var(--color-dad-line-F);
+  color: var(--color-dad-line-C);
+}
+
+tr.dad-line.base-bin > td.cell-row:nth-child(even) {
+  background-color: var(--color-dad-line-C);
+  color: var(--color-dad-line-F);
+}
+tr.dad-line.base-bin > td.cell-row:nth-child(odd) {
+  background-color: var(--color-dad-line-D);
+  color: var(--color-dad-line-F);
+}
+tr.dad-line.base-dec > td.cell-row:nth-child(even) {
+  background-color: var(--color-dad-line-E);
+  color: var(--color-dad-line-A);
+}
+tr.dad-line.base-dec > td.cell-row:nth-child(odd) {
+  background-color: var(--color-dad-line-F);
+  color: var(--color-dad-line-A);
+}
+
+/* ---------------------------------------------- */
+
+tr.mom-sosa {
+  background-color: var(--color-mom-sosa-A);
+  color: var(--color-mom-sosa-F);
+}
+tr.mom-sosa > :is(th.name-row, th.name-rows) {
+  background-color: var(--color-mom-sosa-F);
+  color: var(--color-mom-sosa-C);
+}
+
+tr.mom-sosa.base-sex > td.cell-row:nth-child(even) {
+  background-color: var(--color-mom-sosa-A);
+  color: var(--color-mom-sosa-F);
+}
+tr.mom-sosa.base-sex > td.cell-row:nth-child(odd) {
+  background-color: var(--color-mom-sosa-B);
+  color: var(--color-mom-sosa-F);
+}
+tr.mom-sosa.base-bin > td.cell-row:nth-child(even) {
+  background-color: var(--color-mom-sosa-C);
+  color: var(--color-mom-sosa-F);
+}
+tr.mom-sosa.base-bin > td.cell-row:nth-child(odd) {
+  background-color: var(--color-mom-sosa-D);
+  color: var(--color-mom-sosa-F);
+}
+tr.mom-sosa.base-dec > td.cell-row:nth-child(even) {
+  background-color: var(--color-mom-sosa-E);
+  color: var(--color-mom-sosa-A);
+}
+tr.mom-sosa.base-dec > td.cell-row:nth-child(odd) {
+  background-color: var(--color-mom-sosa-F);
+  color: var(--color-mom-sosa-A);
+}
+
+/* ---------------------------------------------- */
+
+tr.mom-line {
+  background-color: var(--color-mom-line-A);
+  color: var(--color-mom-line-F);
+}
+tr.mom-line > :is(th.name-row, th.name-rows) {
+  background-color: var(--color-mom-line-F);
+  color: var(--color-mom-line-C);
+}
+
+tr.mom-line.base-bin > td.cell-row:nth-child(even) {
+  background-color: var(--color-mom-line-C);
+  color: var(--color-mom-line-F);
+}
+tr.mom-line.base-bin > td.cell-row:nth-child(odd) {
+  background-color: var(--color-mom-line-D);
+  color: var(--color-mom-line-F);
+}
+tr.mom-line.base-dec > td.cell-row:nth-child(even) {
+  background-color: var(--color-mom-line-E);
+  color: var(--color-mom-line-A);
+}
+tr.mom-line.base-dec > td.cell-row:nth-child(odd) {
+  background-color: var(--color-mom-line-F);
+  color: var(--color-mom-line-A);
+}
