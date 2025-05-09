@@ -12,7 +12,7 @@ const AAA = new DataDB();
 //AAA.setFromSosaNorDec([153, 1324, 9848]);
 //AAA.setFromSosaNorDec([153, 1324, 15432]);
 //AAA.setFromSosaNorDec({from: 1, to:32});
-AAA.setFromSosaNorDec({from: 1, to:9});
+AAA.setFromSosaNorDec({from: 1, to:128});
 
 
 // ======example usage - data views =====
@@ -20,6 +20,9 @@ AAA.setFromSosaNorDec({from: 1, to:9});
 //PlotDB.logData(AAA);
 //console.log(AAA.getPlot);
 //console.log(AAA.getData);
-AAA.logDataSortByTierGene;
+//const BBB = AAA.getDataSortByTierGene;
+AAA.logPlotTabShort;
+
+
 
 // ======example usage ===

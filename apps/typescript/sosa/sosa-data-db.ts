@@ -68,22 +68,14 @@ class DataDB {
     const ordDEC = (a: [number, any], b: [number, any]) => a[0] - b[0];
     
     let G = new Map<number, Map<number, Data>>();
-    
-    //for (const [id, data] of this.#IdDb) {
-    //  G.set(data.TierGene.Dec,new Map());
-    //}
 
-    for (const [id, data] of this.#IdDb) {      
+    DataDB.forEachMap1(this.#IdDb,(id,data) => {     
       const tier = data.TierGene.Dec;
       // pobierz istniejącą grupę lub stwórz nową
       const group = G.get(tier) ?? new Map<number, Data>();
       group.set(id, data);
       G.set(tier, group);
-
-      //let S: Map<number, Data> = G.get(data.TierGene.Dec);
-      //S.set(id,data);  
-      //G.set(data.TierGene.Dec, S);
-    }
+    });
     
     G = new Map<number, Map<number, Data>>(
       [...G.entries()]
@@ -105,7 +97,7 @@ class DataDB {
   get getPlot(): string {
     let text = '';
     text += rowPlotHeader(this.#IdDb.size) +'\n';    
-    for (const [K, V] of this.#IdDb) {
+    DataDB.forEachMap1(this.#IdDb,(K,V) => {     
       text += '\t\n';      
       text += '\t' + rowPlotGroupStart(K) +'\n';
       text += '\t\t' + rowPlotTierGene(V.TierGene) +'\n';
@@ -119,7 +111,7 @@ class DataDB {
       text += '\t\t' + rowPlotDataSosa(V.SosaMom, V.SosaMomSex, "Mom") +'\n';
       text += '\t\t' + rowPlotDataSosa(V.SosaKid, V.SosaKidSex, "Kid") +'\n';
       text += '\t' + rowPlotGroupEnd +'\n';
-    }
+    });
     return text;
   }
   get logPlot(): string {
@@ -127,6 +119,44 @@ class DataDB {
     return this.getPlot;
   }
 
+  
+  get getPlotTabShort(): string {
+    let text = '';
+    DataDB.forEachMap2(this.getDataSortByTierGene,(_nrGene, _nrSosa, data) => {
+      const A = `[DEC] [Gene: ${data.TierGene.Dec}], [Sosa: ${data.SosaEgoSex} ${data.SosaEgo.Nor.Dec}], `;
+      const B = `[LineY: ${data.TierLine.PatY.Dec[1]} - ${data.OrdLine.PatY.Dec}], [LineM: ${data.TierLine.MatM.Dec[1]} - ${data.OrdLine.MatM.Dec}], `;
+      const C = `[Sort: (${data.OrdSosa.Nor.Dec[1]} | ${data.OrdSosa.Rev.Dec[1]})]`
+      text += A+B+C +'\n';
+    });
+    return text;
+  }
+
+  get logPlotTabShort(): string {
+    //this.#LOG(this.getPlotTabShort);
+    console.log(this.getPlotTabShort);
+    return this.getPlotTabShort;
+  }
+
+  static forEachMap2(
+    nestedMap: Map<number, Map<number, Data>>,
+    callback: (outerKey: number, innerKey: number, data: Data) => void
+  ): void {
+    for (const [outerKey, innerMap] of nestedMap) {
+      this.forEachMap1(innerMap, (innerKey, data) => {
+        callback(outerKey, innerKey, data);
+      });
+    }
+  }
+
+  static forEachMap1(
+    map: Map<number, Data>,
+    callback: (key: number, data: Data) => void
+  ): void {
+      for (const [key, data] of map) {
+        callback(key, data);
+      }
+    
+  }
 
 
 }
