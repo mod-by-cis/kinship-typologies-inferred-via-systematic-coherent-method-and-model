@@ -1,5 +1,5 @@
-import { DataDB } from "./sosa-db-data.ts";
-import { PlotDB } from "./sosa-db-plot.ts";
+import { DataDB } from "./sosa-data-db.ts";
+import { Data } from "./sosa-data.ts";
 
 
 
@@ -18,7 +18,8 @@ AAA.setFromSosaNorDec({from: 1, to:9});
 // ======example usage - data views =====
 
 //PlotDB.logData(AAA);
-PlotDB.logColor(AAA);
+//console.log(AAA.getPlot);
+//console.log(AAA.getData);
+AAA.logDataSortByTierGene;
 
-
-// ======example usage =====
+// ======example usage ===

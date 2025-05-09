@@ -1,0 +1,8 @@
+{
+  "tasks": {
+    "ts-sample-sosa": "deno run --watch apps/typescript/sosa/sosa_sample.ts"
+  },
+  "imports": {
+    "@std/fmt": "jsr:@std/fmt@^1.0.7"
+  }
+}

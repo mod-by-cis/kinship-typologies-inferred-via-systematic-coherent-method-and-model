@@ -1,0 +1,16 @@
+{
+  "version": "5",
+  "specifiers": {
+    "jsr:@std/fmt@^1.0.7": "1.0.7"
+  },
+  "jsr": {
+    "@std/fmt@1.0.7": {
+      "integrity": "2a727c043d8df62cd0b819b3fb709b64dd622e42c3b1bb817ea7e6cc606360fb"
+    }
+  },
+  "workspace": {
+    "dependencies": [
+      "jsr:@std/fmt@^1.0.7"
+    ]
+  }
+}
