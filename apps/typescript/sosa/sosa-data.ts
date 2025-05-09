@@ -1,3 +1,4 @@
+// ./sosa-data.ts
 import type { 
   DecBin1Type, DecBin1NorRevType, 
   DecBin2Type, DecBin2NorRevType,

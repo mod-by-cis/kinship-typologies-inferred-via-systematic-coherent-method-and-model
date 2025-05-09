@@ -1,3 +1,4 @@
+// ./sosa-from-sosa.ts
 import type { 
   DecBin1NorRevType, DecBin1Type,
   TierLineType, TierGeneType, LineSortInterface, LineTypeInterface,

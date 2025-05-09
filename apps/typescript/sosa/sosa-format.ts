@@ -1,3 +1,4 @@
+// ./sosa-format.ts
 import type { 
   DecBin1Type, DecBin1NorRevType, DecBin1MinMaxType,
   DecBin2Type, DecBin2NorRevType, 
