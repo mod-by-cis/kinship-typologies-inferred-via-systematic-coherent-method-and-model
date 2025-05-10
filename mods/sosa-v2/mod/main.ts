@@ -1,6 +1,6 @@
 import {type typeIntBin, outIntBin, AbstractLog } from "../util.ts";
-import { SOSA } from "./logic-sosa.ts";
-import { LPAT,  LMAT } from "./logic-line.ts";
+import { SOSA } from "./sosa/logic-sosa.ts";
+import { LPAT,  LMAT } from "./line/logic-line.ts";
 
 
 class FAM {

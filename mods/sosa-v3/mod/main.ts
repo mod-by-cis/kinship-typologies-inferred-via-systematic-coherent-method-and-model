@@ -3,8 +3,8 @@ import { type typeIntBin, type typeNuOrSt, outIntBin, AbstractLog } from "../uti
 
 import { ModeOrdering } from "./types.ts";
 import { AbstractFamily } from "./abstract-family.ts";
-import { SOSA } from "./logic-sosa.ts";
-import { LPAT, LMAT } from "./logic-line.ts"
+import { SOSA } from "./sosa/logic-sosa.ts";
+import { LPAT, LMAT } from "./line/logic-line.ts"
 
 class FAM extends AbstractFamily { 
   static EGO(sosa: typeNuOrSt): typeIntBin {

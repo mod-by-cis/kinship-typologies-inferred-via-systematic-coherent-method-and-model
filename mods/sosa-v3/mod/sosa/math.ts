@@ -1,6 +1,6 @@
 
 
-import { ModeOrdering, ModeExtremum, ModeIndex } from "./types.ts";
+import { ModeOrdering, ModeExtremum, ModeIndex } from "../types.ts";
 
 /** ↔️ Dolna lub górna granica SOSA. */
 function extremumSosa(input:number, mode: ModeExtremum): number { 

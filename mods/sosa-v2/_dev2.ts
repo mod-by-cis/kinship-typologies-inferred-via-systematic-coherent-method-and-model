@@ -153,13 +153,13 @@ abstract class LogicLineAbstract extends LogAbstract {
     sosaIdnBIN: string, 
     sosaGenDEC:number, 
     nameOFFSET: number, 
-    sort1DEC: number, 
-    sort0BIN: string
+    sort_1_INT: number, 
+    sort_0_BIN: string
   ) {
     super();
     const code = BinUtil.trailingZerosErase(sosaIdnBIN);
     const name = code + nameOFFSET;
-    const sort = sort1DEC === 1 ? sosaGenDEC : BinUtil.trailingZerosCount(sort0BIN) + 1;
+    const sort = sort_1_INT === 1 ? sosaGenDEC : BinUtil.trailingZerosCount(sort_0_BIN) + 1;
     const type = Util.toBin(code).length;
 
     this.idn = Util.numberDecBin(name);

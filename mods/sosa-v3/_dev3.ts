@@ -224,22 +224,22 @@ abstract class LogicLineAbstract extends LogAbstract {
   readonly cat: typeIntBin;
 
   protected constructor({
-    sosaBinIDN,
+    sosaIdnBIN,
     nameOFFSET,
-    sortedInt1,
-    sortedBin0,
-    sosaIntGEN
+    sort_1_INT,
+    sort_0_BIN,
+    sosaGenINT
   }: {
-    sosaBinIDN: string;
-    sortedBin0: string;
-    sortedInt1: number;
+    sosaIdnBIN: string;
+    sort_0_BIN: string;
+    sort_1_INT: number;
     nameOFFSET: number;
-    sosaIntGEN: number;
+    sosaGenINT: number;
   }) {
     super();
-    const code = BinUtil.trailingZerosErase(sosaBinIDN);
+    const code = BinUtil.trailingZerosErase(sosaIdnBIN);
     const name = code + nameOFFSET;
-    const sort = sortedInt1 === 1 ? sosaIntGEN : BinUtil.trailingZerosCount(sortedBin0) + 1;
+    const sort = sort_1_INT === 1 ? sosaGenINT : BinUtil.trailingZerosCount(sort_0_BIN) + 1;
     const type = Util.toBin(code).length;
 
     this.idn = Util.outIntBin(name);
@@ -267,11 +267,11 @@ abstract class LogicLineAbstract extends LogAbstract {
 class LogicPatY extends LogicLineAbstract {
   public constructor(s: SOSA) {
     super({
-      sosaBinIDN: s.idn.INC[1],
+      sosaIdnBIN: s.idn.INC[1],
       nameOFFSET: 1,
-      sortedInt1: s.min.INC[1][0],
-      sortedBin0: s.min.INC[0][1],
-      sosaIntGEN: s.gen[0]
+      sort_1_INT: s.min.INC[1][0],
+      sort_0_BIN: s.min.INC[0][1],
+      sosaGenINT: s.gen[0]
     });
   }
 }
@@ -279,11 +279,11 @@ class LogicPatY extends LogicLineAbstract {
 class LogicMatM extends LogicLineAbstract {
   public constructor(s: SOSA) {
     super({
-      sosaBinIDN: s.idn.INC[1],
+      sosaIdnBIN: s.idn.INC[1],
       nameOFFSET: 2,
-      sortedInt1: s.max.DEC[1][0],
-      sortedBin0: s.max.DEC[0][1],
-      sosaIntGEN: s.gen[0]
+      sort_1_INT: s.max.DEC[1][0],
+      sort_0_BIN: s.max.DEC[0][1],
+      sosaGenINT: s.gen[0]
     });
   }
 }

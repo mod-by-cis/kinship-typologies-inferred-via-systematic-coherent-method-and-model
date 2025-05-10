@@ -1,6 +1,6 @@
-import { outIntBin, AbstractLog, type typeIntBin } from "../util.ts";
+import { outIntBin, AbstractLog, type typeIntBin } from "../../util.ts";
 
-import { ModeOrdering, ModeExtremum, ModeIndex } from "./types.ts";
+import { ModeOrdering, ModeExtremum, ModeIndex } from "../types.ts";
 import { extremumSosa, orderingSosa } from "./math.ts";
 
 class SOSA extends AbstractLog {

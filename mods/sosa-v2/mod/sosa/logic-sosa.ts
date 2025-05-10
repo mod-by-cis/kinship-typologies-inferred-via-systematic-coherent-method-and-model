@@ -1,6 +1,5 @@
-import { type typeIntBin, outIntBin, AbstractLog, toBin } from "../util.ts";
+import { type typeIntBin, outIntBin, AbstractLog, toBin } from "../../util.ts";
 import { extremumSosa, orderingSosa } from "./math.ts";
-
 class SOSA extends AbstractLog {
   readonly idn:{INC:typeIntBin;DEC:typeIntBin;};
   readonly min:{RIM:typeIntBin; INC: [typeIntBin,typeIntBin];};
