@@ -3,8 +3,8 @@ import { type typeIntBin, type typeNuOrSt, outIntBin, AbstractLog } from "../uti
 
 import { ModeOrdering } from "./types.ts";
 import { AbstractFamily } from "./abstract-family.ts";
-import { LogicSosa } from "./logic-sosa.ts";
-import { LogicLinePatY, LogicLineMatM } from "./logic-line.ts"
+import { SOSA } from "./logic-sosa.ts";
+import { LPAT, LMAT } from "./logic-line.ts"
 
 class FAM extends AbstractFamily { 
   static EGO(sosa: typeNuOrSt): typeIntBin {
@@ -26,11 +26,11 @@ class FAM extends AbstractFamily {
 
 
 class PER extends AbstractLog {
-  readonly sosa: LogicSosa;
-  readonly rayY: LogicLinePatY;
-  readonly rayM: LogicLineMatM;
+  readonly sosa: SOSA;
+  readonly rayY: LPAT;
+  readonly rayM: LMAT;
 
-  private constructor(sosa: LogicSosa, linePatY: LogicLinePatY, lineMatM: LogicLineMatM) {
+  private constructor(sosa: SOSA, linePatY: LPAT, lineMatM: LMAT) {
     super();
     this.sosa = sosa;
     this.rayY = linePatY;
@@ -39,9 +39,9 @@ class PER extends AbstractLog {
 
   /** Fabryka budująca cały Person 'PER' z liczby lub binarki. */
   static fromSosa(sosa:typeIntBin): PER {
-    const T    = LogicSosa.fromSosa(sosa);
-    const Y    = LogicLinePatY.fromObjSosa(T);
-    const M    = LogicLineMatM.fromObjSosa(T);
+    const T    = SOSA.fromSosa(sosa);
+    const Y    = LPAT.fromObjSosa(T);
+    const M    = LMAT.fromObjSosa(T);
     return new PER(T,Y,M);
   }
 

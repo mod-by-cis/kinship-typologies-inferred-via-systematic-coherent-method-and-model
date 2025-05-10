@@ -1,6 +1,6 @@
 import {type typeIntBin, outIntBin, AbstractLog } from "../util.ts";
-import { LogicSosa } from "./logic-sosa.ts";
-import { LogicPatY,  LogicMatM } from "./logic-line.ts";
+import { SOSA } from "./logic-sosa.ts";
+import { LPAT,  LMAT } from "./logic-line.ts";
 
 
 class FAM {
@@ -22,20 +22,20 @@ class FAM {
 }
 
 class PER extends AbstractLog {
-  readonly sosa: LogicSosa;
-  readonly rayY: LogicPatY;
-  readonly rayM: LogicMatM;
+  readonly sosa: SOSA;
+  readonly rayY: LPAT;
+  readonly rayM: LMAT;
   
-  private constructor(sosa: LogicSosa, linePatY: LogicPatY, lineMatM: LogicMatM) {
+  private constructor(sosa: SOSA, linePatY: LPAT, lineMatM: LMAT) {
     super();
     this.sosa = sosa;
     this.rayY = linePatY;
     this.rayM = lineMatM;
   }
   static fromSosa(sosa:typeIntBin): PER {
-    const T = LogicSosa.fromSosa(sosa);
-    const Y = LogicPatY.fromObjSosa(T);
-    const M = LogicMatM.fromObjSosa(T);
+    const T = SOSA.fromSosa(sosa);
+    const Y = LPAT.fromObjSosa(T);
+    const M = LMAT.fromObjSosa(T);
     return new PER(T,Y,M);
   }
 

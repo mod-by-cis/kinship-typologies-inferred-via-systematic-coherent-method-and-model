@@ -1,7 +1,7 @@
 
 import { type typeIntBin, BinTrailingZeros, outIntBin, AbstractLog, toBin } from "../util.ts";
 
-import { LogicSosa } from "./logic-sosa.ts";
+import { SOSA } from "./logic-sosa.ts";
 
 
 abstract class AbstractHaploLine extends AbstractLog {

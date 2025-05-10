@@ -1,9 +1,9 @@
 
-import { LogicSosa } from "./logic-sosa.ts";
+import { SOSA } from "./logic-sosa.ts";
 import { AbstractHaploLine } from "./abstract-haplo-line.ts";
 
-class LogicLinePatY extends AbstractHaploLine {
-  public constructor(s: LogicSosa) {
+class LPAT extends AbstractHaploLine {
+  public constructor(s: SOSA) {
     super({
       sosaBinIDN: s.idn.INC[1],
       nameOFFSET: 1,
@@ -14,8 +14,8 @@ class LogicLinePatY extends AbstractHaploLine {
   }
 }
 
-class LogicLineMatM extends AbstractHaploLine {
-  public constructor(s: LogicSosa) {
+class LMAT extends AbstractHaploLine {
+  public constructor(s: SOSA) {
     super({
       sosaBinIDN: s.idn.INC[1],
       nameOFFSET: 2,
@@ -26,4 +26,4 @@ class LogicLineMatM extends AbstractHaploLine {
   }
 }
 
-export { LogicLinePatY, LogicLineMatM };
+export { LPAT, LMAT };

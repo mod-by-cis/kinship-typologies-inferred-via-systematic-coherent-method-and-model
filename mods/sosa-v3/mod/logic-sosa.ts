@@ -3,7 +3,7 @@ import { outIntBin, AbstractLog, type typeIntBin } from "../util.ts";
 import { ModeOrdering, ModeExtremum, ModeIndex } from "./types.ts";
 import { extremumSosa, orderingSosa } from "./math.ts";
 
-class LogicSosa extends AbstractLog {
+class SOSA extends AbstractLog {
   readonly idn: { INC: typeIntBin; DEC: typeIntBin };
   readonly min: { RIM: typeIntBin; INC: [typeIntBin, typeIntBin] };
   readonly max: { RIM: typeIntBin; DEC: [typeIntBin, typeIntBin] };
@@ -44,9 +44,9 @@ class LogicSosa extends AbstractLog {
   }
 
   /** Fabryka — tworzy i zwraca. */
-  static fromSosa(input: typeIntBin): LogicSosa {
+  static fromSosa(input: typeIntBin): SOSA {
     const [int, bin] = input;
-    return new LogicSosa(int, bin);
+    return new SOSA(int, bin);
   }
 
   /** API do console.log. */
@@ -55,4 +55,4 @@ class LogicSosa extends AbstractLog {
   }
 }
 
-export { LogicSosa };
+export { SOSA };

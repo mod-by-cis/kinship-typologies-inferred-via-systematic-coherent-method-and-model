@@ -161,7 +161,7 @@ abstract class LogAbstract {
 // 5) Podstawowy rekord SOSA
 // --------------------------------------------------------------------------------
 
-class LogicSosa extends LogAbstract {
+class SOSA extends LogAbstract {
   readonly idn: { INC: typeIntBin; DEC: typeIntBin };
   readonly min: { RIM: typeIntBin; INC: [typeIntBin, typeIntBin] };
   readonly max: { RIM: typeIntBin; DEC: [typeIntBin, typeIntBin] };
@@ -202,9 +202,9 @@ class LogicSosa extends LogAbstract {
   }
 
   /** Fabryka — tworzy i zwraca. */
-  static fromSosa(input: typeIntBin): LogicSosa {
+  static fromSosa(input: typeIntBin): SOSA {
     const [int, bin] = input;
-    return new LogicSosa(int, bin);
+    return new SOSA(int, bin);
   }
 
   /** API do console.log. */
@@ -255,7 +255,7 @@ abstract class LogicLineAbstract extends LogAbstract {
    */
   static fromObjSosa<
     T extends LogicLineAbstract
-  >(this: new (s: LogicSosa) => T, s: LogicSosa): T {
+  >(this: new (s: SOSA) => T, s: SOSA): T {
     return new this(s);
   }
 
@@ -265,7 +265,7 @@ abstract class LogicLineAbstract extends LogAbstract {
 }
 
 class LogicPatY extends LogicLineAbstract {
-  public constructor(s: LogicSosa) {
+  public constructor(s: SOSA) {
     super({
       sosaBinIDN: s.idn.INC[1],
       nameOFFSET: 1,
@@ -277,7 +277,7 @@ class LogicPatY extends LogicLineAbstract {
 }
 
 class LogicMatM extends LogicLineAbstract {
-  public constructor(s: LogicSosa) {
+  public constructor(s: SOSA) {
     super({
       sosaBinIDN: s.idn.INC[1],
       nameOFFSET: 2,
@@ -293,11 +293,11 @@ class LogicMatM extends LogicLineAbstract {
 // --------------------------------------------------------------------------------
 
 class PER extends LogAbstract {
-  readonly sosa: LogicSosa;
+  readonly sosa: SOSA;
   readonly rayY: LogicPatY;
   readonly rayM: LogicMatM;
 
-  private constructor(sosa: LogicSosa, linePatY: LogicPatY, lineMatM: LogicMatM) {
+  private constructor(sosa: SOSA, linePatY: LogicPatY, lineMatM: LogicMatM) {
     super();
     this.sosa = sosa;
     this.rayY = linePatY;
@@ -306,7 +306,7 @@ class PER extends LogAbstract {
 
   /** Fabryka budująca cały Person 'PER' z liczby lub binarki. */
   static fromSosa(sosa:typeIntBin): PER {
-    const T    = LogicSosa.fromSosa(sosa);
+    const T    = SOSA.fromSosa(sosa);
     const Y    = LogicPatY.fromObjSosa(T);
     const M    = LogicMatM.fromObjSosa(T);
     return new PER(T,Y,M);
@@ -322,7 +322,7 @@ class PER extends LogAbstract {
 // --------------------------------------------------------------------------------
 Util.forAll([1,16], i => {
   // console.log('i: ', i);
-  // const T = LogicSosa.fromSosa(FAM.EGO(i))._log;
+  // const T = SOSA.fromSosa(FAM.EGO(i))._log;
   // LogicPatY.fromObjSosa(T)._log;
   // LogicMatM.fromObjSosa(T)._log;
   PER.fromSosa(FAM.EGO(i))._log;

@@ -1,7 +1,7 @@
 import { type typeIntBin, outIntBin, AbstractLog, toBin } from "../util.ts";
 import { extremumSosa, orderingSosa } from "./math.ts";
 
-class LogicSosa extends AbstractLog {
+class SOSA extends AbstractLog {
   readonly idn:{INC:typeIntBin;DEC:typeIntBin;};
   readonly min:{RIM:typeIntBin; INC: [typeIntBin,typeIntBin];};
   readonly max:{RIM:typeIntBin; DEC: [typeIntBin,typeIntBin];};
@@ -25,9 +25,9 @@ class LogicSosa extends AbstractLog {
   }
 
   /** Fabryka — tworzy i zwraca instancję ABC. */
-  static fromSosa(sosa:typeIntBin): LogicSosa {
+  static fromSosa(sosa:typeIntBin): SOSA {
     const [sDec,sBin] = sosa;
-    return new LogicSosa(sDec,sBin);
+    return new SOSA(sDec,sBin);
   }
 
   get _log(): this {
@@ -36,4 +36,4 @@ class LogicSosa extends AbstractLog {
 }
 
 
-export {LogicSosa};
+export {SOSA};

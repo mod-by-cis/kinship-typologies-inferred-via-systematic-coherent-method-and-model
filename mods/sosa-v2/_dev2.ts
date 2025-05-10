@@ -109,7 +109,7 @@ abstract class LogAbstract {
   }
 }
 
-class LogicSosa extends LogAbstract {
+class SOSA extends LogAbstract {
   readonly idn:{INC:numberBase10Base2;DEC:numberBase10Base2;};
   readonly min:{RIM:numberBase10Base2; INC: [numberBase10Base2,numberBase10Base2];};
   readonly max:{RIM:numberBase10Base2; DEC: [numberBase10Base2,numberBase10Base2];};
@@ -133,9 +133,9 @@ class LogicSosa extends LogAbstract {
   }
 
   /** Fabryka — tworzy i zwraca instancję ABC. */
-  static fromSosa(sosa:numberBase10Base2): LogicSosa {
+  static fromSosa(sosa:numberBase10Base2): SOSA {
     const [sDec,sBin] = sosa;
-    return new LogicSosa(sDec,sBin);
+    return new SOSA(sDec,sBin);
   }
 
   get _log(): this {
@@ -169,12 +169,12 @@ abstract class LogicLineAbstract extends LogAbstract {
   }
 }
 
-class LogicPatY extends LogicLineAbstract {
-  private constructor(sosa: LogicSosa) {
+class LPAT extends LogicLineAbstract {
+  private constructor(sosa: SOSA) {
     super(sosa.idn.INC[1], sosa.gen[0], 1, sosa.min.INC[1][0], sosa.min.INC[0][1]);
   }
-  static fromObjSosa(sosa: LogicSosa): LogicPatY {
-    return new LogicPatY(sosa);
+  static fromObjSosa(sosa: SOSA): LPAT {
+    return new LPAT(sosa);
   }
 
   get _log(): this {
@@ -182,12 +182,12 @@ class LogicPatY extends LogicLineAbstract {
   }
 }
 
-class LogicMatM extends LogicLineAbstract {
-  private constructor(sosa: LogicSosa) {
+class LMAT extends LogicLineAbstract {
+  private constructor(sosa: SOSA) {
     super(sosa.idn.DEC[1], sosa.gen[0], 2, sosa.max.DEC[1][0], sosa.max.DEC[0][1]);
   }
-  static fromObjSosa(sosa: LogicSosa): LogicMatM {
-    return new LogicMatM(sosa);
+  static fromObjSosa(sosa: SOSA): LMAT {
+    return new LMAT(sosa);
   }
 
   
@@ -197,20 +197,20 @@ class LogicMatM extends LogicLineAbstract {
 }
 
 class PER extends LogAbstract {
-  readonly sosa: LogicSosa;
-  readonly rayY: LogicPatY;
-  readonly rayM: LogicMatM;
+  readonly sosa: SOSA;
+  readonly rayY: LPAT;
+  readonly rayM: LMAT;
   
-  private constructor(sosa: LogicSosa, linePatY: LogicPatY, lineMatM: LogicMatM) {
+  private constructor(sosa: SOSA, linePatY: LPAT, lineMatM: LMAT) {
     super();
     this.sosa = sosa;
     this.rayY = linePatY;
     this.rayM = lineMatM;
   }
   static fromSosa(sosa:numberBase10Base2): PER {
-    const T = LogicSosa.fromSosa(sosa);
-    const Y = LogicPatY.fromObjSosa(T);
-    const M = LogicMatM.fromObjSosa(T);
+    const T = SOSA.fromSosa(sosa);
+    const Y = LPAT.fromObjSosa(T);
+    const M = LMAT.fromObjSosa(T);
     return new PER(T,Y,M);
   }
 

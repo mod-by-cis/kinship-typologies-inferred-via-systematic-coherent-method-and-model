@@ -2,7 +2,7 @@
 import { BinTrailingZeros, outIntBin, AbstractLog, toBin } from "../util.ts";
 
 import { type typeIntBin } from "./types.ts";
-import { LogicSosa } from "./logic-sosa.ts";
+import { SOSA } from "./logic-sosa.ts";
 
 
 abstract class AbstractHaploLine extends AbstractLog {
@@ -43,7 +43,7 @@ abstract class AbstractHaploLine extends AbstractLog {
    */
   static fromObjSosa<
     T extends AbstractHaploLine
-  >(this: new (s: LogicSosa) => T, s: LogicSosa): T {
+  >(this: new (s: SOSA) => T, s: SOSA): T {
     return new this(s);
   }
 
