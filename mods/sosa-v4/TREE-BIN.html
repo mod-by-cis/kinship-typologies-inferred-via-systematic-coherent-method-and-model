@@ -8,7 +8,7 @@
   <!-- Styl z oklch() -->
   <style>
     :root {
-      --bg: oklch(25% 0.05 250);
+      --bg: oklch(0.1861 0.0368 250);
       --text: oklch(95% 0 0);
     }
 
@@ -81,8 +81,8 @@
       Drzewo binarne oznaczone etykietami o rozmiarze 
       $\text{» } {\color{limegreen}max} = 7\text{ «}$ 
       (liczba węzłów w drzewie) i wysokości 
-      $\text{» } {\color{yellow}h} = 2\text{ «}$ 
-      (wysokość $\text{» } {\color{yellow}h} \text{ «}$ drzewa zdefiniowana jako liczba krawędzi lub połączeń 
+      $\text{» } {\color{yellow}ih} = 2\text{ «}$ 
+      (wysokość/poziom $\text{» } {\color{yellow}ih} \text{ «}$ drzewa zdefiniowana jako liczba krawędzi lub połączeń 
       od najwyższego węzła lub węzła głównego (ROOT) do najdalszego węzła liścia) z węzłem głównym, którego wartość wynosi 1.
       Poniższe drzewo jest zrównoważone, ale nie jest (może nie być) posortowane.
     </p>
@@ -113,12 +113,15 @@
     </div>
 
     <section>
-  <h2 style="color: oklch(100% 0 85);">1. Obliczanie <span style="color: oklch(92% 0.18 100);">h(\color{violet}{i})</span> <strong>wysokości/poziomu</strong> na podstawie indeksu <span style="color: oklch(85% 0.25 300);">i</span></h2>
+  <h2 style="color: oklch(100% 0 85);">1. Obliczanie
+    <span style="color: yellow;">ih<span style="color: white;">(</span><span style="color: violet;">i</span><span style="color: white;">)</span> </span> 
+    <strong>wysokości/poziomu</strong> na podstawie indeksu <span style="color: violet;">i</span>
+  </h2>
 
   <p>
     <span class="math">
         \begin{aligned}
-          \color{yellow}{h(\color{violet}{i})} = \lfloor \log_2(\color{violet}{i}) \rfloor 
+          \color{yellow}{ih(\color{violet}{i})} = \lfloor \log_2(\color{violet}{i}) \rfloor 
           \quad \forall\, \color{violet}{i} \in \{ \color{violet}{iLR}, \color{violet}{iRL} \} \subset \mathbb{N}_{+}
         \end{aligned}
     </span>
@@ -128,37 +131,38 @@
     <section>
   <h2 style="color: oklch(100% 0 85);">
     2. Różne obliczenia tylko i wyłącznie na podstawie 
-    <span style="color: oklch(92% 0.18 100);">h(\color{violet}{i})</span> <strong>wysokości/poziomu</strong>
+    <span style="color: yellow;">ih<span style="color: white;">(</span><span style="color: violet;">i</span><span style="color: white;">)</span> </span> 
+    <strong>wysokości/poziomu</strong>
   </h2>
 
   <p>
     <span class="math">
       \begin{aligned}
-        \color{limegreen}{\max(\color{yellow}{h(\color{violet}{i})})} = &
-        \color{limegreen}{\text{total}(\color{yellow}{h(\color{violet}{i})})} = \\
-        & \quad = 2^{(\color{yellow}{h}+1)} - 1 \quad & \forall \, \color{yellow}{h} \in \mathbb{N}_{0} \\
+        \color{limegreen}{\max(\color{yellow}{ih(\color{violet}{i})})} = &
+        \color{limegreen}{\text{total}(\color{yellow}{ih(\color{violet}{i})})} = \\
+        & \quad = 2^{(\color{yellow}{ih}+1)} - 1 \quad & \forall \, \color{yellow}{ih} \in \mathbb{N}_{0} \\
         \\
-        \color{limegreen}{\min(\color{yellow}{h(\color{violet}{i})})} = &
-        \color{limegreen}{\text{count}(\color{yellow}{h(\color{violet}{i})})} = \\
-        & \quad = 2^{\color{yellow}{h}} \quad & \forall \, \color{yellow}{h} \in \mathbb{N}_{0} \\
+        \color{limegreen}{\min(\color{yellow}{ih(\color{violet}{i})})} = &
+        \color{limegreen}{\text{count}(\color{yellow}{ih(\color{violet}{i})})} = \\
+        & \quad = 2^{\color{yellow}{ih}} \quad & \forall \, \color{yellow}{ih} \in \mathbb{N}_{0} \\
         \\
-        \color{limegreen}{\text{mix}(\color{yellow}{h(\color{violet}{i})})} = &
-        \color{limegreen}{\min(\color{yellow}{h(\color{violet}{i})})} + \color{limegreen}{\max(\color{yellow}{h(\color{violet}{i})})} = \\
+        \color{limegreen}{\text{mix}(\color{yellow}{ih(\color{violet}{i})})} = &
+        \color{limegreen}{\min(\color{yellow}{h(\color{violet}{i})})} + \color{limegreen}{\max(\color{yellow}{ih(\color{violet}{i})})} = \\
         = & \, (\color{violet}{iLR} + \color{violet}{iRL}) = \\
-        & \quad = 3 \cdot 2^{\color{yellow}{h}} - 1 \quad & \forall \, \color{yellow}{h} \in \mathbb{N}_{0}
+        & \quad = 3 \cdot 2^{\color{yellow}{ih}} - 1 \quad & \forall \, \color{yellow}{ih} \in \mathbb{N}_{0}
       \end{aligned}
     </span>
   </p>
       <hr />
   <ul>
     <li>
-      <span style="color: oklch(75% 0.19 140);">\text{max}(h(i)) = \text{total}(h(i))</span> – określa ilość wszystkich węzłów oraz wartość najwyższego indeksu węzła na poziomie danej wysokości.
+      <span style="color: oklch(75% 0.19 140);">\text{max}(ih(i)) = \text{total}(ih(i))</span> – określa ilość wszystkich węzłów oraz wartość najwyższego indeksu węzła na poziomie danej wysokości.
     </li>
     <li>
-      <span style="color: oklch(75% 0.19 140);">\text{min}(h(i)) = \text{count}(h(i))</span> – określa ilość węzłów na danym poziomie oraz wartość najniższego indeksu węzła.
+      <span style="color: oklch(75% 0.19 140);">\text{min}(ih(i)) = \text{count}(ih(i))</span> – określa ilość węzłów na danym poziomie oraz wartość najniższego indeksu węzła.
     </li>
     <li>
-      <span style="color: oklch(75% 0.19 140);">\text{mix}(h(i)) = \text{min}(h(i)) + \text{max}(h(i)) = i_{LR} + i_{RL}</span> – wartość stała dla poziomu, suma min i max lub suma indeksów LR+RL.
+      <span style="color: oklch(75% 0.19 140);">\text{mix}(ih(i)) = \text{min}(ih(i)) + \text{max}(ih(i)) = i_{LR} + i_{RL}</span> – wartość stała dla poziomu, suma min i max lub suma indeksów LR+RL.
     </li>
   </ul>
 </section>
@@ -222,8 +226,8 @@
   <p>
     <span class="math">
       \begin{aligned}
-        \color{violet}{i_{RL}(\color{violet}{i_{LR}})} &= \color{limegreen}{mix(\color{yellow}{h(\color{violet}{i})})} - \color{violet}{i_{LR}} \\
-        \color{violet}{i_{LR}(\color{violet}{i_{RL}})} &= \color{limegreen}{mix(\color{yellow}{h(\color{violet}{i})})} - \color{violet}{i_{RL}}
+        \color{violet}{i_{RL}(\color{violet}{i_{LR}})} &= \color{limegreen}{mix(\color{yellow}{ih(\color{violet}{i})})} - \color{violet}{i_{LR}} \\
+        \color{violet}{i_{LR}(\color{violet}{i_{RL}})} &= \color{limegreen}{mix(\color{yellow}{ih(\color{violet}{i})})} - \color{violet}{i_{RL}}
       \end{aligned}
     </span>
   </p>
@@ -231,20 +235,20 @@
     
     <section>
   <h2 style="color: oklch(100% 0 85);">
-    5. Dodatkowy indeks w obrębie poziomu danej wysokości
+    5. Dodatkowy indeks w obrębie poziomu danej wysokości/poziomu
   </h2>
   <p>
     Uniwersalnym indeksem dokładnie wskazującym na miejsce, po odpowiednim przeliczeniu jest 
     <span style="color: violet;">iLR</span> oraz <span style="color: violet;">iRL</span>, jednakowoż dla wygody, co w pełni z niego już wynika, wprowadzamy 
     <span style="color: violet;">i<span style="color: yellow;">h</span>INC</span> oraz 
     <span style="color: violet;">i<span style="color: yellow;">h</span>DEC</span>, które w obrębie konkretnego poziomu wysokości 
-    <span style="color: yellow;">h</span>, wprowadzają indeks lokalny w jegoż obrębie.
+    <span style="color: yellow;">ih</span>, wprowadzają indeks lokalny w jegoż obrębie.
   </p>
   <p>
     <span class="math">
       \begin{aligned}
-      {\color{violet}{i h INC}} &= {\color{violet}{iLR}} - {\color{limegreen}{min({\color{yellow}{h({\color{violet}{i}})})}}} \\
-      {\color{violet}{i h DEC}} &= {\color{violet}{iRL}} - {\color{limegreen}{min({\color{yellow}{h({\color{violet}{i}})})}}}
+      {\color{violet}{i h INC}} &= {\color{violet}{iLR}} - {\color{limegreen}{min({\color{yellow}{ih({\color{violet}{i}})})}}} \\
+      {\color{violet}{i h DEC}} &= {\color{violet}{iRL}} - {\color{limegreen}{min({\color{yellow}{ih({\color{violet}{i}})})}}}
       \end{aligned}
     </span>
   </p>
@@ -259,7 +263,7 @@ type NodeConstructor&lt;T&gt; = new (node: number, X?: "XM" | "XW") =&gt; T;
 class Node {
   ihINC: number; // iLR: number;
   ihDEC: number; // iRL: number;
-  h: number; // lvX: number;
+  ih: number; // lvX: number;
   MAX: number; // MAX: number;
   MIN: number; // MIN: number;
   MIX: number; // MIX: number;
@@ -282,7 +286,7 @@ class Node {
 
     this.ihINC = sortXM_LR;
     this.ihDEC = sortXW_RL;
-    this.h = height;
+    this.ih = height;
     this.MAX = nodeMAX;
     this.MIN = nodeMIN;
     this.MIX = nodeMIX;
@@ -353,21 +357,21 @@ config:
   theme: dark
 ---
 graph TD
-  01["iLR = 1 <br /> iRL = 1  <br /> h = 0 <br /> ihINC = 0 <br /> ihDEC = 0 <br /> MAX = 1 <br /> MIN = 1 <br /> MIX = 2"]
-  01 <--> 02["iLR = 2 <br /> iRL = 3 <br /> h = 1 <br /> ihINC = 0 <br /> ihDEC = 1 <br /> MAX = 3 <br /> MIN = 2 <br /> MIX = 5"]
-  01 <--> 03["iLR = 3 <br /> iRL = 2 <br /> h = 1 <br /> ihINC = 1 <br /> ihDEC = 0 <br /> MAX = 3 <br /> MIN = 2 <br /> MIX = 5"]
-  02 <--> 04["iLR = 4 <br /> iRL = 7 <br /> h = 2 <br /> ihINC = 0 <br /> ihDEC = 3 <br /> MAX = 7 <br /> MIN = 4 <br /> MIX = 11"]
-  02 <--> 05["iLR = 5 <br /> iRL = 6 <br /> h = 2 <br /> ihINC = 1 <br /> ihDEC = 2 <br /> MAX = 7 <br /> MIN = 4 <br /> MIX = 11"]
-  03 <--> 06["iLR = 6 <br /> iRL = 5 <br /> h = 2 <br /> ihINC = 2 <br /> ihDEC = 1 <br /> MAX = 7 <br /> MIN = 4 <br /> MIX = 11"]
-  03 <--> 07["iLR = 7 <br /> iRL = 4 <br /> h = 2 <br /> ihINC = 3 <br /> ihDEC = 0 <br /> MAX = 7 <br /> MIN = 4 <br /> MIX = 11"]
-  04 <--> 08["iLR = 8 <br /> iRL = 15 <br /> h = 3 <br /> ihINC = 0 <br /> ihDEC = 7 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
-  04 <--> 09["iLR = 9 <br /> iRL = 14 <br /> h = 3 <br /> ihINC = 1 <br /> ihDEC = 6 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
-  05 <--> 10["iLR = 10 <br /> iRL = 13 <br /> h = 3 <br /> ihINC = 2 <br /> ihDEC = 5 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
-  05 <--> 11["iLR = 11 <br /> iRL = 12 <br /> h = 3 <br /> ihINC = 3 <br /> ihDEC = 4 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
-  06 <--> 12["iLR = 12 <br /> iRL = 11 <br /> h = 3 <br /> ihINC = 4 <br /> ihDEC = 3 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
-  06 <--> 13["iLR = 13 <br /> iRL = 10 <br /> h = 3 <br /> ihINC = 5 <br /> ihDEC = 2 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
-  07 <--> 14["iLR = 14 <br /> iRL = 9 <br /> h = 3 <br /> ihINC = 6 <br /> ihDEC = 1 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
-  07 <--> 15["iLR = 15 <br /> iRL = 8 <br /> h = 3 <br /> ihINC = 7 <br /> ihDEC = 0 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
+  01["iLR = 1 <br /> iRL = 1  <br /> ih = 0 <br /> ihINC = 0 <br /> ihDEC = 0 <br /> MAX = 1 <br /> MIN = 1 <br /> MIX = 2"]
+  01 <--> 02["iLR = 2 <br /> iRL = 3 <br /> ih = 1 <br /> ihINC = 0 <br /> ihDEC = 1 <br /> MAX = 3 <br /> MIN = 2 <br /> MIX = 5"]
+  01 <--> 03["iLR = 3 <br /> iRL = 2 <br /> ih = 1 <br /> ihINC = 1 <br /> ihDEC = 0 <br /> MAX = 3 <br /> MIN = 2 <br /> MIX = 5"]
+  02 <--> 04["iLR = 4 <br /> iRL = 7 <br /> ih = 2 <br /> ihINC = 0 <br /> ihDEC = 3 <br /> MAX = 7 <br /> MIN = 4 <br /> MIX = 11"]
+  02 <--> 05["iLR = 5 <br /> iRL = 6 <br /> ih = 2 <br /> ihINC = 1 <br /> ihDEC = 2 <br /> MAX = 7 <br /> MIN = 4 <br /> MIX = 11"]
+  03 <--> 06["iLR = 6 <br /> iRL = 5 <br /> ih = 2 <br /> ihINC = 2 <br /> ihDEC = 1 <br /> MAX = 7 <br /> MIN = 4 <br /> MIX = 11"]
+  03 <--> 07["iLR = 7 <br /> iRL = 4 <br /> ih = 2 <br /> ihINC = 3 <br /> ihDEC = 0 <br /> MAX = 7 <br /> MIN = 4 <br /> MIX = 11"]
+  04 <--> 08["iLR = 8 <br /> iRL = 15 <br /> ih = 3 <br /> ihINC = 0 <br /> ihDEC = 7 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
+  04 <--> 09["iLR = 9 <br /> iRL = 14 <br /> ih = 3 <br /> ihINC = 1 <br /> ihDEC = 6 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
+  05 <--> 10["iLR = 10 <br /> iRL = 13 <br /> ih = 3 <br /> ihINC = 2 <br /> ihDEC = 5 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
+  05 <--> 11["iLR = 11 <br /> iRL = 12 <br /> ih = 3 <br /> ihINC = 3 <br /> ihDEC = 4 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
+  06 <--> 12["iLR = 12 <br /> iRL = 11 <br /> ih = 3 <br /> ihINC = 4 <br /> ihDEC = 3 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
+  06 <--> 13["iLR = 13 <br /> iRL = 10 <br /> ih = 3 <br /> ihINC = 5 <br /> ihDEC = 2 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
+  07 <--> 14["iLR = 14 <br /> iRL = 9 <br /> ih = 3 <br /> ihINC = 6 <br /> ihDEC = 1 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
+  07 <--> 15["iLR = 15 <br /> iRL = 8 <br /> ih = 3 <br /> ihINC = 7 <br /> ihDEC = 0 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
 
   style 01 fill:#602c3e,stroke:#AAA,stroke-width:1px
   style 02 fill:#593704,stroke:#AAA,stroke-width:1px
