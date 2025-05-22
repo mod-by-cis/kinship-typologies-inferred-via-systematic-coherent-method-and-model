@@ -112,7 +112,7 @@
       style 7 fill:#364613,stroke:#AAA,stroke-width:1px
     </div>
 
-    <section>
+    <section id="section-1">
   <h2 style="color: oklch(100% 0 85);">1. Obliczanie
     <span style="color: yellow;">ih<span style="color: white;">(</span><span style="color: violet;">i</span><span style="color: white;">)</span> </span> 
     <strong>wysokości/poziomu</strong> na podstawie indeksu <span style="color: violet;">i</span>
@@ -128,7 +128,7 @@
   </p>
 </section>
 
-    <section>
+    <section id="section-2">
   <h2 style="color: oklch(100% 0 85);">
     2. Różne obliczenia tylko i wyłącznie na podstawie 
     <span style="color: yellow;">ih<span style="color: white;">(</span><span style="color: violet;">i</span><span style="color: white;">)</span> </span> 
@@ -147,7 +147,7 @@
         & \quad = 2^{\color{yellow}{ih}} \quad & \forall \, \color{yellow}{ih} \in \mathbb{N}_{0} \\
         \\
         \color{limegreen}{\text{mix}(\color{yellow}{ih(\color{violet}{i})})} = &
-        \color{limegreen}{\min(\color{yellow}{h(\color{violet}{i})})} + \color{limegreen}{\max(\color{yellow}{ih(\color{violet}{i})})} = \\
+        \color{limegreen}{\min(\color{yellow}{ih(\color{violet}{i})})} + \color{limegreen}{\max(\color{yellow}{ih(\color{violet}{i})})} = \\
         = & \, (\color{violet}{iLR} + \color{violet}{iRL}) = \\
         & \quad = 3 \cdot 2^{\color{yellow}{ih}} - 1 \quad & \forall \, \color{yellow}{ih} \in \mathbb{N}_{0}
       \end{aligned}
@@ -167,7 +167,7 @@
   </ul>
 </section>
         
-        <section>
+        <section id="section-3">
   <h2 style="color: oklch(100% 0 85);">
     3. Wędrowanie po drzewie
   </h2>
@@ -217,7 +217,7 @@
       \end{aligned}
     </span>
   </p>
-</section>
+</section id="section-4">
 <section>
   <h2 style="color: oklch(100% 0 85);">
     4. Obliczanie indeksu odwrotnego
@@ -233,7 +233,7 @@
   </p>
 </section>
     
-    <section>
+    <section id="section-5">
   <h2 style="color: oklch(100% 0 85);">
     5. Dodatkowy indeks w obrębie poziomu danej wysokości/poziomu
   </h2>
@@ -254,8 +254,7 @@
   </p>
 </section>
     
-<!-- Wklej to w miejscu sekcji 6 w swoim dokumencie HTML -->
-<section>
+<section id="section-6">
   <h2 style="color: oklch(100% 0 85);">6. ODZWIERCIEDLENIE W KODZIE TYPESCRIPT</h2>
   <pre><code class="language-typescript">
 type NodeConstructor&lt;T&gt; = new (node: number, X?: "XM" | "XW") =&gt; T;
