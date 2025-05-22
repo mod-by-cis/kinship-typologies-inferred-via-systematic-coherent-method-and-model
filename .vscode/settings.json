@@ -6,5 +6,6 @@
     "Haplo",
     "LMAT",
     "LPAT"
-  ]
+  ],
+  "gitflow.disableOnRepo": true
 }

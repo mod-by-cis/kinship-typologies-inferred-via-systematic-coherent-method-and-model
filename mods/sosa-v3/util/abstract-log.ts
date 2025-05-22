@@ -3,7 +3,7 @@ abstract class AbstractLog {
   protected _dump(label = this.constructor.name): this {
     console.log(
       `[${label}]`,
-      Deno.inspect(this, { colors: true, breakLength: 800, depth: 20 }),
+      Deno.inspect(this, { colors: true, breakLength: 200, depth: 20 }),
     );
     return this;
   }

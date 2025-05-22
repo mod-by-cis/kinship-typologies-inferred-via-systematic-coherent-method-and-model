@@ -25,6 +25,7 @@ class FAM extends AbstractFamily {
 }
 
 
+
 class PER extends AbstractLog {
   readonly sosa: SOSA;
   readonly rayY: LPAT;
@@ -51,7 +52,4 @@ class PER extends AbstractLog {
 }
 
 
-
-
-
-export { FAM, PER };
+export { PER };

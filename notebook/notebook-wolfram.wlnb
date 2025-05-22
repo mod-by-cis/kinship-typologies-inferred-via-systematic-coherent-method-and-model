@@ -1,0 +1,29 @@
+{
+ "metadata": {},
+ "cells": [
+  {
+   "kind": 1,
+   "value": "## 1. Przypisujemy zmienne symboliczne\r\n",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "sosaM = Symbol[\"sosaM\"];\r\nsosaW = Symbol[\"sosaW\"];\r\nlayer = Symbol[\"layer\"];\r\nslMin = Symbol[\"slMin\"];\r\nslMax = Symbol[\"slMax\"];\r\nsortM = Symbol[\"sortM\"];\r\nsortW = Symbol[\"sortW\"];",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  }
+ ]
+}

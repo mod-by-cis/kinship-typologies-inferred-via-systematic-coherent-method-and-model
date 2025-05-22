@@ -1,6 +1,7 @@
 {
   "tasks": {
     "ts-sample-sosa": "deno run --watch apps/typescript/sosa/sosa_sample.ts",
+    "m": "deno run --watch m.ts",
     "devLogic": "deno run --watch logic/dev.ts",
     "dev2Logic": "deno run --watch logic/dev2.ts"
   },
