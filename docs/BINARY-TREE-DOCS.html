@@ -1,0 +1,395 @@
+l<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Drzewo binarne</title>
+
+  <!-- Styl z oklch() -->
+  <style>
+    :root {
+      --bg: oklch(0.1861 0.0368 250);
+      --text: oklch(95% 0 0);
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: system-ui, sans-serif;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      color: oklch(98% 0 100);
+    }
+
+    code, pre {
+      background: oklch(30% 0.05 250);
+      padding: 0.5em;
+      border-radius: 0.3em;
+      display: block;
+      overflow-x: auto;
+      color: oklch(95% 0 0);
+    }
+
+    section {
+      margin-block: 2rem;
+    }
+  </style>
+
+  <!-- Mermaid 10/11 -->
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.6/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ 
+      startOnLoad: true,
+      theme: 'dark',
+      securityLevel: 'loose',
+      layout: 'elk',
+      themeVariables: {
+        fontFamily: 'monospace',
+      }
+    });
+  </script>
+
+  <!-- MathJax 3 -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\', '\']],
+        displayMath: [['$$', '$$'], ['\', '\']],
+        colorIsTextColor: true
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <!-- Załaduj Prism.js i jego style -->
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/themes/prism-tomorrow.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-typescript.min.js"></script>
+  
+</head>
+
+<body>
+  <article>
+    <h1>GRAF - DRZEWO BINARNE</h1>
+
+    <p>
+      Drzewo binarne oznaczone etykietami o rozmiarze 
+      $\text{» } {\color{limegreen}max} = 7\text{ «}$ 
+      (liczba węzłów w drzewie) i wysokości 
+      $\text{» } {\color{yellow}ih} = 2\text{ «}$ 
+      (wysokość/poziom $\text{» } {\color{yellow}ih} \text{ «}$ drzewa zdefiniowana jako liczba krawędzi lub połączeń 
+      od najwyższego węzła lub węzła głównego (ROOT) do najdalszego węzła liścia) z węzłem głównym, którego wartość wynosi 1.
+      Poniższe drzewo jest zrównoważone, ale nie jest (może nie być) posortowane.
+    </p>
+
+    <div class="mermaid">
+    ---
+    config:
+      layout: elk
+      look: handDrawn
+      theme: dark
+    ---
+    graph TD
+      1["ROOT <br> 1 →│← 1"]
+      1 <--> 2["NODE-L <br> 2 →│← 3"]
+      1 <--> 3["NODE-R <br> 3 →│← 2"]
+      2 <--> 4["NODE-L <br> 4 →│← 7"]
+      2 <--> 5["NODE-R <br> 5 →│← 6"]
+      3 <--> 6["NODE-L <br> 6 →│← 5"]
+      3 <--> 7["NODE-R <br> 7 →│← 4"]
+
+      style 1 fill:#602c3e,stroke:#AAA,stroke-width:1px
+      style 2 fill:#593704,stroke:#AAA,stroke-width:1px
+      style 3 fill:#593704,stroke:#AAA,stroke-width:1px
+      style 4 fill:#364613,stroke:#AAA,stroke-width:1px
+      style 5 fill:#364613,stroke:#AAA,stroke-width:1px
+      style 6 fill:#364613,stroke:#AAA,stroke-width:1px
+      style 7 fill:#364613,stroke:#AAA,stroke-width:1px
+    </div>
+
+    <section id="section-1">
+  <h2 style="color: oklch(100% 0 85);">1. Obliczanie
+    <span style="color: yellow;">ih<span style="color: white;">(</span><span style="color: violet;">i</span><span style="color: white;">)</span> </span> 
+    <strong>wysokości/poziomu</strong> na podstawie indeksu <span style="color: violet;">i</span>
+  </h2>
+
+  <p>
+    <span class="math">
+        \begin{aligned}
+          \color{yellow}{ih(\color{violet}{i})} = \lfloor \log_2(\color{violet}{i}) \rfloor 
+          \quad \forall\, \color{violet}{i} \in \{ \color{violet}{iLR}, \color{violet}{iRL} \} \subset \mathbb{N}_{+}
+        \end{aligned}
+    </span>
+  </p>
+</section>
+
+    <section id="section-2">
+  <h2 style="color: oklch(100% 0 85);">
+    2. Różne obliczenia tylko i wyłącznie na podstawie 
+    <span style="color: yellow;">ih<span style="color: white;">(</span><span style="color: violet;">i</span><span style="color: white;">)</span> </span> 
+    <strong>wysokości/poziomu</strong>
+  </h2>
+
+  <p>
+    <span class="math">
+      \begin{aligned}
+        \color{limegreen}{\max(\color{yellow}{ih(\color{violet}{i})})} = &
+        \color{limegreen}{\text{total}(\color{yellow}{ih(\color{violet}{i})})} = \\
+        & \quad = 2^{(\color{yellow}{ih}+1)} - 1 \quad & \forall \, \color{yellow}{ih} \in \mathbb{N}_{0} \\
+        \\
+        \color{limegreen}{\min(\color{yellow}{ih(\color{violet}{i})})} = &
+        \color{limegreen}{\text{count}(\color{yellow}{ih(\color{violet}{i})})} = \\
+        & \quad = 2^{\color{yellow}{ih}} \quad & \forall \, \color{yellow}{ih} \in \mathbb{N}_{0} \\
+        \\
+        \color{limegreen}{\text{mix}(\color{yellow}{ih(\color{violet}{i})})} = &
+        \color{limegreen}{\min(\color{yellow}{ih(\color{violet}{i})})} + \color{limegreen}{\max(\color{yellow}{ih(\color{violet}{i})})} = \\
+        = & \, (\color{violet}{iLR} + \color{violet}{iRL}) = \\
+        & \quad = 3 \cdot 2^{\color{yellow}{ih}} - 1 \quad & \forall \, \color{yellow}{ih} \in \mathbb{N}_{0}
+      \end{aligned}
+    </span>
+  </p>
+      <hr />
+  <ul>
+    <li>
+      <span style="color: oklch(75% 0.19 140);">\text{max}(ih(i)) = \text{total}(ih(i))</span> – określa ilość wszystkich węzłów oraz wartość najwyższego indeksu węzła na poziomie danej wysokości.
+    </li>
+    <li>
+      <span style="color: oklch(75% 0.19 140);">\text{min}(ih(i)) = \text{count}(ih(i))</span> – określa ilość węzłów na danym poziomie oraz wartość najniższego indeksu węzła.
+    </li>
+    <li>
+      <span style="color: oklch(75% 0.19 140);">\text{mix}(ih(i)) = \text{min}(ih(i)) + \text{max}(ih(i)) = i_{LR} + i_{RL}</span> – wartość stała dla poziomu, suma min i max lub suma indeksów LR+RL.
+    </li>
+  </ul>
+</section>
+        
+        <section id="section-3">
+  <h2 style="color: oklch(100% 0 85);">
+    3. Wędrowanie po drzewie
+  </h2>
+
+  <p>
+    <span class="math">
+      \begin{aligned}
+        \color{skyblue}{\text{child}_{\text{LEFT}}(\color{violet}{i})} &=
+          \begin{cases}
+            2 \cdot \color{violet}{i}     & \quad \text{dla } \color{violet}{i} = \color{violet}{i_{LR}} \\
+            2 \cdot \color{violet}{i} + 1 & \quad \text{dla } \color{violet}{i} = \color{violet}{i_{RL}}
+          \end{cases}
+       \end{aligned}
+    </span>
+    <br />
+      <span class="math">
+      \begin{aligned}
+        \color{skyblue}{\text{child}_{\text{RIGHT}}(\color{violet}{i})} &=
+          \begin{cases}
+            2 \cdot \color{violet}{i} + 1 & \quad \text{dla } \color{violet}{i} = \color{violet}{i_{LR}} \\
+            2 \cdot \color{violet}{i}     & \quad \text{dla } \color{violet}{i} = \color{violet}{i_{RL}}
+          \end{cases}
+       \end{aligned}
+    </span>
+    <br />
+      <span class="math">
+      \begin{aligned}
+        \color{skyblue}{\text{parent}(\color{violet}{i})} &=
+          \begin{cases}
+            \varnothing & \quad \text{dla } \color{violet}{i} < 2 \\
+            \left\lfloor \dfrac{\color{violet}{i}}{2} \right\rfloor & \quad \text{dla } \color{violet}{i} \geq 2
+          \end{cases}
+          \quad \text{gdzie } \color{violet}{i} \in \{ \color{violet}{i_{LR}}, \color{violet}{i_{RL}} \}
+       \end{aligned}
+    </span>
+    <br />
+      <span class="math">
+      \begin{aligned}
+        \color{skyblue}{\text{sibling}(\color{violet}{i})} &=
+          \begin{cases}
+            \varnothing & \quad \text{dla } \color{violet}{i} < 2 \\
+            \color{violet}{i} + 1 & \quad \text{dla } \color{violet}{i} = \color{violet}{i_{LR}} \land \color{violet}{i} \bmod 2 = 0 \\
+            \color{violet}{i} - 1 & \quad \text{dla } \color{violet}{i} = \color{violet}{i_{LR}} \land \color{violet}{i} \bmod 2 = 1 \\
+            \color{violet}{i} - 1 & \quad \text{dla } \color{violet}{i} = \color{violet}{i_{RL}} \land \color{violet}{i} \bmod 2 = 0 \\
+            \color{violet}{i} + 1 & \quad \text{dla } \color{violet}{i} = \color{violet}{i_{RL}} \land \color{violet}{i} \bmod 2 = 1
+          \end{cases}
+      \end{aligned}
+    </span>
+  </p>
+</section id="section-4">
+<section>
+  <h2 style="color: oklch(100% 0 85);">
+    4. Obliczanie indeksu odwrotnego
+  </h2>
+
+  <p>
+    <span class="math">
+      \begin{aligned}
+        \color{violet}{i_{RL}(\color{violet}{i_{LR}})} &= \color{limegreen}{mix(\color{yellow}{ih(\color{violet}{i})})} - \color{violet}{i_{LR}} \\
+        \color{violet}{i_{LR}(\color{violet}{i_{RL}})} &= \color{limegreen}{mix(\color{yellow}{ih(\color{violet}{i})})} - \color{violet}{i_{RL}}
+      \end{aligned}
+    </span>
+  </p>
+</section>
+    
+    <section id="section-5">
+  <h2 style="color: oklch(100% 0 85);">
+    5. Dodatkowy indeks w obrębie poziomu danej wysokości/poziomu
+  </h2>
+  <p>
+    Uniwersalnym indeksem dokładnie wskazującym na miejsce, po odpowiednim przeliczeniu jest 
+    <span style="color: violet;">iLR</span> oraz <span style="color: violet;">iRL</span>, jednakowoż dla wygody, co w pełni z niego już wynika, wprowadzamy 
+    <span style="color: violet;">i<span style="color: yellow;">h</span>INC</span> oraz 
+    <span style="color: violet;">i<span style="color: yellow;">h</span>DEC</span>, które w obrębie konkretnego poziomu wysokości 
+    <span style="color: yellow;">ih</span>, wprowadzają indeks lokalny w jegoż obrębie.
+  </p>
+  <p>
+    <span class="math">
+      \begin{aligned}
+      {\color{violet}{i h INC}} &= {\color{violet}{iLR}} - {\color{limegreen}{min({\color{yellow}{ih({\color{violet}{i}})})}}} \\
+      {\color{violet}{i h DEC}} &= {\color{violet}{iRL}} - {\color{limegreen}{min({\color{yellow}{ih({\color{violet}{i}})})}}}
+      \end{aligned}
+    </span>
+  </p>
+</section>
+    
+<section id="section-6">
+  <h2 style="color: oklch(100% 0 85);">6. ODZWIERCIEDLENIE W KODZIE TYPESCRIPT</h2>
+  <pre><code class="language-typescript">
+type NodeConstructor&lt;T&gt; = new (node: number, X?: "XM" | "XW") =&gt; T;
+
+class Node {
+  ihINC: number; // iLR: number;
+  ihDEC: number; // iRL: number;
+  ih: number; // lvX: number;
+  MAX: number; // MAX: number;
+  MIN: number; // MIN: number;
+  MIX: number; // MIX: number;
+  iRL: number; // XM: number;
+  iLR: number; // XW: number;
+
+  constructor(node: number, X: "XM" | "XW" = "XM") {
+    if (typeof node !== "number" || !Number.isInteger(node) || node &lt;= 0) {
+      throw new Error("Parametr node musi być dodatnią liczbą całkowitą.");
+    }
+    const height = Math.floor(Math.log2(node));
+    const nodeMAX = 1 * Math.pow(2, height + 1) - 1;
+    const nodeMIN = 1 * Math.pow(2, height + 0) - 0;
+    const nodeMIX = 3 * Math.pow(2, height + 0) - 1;
+
+    const nodeXM = X == "XM" ? node : /* X=="XW" */ nodeMIX - node;
+    const nodeXW = X == "XM" ? nodeMIX - node : /* X=="XW" */ node;
+    const sortXM_LR = nodeXM - nodeMIN;
+    const sortXW_RL = nodeXW - nodeMIN;
+
+    this.ihINC = sortXM_LR;
+    this.ihDEC = sortXW_RL;
+    this.ih = height;
+    this.MAX = nodeMAX;
+    this.MIN = nodeMIN;
+    this.MIX = nodeMIX;
+    this.iLR = nodeXM;
+    this.iRL = nodeXW;
+  }
+
+  static ofRange&lt;T extends Node&gt;(
+    this: NodeConstructor&lt;T&gt;,
+    A: number,
+    Z: number,
+    X: "XM" | "XW" = "XM",
+  ): T[] {
+    const OUT: T[] = [];
+    for (let i = A; i &lt;= Z; i++) {
+      OUT.push(new this(i, X));
+    }
+    return OUT;
+  }
+
+  static ofMulti&lt;T extends Node&gt;(
+    this: NodeConstructor&lt;T&gt;,
+    R: string,
+    X: "XM" | "XW" = "XM",
+  ): T[] {
+    const RANGE = ((input: string): number[] =&gt; {
+      const result = new Set&lt;number&gt;();
+
+      for (const token of input.trim().split(" ")) {
+        if (!token) continue;
+
+        if (token.includes("..")) {
+          const [start, end] = token.split("..").map(Number);
+          if (Number.isInteger(start) && Number.isInteger(end)) {
+            const step = start &lt;= end ? 1 : -1;
+            for (let i = start; step &gt; 0 ? i &lt;= end : i &gt;= end; i += step) {
+              result.add(i);
+            }
+          }
+        } else {
+          const num = Number(token);
+          if (Number.isInteger(num)) {
+            result.add(num);
+          }
+        }
+      }
+
+      return [...result].sort((a, b) =&gt; a - b);
+    })(R);
+
+    const OUT: T[] = [];
+    for (const i of RANGE) {
+      OUT.push(new this(i, X));
+    }
+    return OUT;
+  }
+}
+  </code></pre>
+</section>
+
+    <section id="section-7">
+  <h2>7. PODSUMOWANIE NA GRAFIE</h2>
+  <pre class="mermaid">
+---
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
+---
+graph TD
+  01["iLR = 1 <br /> iRL = 1  <br /> ih = 0 <br /> ihINC = 0 <br /> ihDEC = 0 <br /> MAX = 1 <br /> MIN = 1 <br /> MIX = 2"]
+  01 <--> 02["iLR = 2 <br /> iRL = 3 <br /> ih = 1 <br /> ihINC = 0 <br /> ihDEC = 1 <br /> MAX = 3 <br /> MIN = 2 <br /> MIX = 5"]
+  01 <--> 03["iLR = 3 <br /> iRL = 2 <br /> ih = 1 <br /> ihINC = 1 <br /> ihDEC = 0 <br /> MAX = 3 <br /> MIN = 2 <br /> MIX = 5"]
+  02 <--> 04["iLR = 4 <br /> iRL = 7 <br /> ih = 2 <br /> ihINC = 0 <br /> ihDEC = 3 <br /> MAX = 7 <br /> MIN = 4 <br /> MIX = 11"]
+  02 <--> 05["iLR = 5 <br /> iRL = 6 <br /> ih = 2 <br /> ihINC = 1 <br /> ihDEC = 2 <br /> MAX = 7 <br /> MIN = 4 <br /> MIX = 11"]
+  03 <--> 06["iLR = 6 <br /> iRL = 5 <br /> ih = 2 <br /> ihINC = 2 <br /> ihDEC = 1 <br /> MAX = 7 <br /> MIN = 4 <br /> MIX = 11"]
+  03 <--> 07["iLR = 7 <br /> iRL = 4 <br /> ih = 2 <br /> ihINC = 3 <br /> ihDEC = 0 <br /> MAX = 7 <br /> MIN = 4 <br /> MIX = 11"]
+  04 <--> 08["iLR = 8 <br /> iRL = 15 <br /> ih = 3 <br /> ihINC = 0 <br /> ihDEC = 7 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
+  04 <--> 09["iLR = 9 <br /> iRL = 14 <br /> ih = 3 <br /> ihINC = 1 <br /> ihDEC = 6 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
+  05 <--> 10["iLR = 10 <br /> iRL = 13 <br /> ih = 3 <br /> ihINC = 2 <br /> ihDEC = 5 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
+  05 <--> 11["iLR = 11 <br /> iRL = 12 <br /> ih = 3 <br /> ihINC = 3 <br /> ihDEC = 4 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
+  06 <--> 12["iLR = 12 <br /> iRL = 11 <br /> ih = 3 <br /> ihINC = 4 <br /> ihDEC = 3 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
+  06 <--> 13["iLR = 13 <br /> iRL = 10 <br /> ih = 3 <br /> ihINC = 5 <br /> ihDEC = 2 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
+  07 <--> 14["iLR = 14 <br /> iRL = 9 <br /> ih = 3 <br /> ihINC = 6 <br /> ihDEC = 1 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
+  07 <--> 15["iLR = 15 <br /> iRL = 8 <br /> ih = 3 <br /> ihINC = 7 <br /> ihDEC = 0 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
+
+  style 01 fill:#602c3e,stroke:#AAA,stroke-width:1px
+  style 02 fill:#593704,stroke:#AAA,stroke-width:1px
+  style 03 fill:#593704,stroke:#AAA,stroke-width:1px
+  style 04 fill:#364613,stroke:#AAA,stroke-width:1px
+  style 05 fill:#364613,stroke:#AAA,stroke-width:1px
+  style 06 fill:#364613,stroke:#AAA,stroke-width:1px
+  style 07 fill:#364613,stroke:#AAA,stroke-width:1px
+  style 08 fill:#004a51,stroke:#AAA,stroke-width:1px
+  style 09 fill:#004a51,stroke:#AAA,stroke-width:1px
+  style 10 fill:#004a51,stroke:#AAA,stroke-width:1px
+  style 11 fill:#004a51,stroke:#AAA,stroke-width:1px
+  style 12 fill:#004a51,stroke:#AAA,stroke-width:1px
+  style 13 fill:#004a51,stroke:#AAA,stroke-width:1px
+  style 14 fill:#004a51,stroke:#AAA,stroke-width:1px
+  style 15 fill:#004a51,stroke:#AAA,stroke-width:1px
+  </pre>
+</section>
+    
+</article>
+</body>
+</html>
