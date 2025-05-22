@@ -1,6 +1,6 @@
-type NodeConstructor&lt;T&gt; = new (node: number, X?: "XM" | "XW") =&gt; T;
+export type NodeConstructor&lt;T&gt; = new (node: number, X?: "XM" | "XW") =&gt; T;
 
-class Node {
+export class Node {
   ihINC: number; // iLR: number;
   ihDEC: number; // iRL: number;
   ih: number; // lvX: number;
