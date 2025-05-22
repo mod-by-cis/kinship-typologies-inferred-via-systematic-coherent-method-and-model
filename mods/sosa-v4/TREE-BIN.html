@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRAF - DRZEWO BINARNE</title>
+    <style>
+        body {
+            background-color: #46494c; /* Ciemna stal */
+            color: #ffffff; /* Biała czcionka */
+            font-family: sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            color: #e0e0e0; /* Jaśniejszy odcień dla nagłówków */
+        }
+        a {
+            color: #87cefa; /* Jasnoniebieski dla linków */
+        }
+        code {
+            background-color: #2c2c2c; /* Ciemniejsze tło dla kodu */
+            padding: 0.2em 0.4em;
+            margin: 0;
+            font-size: 85%;
+            border-radius: 3px;
+            font-family: "Courier New", Courier, monospace;
+        }
+        pre > code {
+            display: block;
+            padding: 1em;
+            overflow-x: auto;
+            border-radius: 5px;
+        }
+        .mermaid {
+            background-color: #333333; /* Tło dla diagramów Mermaid */
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center; /* Aby diagramy były wyśrodkowane */
+        }
+        hr {
+            border-color: #666;
+        }
+        .katex-display { /* Poprawka dla wyświetlania LaTeX w trybie display */
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding-bottom: 5px; /* Dodatkowy padding dla przewijania */
+        }
+        .math-color-limegreen { color: limegreen; }
+        .math-color-yellow { color: yellow; }
+        .math-color-violet { color: violet; }
+        .math-color-skyblue { color: skyblue; }
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-sMz3UvKFNnaRaKgilAxBFEoL3dU0F3FNGV6upg6GHH3PZPeNDEZSYog2vsH5/1Y0" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTadxWVdbUiA5AUhwRxGMBKpJSAonATL_/L5dCvrfL2vmsH3C4L7LcvC1C" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43G3WHeCRHzPK7Y7Y4HnLwH9C1N7BvB2Cv2FxG1kY0Hq1h4/Rz3jEAU7fP43sQeB" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <h1>GRAF - DRZEWO BINARNE</h1>
+
+    <p>Drzewo binarne oznaczone etykietami o rozmiarze <span class="math-inline">max</span> = 7 (liczba węzłów w drzewie) i wysokości <span class="math-inline">h</span> = 2 (wysokość <span class="math-inline">h</span> drzewa zdefiniowana jako liczba krawędzi lub połączeń od najwyższego węzła lub węzła głównego (ROOT) do najdalszego węzła liścia) z węzłem głównym, którego wartość wynosi 1. Poniższe drzewo jest zrównoważone, ale nie jest (może nie być) posortowane. Standardowo węzły w drzewie indeksuje się kolejnymi liczbami naturalnymi, rozpoczynając w korzeniu od <span class="math-inline">1</span>, nadając indeksy na kolejnych poziomach wysokości <strong>od lewej do prawej</strong>, w dalszym toku oznaczone jako <span class="math-inline">iLR</span> (lub też jako liczba poprzedzająca <span class="math-inline">i →│</span> symbol). Dodatkowo w tym przypadku, wprowadzono drugi lustrzany indeks <strong>od prawej do lewej</strong> <span class="math-inline">iRL</span> (lub też jako liczba występująca po <span class="math-inline">│← i</span> symbolu).</p>
+
+    <div class="mermaid">
+---
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
+---
+graph TD
+  1["ROOT &lt;br&gt; 1 →│← 1"]
+  1 &lt;--&gt; 2["NODE-L &lt;br&gt; 2 →│← 3"]
+  1 &lt;--&gt; 3["NODE-R &lt;br&gt; 3 →│← 2"]
+  2 &lt;--&gt; 4["NODE-L &lt;br&gt; 4 →│← 7"]
+  2 &lt;--&gt; 5["NODE-R &lt;br&gt; 5 →│← 6"]
+  3 &lt;--&gt; 6["NODE-L &lt;br&gt; 6 →│← 5"]
+  3 &lt;--&gt; 7["NODE-R &lt;br&gt; 7 →│← 4"]
+
+   style 1 fill:#602c3e,stroke:#AAA,stroke-width:1px
+   style 2 fill:#593704,stroke:#AAA,stroke-width:1px
+   style 3 fill:#593704,stroke:#AAA,stroke-width:1px
+   style 4 fill:#364613,stroke:#AAA,stroke-width:1px
+   style 5 fill:#364613,stroke:#AAA,stroke-width:1px
+   style 6 fill:#364613,stroke:#AAA,stroke-width:1px
+   style 7 fill:#364613,stroke:#AAA,stroke-width:1px
+    </div>
+
+    <p>Powyższe jak i każde drzewo binarne jest taką strukturą, w której wyróżniamy:</p>
+    <ul>
+        <li><strong>ROOT/KORZEŃ/WĘZEŁ-GŁÓWNY</strong> — <em>wierzchołek będący na samej górze</em>
+            <blockquote>(w powyższym przypadku <span style="background:#602c3e; padding: 2px 4px; border-radius: 3px;">[ `1` →│← `1` ]</span> )</blockquote>
+        </li>
+        <li><strong>NODE/WĘZEŁ</strong> — <em>wierzchołek poniżej korzenia (rozróżniamy tu <strong>NODE-L/WĘZEŁ-LEWY</strong> oraz <strong>NODE-R/WĘZEŁ-PRAWY</strong>)</em>
+            <blockquote>(w powyższym przypadku <span style="background:#593704; padding: 2px 4px; border-radius: 3px;">[ `2..3` →│← `3..2` ]</span> oraz <span style="background:#364613; padding: 2px 4px; border-radius: 3px;">[ `4..7` →│← `7..4` ]</span> )</blockquote>
+        </li>
+        <li><strong>NODE/WĘZEŁ/LIŚĆ</strong> — <em>wierzchołek poniżej korzenia najniżej, to liść</em>
+            <blockquote>(w powyższym przypadku <span style="background:#364613; padding: 2px 4px; border-radius: 3px;">[ `4..7` →│← `7..4` ]</span> )</blockquote>
+        </li>
+    </ul>
+
+    <hr>
+
+    <h2>1. Obliczanie <span class="math-color-yellow">h(<span class="math-color-violet">i</span>)</span> <strong>wysokości/poziomu</strong> na podstawie indeksu <span class="math-color-violet">i</span>.</h2>
+    <div class="math-display">
+    \begin{aligned}
+     {\color{yellow}h({\color{violet}i})} = \lfloor \log_2({\color{violet}i}) \rfloor 
+       \quad  \forall\, {\color{violet}i} \in \{ {\color{violet}iLR}, {\color{violet}iRL} \} \subset \mathbb{N}_{+}
+    \end{aligned}
+    </div>
+
+    <h2>2. Różne obliczenia tylko i wyłącznie na podstawie <span class="math-color-yellow">h(<span class="math-color-violet">i</span>)</span> <strong>wysokości/poziomu</strong>.</h2>
+    <div class="math-display">
+    \begin{aligned}
+      {\color{limegreen}max({\color{yellow}h({\color{violet}i})})} = &
+      {\color{limegreen}total({\color{yellow}h({\color{violet}i})})} = \\ 
+      & \quad = 2^{({\color{yellow}h}+1)}-1  & \forall \, {\color{yellow}h} \in \mathbb{N}_{0} \\
+      \\
+      {\color{limegreen}min({\color{yellow}h({\color{violet}i})})} = &
+      {\color{limegreen}count({\color{yellow}h({\color{violet}i})})} = \\ 
+      & \quad = 2^{{\color{yellow}h}}  & \forall \, {\color{yellow}h} \in \mathbb{N}_{0} \\
+      \\
+      {\color{limegreen}mix({\color{yellow}h({\color{violet}i})})} = &
+      {\color{limegreen}min({\color{yellow}h({\color{violet}i})})} + {\color{limegreen}max({\color{yellow}h({\color{violet}i})})} = \\
+      = & ( {\color{violet}iLR} + {\color{violet}iRL}) = \\ 
+      & \quad = 3 \cdot 2^{{\color{yellow}h}}-1  & \forall \, {\color{yellow}h} \in \mathbb{N}_{0}
+    \end{aligned}
+    </div>
+
+    <ul>
+        <li><span class="math-inline">{\color{limegreen}max({\color{yellow}h({\color{violet}i})})} = {\color{limegreen}total({\color{yellow}h({\color{violet}i})})}</span> - określa ilość wszystkich węzłów, oraz wartość najwyższego indeksu węzła na poziomie danej wysokosci.</li>
+        <li><span class="math-inline">{\color{limegreen}min({\color{yellow}h({\color{violet}i})})} = {\color{limegreen}count({\color{yellow}h({\color{violet}i})})}</span> - określa ilość węzłów na danym poziomie wysokości, oraz wartość najniższego indeksu węzła na poziomie danej wysokosci.</li>
+        <li><span class="math-inline">{\color{limegreen}mix({\color{yellow}h({\color{violet}i})})} = {\color{limegreen}min({\color{yellow}h({\color{violet}i})})} + {\color{limegreen}max({\color{yellow}h({\color{violet}i})})} = ( {\color{violet}iLR} + {\color{violet}iRL})</span> - jest to złożona wartość,również stała dla danego poziomu wysokości. Jest zarówno sumą z <span class="math-inline">({\color{limegreen}min}+{\color{limegreen}max})</span>, jak i sumą naprzemiennych <span class="math-color-violet">i</span> indeksów w danej pozycji <strong>NODE</strong> <span class="math-inline">( {\color{violet}iLR} + {\color{violet}iRL})</span>.</li>
+    </ul>
+
+    <h2>3. Wędrowanie po drzewie.</h2>
+    <div class="math-display">
+    \begin{aligned}
+    {\color{skyblue}child_{LEFT}({\color{violet}i})}   &= 
+      \begin{cases}
+        2 \cdot {\color{violet}i}     & \quad \text{dla } {\color{violet}i} = {\color{violet}iLR} \\
+        2 \cdot {\color{violet}i} + 1 & \quad \text{dla } {\color{violet}i} = {\color{violet}iRL}
+      \end{cases}
+    \\[1.2em]
+    {\color{skyblue}child_{RIGHT}({\color{violet}i})}  &= 
+      \begin{cases}
+        2 \cdot {\color{violet}i} + 1 & \quad \text{dla } {\color{violet}i} = {\color{violet}iLR} \\
+        2 \cdot {\color{violet}i}     & \quad \text{dla } {\color{violet}i} = {\color{violet}iRL}
+      \end{cases}
+    \\[1.2em]
+    {\color{skyblue}parent({\color{violet}i})}         &= 
+      \begin{cases}
+        \varnothing                            & \quad \text{dla } {\color{violet}i} < 2 \\
+        \lfloor \dfrac{{\color{violet}i}}{2} \rfloor & \quad \text{dla } {\color{violet}i} \geq 2
+      \end{cases}
+      \quad \text{gdzie } {\color{violet}i} \in \{ {\color{violet}iLR}, {\color{violet}iRL} \}
+    \\[1.2em]
+    {\color{skyblue}sibling({\color{violet}i})}        &=
+      \begin{cases}
+        \varnothing                         & \quad \text{dla } {\color{violet}i} < 2 \\
+        {\color{violet}i} + 1                      & \quad \text{dla } {\color{violet}i} = {\color{violet}iLR} \land {\color{violet}i} \bmod 2 = 0 \\
+        {\color{violet}i} - 1                      & \quad \text{dla } {\color{violet}i} = {\color{violet}iLR} \land {\color{violet}i} \bmod 2 = 1 \\
+        {\color{violet}i} - 1                      & \quad \text{dla } {\color{violet}i} = {\color{violet}iRL} \land {\color{violet}i} \bmod 2 = 0 \\
+        {\color{violet}i} + 1                      & \quad \text{dla } {\color{violet}i} = {\color{violet}iRL} \land {\color{violet}i} \bmod 2 = 1
+      \end{cases}
+    \end{aligned}
+    </div>
+
+    <h2>4. Obliczanie indeksu odwrotnego.</h2>
+    <div class="math-display">
+    \begin{aligned}
+    {\color{violet}iRL({\color{violet}iLR})}   &= {\color{limegreen}mix({\color{yellow}h({\color{violet}i})})}  - {\color{violet}iLR}
+    \\[1.2em]
+    {\color{violet}iLR({\color{violet}iRL})}   &= {\color{limegreen}mix({\color{yellow}h({\color{violet}i})})}  - {\color{violet}iRL}
+    \end{aligned}
+    </div>
+
+    <h2>5. Dodatkowy indeks w obrębie poziomu danej wysokości.</h2>
+    <p>Uniwersalnym indeksem dokładnie wskazującym na miejsce,po odpowiednim przeliczeniu jest <span class="math-color-violet">iLR</span> oraz <span class="math-color-violet">iRL</span>, jednakowoż dla wygody, co w pełni z niego już wynika wprowadzamy <span class="math-inline">{{\color{violet}i}{\color{yellow}h}{\color{violet}INC}}</span> oraz <span class="math-inline">{{\color{violet}i}{\color{yellow}h}{\color{violet}DEC}}</span>, które w obrębie konkretnego poziomu wysokości <span class="math-color-yellow">h</span>, wprowadzają indeks lokalny w jegoż obrębie.</p>
+    <div class="math-display">
+    \begin{aligned}
+    {{\color{violet}i}{\color{yellow}h}{\color{violet}INC}}   &= {\color{violet}iLR} - {\color{limegreen}min({\color{yellow}h({\color{violet}i})})}
+    \\[1.2em]
+    {{\color{violet}i}{\color{yellow}h}{\color{violet}DEC}}   &={\color{violet}iRL} - {\color{limegreen}min({\color{yellow}h({\color{violet}i})})}
+    \end{aligned}
+    </div>
+
+    <h2>6. ODZWIERCIEDLENIE W KODZIE TYPESCRIPT</h2>
+    <pre><code class="language-typescript">
+type NodeConstructor&lt;T&gt; = new (node: number, X?: "XM" | "XW") => T;
+
+class Node {
+  ihINC: number; // iLR: number;
+  ihDEC: number; // iRL: number;
+  h: number; // lvX: number;
+  MAX: number; // MAX: number;
+  MIN: number; // MIN: number;
+  MIX: number; // MIX: number;
+  iRL: number; // XM: number;
+  iLR: number; // XW: number;
+
+  constructor(node: number, X: "XM" | "XW" = "XM") {
+    if (typeof node !== "number" || !Number.isInteger(node) || node <= 0) {
+      throw new Error("Parametr node musi być dodatnią liczbą całkowitą.");
+    }
+    const height = Math.floor(Math.log2(node));
+    const nodeMAX = 1 * Math.pow(2, height + 1) - 1;
+    const nodeMIN = 1 * Math.pow(2, height + 0) - 0;
+    const nodeMIX = 3 * Math.pow(2, height + 0) - 1;
+
+    const nodeXM = X == "XM" ? node : /* X=="XW" */ nodeMIX - node;
+    const nodeXW = X == "XM" ? nodeMIX - node : /* X=="XW" */ node;
+    const sortXM_LR = nodeXM - nodeMIN;
+    const sortXW_RL = nodeXW - nodeMIN;
+
+    this.ihINC = sortXM_LR;
+    this.ihDEC = sortXW_RL;
+    this.h = height;
+    this.MAX = nodeMAX;
+    this.MIN = nodeMIN;
+    this.MIX = nodeMIX;
+    this.iLR = nodeXM;
+    this.iRL = nodeXW;
+  }
+
+  static ofRange&lt;T extends Node&gt;(
+    this: NodeConstructor&lt;T&gt;,
+    A: number,
+    Z: number,
+    X: "XM" | "XW" = "XM",
+  ): T[] {
+    const OUT: T[] = [];
+    for (let i = A; i <= Z; i++) {
+      OUT.push(new this(i, X));
+    }
+    return OUT;
+  }
+
+  static ofMulti&lt;T extends Node&gt;(
+    this: NodeConstructor&lt;T&gt;,
+    R: string,
+    X: "XM" | "XW" = "XM",
+  ): T[] {
+    const RANGE = ((input: string): number[] => {
+      const result = new Set&lt;number&gt;();
+
+      for (const token of input.trim().split(" ")) {
+        if (!token) continue;
+
+        if (token.includes("..")) {
+          const [start, end] = token.split("..").map(Number);
+          if (Number.isInteger(start) && Number.isInteger(end)) {
+            const step = start <= end ? 1 : -1;
+            for (let i = start; step > 0 ? i <= end : i >= end; i += step) {
+              result.add(i);
+            }
+          }
+        } else {
+          const num = Number(token);
+          if (Number.isInteger(num)) {
+            result.add(num);
+          }
+        }
+      }
+
+      return [...result].sort((a, b) => a - b);
+    })(R);
+
+    const OUT: T[] = [];
+    for (const i of RANGE) {
+      OUT.push(new this(i, X));
+    }
+    return OUT;
+  }
+}
+    </code></pre>
+
+    <h2>7 PODSUMOWANIE NA GRAFIE.</h2>
+    <div class="mermaid">
+---
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
+---
+graph TD
+  01["iLR = 1 &lt;br /&gt; iRL = 1  &lt;br /&gt; h = 0 &lt;br /&gt; ihINC = 0 &lt;br /&gt; ihDEC = 0 &lt;br /&gt; MAX = 1 &lt;br /&gt; MIN = 1 &lt;br /&gt; MIX = 2"]
+  01 &lt;--&gt; 02["iLR = 2 &lt;br /&gt; iRL = 3 &lt;br /&gt; h = 1 &lt;br /&gt; ihINC = 0 &lt;br /&gt; ihDEC = 1 &lt;br /&gt; MAX = 3 &lt;br /&gt; MIN = 2 &lt;br /&gt; MIX = 5"]
+  01 &lt;--&gt; 03["iLR = 3 &lt;br /&gt; iRL = 2 &lt;br /&gt; h = 1 &lt;br /&gt; ihINC = 1 &lt;br /&gt; ihDEC = 0 &lt;br /&gt; MAX = 3 &lt;br /&gt; MIN = 2 &lt;br /&gt; MIX = 5"]
+  02 &lt;--&gt; 04["iLR = 4 &lt;br /&gt; iRL = 7 &lt;br /&gt; h = 2 &lt;br /&gt; ihINC = 0 &lt;br /&gt; ihDEC = 3 &lt;br /&gt; MAX = 7 &lt;br /&gt; MIN = 4 &lt;br /&gt; MIX = 11"]
+  02 &lt;--&gt; 05["iLR = 5 &lt;br /&gt; iRL = 6 &lt;br /&gt; h = 2 &lt;br /&gt; ihINC = 1 &lt;br /&gt; ihDEC = 2 &lt;br /&gt; MAX = 7 &lt;br /&gt; MIN = 4 &lt;br /&gt; MIX = 11"]
+  03 &lt;--&gt; 06["iLR = 6 &lt;br /&gt; iRL = 5 &lt;br /&gt; h = 2 &lt;br /&gt; ihINC = 2 &lt;br /&gt; ihDEC = 1 &lt;br /&gt; MAX = 7 &lt;br /&gt; MIN = 4 &lt;br /&gt; MIX = 11"]
+  03 &lt;--&gt; 07["iLR = 7 &lt;br /&gt; iRL = 4 &lt;br /&gt; h = 2 &lt;br /&gt; ihINC = 3 &lt;br /&gt; ihDEC = 0 &lt;br /&gt; MAX = 7 &lt;br /&gt; MIN = 4 &lt;br /&gt; MIX = 11"]
+  04 &lt;--&gt; 08["iLR = 8 &lt;br /&gt; iRL = 15 &lt;br /&gt; h = 3 &lt;br /&gt; ihINC = 0 &lt;br /&gt; ihDEC = 7 &lt;br /&gt; MAX = 15 &lt;br /&gt; MIN = 8 &lt;br /&gt; MIX = 23"]
+  04 &lt;--&gt; 09["iLR = 9 &lt;br /&gt; iRL = 14 &lt;br /&gt; h = 3 &lt;br /&gt; ihINC = 1 &lt;br /&gt; ihDEC = 6 &lt;br /&gt; MAX = 15 &lt;br /&gt; MIN = 8 &lt;br /&gt; MIX = 23"] 
+  05 &lt;--&gt; 10["iLR = 10 &lt;br /&gt; iRL = 13 &lt;br /&gt; h = 3 &lt;br /&gt; ihINC = 2 &lt;br /&gt; ihDEC = 5 &lt;br /&gt; MAX = 15 &lt;br /&gt; MIN = 8 &lt;br /&gt; MIX = 23"]
+  05 &lt;--&gt; 11["iLR = 11 &lt;br /&gt; iRL = 12 &lt;br /&gt; h = 3 &lt;br /&gt; ihINC = 3 &lt;br /&gt; ihDEC = 4 &lt;br /&gt; MAX = 15 &lt;br /&gt; MIN = 8 &lt;br /&gt; MIX = 23"]
+  06 &lt;--&gt; 12["iLR = 12 &lt;br /&gt; iRL = 11 &lt;br /&gt; h = 3 &lt;br /&gt; ihINC = 4 &lt;br /&gt; ihDEC = 3 &lt;br /&gt; MAX = 15 &lt;br /&gt; MIN = 8 &lt;br /&gt; MIX = 23"]
+  06 &lt;--&gt; 13["iLR = 13 &lt;br /&gt; iRL = 10 &lt;br /&gt; h = 3 &lt;br /&gt; ihINC = 5 &lt;br /&gt; ihDEC = 2 &lt;br /&gt; MAX = 15 &lt;br /&gt; MIN = 8 &lt;br /&gt; MIX = 23"]
+  07 &lt;--&gt; 14["iLR = 14 &lt;br /&gt; iRL = 9 &lt;br /&gt; h = 3 &lt;br /&gt; ihINC = 6 &lt;br /&gt; ihDEC = 1 &lt;br /&gt; MAX = 15 &lt;br /&gt; MIN = 8 &lt;br /&gt; MIX = 23"]
+  07 &lt;--&gt; 15["iLR = 15 &lt;br /&gt; iRL = 8 &lt;br /&gt; h = 3 &lt;br /&gt; ihINC = 7 &lt;br /&gt; ihDEC = 0 &lt;br /&gt; MAX = 15 &lt;br /&gt; MIN = 8 &lt;br /&gt; MIX = 23"]
+ 
+   style 01 fill:#602c3e,stroke:#AAA,stroke-width:1px
+   style 02 fill:#593704,stroke:#AAA,stroke-width:1px
+   style 03 fill:#593704,stroke:#AAA,stroke-width:1px
+   style 04 fill:#364613,stroke:#AAA,stroke-width:1px
+   style 05 fill:#364613,stroke:#AAA,stroke-width:1px
+   style 06 fill:#364613,stroke:#AAA,stroke-width:1px
+   style 07 fill:#364613,stroke:#AAA,stroke-width:1px
+   style 08 fill:#004a51,stroke:#AAA,stroke-width:1px
+   style 09 fill:#004a51,stroke:#AAA,stroke-width:1px
+   style 10 fill:#004a51,stroke:#AAA,stroke-width:1px
+   style 11 fill:#004a51,stroke:#AAA,stroke-width:1px
+   style 12 fill:#004a51,stroke:#AAA,stroke-width:1px
+   style 13 fill:#004a51,stroke:#AAA,stroke-width:1px
+   style 14 fill:#004a51,stroke:#AAA,stroke-width:1px
+   style 15 fill:#004a51,stroke:#AAA,stroke-width:1px
+    </div>
+
+    <hr>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "\\[", right: "\\]", display: true},
+                    {left: "$", right: "$", display: false},
+                    {left: "\\(", right: "\\)", display: false}
+                ],
+                // Dodatkowe makra dla kolorów, jeśli nie są obsługiwane domyślnie w KaTeX w ten sposób
+                // Można je też zdefiniować w LaTeX przez \newcommand
+                // Ale dla uproszczenia, można dodać klasy CSS i stylować przez span
+                // Poniższe makra mogą nie działać bezpośrednio w KaTeX tak jak w MathJax
+                // Zamiast tego użyłem klas CSS: .math-color-limegreen, .math-color-yellow, itd.
+                // LaTeX w postaci `{\color{limegreen}text}` będzie renderowany poprawnie.
+                // W pliku Markdown użyto `{\color{limegreen}max}` - KaTeX to obsłuży.
+                // Elementy typu `<span class="math-inline">` są dodane dla LaTeX, który nie jest w bloku $$...$$ lub \[...\]
+                // W tym przypadku użyłem KaTeX, który renderuje `\color`
+            });
+        });
+    </script>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+        // Jeśli chcesz wymusić motyw 'dark' dla mermaid niezależnie od konfiguracji w diagramie:
+        // mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+        // Jednak Twoje diagramy mają już 'theme: dark' w konfiguracji, więc to powinno wystarczyć.
+    </script>
+
+</body>
+</html>
