@@ -17,9 +17,13 @@
       --math-border: oklch(0.92 0.052 260.12);
       --math-tt: black;
       --math-ih: firebrick;
+      --math-jh: darkgoldenrod;
       --math-i: mediumblue;
+      --math-j: royalblue;
       --math-mix: darkorchid;
-      --math-way: lightseagreen;
+      --math-j-sort: mediumpurple;
+      --math-jh-sort: sienna;
+      --math-to-fam: lightseagreen;
     }
 
     body {
@@ -48,18 +52,42 @@
 
     .ih {
       color: var(--math-ih);
+      font-weight: bold;
     }
 
     .i {
       color: var(--math-i);
+      font-weight: bold;
+    }    
+
+    .jh {
+      color: var(--math-jh);
+      font-weight: bold;
+    }
+
+    .j {
+      color: var(--math-j);
+      font-weight: bold;
+    }   
+
+    .jhsort {
+      color: var(--math-jh-sort);
+      font-weight: bold;
+    }
+
+    .jsort {
+      color: var(--math-j-sort);
+      font-weight: bold;
     }
 
     .mix {
       color: var(--math-mix);
+      font-weight: bold;
     }
 
     .tt {
       color: var(--math-tt);
+      font-weight: bold;
     }
 
     .bg-ih0 {
@@ -437,7 +465,7 @@
       </section>
 
       <section id="section-1-6">
-        <h3>1. 6. Odzwierciedlenie w kodzie TypeScript</h3>
+        <h3>1.6. Odzwierciedlenie w kodzie TypeScript</h3>
         <pre><code class="language-typescript">
 type NodeConstructor&lt;T&gt; = new (node: number, X?: "XM" | "XW") =&gt; T;
 
@@ -572,7 +600,193 @@ graph TD
   </pre>
       </section>
 
-    </article>
+    </article><hr />
+    <article>
+      <h2>2. GRAF DRZEWA BINARNEGO (KONCEPCJA LINII)</h2>
+      <strong> LINIE SILNIE LEWE </strong>
+      <div class="mermaid">
+        ---
+        config:
+        layout: elk
+        look: handDrawn
+        theme: neutral
+        ---
+        graph TD
+        1["ROOT <br>iLR=1, iRL=1<br>jLL=2<br>jhLL=0<br>jSortLL=1<br>jhSortLL=0"]
+        1 <--> 2["NODE-L <br>iLR=2, iRL=3<br>jLL=2<br>jhLL=1<br>jSortLL=1<br>jhSortLL=0"]
+        1 <--> 3["NODE-R <br>iLR=3, iRL=2<br>jLL=4<br>jhLL=0<br>jSortLL=3<br>jhSortLL=1"]
+        2 <--> 4["NODE-L <br>iLR=4, iRL=7<br>jLL=2<br>jhLL=2<br>jSortLL=1<br>jhSortLL=0"]
+        2 <--> 5["NODE-R <br>iLR=5, iRL=6<br>jLL=6<br>jhLL=0<br>jSortLL=5<br>jhSortLL=2"]
+        3 <--> 6["NODE-L <br>iLR=6, iRL=5<br>jLL=4<br>jhLL=1<br>jSortLL=3<br>jhSortLL=1"]
+        3 <--> 7["NODE-R <br>iLR=7, iRL=4<br>jLL=8<br>jhLL=0<br>jSortLL=7<br>jhSortLL=2"]
+
+        style 1 fill:#dd74a0,stroke:#333,stroke-width:1px
+        style 2 fill:#d18a23,stroke:#333,stroke-width:1px
+        style 3 fill:#d18a23,stroke:#333,stroke-width:1px
+        style 4 fill:#9ea329,stroke:#333,stroke-width:1px
+        style 5 fill:#9ea329,stroke:#333,stroke-width:1px
+        style 6 fill:#9ea329,stroke:#333,stroke-width:1px
+        style 7 fill:#9ea329,stroke:#333,stroke-width:1px
+        </div>
+        
+        <strong> LINIE SILNIE PRAWE </strong>
+        
+      <div class="mermaid">
+        ---
+        config:
+        layout: elk
+        look: handDrawn
+        theme: neutral
+        ---
+        graph TD
+        1["ROOT <br>iLR=1, iRL=1<br>jRR=3<br>jhRR=0<br>jSortRR=1<br>jhSortRR=0"]
+        1 <--> 2["NODE-L <br>iLR=2, iRL=3<br>jRR=5<br>jhRR=0<br>jSortRR=3<br>jhSortRR=1"]
+        1 <--> 3["NODE-R <br>iLR=3, iRL=2<br>jRR=3<br>jhRR=1<br>jSortRR=1<br>jhSortRR=0"]
+        2 <--> 4["NODE-L <br>iLR=4, iRL=7<br>jRR=9<br>jhRR=0<br>jSortRR=7<br>jhSortRR=2"]
+        2 <--> 5["NODE-R <br>iLR=5, iRL=6<br>jRR=5<br>jhRR=1<br>jSortRR=3<br>jhSortRR=1"]
+        3 <--> 6["NODE-L <br>iLR=6, iRL=5<br>jRR=7<br>jhRR=0<br>jSortRR=5<br>jhSortRR=2"]
+        3 <--> 7["NODE-R <br>iLR=7, iRL=4<br>jRR=3<br>jhRR=2<br>jSortRR=1<br>jhSortRR=0"]
+
+        style 1 fill:#dd74a0,stroke:#333,stroke-width:1px
+        style 2 fill:#d18a23,stroke:#333,stroke-width:1px
+        style 3 fill:#d18a23,stroke:#333,stroke-width:1px
+        style 4 fill:#9ea329,stroke:#333,stroke-width:1px
+        style 5 fill:#9ea329,stroke:#333,stroke-width:1px
+        style 6 fill:#9ea329,stroke:#333,stroke-width:1px
+        style 7 fill:#9ea329,stroke:#333,stroke-width:1px
+        </div>
+        <p>
+          Kluczowym aspektem w procesie określania przynależności do danej linii genealogicznej jest zmienna <span
+            class="j">j</span>, która wyznacza numer linii, oraz zmienna <span class="jh">jh</span>, wskazująca na położenie w
+          pionowej strukturze pokrewieństwa, tj. wysokość poziomu w obrębie tej linii. Zmienne pomocnicze <span
+            class="jsort">jSort</span> oraz <span class="jhsort">jhSort</span> pełnią funkcję wspomagającą w porządkowaniu i
+          jednoznacznym wyznaczaniu tych relacji, lecz same nie stanowią podstawy klasyfikacyjnej.
+        </p>
+        
+        <section id="section-2-1">
+          <h2>2.1 Obliczenia (część 1)</h2>
+
+          <p><strong>WYJAŚNIENIE:</strong> <span style="background-color: white;padding: 0.3rem; border-radius: 0.5rem;">v2(x)</span> to 2-adyczna waluacja liczby całkowitej dodatniej x (liczba zer na końcu binarnej reprezentacji x>0).</p>
+
+          <p class="math-box">
+            <span class="math">
+              $$
+              \begin{aligned}
+              {\color{darkgoldenrod}{jhLL({\color{mediumblue}{i}})}} & =
+              \begin{cases}
+              {\color{firebrick}{ih({\color{mediumblue}{i}})}} 
+              & \quad \text{dla } {\color{mediumblue}{iLR}} = 0 \\
+              v_2({\color{mediumblue}{iLR}})
+              & \quad \text{dla } {\color{mediumblue}{iLR}} \neq 0 \\
+              \end{cases} 
+              \\\\
+              {\color{darkgoldenrod}{jhRR({\color{mediumblue}{i}})}} & =
+              \begin{cases} 
+              {\color{firebrick}{ih({\color{mediumblue}{i}})}} 
+              & \quad \text{dla } {\color{mediumblue}{iRL}} = 0 \\
+              v_2({\color{mediumblue}{iRL}})
+              & \quad \text{dla } {\color{mediumblue}{iRL}} \neq 0 \\
+              \end{cases}
+              \end{aligned}
+              $$
+            </span>
+            </p>
+        </section>
+
+        <section id="section-2-2">
+          <h2>2.2 Obliczenia (część 2)</h2>
+        
+          <p><strong>WYJAŚNIENIE:</strong> <span
+              style="background-color: white;padding: 0.3rem; border-radius: 0.5rem;">v2(x)</span> to 2-adyczna waluacja liczby
+            całkowitej dodatniej x (liczba zer na końcu binarnej reprezentacji x>0).</p>
+        
+          <p class="math-box">
+            <span class="math">
+              $$
+              \begin{aligned}
+              {\color{mediumpurple}{jSortLL({\color{mediumblue}{i}})}} & =
+              \dfrac{{\color{mediumblue}{iLR}}}{2^{v_2({\color{mediumblue}{iLR}})}} 
+              \\\\
+              {\color{royalblue}{jLL({\color{mediumblue}{i}})}} & =
+              {\color{mediumpurple}{jSortLL({\color{mediumblue}{i}})}} + 1
+              \\\\              
+              {\color{sienna}{jhSortLL({\color{mediumblue}{i}})}} & = 
+              \lfloor \log_2({\color{mediumpurple}{jSortLL({\color{mediumblue}{i}})}}) \rfloor
+              \\\\
+              {\color{mediumpurple}{jSortRR({\color{mediumblue}{i}})}} & =
+              \dfrac{{\color{mediumblue}{iRL}}}{2^{v_2({\color{mediumblue}{iRL}})}} 
+              \\\\
+              {\color{royalblue}{jRR({\color{mediumblue}{i}})}} & =
+              {\color{mediumpurple}{jSortRR({\color{mediumblue}{i}})}} + 2
+              \\\\              
+              {\color{sienna}{jhSortRR({\color{mediumblue}{i}})}} & = 
+              \lfloor \log_2({\color{mediumpurple}{jSortRR({\color{mediumblue}{i}})}}) \rfloor
+              \end{aligned}
+              $$
+            </span>
+          </p>
+        </section>
+        <section id="section-2-3">
+          <h3>2.3. Odzwierciedlenie w kodzie TypeScript</h3>
+          <pre><code class="language-typescript">
+class NodeLine extends Node {
+  jhSortLL: number;   //iM: number;    
+  jhLL   : number; //lvLM: number;   
+  jLL    : number;   //LM: number;    
+  jSortLL : number;  //LM_: number;      
+
+  jhSortRR: number;   //iW: number;    
+  jhRR   : number; //lvLW: number;   
+  jRR    : number;   //LW: number;    
+  jSortRR : number;  //LW_: number;   
+  
+  constructor(node: number, X: &quot;XM&quot; | &quot;XW&quot; = &quot;XM&quot;){
+    super(node, X);
+    function v2adic(x: number): number {
+      if (typeof x !== &quot;number&quot; || !Number.isInteger(x) || x &lt;= 0) {
+        throw new Error(&quot;Parametr x musi być dodatnią liczbą całkowitą.&quot;);
+      }
+
+      // x &amp; -x to 2^k, więc log2 tego da dokładnie k
+      return Math.log2(x &amp; -x);
+    }
+
+    function v2adic_precision(x: number): number {
+      if (typeof x !== &quot;number&quot; || !Number.isInteger(x) || x &lt;= 0) {
+        throw new Error(&quot;Parametr x musi być dodatnią liczbą całkowitą.&quot;);
+      }
+      let r = 0;
+      let t = true;
+      const e = Array.from(x.toString(2));
+      let l = e.length;
+      while (l &gt; 0 &amp;&amp; t) {
+        if (e[l - 1] == &quot;0&quot;) {
+          r++;
+        } else {
+          t = false;
+        }
+        l--;
+      }
+      return r;
+    }
+
+    this.jhLL = (this.iLR == 0 ? this.ih + 1 : v2adic(this.iLR) + 1) - 1;
+    this.jhRR = (this.iRL == 0 ? this.ih + 1 : v2adic(this.iRL) + 1) - 1;
+
+    this.jSortLL = this.iLR / Math.pow(2, v2adic(this.iLR));
+    this.jSortRR = this.iRL / Math.pow(2, v2adic(this.iRL));
+
+    this.jLL = this.jSortLL + 1;
+    this.jRR = this.jSortRR + 2;
+
+    this.jhSortLL = Math.floor(Math.log2(this.jSortLL));
+    this.jhSortRR = Math.floor(Math.log2(this.jSortRR));
+  }
+}
+                </code></pre>
+        </section>
+        
+      </article>
   </main>
 </body>
 

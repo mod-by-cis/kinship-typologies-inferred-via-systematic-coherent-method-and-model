@@ -129,8 +129,8 @@ class NodeLine extends Node {
     this.jhLL = (this.iLR == 0 ? this.ih + 1 : v2adic(this.iLR) + 1) - 1;
     this.jhRR = (this.iRL == 0 ? this.ih + 1 : v2adic(this.iRL) + 1) - 1;
 
-    this.jSortLL = this.iRL / Math.pow(2, v2adic(this.iRL));
-    this.jSortRR = this.iLR / Math.pow(2, v2adic(this.iLR));
+    this.jSortLL = this.iLR / Math.pow(2, v2adic(this.iLR));
+    this.jSortRR = this.iRL / Math.pow(2, v2adic(this.iRL));
 
     this.jLL = this.jSortLL + 1;
     this.jRR = this.jSortRR + 2;
