@@ -1,15 +1,25 @@
-l<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pl">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Drzewo binarne</title>
-
-  <!-- Styl z oklch() -->
+  <title>Matematyka w genealogii</title>
   <style>
     :root {
-      --bg: oklch(0.1861 0.0368 250);
-      --text: oklch(95% 0 0);
+      --bg: oklch(0.92 0.022 260.12);
+      --bg-math: oklch(0.97 0.022 260.12);
+      --text: oklch(0.12 0.022 260.12);
+      --graf-ih0: oklch(0.69 0.1388 355);
+      --graf-ih1: oklch(0.69 0.1388 70);
+      --graf-ih2: oklch(0.69 0.1388 112);
+      --graf-ih3: oklch(0.69 0.1388 150);
+      --math-border: oklch(0.92 0.052 260.12);
+      --math-tt: black;
+      --math-ih: firebrick;
+      --math-i: mediumblue;
+      --math-mix: darkorchid;
+      --math-way: lightseagreen;
     }
 
     body {
@@ -20,17 +30,60 @@ l<!DOCTYPE html>
       line-height: 1.6;
     }
 
-    h1, h2, h3 {
-      color: oklch(98% 0 100);
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: oklch(0.42 0.082 260.12);
     }
 
-    code, pre {
-      background: oklch(30% 0.05 250);
+    .math-box {
+      background-color: var(--bg-math);
+      padding: 1.5rem;
+      border-radius: 2rem;
+      border: 0.2rem double var(--math-border);
+    }
+
+    .ih {
+      color: var(--math-ih);
+    }
+
+    .i {
+      color: var(--math-i);
+    }
+
+    .mix {
+      color: var(--math-mix);
+    }
+
+    .tt {
+      color: var(--math-tt);
+    }
+
+    .bg-ih0 {
+      background-color: var(--graf-ih0);
+    }
+
+    .bg-ih2 {
+      background-color: var(--graf-ih2);
+    }
+
+    .bg-ih3 {
+      background-color: var(--graf-ih3);
+    }
+
+    .bg-ih4 {
+      background-color: var(--graf-ih4);
+    }
+
+    code,
+    pre {
       padding: 0.5em;
       border-radius: 0.3em;
       display: block;
       overflow-x: auto;
-      color: oklch(95% 0 0);
     }
 
     section {
@@ -41,9 +94,9 @@ l<!DOCTYPE html>
   <!-- Mermaid 10/11 -->
   <script type="module">
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.6/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({ 
+    mermaid.initialize({
       startOnLoad: true,
-      theme: 'dark',
+      theme: 'neutral',
       securityLevel: 'loose',
       layout: 'elk',
       themeVariables: {
@@ -66,35 +119,61 @@ l<!DOCTYPE html>
     };
   </script>
   <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-  <!-- Załaduj Prism.js i jego style -->
-<link href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/themes/prism-tomorrow.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/prism.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-typescript.min.js"></script>
-  
+  <link href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/themes/prism-coy.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-typescript.min.js"></script>
+
 </head>
 
 <body>
-  <article>
-    <h1>GRAF - DRZEWO BINARNE</h1>
-
-    <p>
-      Drzewo binarne oznaczone etykietami o rozmiarze 
-      $\text{» } {\color{limegreen}max} = 7\text{ «}$ 
-      (liczba węzłów w drzewie) i wysokości 
-      $\text{» } {\color{yellow}ih} = 2\text{ «}$ 
-      (wysokość/poziom $\text{» } {\color{yellow}ih} \text{ «}$ drzewa zdefiniowana jako liczba krawędzi lub połączeń 
-      od najwyższego węzła lub węzła głównego (ROOT) do najdalszego węzła liścia) z węzłem głównym, którego wartość wynosi 1.
-      Poniższe drzewo jest zrównoważone, ale nie jest (może nie być) posortowane.
+  <main>
+    <h1>Matematyka w Genealogi</h1>
+    <p><strong>Systematyczny i spójny model oraz metoda wnioskowania typologii pokrewieństwa.</strong></p>
+    <p>Rzeczą oczywistą jest, że wobec różnorodności modeli rodzinnych niezwykle trudne byłoby skonstruowanie systemu,
+      który
+      mógłby znaleźć zastosowanie inne niż jako ogólny indeks o charakterze pomocniczym. Osoby identyfikowane są za
+      pomocą
+      imion i nazwisk, zatem nie zachodzi potrzeba przypisywania im sztywnych identyfikatorów – chyba że w ramach
+      lokalnych
+      systemów bazodanowych, gdzie stosuje się np. GUID lub UUID. Kwestia ta jednak wykracza poza zakres niniejszego
+      opracowania.
     </p>
+    <p>Jaki zatem cel miałby przyświecać tworzeniu takiego systemu? Główną funkcją systemu pozycyjnego jest umożliwienie
+      klasyfikacji typów relacji pokrewieństwa w sposób jednoznaczny i uporządkowany. Dzięki temu możliwe staje się
+      precyzyjne
+      rozpoznanie, czy dana osoba jest np. bratem cioteczno-stryjecznym, czy też bratem wujeczno-ciotecznym. O ile
+      określenie
+      bliskich relacji pokrewieństwa nie nastręcza zwykle trudności, o tyle identyfikacja więzi dalszych wymaga już
+      systematyzującego narzędzia analitycznego. Takie sprawne, strukturalne porządkowanie osób według rodzaju
+      pokrewieństwa
+      okazuje się kluczowe zwłaszcza w genealogii genetycznej — w procesach dedukcji potencjalnych relacji, ustalania
+      stopnia
+      pokrewieństwa oraz w identyfikacji wspólnych fragmentów centy-morganowych dziedziczonych po określonych liniach
+      wspólnych
+      przodków.
+    </p>
+    <p><strong>KONSPEKT</strong></p>
+    <ol>
+      <li><strong>GRAF DRZEWA BINARNEGO (PODSTAWY) </strong> — w tej części bez terMINologii genealogicznej omawiam
+        podstawowy
+        model, na którym wszystko inne się opiera.
+      </li>
+      <li><strong>GRAF DRZEWA BINARNEGO (KONCEPCJA LINII) </strong> — w tej części nadal bez terMINologii genealogicznej
+        wprowadzam koncepcję linii, bazujac na modelu drzewa binarnego.
+      </li>
+    </ol>
+    <hr />
+    <article>
+      <h2>1. GRAF DRZEWA BINARNEGO (PODSTAWY)</h2>
 
-    <div class="mermaid">
-    ---
-    config:
+      <div class="mermaid">
+      ---
+      config:
       layout: elk
       look: handDrawn
-      theme: dark
-    ---
-    graph TD
+      theme: neutral
+      ---
+      graph TD
       1["ROOT <br> 1 →│← 1"]
       1 <--> 2["NODE-L <br> 2 →│← 3"]
       1 <--> 3["NODE-R <br> 3 →│← 2"]
@@ -103,160 +182,263 @@ l<!DOCTYPE html>
       3 <--> 6["NODE-L <br> 6 →│← 5"]
       3 <--> 7["NODE-R <br> 7 →│← 4"]
 
-      style 1 fill:#602c3e,stroke:#AAA,stroke-width:1px
-      style 2 fill:#593704,stroke:#AAA,stroke-width:1px
-      style 3 fill:#593704,stroke:#AAA,stroke-width:1px
-      style 4 fill:#364613,stroke:#AAA,stroke-width:1px
-      style 5 fill:#364613,stroke:#AAA,stroke-width:1px
-      style 6 fill:#364613,stroke:#AAA,stroke-width:1px
-      style 7 fill:#364613,stroke:#AAA,stroke-width:1px
-    </div>
+      style 1 fill:#dd74a0,stroke:#333,stroke-width:1px
+      style 2 fill:#d18a23,stroke:#333,stroke-width:1px
+      style 3 fill:#d18a23,stroke:#333,stroke-width:1px
+      style 4 fill:#9ea329,stroke:#333,stroke-width:1px
+      style 5 fill:#9ea329,stroke:#333,stroke-width:1px
+      style 6 fill:#9ea329,stroke:#333,stroke-width:1px
+      style 7 fill:#9ea329,stroke:#333,stroke-width:1px
+      </div>
 
-    <section id="section-1">
-  <h2 style="color: oklch(100% 0 85);">1. Obliczanie
-    <span style="color: yellow;">ih<span style="color: white;">(</span><span style="color: violet;">i</span><span style="color: white;">)</span> </span> 
-    <strong>wysokości/poziomu</strong> na podstawie indeksu <span style="color: violet;">i</span>
-  </h2>
+      <p>
+        Drzewo binarne oznaczone etykietami o rozmiarze
+        $\text{» } {\color{darkorchid}total} = 7\text{ «}$
+        (liczba węzłów w drzewie) i wysokości
+        $\text{» } {\color{firebrick}ih} = 2\text{ «}$
+        (wysokość/poziom $\text{» } {\color{firebrick}ih} \text{ «}$ drzewa zdefiniowana jako liczba krawędzi lub
+        połączeń
+        od najwyższego węzła lub węzła głównego (ROOT) do najdalszego węzła liścia) z węzłem głównym, którego wartość
+        wynosi 1.
+        Powyższe drzewo jest zrównoważone, w ale może nie być posortowane (powinno być).
+      </p>
 
-  <p>
-    <span class="math">
-        \begin{aligned}
-          \color{yellow}{ih(\color{violet}{i})} = \lfloor \log_2(\color{violet}{i}) \rfloor 
-          \quad \forall\, \color{violet}{i} \in \{ \color{violet}{iLR}, \color{violet}{iRL} \} \subset \mathbb{N}_{+}
-        \end{aligned}
-    </span>
-  </p>
-</section>
+      <section id="section-1-1">
+        <h3>
+          1.1. Obliczanie
+          <span class="ih">ih(</span>
+          <span class="i">i</span>
+          <span class="ih">)</span>
+          <strong>wysokości-poziomu</strong>
+          na podstawie indeksu
+          <span class="i">i</span>
+          .
+        </h3>
 
-    <section id="section-2">
-  <h2 style="color: oklch(100% 0 85);">
-    2. Różne obliczenia tylko i wyłącznie na podstawie 
-    <span style="color: yellow;">ih<span style="color: white;">(</span><span style="color: violet;">i</span><span style="color: white;">)</span> </span> 
-    <strong>wysokości/poziomu</strong>
-  </h2>
+        <p class="math-box">
+          <span class="math">
+            $$
+            \begin{aligned}
+            \color{firebrick}{ih(} \color{mediumblue}{i} \color{firebrick}{)}
+            \color{black}{= \lfloor \log_2(} \color{mediumblue}{i} \color{black}{) \rfloor}
+            \quad \forall\, \color{mediumblue}{i} \color{black}{\,\in \{ }
+            \color{mediumblue}{iLR} \color{black}{,\,} \color{mediumblue}{iRL}\color{black}{ \} \subset \mathbb{N}_{+}}
+            \end{aligned}
+            $$
+          </span>
+        </p>
+      </section>
 
-  <p>
-    <span class="math">
-      \begin{aligned}
-        \color{limegreen}{\max(\color{yellow}{ih(\color{violet}{i})})} = &
-        \color{limegreen}{\text{total}(\color{yellow}{ih(\color{violet}{i})})} = \\
-        & \quad = 2^{(\color{yellow}{ih}+1)} - 1 \quad & \forall \, \color{yellow}{ih} \in \mathbb{N}_{0} \\
-        \\
-        \color{limegreen}{\min(\color{yellow}{ih(\color{violet}{i})})} = &
-        \color{limegreen}{\text{count}(\color{yellow}{ih(\color{violet}{i})})} = \\
-        & \quad = 2^{\color{yellow}{ih}} \quad & \forall \, \color{yellow}{ih} \in \mathbb{N}_{0} \\
-        \\
-        \color{limegreen}{\text{mix}(\color{yellow}{ih(\color{violet}{i})})} = &
-        \color{limegreen}{\min(\color{yellow}{ih(\color{violet}{i})})} + \color{limegreen}{\max(\color{yellow}{ih(\color{violet}{i})})} = \\
-        = & \, (\color{violet}{iLR} + \color{violet}{iRL}) = \\
-        & \quad = 3 \cdot 2^{\color{yellow}{ih}} - 1 \quad & \forall \, \color{yellow}{ih} \in \mathbb{N}_{0}
-      \end{aligned}
-    </span>
-  </p>
-      <hr />
-  <ul>
-    <li>
-      <span style="color: oklch(75% 0.19 140);">\text{max}(ih(i)) = \text{total}(ih(i))</span> – określa ilość wszystkich węzłów oraz wartość najwyższego indeksu węzła na poziomie danej wysokości.
-    </li>
-    <li>
-      <span style="color: oklch(75% 0.19 140);">\text{min}(ih(i)) = \text{count}(ih(i))</span> – określa ilość węzłów na danym poziomie oraz wartość najniższego indeksu węzła.
-    </li>
-    <li>
-      <span style="color: oklch(75% 0.19 140);">\text{mix}(ih(i)) = \text{min}(ih(i)) + \text{max}(ih(i)) = i_{LR} + i_{RL}</span> – wartość stała dla poziomu, suma min i max lub suma indeksów LR+RL.
-    </li>
-  </ul>
-</section>
-        
-        <section id="section-3">
-  <h2 style="color: oklch(100% 0 85);">
-    3. Wędrowanie po drzewie
-  </h2>
+      <section id="section-1-2">
+        <h3>
+          1.2. Różne obliczenia tylko i wyłącznie na podstawie
+          <span class="ih">ih(</span>
+          <span class="i">i</span>
+          <span class="ih">)</span>
+          <strong>wysokości-poziomu</strong>
+          .
+        </h3>
 
-  <p>
-    <span class="math">
-      \begin{aligned}
-        \color{skyblue}{\text{child}_{\text{LEFT}}(\color{violet}{i})} &=
-          \begin{cases}
-            2 \cdot \color{violet}{i}     & \quad \text{dla } \color{violet}{i} = \color{violet}{i_{LR}} \\
-            2 \cdot \color{violet}{i} + 1 & \quad \text{dla } \color{violet}{i} = \color{violet}{i_{RL}}
-          \end{cases}
-       \end{aligned}
-    </span>
-    <br />
-      <span class="math">
-      \begin{aligned}
-        \color{skyblue}{\text{child}_{\text{RIGHT}}(\color{violet}{i})} &=
-          \begin{cases}
-            2 \cdot \color{violet}{i} + 1 & \quad \text{dla } \color{violet}{i} = \color{violet}{i_{LR}} \\
-            2 \cdot \color{violet}{i}     & \quad \text{dla } \color{violet}{i} = \color{violet}{i_{RL}}
-          \end{cases}
-       \end{aligned}
-    </span>
-    <br />
-      <span class="math">
-      \begin{aligned}
-        \color{skyblue}{\text{parent}(\color{violet}{i})} &=
-          \begin{cases}
-            \varnothing & \quad \text{dla } \color{violet}{i} < 2 \\
-            \left\lfloor \dfrac{\color{violet}{i}}{2} \right\rfloor & \quad \text{dla } \color{violet}{i} \geq 2
-          \end{cases}
-          \quad \text{gdzie } \color{violet}{i} \in \{ \color{violet}{i_{LR}}, \color{violet}{i_{RL}} \}
-       \end{aligned}
-    </span>
-    <br />
-      <span class="math">
-      \begin{aligned}
-        \color{skyblue}{\text{sibling}(\color{violet}{i})} &=
-          \begin{cases}
-            \varnothing & \quad \text{dla } \color{violet}{i} < 2 \\
-            \color{violet}{i} + 1 & \quad \text{dla } \color{violet}{i} = \color{violet}{i_{LR}} \land \color{violet}{i} \bmod 2 = 0 \\
-            \color{violet}{i} - 1 & \quad \text{dla } \color{violet}{i} = \color{violet}{i_{LR}} \land \color{violet}{i} \bmod 2 = 1 \\
-            \color{violet}{i} - 1 & \quad \text{dla } \color{violet}{i} = \color{violet}{i_{RL}} \land \color{violet}{i} \bmod 2 = 0 \\
-            \color{violet}{i} + 1 & \quad \text{dla } \color{violet}{i} = \color{violet}{i_{RL}} \land \color{violet}{i} \bmod 2 = 1
-          \end{cases}
-      \end{aligned}
-    </span>
-  </p>
-</section id="section-4">
-<section>
-  <h2 style="color: oklch(100% 0 85);">
-    4. Obliczanie indeksu odwrotnego
-  </h2>
+        <p class="math-box">
+          <span class="math">
+            $$
+            \begin{aligned}
+            \color{darkorchid}{\text{MAX}(\color{firebrick}{ih(\color{mediumblue}{i})})} = &
+            \color{darkorchid}{\text{total}(\color{firebrick}{ih(\color{mediumblue}{i})})} = \\
+            & \quad = 2^{({\color{firebrick}{ih}}+1)} - 1
+            \quad & \forall \, {\color{firebrick}{ih}} \in \mathbb{N}_{0}
+            \\
+            \\
+            \color{darkorchid}{\text{MIN}(\color{firebrick}{ih(\color{mediumblue}{i})})} = &
+            \color{darkorchid}{\text{count}(\color{firebrick}{ih(\color{mediumblue}{i})})} = \\
+            & \quad = 2^{\color{firebrick}{ih}}
+            \quad & \forall \, {\color{firebrick}{ih}} \in \mathbb{N}_{0} \\
+            \\
+            \color{darkorchid}{\text{MIX}(\color{firebrick}{ih(\color{mediumblue}{i})})} = &
+            \color{darkorchid}{\text{MIN}(\color{firebrick}{ih(\color{mediumblue}{i})})} +
+            \color{darkorchid}{\text{MAX}(\color{firebrick}{ih(\color{mediumblue}{i})})} = \\
+            = & \, (\color{mediumblue}{iLR} + \color{mediumblue}{iRL}) = \\
+            & \quad = 3 \cdot 2^{\color{firebrick}{ih}} - 1
+            \quad & \forall \, {\color{firebrick}{ih}} \in \mathbb{N}_{0}
+            \end{aligned}
+            $$
+          </span>
+        </p>
 
-  <p>
-    <span class="math">
-      \begin{aligned}
-        \color{violet}{i_{RL}(\color{violet}{i_{LR}})} &= \color{limegreen}{mix(\color{yellow}{ih(\color{violet}{i})})} - \color{violet}{i_{LR}} \\
-        \color{violet}{i_{LR}(\color{violet}{i_{RL}})} &= \color{limegreen}{mix(\color{yellow}{ih(\color{violet}{i})})} - \color{violet}{i_{RL}}
-      \end{aligned}
-    </span>
-  </p>
-</section>
-    
-    <section id="section-5">
-  <h2 style="color: oklch(100% 0 85);">
-    5. Dodatkowy indeks w obrębie poziomu danej wysokości/poziomu
-  </h2>
-  <p>
-    Uniwersalnym indeksem dokładnie wskazującym na miejsce, po odpowiednim przeliczeniu jest 
-    <span style="color: violet;">iLR</span> oraz <span style="color: violet;">iRL</span>, jednakowoż dla wygody, co w pełni z niego już wynika, wprowadzamy 
-    <span style="color: violet;">i<span style="color: yellow;">h</span>INC</span> oraz 
-    <span style="color: violet;">i<span style="color: yellow;">h</span>DEC</span>, które w obrębie konkretnego poziomu wysokości 
-    <span style="color: yellow;">ih</span>, wprowadzają indeks lokalny w jegoż obrębie.
-  </p>
-  <p>
-    <span class="math">
-      \begin{aligned}
-      {\color{violet}{i h INC}} &= {\color{violet}{iLR}} - {\color{limegreen}{min({\color{yellow}{ih({\color{violet}{i}})})}}} \\
-      {\color{violet}{i h DEC}} &= {\color{violet}{iRL}} - {\color{limegreen}{min({\color{yellow}{ih({\color{violet}{i}})})}}}
-      \end{aligned}
-    </span>
-  </p>
-</section>
-    
-<section id="section-6">
-  <h2 style="color: oklch(100% 0 85);">6. ODZWIERCIEDLENIE W KODZIE TYPESCRIPT</h2>
-  <pre><code class="language-typescript">
+        <ul>
+          <li>
+            <strong>
+              <span class="mix">MAX(</span>
+              <span class="ih">ih(</span>
+              <span class="i">i</span>
+              <span class="ih">)</span>
+              <span class="mix">)</span>
+              <span> = </span>
+              <span class="mix">total(</span>
+              <span class="ih">ih(</span>
+              <span class="i">i</span>
+              <span class="ih">)</span>
+              <span class="mix">)</span>
+            </strong>
+            <span> — określa ilość wszystkich węzłów oraz wartość najwyższego indeksu węzła
+              na poziomie danej wysokości.
+            </span>
+          </li>
+          <li>
+            <strong>
+              <span class="mix">MIN(</span>
+              <span class="ih">ih(</span>
+              <span class="i">i</span>
+              <span class="ih">)</span>
+              <span class="mix">)</span>
+              <span> = </span>
+              <span class="mix">count(</span>
+              <span class="ih">ih(</span>
+              <span class="i">i</span>
+              <span class="ih">)</span>
+              <span class="mix">)</span>
+            </strong>
+            <span> — określa ilość węzłów na danym poziomie oraz wartość najniższego indeksu węzła.
+            </span>
+          </li>
+          <li>
+            <strong>
+              <span class="mix">MIX(</span>
+              <span class="ih">ih(</span>
+              <span class="i">i</span>
+              <span class="ih">)</span>
+              <span class="mix">)</span>
+              <span> = </span>
+              <span class="mix">MIN(</span>
+              <span class="ih">ih(</span>
+              <span class="i">i</span>
+              <span class="ih">)</span>
+              <span class="mix">)</span>
+              <span> + </span>
+              <span class="mix">MAX(</span>
+              <span class="ih">ih(</span>
+              <span class="i">i</span>
+              <span class="ih">)</span>
+              <span class="mix">)</span>
+              <span> = </span>
+              <span class="i">iLR</span>
+              <span> + </span>
+              <span class="i">iRL</span>
+            </strong>
+            <span> —wartość stała dla poziomu, suma MIN i MAX lub suma indeksów LR+RL.</span>
+          </li>
+        </ul>
+      </section>
+
+      <section id="section-1-3">
+        <h3>
+          1.3. Wędrowanie po drzewie.
+        </h3>
+
+        <p class="math-box">
+          <span class="math">
+            $$
+            \begin{aligned}
+            \color{lightseagreen}{\text{child}_{\text{LEFT}}({\color{mediumblue}{i}})} &=
+            \begin{cases}
+            2 \cdot {\color{mediumblue}{i}} & \quad \text{dla } {\color{mediumblue}{i}}
+            = {\color{mediumblue}{i_{LR}}} \\
+            2 \cdot {\color{mediumblue}{i}} + 1 & \quad \text{dla } {\color{mediumblue}{i}}
+            = {\color{mediumblue}{i_{RL}}}
+            \end{cases}
+            \end{aligned}
+            $$
+          </span>
+          <br />
+          <span class="math">
+            $$
+            \begin{aligned}
+            \color{lightseagreen}{\text{child}_{\text{RIGHT}}({\color{mediumblue}{i}})} &=
+            \begin{cases}
+            2 \cdot {\color{mediumblue}{i}} + 1 & \quad \text{dla } {\color{mediumblue}{i}} = \color{mediumblue}{i_{LR}} \\
+            2 \cdot {\color{mediumblue}{i}} & \quad \text{dla } {\color{mediumblue}{i}} = \color{mediumblue}{i_{RL}}
+            \end{cases}
+            \end{aligned}
+            $$
+          </span>
+          <br />
+          <span class="math">
+            $$
+            \begin{aligned}
+            \color{lightseagreen}{\text{parent}({\color{mediumblue}{i}})} &=
+            \begin{cases}
+            \varnothing & \quad \text{dla } {\color{mediumblue}{i}} < 2 \\ \left\lfloor \dfrac{{\color{mediumblue}{i}}}{2}
+              \right\rfloor & \quad \text{dla } {\color{mediumblue}{i}} \geq 2 \end{cases} \quad \text{gdzie }
+              {\color{mediumblue}{i}} \in \{ \color{mediumblue}{i_{LR}}, \color{mediumblue}{i_{RL}} \} \end{aligned} 
+            $$
+          </span>
+          <br />
+          <span class="math">
+            $$
+            \begin{aligned}
+            \color{lightseagreen}{\text{sibling}({\color{mediumblue}{i}})} &=
+            \begin{cases}
+            \varnothing & \quad \text{dla } {\color{mediumblue}{i}} < 2 \\ {\color{mediumblue}{i}} + 1 & \quad \text{dla }
+              {\color{mediumblue}{i}}=\color{mediumblue}{i_{LR}} \land {\color{mediumblue}{i}} \bmod 2=0 \\ {\color{mediumblue}{i}} - 1 &
+              \quad \text{dla } {\color{mediumblue}{i}}=\color{mediumblue}{i_{LR}} \land {\color{mediumblue}{i}} \bmod 2=1 \\
+              {\color{mediumblue}{i}} - 1 & \quad \text{dla } {\color{mediumblue}{i}}=\color{mediumblue}{i_{RL}} \land
+              {\color{mediumblue}{i}} \bmod 2=0 \\ {\color{mediumblue}{i}} + 1 & \quad \text{dla }
+              {\color{mediumblue}{i}}=\color{mediumblue}{i_{RL}} \land {\color{mediumblue}{i}} \bmod 2=1 \end{cases} \end{aligned}
+            $$
+            </span>
+        </p>
+      </section id="section-1-4">
+      <section>
+        <h3>
+          1.4. Obliczanie indeksu odwrotnego
+        </h3>
+
+        <p class="math-box">
+          <span class="math">
+            $$
+            \begin{aligned}
+            \color{mediumblue}{i_{RL}(\color{mediumblue}{i_{LR}})} &=
+            \color{darkorchid}{mix(\color{firebrick}{ih({\color{mediumblue}{i}})})} - \color{mediumblue}{i_{LR}} \\
+            \color{mediumblue}{i_{LR}(\color{mediumblue}{i_{RL}})} &=
+            \color{darkorchid}{mix(\color{firebrick}{ih({\color{mediumblue}{i}})})} - \color{mediumblue}{i_{RL}}
+            \end{aligned}
+            $$
+          </span>
+        </p>
+      </section>
+
+      <section id="section-1-5">
+        <h3>
+          5. Dodatkowy indeks w obrębie poziomu danej wysokości/poziomu
+        </h3>
+        <p>
+          <span>Uniwersalnym indeksem dokładnie wskazującym na miejsce, po odpowiednim przeliczeniu jest</span>          
+          <span class="i">iLR</span> oraz <span class="i">iRL</span>
+          <span>, jednakowoż dla wygody, co w pełni z niego już wynika, wprowadzamy</span>
+          <span class="i">i<span class="ih">h</span>INC</span>
+          <span> oraz </span>
+          <span class="i">i<span class="ih">h</span>DEC</span>
+          <span>, które w obrębie konkretnego poziomu-wysokości</span>
+          <span class="ih">ih</span>
+          <span>, wprowadzają indeks lokalny w jegoż obrębie.</span>
+        </p>
+        <p class="math-box">
+          <span class="math">
+            $$
+            \begin{aligned}
+            {\color{mediumblue}{i h INC}} &= {\color{mediumblue}{iLR}} -
+            {\color{darkorchid}{MIN({\color{firebrick}{ih({{\color{mediumblue}{i}}})})}}} \\
+            {\color{mediumblue}{i h DEC}} &= {\color{mediumblue}{iRL}} -
+            {\color{darkorchid}{MIN({\color{firebrick}{ih({{\color{mediumblue}{i}}})})}}}
+            \end{aligned}
+            $$
+          </span>
+        </p>
+      </section>
+
+      <section id="section-1-6">
+        <h3>1. 6. Odzwierciedlenie w kodzie TypeScript</h3>
+        <pre><code class="language-typescript">
 type NodeConstructor&lt;T&gt; = new (node: number, X?: "XM" | "XW") =&gt; T;
 
 class Node {
@@ -278,8 +460,8 @@ class Node {
     const nodeMIN = 1 * Math.pow(2, height + 0) - 0;
     const nodeMIX = 3 * Math.pow(2, height + 0) - 1;
 
-    const nodeXM = X == "XM" ? node : /* X=="XW" */ nodeMIX - node;
-    const nodeXW = X == "XM" ? nodeMIX - node : /* X=="XW" */ node;
+    const nodeXM = X == "XM" ? node :  nodeMIX - node;
+    const nodeXW = X == "XM" ? nodeMIX - node :  node;
     const sortXM_LR = nodeXM - nodeMIN;
     const sortXW_RL = nodeXW - nodeMIN;
 
@@ -344,16 +526,16 @@ class Node {
   }
 }
   </code></pre>
-</section>
+      </section>
 
-    <section id="section-7">
-  <h2>7. PODSUMOWANIE NA GRAFIE</h2>
-  <pre class="mermaid">
+      <section id="section-1-7">
+        <h3>1.7. Podsumowanie na grafie.</h3>
+        <pre class="mermaid">
 ---
 config:
   layout: elk
   look: handDrawn
-  theme: dark
+  theme: neutral
 ---
 graph TD
   01["iLR = 1 <br /> iRL = 1  <br /> ih = 0 <br /> ihINC = 0 <br /> ihDEC = 0 <br /> MAX = 1 <br /> MIN = 1 <br /> MIX = 2"]
@@ -372,24 +554,26 @@ graph TD
   07 <--> 14["iLR = 14 <br /> iRL = 9 <br /> ih = 3 <br /> ihINC = 6 <br /> ihDEC = 1 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
   07 <--> 15["iLR = 15 <br /> iRL = 8 <br /> ih = 3 <br /> ihINC = 7 <br /> ihDEC = 0 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
 
-  style 01 fill:#602c3e,stroke:#AAA,stroke-width:1px
-  style 02 fill:#593704,stroke:#AAA,stroke-width:1px
-  style 03 fill:#593704,stroke:#AAA,stroke-width:1px
-  style 04 fill:#364613,stroke:#AAA,stroke-width:1px
-  style 05 fill:#364613,stroke:#AAA,stroke-width:1px
-  style 06 fill:#364613,stroke:#AAA,stroke-width:1px
-  style 07 fill:#364613,stroke:#AAA,stroke-width:1px
-  style 08 fill:#004a51,stroke:#AAA,stroke-width:1px
-  style 09 fill:#004a51,stroke:#AAA,stroke-width:1px
-  style 10 fill:#004a51,stroke:#AAA,stroke-width:1px
-  style 11 fill:#004a51,stroke:#AAA,stroke-width:1px
-  style 12 fill:#004a51,stroke:#AAA,stroke-width:1px
-  style 13 fill:#004a51,stroke:#AAA,stroke-width:1px
-  style 14 fill:#004a51,stroke:#AAA,stroke-width:1px
-  style 15 fill:#004a51,stroke:#AAA,stroke-width:1px
+  style 01 fill:#dd74a0,stroke:#333,stroke-width:1px
+  style 02 fill:#d18a23,stroke:#333,stroke-width:1px
+  style 03 fill:#d18a23,stroke:#333,stroke-width:1px
+  style 04 fill:#9ea329,stroke:#333,stroke-width:1px
+  style 05 fill:#9ea329,stroke:#333,stroke-width:1px
+  style 06 fill:#9ea329,stroke:#333,stroke-width:1px
+  style 07 fill:#9ea329,stroke:#333,stroke-width:1px
+  style 08 fill:#52b36c,stroke:#333,stroke-width:1px
+  style 09 fill:#52b36c,stroke:#333,stroke-width:1px
+  style 10 fill:#52b36c,stroke:#333,stroke-width:1px
+  style 11 fill:#52b36c,stroke:#333,stroke-width:1px
+  style 12 fill:#52b36c,stroke:#333,stroke-width:1px
+  style 13 fill:#52b36c,stroke:#333,stroke-width:1px
+  style 14 fill:#52b36c,stroke:#333,stroke-width:1px
+  style 15 fill:#52b36c,stroke:#333,stroke-width:1px
   </pre>
-</section>
-    
-</article>
+      </section>
+
+    </article>
+  </main>
 </body>
+
 </html>
