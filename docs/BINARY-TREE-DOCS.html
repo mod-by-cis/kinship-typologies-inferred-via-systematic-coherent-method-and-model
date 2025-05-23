@@ -575,4 +575,328 @@ graph TD
   01 <--> 02["iLR = 2 <br /> iRL = 3 <br /> ih = 1 <br /> ihINC = 0 <br /> ihDEC = 1 <br /> MAX = 3 <br /> MIN = 2 <br /> MIX = 5"]
   01 <--> 03["iLR = 3 <br /> iRL = 2 <br /> ih = 1 <br /> ihINC = 1 <br /> ihDEC = 0 <br /> MAX = 3 <br /> MIN = 2 <br /> MIX = 5"]
   02 <--> 04["iLR = 4 <br /> iRL = 7 <br /> ih = 2 <br /> ihINC = 0 <br /> ihDEC = 3 <br /> MAX = 7 <br /> MIN = 4 <br /> MIX = 11"]
-  02 <--> 05["iLR = 5 <br /> iRL = 6 <br /> ih = 2 <br /> ihIN
+  02 <--> 05["iLR = 5 <br /> iRL = 6 <br /> ih = 2 <br /> ihINC = 1 <br /> ihDEC = 2 <br /> MAX = 7 <br /> MIN = 4 <br /> MIX = 11"]
+  03 <--> 06["iLR = 6 <br /> iRL = 5 <br /> ih = 2 <br /> ihINC = 2 <br /> ihDEC = 1 <br /> MAX = 7 <br /> MIN = 4 <br /> MIX = 11"]
+  03 <--> 07["iLR = 7 <br /> iRL = 4 <br /> ih = 2 <br /> ihINC = 3 <br /> ihDEC = 0 <br /> MAX = 7 <br /> MIN = 4 <br /> MIX = 11"]
+  04 <--> 08["iLR = 8 <br /> iRL = 15 <br /> ih = 3 <br /> ihINC = 0 <br /> ihDEC = 7 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
+  04 <--> 09["iLR = 9 <br /> iRL = 14 <br /> ih = 3 <br /> ihINC = 1 <br /> ihDEC = 6 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
+  05 <--> 10["iLR = 10 <br /> iRL = 13 <br /> ih = 3 <br /> ihINC = 2 <br /> ihDEC = 5 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
+  05 <--> 11["iLR = 11 <br /> iRL = 12 <br /> ih = 3 <br /> ihINC = 3 <br /> ihDEC = 4 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
+  06 <--> 12["iLR = 12 <br /> iRL = 11 <br /> ih = 3 <br /> ihINC = 4 <br /> ihDEC = 3 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
+  06 <--> 13["iLR = 13 <br /> iRL = 10 <br /> ih = 3 <br /> ihINC = 5 <br /> ihDEC = 2 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
+  07 <--> 14["iLR = 14 <br /> iRL = 9 <br /> ih = 3 <br /> ihINC = 6 <br /> ihDEC = 1 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
+  07 <--> 15["iLR = 15 <br /> iRL = 8 <br /> ih = 3 <br /> ihINC = 7 <br /> ihDEC = 0 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
+
+  style 01 fill:#dd74a0,stroke:#333,stroke-width:1px
+  style 02 fill:#d18a23,stroke:#333,stroke-width:1px
+  style 03 fill:#d18a23,stroke:#333,stroke-width:1px
+  style 04 fill:#9ea329,stroke:#333,stroke-width:1px
+  style 05 fill:#9ea329,stroke:#333,stroke-width:1px
+  style 06 fill:#9ea329,stroke:#333,stroke-width:1px
+  style 07 fill:#9ea329,stroke:#333,stroke-width:1px
+  style 08 fill:#52b36c,stroke:#333,stroke-width:1px
+  style 09 fill:#52b36c,stroke:#333,stroke-width:1px
+  style 10 fill:#52b36c,stroke:#333,stroke-width:1px
+  style 11 fill:#52b36c,stroke:#333,stroke-width:1px
+  style 12 fill:#52b36c,stroke:#333,stroke-width:1px
+  style 13 fill:#52b36c,stroke:#333,stroke-width:1px
+  style 14 fill:#52b36c,stroke:#333,stroke-width:1px
+  style 15 fill:#52b36c,stroke:#333,stroke-width:1px
+  </pre>
+      </section>
+
+    </article><hr />
+    <article>
+      <h2>2. GRAF DRZEWA BINARNEGO (KONCEPCJA LINII)</h2>
+      <strong> LINIE SILNIE LEWE </strong>
+      <div class="mermaid">
+        ---
+        config:
+        layout: elk
+        theme: neutral
+        ---
+        graph TD
+        1["ROOT <br>iLR=1, iRL=1<br>jLL=2<br>jhLL=0<br>jSortLL=1<br>jhSortLL=0"]
+        1 <--> 2["NODE-L <br>iLR=2, iRL=3<br>jLL=2<br>jhLL=1<br>jSortLL=1<br>jhSortLL=0"]
+        1 <--> 3["NODE-R <br>iLR=3, iRL=2<br>jLL=4<br>jhLL=0<br>jSortLL=3<br>jhSortLL=1"]
+        2 <--> 4["NODE-L <br>iLR=4, iRL=7<br>jLL=2<br>jhLL=2<br>jSortLL=1<br>jhSortLL=0"]
+        2 <--> 5["NODE-R <br>iLR=5, iRL=6<br>jLL=6<br>jhLL=0<br>jSortLL=5<br>jhSortLL=2"]
+        3 <--> 6["NODE-L <br>iLR=6, iRL=5<br>jLL=4<br>jhLL=1<br>jSortLL=3<br>jhSortLL=1"]
+        3 <--> 7["NODE-R <br>iLR=7, iRL=4<br>jLL=8<br>jhLL=0<br>jSortLL=7<br>jhSortLL=2"]
+
+        style 1 fill:#dd74a0,stroke:#333,stroke-width:1px
+        style 2 fill:#d18a23,stroke:#333,stroke-width:1px
+        style 3 fill:#d18a23,stroke:#333,stroke-width:1px
+        style 4 fill:#9ea329,stroke:#333,stroke-width:1px
+        style 5 fill:#9ea329,stroke:#333,stroke-width:1px
+        style 6 fill:#9ea329,stroke:#333,stroke-width:1px
+        style 7 fill:#9ea329,stroke:#333,stroke-width:1px
+        </div>
+        
+        <strong> LINIE SILNIE PRAWE </strong>
+        
+      <div class="mermaid">
+        ---
+        config:
+        layout: elk
+        theme: neutral
+        ---
+        graph TD
+        1["ROOT <br>iLR=1, iRL=1<br>jRR=3<br>jhRR=0<br>jSortRR=1<br>jhSortRR=0"]
+        1 <--> 2["NODE-L <br>iLR=2, iRL=3<br>jRR=5<br>jhRR=0<br>jSortRR=3<br>jhSortRR=1"]
+        1 <--> 3["NODE-R <br>iLR=3, iRL=2<br>jRR=3<br>jhRR=1<br>jSortRR=1<br>jhSortRR=0"]
+        2 <--> 4["NODE-L <br>iLR=4, iRL=7<br>jRR=9<br>jhRR=0<br>jSortRR=7<br>jhSortRR=2"]
+        2 <--> 5["NODE-R <br>iLR=5, iRL=6<br>jRR=5<br>jhRR=1<br>jSortRR=3<br>jhSortRR=1"]
+        3 <--> 6["NODE-L <br>iLR=6, iRL=5<br>jRR=7<br>jhRR=0<br>jSortRR=5<br>jhSortRR=2"]
+        3 <--> 7["NODE-R <br>iLR=7, iRL=4<br>jRR=3<br>jhRR=2<br>jSortRR=1<br>jhSortRR=0"]
+
+        style 1 fill:#dd74a0,stroke:#333,stroke-width:1px
+        style 2 fill:#d18a23,stroke:#333,stroke-width:1px
+        style 3 fill:#d18a23,stroke:#333,stroke-width:1px
+        style 4 fill:#9ea329,stroke:#333,stroke-width:1px
+        style 5 fill:#9ea329,stroke:#333,stroke-width:1px
+        style 6 fill:#9ea329,stroke:#333,stroke-width:1px
+        style 7 fill:#9ea329,stroke:#333,stroke-width:1px
+        </div>
+        <p>
+          Kluczowym aspektem w procesie określania przynależności do danej linii genealogicznej jest zmienna <span
+            class="j">j</span>, która wyznacza numer linii, oraz zmienna <span class="jh">jh</span>, wskazująca na położenie w
+          pionowej strukturze pokrewieństwa, tj. wysokość poziomu w obrębie tej linii. Zmienne pomocnicze <span
+            class="jsort">jSort</span> oraz <span class="jhsort">jhSort</span> pełnią funkcję wspomagającą w porządkowaniu i
+          jednoznacznym wyznaczaniu tych relacji, lecz same nie stanowią podstawy klasyfikacyjnej.
+        </p>
+        
+        <section id="section-2-1">
+          <h2>2.1 Obliczenia (część 1)</h2>
+
+          <p><strong>WYJAŚNIENIE:</strong> <span style="background-color: white;padding: 0.3rem; border-radius: 0.5rem;">v2(x)</span> to 2-adyczna waluacja liczby całkowitej dodatniej x (liczba zer na końcu binarnej reprezentacji x>0).</p>
+
+          <p class="math-box">
+            <span class="math">
+              $$
+              \begin{aligned}
+              {\color{darkgoldenrod}{jhLL({\color{mediumblue}{i}})}} & =
+              \begin{cases}
+              {\color{firebrick}{ih({\color{mediumblue}{i}})}} 
+              & \quad \text{dla } {\color{mediumblue}{iLR}} = 0 \\
+              v_2({\color{mediumblue}{iLR}})
+              & \quad \text{dla } {\color{mediumblue}{iLR}} \neq 0 \\
+              \end{cases} 
+              \\\\
+              {\color{darkgoldenrod}{jhRR({\color{mediumblue}{i}})}} & =
+              \begin{cases} 
+              {\color{firebrick}{ih({\color{mediumblue}{i}})}} 
+              & \quad \text{dla } {\color{mediumblue}{iRL}} = 0 \\
+              v_2({\color{mediumblue}{iRL}})
+              & \quad \text{dla } {\color{mediumblue}{iRL}} \neq 0 \\
+              \end{cases}
+              \end{aligned}
+              $$
+            </span>
+            </p>
+        </section>
+
+        <section id="section-2-2">
+          <h2>2.2 Obliczenia (część 2)</h2>
+        
+          <p><strong>WYJAŚNIENIE:</strong> <span
+              style="background-color: white;padding: 0.3rem; border-radius: 0.5rem;">v2(x)</span> to 2-adyczna waluacja liczby
+            całkowitej dodatniej x (liczba zer na końcu binarnej reprezentacji x>0).</p>
+        
+          <p class="math-box">
+            <span class="math">
+              $$
+              \begin{aligned}
+              {\color{mediumpurple}{jSortLL({\color{mediumblue}{i}})}} & =
+              \dfrac{{\color{mediumblue}{iLR}}}{2^{v_2({\color{mediumblue}{iLR}})}} 
+              \\\\
+              {\color{royalblue}{jLL({\color{mediumblue}{i}})}} & =
+              {\color{mediumpurple}{jSortLL({\color{mediumblue}{i}})}} + 1
+              \\\\              
+              {\color{sienna}{jhSortLL({\color{mediumblue}{i}})}} & = 
+              \lfloor \log_2({\color{mediumpurple}{jSortLL({\color{mediumblue}{i}})}}) \rfloor
+              \\\\
+              {\color{mediumpurple}{jSortRR({\color{mediumblue}{i}})}} & =
+              \dfrac{{\color{mediumblue}{iRL}}}{2^{v_2({\color{mediumblue}{iRL}})}} 
+              \\\\
+              {\color{royalblue}{jRR({\color{mediumblue}{i}})}} & =
+              {\color{mediumpurple}{jSortRR({\color{mediumblue}{i}})}} + 2
+              \\\\              
+              {\color{sienna}{jhSortRR({\color{mediumblue}{i}})}} & = 
+              \lfloor \log_2({\color{mediumpurple}{jSortRR({\color{mediumblue}{i}})}}) \rfloor
+              \end{aligned}
+              $$
+            </span>
+          </p>
+        </section>
+        <section id="section-2-3">
+          <h3>2.3. Odzwierciedlenie w kodzie TypeScript</h3>
+          <pre><code class="language-typescript">
+class NodeLine extends Node {
+  jhSortLL: number;   //iM: number;    
+  jhLL   : number; //lvLM: number;   
+  jLL    : number;   //LM: number;    
+  jSortLL : number;  //LM_: number;      
+
+  jhSortRR: number;   //iW: number;    
+  jhRR   : number; //lvLW: number;   
+  jRR    : number;   //LW: number;    
+  jSortRR : number;  //LW_: number;   
+  
+  constructor(node: number, X: &quot;XM&quot; | &quot;XW&quot; = &quot;XM&quot;){
+    super(node, X);
+    function v2adic(x: number): number {
+      if (typeof x !== &quot;number&quot; || !Number.isInteger(x) || x &lt;= 0) {
+        throw new Error(&quot;Parametr x musi być dodatnią liczbą całkowitą.&quot;);
+      }
+
+      // x &amp; -x to 2^k, więc log2 tego da dokładnie k
+      return Math.log2(x &amp; -x);
+    }
+
+    function v2adic_precision(x: number): number {
+      if (typeof x !== &quot;number&quot; || !Number.isInteger(x) || x &lt;= 0) {
+        throw new Error(&quot;Parametr x musi być dodatnią liczbą całkowitą.&quot;);
+      }
+      let r = 0;
+      let t = true;
+      const e = Array.from(x.toString(2));
+      let l = e.length;
+      while (l &gt; 0 &amp;&amp; t) {
+        if (e[l - 1] == &quot;0&quot;) {
+          r++;
+        } else {
+          t = false;
+        }
+        l--;
+      }
+      return r;
+    }
+
+    this.jhLL = (this.iLR == 0 ? this.ih + 1 : v2adic(this.iLR) + 1) - 1;
+    this.jhRR = (this.iRL == 0 ? this.ih + 1 : v2adic(this.iRL) + 1) - 1;
+
+    this.jSortLL = this.iLR / Math.pow(2, v2adic(this.iLR));
+    this.jSortRR = this.iRL / Math.pow(2, v2adic(this.iRL));
+
+    this.jLL = this.jSortLL + 1;
+    this.jRR = this.jSortRR + 2;
+
+    this.jhSortLL = Math.floor(Math.log2(this.jSortLL));
+    this.jhSortRR = Math.floor(Math.log2(this.jSortRR));
+  }
+}
+                </code></pre>
+        </section>
+        
+      </article>
+      <hr />
+      <article>
+        <h2>3. ODNIESIENIE DO GENEALOGII WRAZ Z PODSUMOWANIEM PUNKTÓW 1 I 2</h2>
+        <strong>GRAF PRZODKÓW</strong>
+          
+        
+        <pre class="mermaid">
+---
+config:
+  layout: elk
+  theme: neutral
+---
+graph TD
+  01["Jan<br />CISOWSKI<br />i=1, ih=0<br />jL=2, jhL=0<br />jR=3, jhR=0<br />"]
+  01 <--> 02["Jerzy<br />CISOWSKI<br />i=2, ih=1<br />jL=2, jhL=1<br />jR=5, jhR=0<br />"]
+  01 <--> 03["Jadwiga<br />OCHOT<br />i=3, ih=1<br />jL=4, jhL=0<br />jR=3, jhR=1<br />"]
+  02 <--> 04["Władysław<br />CISOWSKI<br />i=4, ih=2<br />jL=2, jhL=2<br />jR=9, jhR=0<br />"]
+  02 <--> 05["Wiesława<br />TOKARSKA<br />i=5, ih=2<br />jL=6, jhL=0<br />jR=5, jhR=1<br />"]
+  03 <--> 06["Roman<br />OCHOT<br />i=6, ih=2<br />jLL=4, jhLL=1<br />jR=7, jhR=0<br />"]
+  03 <--> 07["Walburga<br />ALKERT<br />i=7, ih=2<br />jL=8, jhL=0<br />jR=3, jhR=2<br />"]
+  04 <--> 08["Jan<br />CISSOWSKI<br />i=8, ih=3<br />jL=2, jhL=3<br />jR=17, jhR=0<br />"]
+  04 <--> 09["Maria<br />NIEMIEC<br />i=9, ih=3<br />jL=10, jhL=0<br />jR=9, jhR=1<br />"]
+  05 <--> 10["Bolesław<br />TOKARSKI<br />i=10, ih=3<br />jL=6, jhL=1<br />jR=15, jhR=0<br />"]
+  05 <--> 11["Antonina<br />REPETOWICZ<br />i=11, ih=3<br />jL=12, jhL=0<br />jR=5, jhR=2<br />"]
+  06 <--> 12["Bartłomiej<br />OCHOD<br />i=12, ih=3<br />jL=4, jhL=2<br />jR=13, jhR=0<br />"]
+  06 <--> 13["Wiktoria<br />JOACHIMSKA<br />i=13, ih=3<br />jL=14, jhL=0<br />jR=7, jhR=1<br />"]
+  07 <--> 14["Karol<br />ALKERT<br />i=14, ih=3<br />jL=8, jhL=1<br />jR=11, jhR=0<br />"]
+  07 <--> 15["Julianna<br />PIETRAS<br />i=15, ih=3<br />jL=16, jhL=0<br />jR=3, jhR=3<br />"]
+
+  style 01 fill:#dd74a0,stroke:#333,stroke-width:1px
+  style 02 fill:#d18a23,stroke:#333,stroke-width:1px
+  style 03 fill:#d18a23,stroke:#333,stroke-width:1px
+  style 04 fill:#9ea329,stroke:#333,stroke-width:1px
+  style 05 fill:#9ea329,stroke:#333,stroke-width:1px
+  style 06 fill:#9ea329,stroke:#333,stroke-width:1px
+  style 07 fill:#9ea329,stroke:#333,stroke-width:1px
+  style 08 fill:#52b36c,stroke:#333,stroke-width:1px
+  style 09 fill:#52b36c,stroke:#333,stroke-width:1px
+  style 10 fill:#52b36c,stroke:#333,stroke-width:1px
+  style 11 fill:#52b36c,stroke:#333,stroke-width:1px
+  style 12 fill:#52b36c,stroke:#333,stroke-width:1px
+  style 13 fill:#52b36c,stroke:#333,stroke-width:1px
+  style 14 fill:#52b36c,stroke:#333,stroke-width:1px
+  style 15 fill:#52b36c,stroke:#333,stroke-width:1px
+  </pre>
+    
+    <p><strong>WYJAŚNIENIE DO GRAFU:</strong> 
+            <ul>
+              <li>
+                <span style="background-color: white;padding: 0.3rem; border-radius: 0.5rem;">iLR</span> 
+                <span> — zostało skrócone do — </span>
+                <span style="background-color: white;padding: 0.3rem; border-radius: 0.5rem;">i</span> 
+                .
+              </li>
+              <li>
+                <span style="background-color: white;padding: 0.3rem; border-radius: 0.5rem;">jLL</span> 
+                <span> — zostało skrócone do — </span>
+                <span style="background-color: white;padding: 0.3rem; border-radius: 0.5rem;">jL</span> 
+                .
+              </li>
+              <li>
+                <span style="background-color: white;padding: 0.3rem; border-radius: 0.5rem;">jhLL</span> 
+                <span> — zostało skrócone do — </span>
+                <span style="background-color: white;padding: 0.3rem; border-radius: 0.5rem;">jhL</span> 
+                .
+              </li>
+              <li>
+                <span style="background-color: white;padding: 0.3rem; border-radius: 0.5rem;">jRR</span> 
+                <span> — zostało skrócone do — </span>
+                <span style="background-color: white;padding: 0.3rem; border-radius: 0.5rem;">jR</span> 
+                .
+              </li>
+              <li>
+                <span style="background-color: white;padding: 0.3rem; border-radius: 0.5rem;">jhRR</span> 
+                <span> — zostało skrócone do — </span>
+                <span style="background-color: white;padding: 0.3rem; border-radius: 0.5rem;">jhR</span> 
+                .
+              </li>
+            </ul>
+          </p>
+    <section id="section-3-1">
+      <h3>3.1. Odniesienie do genealogii</h3>
+      <p>
+        Zwróć uwagę iż nasz identyfikator przodka <span class="i">i</span>, idealnie pokrywa się z 
+        <strong>systemem SOSA</strong> (o którym wiecej — w kolejnej sekcji). <br />
+        Prooband — osoba początkowa — oznaczony jest jako <span class="i">i=1</span> posostale osoby 
+        poza probantem, które są mężczyznami mają <span class="i">(i mod 2 = 0) i—PARZYSTE</span>, natomiast kobiety mają <span class="i">(i mod 2 = 1) i—NIEPARZYSTE</span>.<br />
+        Zauważ też że <span class="ih">ih</span> odpowiada numerowi pokolenia (proband 
+        <span class="ih">ih=0</span>; rodzice <span class="ih">ih=1</span>; dziadkowie 
+        <span class="ih">ih=2</span>; pradziadkowie <span class="ih">ih=3</span>)<br />
+        Ojciec każdej osoby ma <span class="i">(i = i • 2)</span>, a Matka ma <span class="i">(i = i • 2 + 1)</span>, natomiast dziecko ma <span class="i">(i = ⌊i / 2⌋ )</span>. 
+      </p>
+      <p>
+        Podobnie wyglada sytuacja w okreslaniu linii. Zwróciłem uwage iż <span class="ih">ih=0</span> u probanta. Podobnie w liniach, początkowa osoba w każdej linii ma 
+        <span class="jh">jh=0</span> jest to dość istotne i kluczowe! Czym są w ogole linie ? Linie <span class="j">jLL (jL)</span> odpowiadają przekazywaniu nazwiska 
+        od ojca, na syna i córkę. Lub w innym ujęciu, przekazywaniem od ojca na dziecko, DNA-autosomalnego. Natomiast <span class="j">jRR (jR)</span>
+        Odpowiadają przekazywaniem od matki na dziecko, rownież DNA-autosomalnego. <br />
+        <strong>Jaki więc problem — dlaczego <span class="jh">jh=0</span> jest istotne?</strong><br />
+        Ponieważ co równie kluczowe, linie te odzwierciedlają dziedziczenie haplogrupy y-chromosomalnej (z ojca na syna), oraz haplogrupy mitochondrialnej (z matki na syna i córkę). 
+        I dlatego osoba bedąca kobietą z poczatkiem linii męskiej nie posiadała by tego y-chromosomu. Dlatego właśnie <span class="jh">jh=0</span> jest istotne. <br />
+        Każde <span class="jh">jh</span> określa ilość pokoleń od poczatku linii.
+      </p>
+      <p><strong>I co najwazniejsze wszytkie te dodatkowe numery kryją się wewnątrz <span class="i">i</span> nie ma potrzeby ich jawnie zapisywać, stosując powyższe wzory, można je dynamicznie wprowadzać.</strong></p>
+      
+    </section> 
+     </article>
+  </main>
+</body>
+
+</html>
