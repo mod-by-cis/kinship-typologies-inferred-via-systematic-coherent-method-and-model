@@ -24,9 +24,37 @@
       --math-j-sort: mediumpurple;
       --math-jh-sort: sienna;
       --math-to-fam: lightseagreen;
+      --header-size: 20px;
+      --footer-size: 15px;
+    }
+    header,footer {
+      position: fixed;    /* przykleja do widoku */
+      left: 0;
+      width: 100%;        /* pełna szerokość okna */
+      background: #333;   /* tło – możesz zmienić kolor */
+      color: #fff;        /* kolor tekstu */
+      text-align: left;  /* wyrównanie tekstu w prawo */
+      padding: 0 1rem;    /* odstępy od krawędzi */
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      z-index: 1000;      /* wyżej niż pozostałe elementy */
+    }
+    
+    header {
+      top: 0;
+      height: var(--header-size);       /* wysokość paska – możesz dostosować */
+      line-height: var(--header-size);  /* wyrównanie tekstu w pionie */
+    }
+    
+    footer {
+      bottom: 0;
+      height: var(--footer-size);       /* wysokość paska – możesz dostosować */
+      line-height: var(--footer-size);  /* wyrównanie tekstu w pionie */
     }
 
     body {
+      margin: 0;
+      padding-top: var(--header-size);  /* równe wysokości headera */
+      padding-bottom: var(--footer-size);  /* równe wysokości headera */
       background-color: var(--bg);
       color: var(--text);
       font-family: system-ui, sans-serif;
@@ -158,6 +186,7 @@
 </head>
 
 <body>
+  <header>ostatnia zmiana: 2025-04-24 14:15 CET</header>
   <main>
     <h1>Matematyka w Genealogi</h1>
     <p><strong>Systematyczny i spójny model oraz metoda wnioskowania typologii pokrewieństwa.</strong></p>
@@ -870,33 +899,125 @@ graph TD
               </li>
             </ul>
           </p>
-    <section id="section-3-1">
-      <h3>3.1. Odniesienie do genealogii</h3>
-      <p>
-        Zwróć uwagę iż nasz identyfikator przodka <span class="i">i</span>, idealnie pokrywa się z 
-        <strong>systemem SOSA</strong> (o którym wiecej — w kolejnej sekcji). <br />
-        Prooband — osoba początkowa — oznaczony jest jako <span class="i">i=1</span> posostale osoby 
-        poza probantem, które są mężczyznami mają <span class="i">(i mod 2 = 0) i—PARZYSTE</span>, natomiast kobiety mają <span class="i">(i mod 2 = 1) i—NIEPARZYSTE</span>.<br />
-        Zauważ też że <span class="ih">ih</span> odpowiada numerowi pokolenia (proband 
-        <span class="ih">ih=0</span>; rodzice <span class="ih">ih=1</span>; dziadkowie 
-        <span class="ih">ih=2</span>; pradziadkowie <span class="ih">ih=3</span>)<br />
-        Ojciec każdej osoby ma <span class="i">(i = i • 2)</span>, a Matka ma <span class="i">(i = i • 2 + 1)</span>, natomiast dziecko ma <span class="i">(i = ⌊i / 2⌋ )</span>. 
-      </p>
-      <p>
-        Podobnie wyglada sytuacja w okreslaniu linii. Zwróciłem uwage iż <span class="ih">ih=0</span> u probanta. Podobnie w liniach, początkowa osoba w każdej linii ma 
-        <span class="jh">jh=0</span> jest to dość istotne i kluczowe! Czym są w ogole linie ? Linie <span class="j">jLL (jL)</span> odpowiadają przekazywaniu nazwiska 
-        od ojca, na syna i córkę. Lub w innym ujęciu, przekazywaniem od ojca na dziecko, DNA-autosomalnego. Natomiast <span class="j">jRR (jR)</span>
-        Odpowiadają przekazywaniem od matki na dziecko, rownież DNA-autosomalnego. <br />
-        <strong>Jaki więc problem — dlaczego <span class="jh">jh=0</span> jest istotne?</strong><br />
-        Ponieważ co równie kluczowe, linie te odzwierciedlają dziedziczenie haplogrupy y-chromosomalnej (z ojca na syna), oraz haplogrupy mitochondrialnej (z matki na syna i córkę). 
-        I dlatego osoba bedąca kobietą z poczatkiem linii męskiej nie posiadała by tego y-chromosomu. Dlatego właśnie <span class="jh">jh=0</span> jest istotne. <br />
-        Każde <span class="jh">jh</span> określa ilość pokoleń od poczatku linii.
-      </p>
-      <p><strong>I co najwazniejsze wszytkie te dodatkowe numery kryją się wewnątrz <span class="i">i</span> nie ma potrzeby ich jawnie zapisywać, stosując powyższe wzory, można je dynamicznie wprowadzać.</strong></p>
+          <br />
+
+      <section id="section-3-1">
+        <h3>3.1. Odniesienie do genealogii</h3>
+        <p>
+          Zastosowany identyfikator osoby <span class="i">i</span> wykazuje pełną zgodność z konwencją przyjętą w
+          <strong>systemie SOSA</strong> (szczegóły zostaną przedstawione w kolejnej sekcji). <br />
+          Osoba wyjściowa — tzw. probant — otrzymuje identyfikator <span class="i">i = 1</span>. Dalsze osoby w drzewie
+          genealogicznym przyporządkowywane są w sposób systematyczny: mężczyznom odpowiadają wartości parzyste (<span
+            class="i">i mod 2 = 0</span>), natomiast kobietom — nieparzyste (<span class="i">i mod 2 = 1</span>).<br />
+          Parametr <span class="ih">ih</span> określa odległość pokoleniową względem probanta: <span class="ih">ih = 0</span>
+          dla probanta, <span class="ih">ih = 1</span> dla jego rodziców, <span class="ih">ih = 2</span> dla dziadków
+          itd.<br />
+          Reguły przydzielania identyfikatorów są deterministyczne: ojciec osoby <span class="i">i</span> otrzymuje
+          identyfikator <span class="i">2 × i</span>, matka — <span class="i">2 × i + 1</span>, zaś dziecko — <span
+            class="i">⌊i / 2⌋</span>.
+        </p>
       
-    </section> 
-     </article>
+        <p>
+          Analogiczne zasady obowiązują przy konstruowaniu tzw. linii genealogicznych. W tym kontekście <span class="jh">jh =
+            0</span> przypisuje się osobie będącej probantem danej linii, tj. najbliższemu znanemu przodkowi, od którego dana
+          linia jest śledzona. <br />
+          Linie <span class="j">jLL (jL)</span> obrazują przekaz dziedziczny od ojca do dzieci (zarówno synów, jak i córek),
+          co można interpretować jako transmisję nazwiska rodowego bądź autosomalnego DNA o rodowodzie
+          patrylinearno-pokrewieńczym. Natomiast linie <span class="j">jRR (jR)</span> opisują przekaz od matki do dzieci,
+          także w zakresie DNA autosomalnego.<br />
+          <strong>Dlaczego parametr <span class="jh">jh = 0</span> jest tak znaczący?</strong><br />
+          Ponieważ linie te, oprócz aspektów genealogicznych, mają również odniesienie do biologii molekularnej: linie
+          ojcowskie odwzorowują dziedziczenie haplogrupy chromosomu Y (przekazywanego wyłącznie z ojca na syna), a linie
+          matczyne — dziedziczenie mitochondrialnego DNA (przekazywanego przez matkę wszystkim dzieciom). Z tego względu
+          kobieta nie może zapoczątkować linii Y-DNA, co czyni poprawne określenie punktu początkowego (<span class="jh">jh =
+            0</span>) niezbędnym dla zachowania spójności reprezentacji dziedziczenia.<br />
+          Każda wartość <span class="jh">jh</span> oznacza zatem liczbę pokoleń, które dzielą daną osobę od probanta danej
+          linii — nie zaś od protoplasty linii jako takiej.
+        </p>
+      
+        <p><strong>Co najistotniejsze, wszystkie wspomniane informacje — zarówno <span class="ih">ih</span>, jak i <span
+              class="jh">jh</span> — są zawarte implicytnie w strukturze identyfikatora <span class="i">i</span>. Przy
+            zastosowaniu odpowiednich wzorów możliwe jest ich dynamiczne wyprowadzenie, bez konieczności jawnego
+            zapisu.</strong></p>
+      </section>
+      
+      
+      <section id="section-3-2">
+        <h3>3.2. Zarys historyczny metody numeracji przodków Aitzing-Sosa-Galton-Kekulé von Stradonitz, znanej jako Ahnentafel 
+          a także SOSA</h3>
+          <p>Rozpowszechnienie i ugruntowanie omawianego systemu genealogicznego jest rezultatem działalności czterech kluczowych
+            postaci historycznych, których wkład rozciągał się na przestrzeni kilku stuleci:</p>
+          
+          <p><strong>-&gt; 1590 &lt;-</strong> Prekursorem systemu był <strong>Michael Freiherr von Aitzing (Eytzing)</strong>
+            (ur. ok. 1530 r. na zamku Schrattenthal [48°42'52"N 15°54'21"E], zm. w 1598 r. w Bonn [50°44'N 7°06'E]). Ten
+            dolnoaustriacki arystokrata, wyznania katolickiego, był erudytą, pisarzem oraz pionierem w dziedzinach genealogii i
+            wczesnego dziennikarstwa. Około 1550 roku podjął studia prawnicze na Uniwersytecie w Leuven (Belgia), gdzie rozwijał
+            również zainteresowania w zakresie kartografii, matematyki, historii i filologii [ISBN 978-3-902684-35-6, s. 50]. Już
+            w 1553 roku opublikował swoje pierwsze dzieło, podręcznik retoryki pt. <em>Artis oratiae tabulae</em>. Aitzing odbywał
+            liczne podróże i cechował się biegłą znajomością wielu języków starożytnych i nowożytnych, takich jak greka, łacina,
+            hebrajski, hiszpański, włoski i flamandzki [ISBN 3-7616-0858-6, s. 481]. Po ukończeniu studiów powrócił do Wiednia,
+            gdzie cesarz Ferdynand I mianował go "nadwornym sługą"; służył również jego następcom, Maksymilianowi II i Rudolfowi
+            II, jako radca i szambelan do 1576 roku. W 1563 roku Aitzing, będący małżonkiem przedstawicielki rodu Fuggerów
+            (wpływowej szwabskiej rodziny tkacko-kupieckiej z Augsburga), uczestniczył w Soborze Trydenckim w imieniu cesarza, a w
+            1566 roku wziął udział w sejmie augsburskim. W 1568 roku był naocznym świadkiem egzekucji Lamorala, hrabiego Egmont, w
+            Brukseli, gdzie, jak się przypuszcza, przebywał w charakterze "tajnego obserwatora" dworu austriackiego ["Allgemeine
+            Deutsche Biographie", Band 5, Duncker & Humblot, Leipzig 1877, s. 777]. Następnie sam został tamże uwięziony,
+            prawdopodobnie z przyczyn politycznych. Po uwolnieniu, w 1581 roku osiadł w Kolonii, gdzie kontynuował działalność
+            pisarską. Aitzing opracował kartograficzny wizerunek Ziemi Świętej, który został wyryty w miedzi przez Fransa
+            Hogenberga w 1582 roku. Rozgłos przyniosło mu łacińskojęzyczne dzieło <em>Leo Belgicus</em>, opublikowane po raz
+            pierwszy w 1583 roku. Kluczowym dla genealogii okazało się jednak wydanie w Kolonii w 1590 roku pracy <em>Thesaurus
+              principum hac aetate in Europa viventium, quo progenitores eorum tam paterni quam materni simul ac fratres et
+              sorores inde ab origine reconduntur, usque ad annum a Christo nato</em>. W publikacji tej po raz pierwszy
+            zastosowano drukowaną numerację przodków według systemu, który w późniejszym okresie zyskał miano metody
+            Sosa-Stradonitza. Mimo sukcesów publicystycznych, Aitzing doświadczał w Kolonii znacznych trudności materialnych.
+            Ostatecznie przyjął zaproszenie elektora i arcybiskupa Bawarii, Ernsta, udając się do Bonn, gdzie zmarł w 1598 roku
+            jako jego historiograf.</p>
+          
+          <p><strong>-&gt; 1676 &lt;-</strong> Kolejną znaczącą postacią był <strong>Jerónimo de Sosa</strong> (ur. w XVII w., zm.
+            w 1711 r.). Ten hiszpański franciszkanin, profesor teologii w królewskim klasztorze Santa Maria la Nova w Neapolu, był
+            również cenionym genealogiem. W swoim opublikowanym w 1676 roku dziele genealogicznym <em>Noticia de la Gran Casa de
+              los marqueses de Villafranca</em>, de Sosa świadomie zastosował i spopularyzował metodę numeracji przodków, którą
+            prawie sto lat wcześniej zainicjował Michael Freiherr von Aitzing.</p>
+          
+          <p><strong>-&gt; 1883 &lt;-</strong> Wkład w rozwój myśli genealogicznej, choć w szerszym kontekście swoich badań,
+            wniósł <strong>Sir Francis Galton</strong> (ur. w 1822 r. w Sparbrook, Birmingham, zm. w 1911 r. w Haslemere, Surrey).
+            Ten brytyjski polihistor, pionier eugeniki (twórca samego terminu), antropolog, geograf, eksplorator, wynalazca,
+            meteorolog, statystyk, psycholog i genealog, był przyrodnim kuzynem Karola Darwina. Dorobek pisarski Galtona obejmuje
+            ponad 340 artykułów i książek. Wprowadził on fundamentalne dla statystyki koncepcje korelacji i regresji do średniej.
+            Jako pierwszy zastosował metody statystyczne do badania różnic indywidualnych oraz dziedziczenia inteligencji, a także
+            wprowadził kwestionariusze i ankiety do gromadzenia danych o społecznościach ludzkich, które były mu niezbędne do prac
+            genealogicznych, biograficznych oraz badań antropometrycznych. Był pionierem eugeniki, formułując ten termin i jego
+            założenia. Jego książka <em>Hereditary Genius</em> (1869) stanowiła pierwszą próbę naukowego, opartego na metodach
+            nauk społecznych, zbadania dziedziczności geniuszu. Jako badacz umysłu ludzkiego stworzył podwaliny psychometrii
+            (nauki o pomiarze zdolności umysłowych), psychologii różnic indywidualnych oraz leksykalnej hipotezy osobowości.
+            Opracował metodę klasyfikacji odcisków palców, która okazała się niezwykle użyteczna w kryminalistyce. Będąc
+            inicjatorem meteorologii naukowej, opracował pierwszą mapę pogody, zaproponował teorię antycyklonów i jako pierwszy
+            ustanowił kompletny zapis krótkoterminowych zjawisk klimatycznych w skali europejskiej. Nie piastował stałej profesury
+            uniwersyteckiej, a większość badań prowadził samodzielnie. Jego liczne zasługi zostały formalnie uznane, gdy w wieku
+            87 lat otrzymał tytuł szlachecki (Sir). Galton ukuł termin "eugenika" (rozumiana jako sztuczna selekcja mająca na celu
+            doskonalenie rasy ludzkiej) w 1883 roku, a wiele ze swoich obserwacji i wniosków, w tym o charakterze genealogicznym,
+            zawarł w książce <em>Inquiries into Human Faculty and Its Development</em>. Jego prace, promujące systematyczne
+            podejście do badania dziedziczności, pośrednio przyczyniły się do zainteresowania metodami organizacji danych
+            genealogicznych.</p>
+          
+          <p><strong>-&gt; 1898 &lt;-</strong> Ostateczne skodyfikowanie i szerokie spopularyzowanie systemu przypisuje się
+            <strong>Stephanowi Kekulé von Stradonitz</strong> (ur. w 1863 r. w Gandawie, zm. w 1933 r. w Berlinie). Ten niemiecki
+            prawnik, prywatny uczony, heraldyk i genealog, pochodził z czeskiej rodziny szlacheckiej; w 1895 roku został
+            nobilitowany w Niemczech przez cesarza Wilhelma II (przydomek "von Stradonitz" nawiązuje do Stradonic koło Kłodna,
+            miejsca pochodzenia jego patrylinearnych przodków). W 1898 roku Kekulé von Stradonitz opublikował swoją interpretację
+            metody Aitzinga (Eytzingera), Sosy i, być może niezależnie, koncepcji zbliżonych do Galtona, w monumentalnym dziele
+            <em>Ahnentafel-Atlas. Ahnentafeln zu 32 Ahnen der Regenten Europas und ihrer Gemahlinnen</em> (Berlin: J. A.
+            Stargardt, 1898–1904). Publikacja ta, zawierająca 79 tablic genealogicznych władców Europy i ich małżonek, w
+            decydujący sposób przyczyniła się do ugruntowania omawianej metody jako najpowszechniej stosowanej w naukach
+            genealogicznych. Od tego czasu system ten jest szeroko znany jako metoda Sosa-Stradonitza lub, z języka niemieckiego,
+            Ahnentafel.</p>
+      </section>
+      <section id="section-3-3">
+        <h3>3.3. Ograniczenia tej metody</h3>
+      </section>
+    </article>
   </main>
+  <footer>ARTYKUŁ W FAZIE PRZYGOTOWAWCZEJ</footer>
 </body>
 
 </html>
