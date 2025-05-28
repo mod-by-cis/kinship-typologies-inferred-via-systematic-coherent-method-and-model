@@ -205,6 +205,66 @@ a.nav-map >span{
 
 
 
+#bodyMainly .card {
+  padding: 0;
+  overflow-x: hidden;
+  display: flex;
+  flex-flow: column nowrap;
+  border-top-right-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+  border-bottom-left-radius: 1.5rem;
+}
+
+section.card > div:nth-child(1) {
+  height: 40px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+section.card > div:nth-child(1) > span.card-code,
+section.card > div:nth-child(1) > span.card-name {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  padding-left: 8px;
+  padding-right: 0.5rem;
+}
+
+section.card > div:nth-child(1) > span.card-code {
+  padding-top: 1px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  border-top-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+
+section.card > div:nth-child(1) > span.card-name {
+  padding-top: 8px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-bottom-style: double;
+  border-bottom-width: 4px;
+}
+article.card-main {
+  margin-left: 0.7rem;
+  margin-right: 0.7rem;
+  margin-bottom: 0.7rem;
+  margin-top: 0.2rem;
+}
+article.card-main > p {
+  line-height: 1.45rem;
+  text-indent: 2rem;
+  text-align: justify;
+  text-align-last: left;
+}
+
+
+
+
+
 
 #bodyGround {
   background-color: var(--color-zero-ground);
