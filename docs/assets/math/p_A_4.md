@@ -1,4 +1,6 @@
-# p A.4            $$
+# p A.4            
+
+$$
             \begin{aligned}
             {\color{firebrick}{ih({\color{mediumblue}{i}})}}
             = & \lfloor \log_2({\color{mediumblue}{i}}) \rfloor
@@ -21,4 +23,4 @@
             & \quad = 3 \cdot 2^{\color{firebrick}{ih}} - 1
             \quad & \forall \, {\color{firebrick}{ih}} \in \mathbb{N}_{0}
             \end{aligned}
-            $$
+$$
