@@ -49,7 +49,9 @@
   --math-to-fam: lightseagreen;
 }
 
-
+span.math{
+overflow-x: auto;
+}
 .card-full {
   flex: 1 1 100%;
 }
