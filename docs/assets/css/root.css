@@ -49,8 +49,11 @@
   --math-to-fam: lightseagreen;
 }
 
-span.math{
-overflow-x: auto;
+.math-box{
+  width: 100%;
+}
+.math-box > .math{
+  overflow-x: auto;
 }
 .card-full {
   flex: 1 1 100%;
