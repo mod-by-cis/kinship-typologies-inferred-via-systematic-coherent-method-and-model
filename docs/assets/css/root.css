@@ -49,6 +49,27 @@
   --math-to-fam: lightseagreen;
 }
 
+
+.card-full {
+  flex: 1 1 100%;
+}
+.card-720 {
+  flex: 1 1 720px;
+}
+.card-600 {
+  flex: 1 1 600px;
+}
+.card-400 {
+  flex: 1 1 400px;
+}
+.card-300 {
+  flex: 1 1 400px;
+}
+.card-200 {
+  flex: 1 1 400px;
+}
+
+
 .body-ground-with-drawer-hide {
   grid-template-columns: var(--size-stripe-menu) 1fr;
   grid-template-areas:
