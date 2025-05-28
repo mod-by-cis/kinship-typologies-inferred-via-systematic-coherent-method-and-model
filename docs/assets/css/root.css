@@ -385,3 +385,27 @@ a.nav-map >span{
 a.nav-map>span {
   color: white !important;
 }
+
+
+
+
+#bodyMainly section {
+  background-color: color-mix(
+    in oklch,
+    var(--color-oklch-White) 80%,
+    transparent
+  );
+}
+
+section.card > div:nth-child(1) > span.card-code {
+  background-color: var(--color-zero-ground);
+  color: color-mix(
+    in oklch,
+    var(--color-oklch-White) 80%,
+    transparent
+  );
+}
+section.card > div:nth-child(1) > span.card-name {
+  color: var(--color-zero-ground);
+  border-bottom-color: var(--color-zero-ground);
+}
