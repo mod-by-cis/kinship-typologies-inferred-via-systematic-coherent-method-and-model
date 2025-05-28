@@ -1007,6 +1007,41 @@
     renderMermaidFromFile("mermaID04", "./assets/model/mermaid-tree-bin-line-right.mmd");
     renderMermaidFromFile("mermaID05", "./assets/model/mermaid-tree-bin-family.mmd");
   </script>
+
+
+
+<script type="module">
+  import { loadAndHighlightCode } from './assets/js/code-injector.js';
+
+  // Wywołaj dla każdego bloku kodu, który chcesz załadować
+  // Pamiętaj o poprawnych ścieżkach względnych do plików .ts na GitHub Pages
+
+
+  loadAndHighlightCode(
+     'ts-code-bin-tree-node', 
+     './assets/ts/node.ts', 
+     'typescript'
+  );
+
+  loadAndHighlightCode(
+     'ts-code-bin-tree-line', 
+     './assets/ts/line.ts', 
+     'typescript'
+  );
+
+/*
+  loadAndHighlightCode('ts-example-2', './assets/ts/innyWaznyModul.ts'); // Domyślnie typescript
+  loadAndHighlightCode('js-example-1', './assets/js/jakisStarySkrypt.js', 'javascript'); // Dla pliku JS
+*/
+  // Możesz też wywołać dla plików .mermaid.mmd używając 'mermaid' jako języka
+  // jeśli masz odpowiedni styl w Prism lub po prostu chcesz wyświetlić kod Mermaid
+  // loadAndHighlightCode('mermaid-code-display', './assets/model/mermaid-tree-bin.mmd', 'mermaid');
+</script>
+
+
+
+
+
 </body>
 
 </html>
