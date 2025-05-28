@@ -66,7 +66,142 @@
 
 
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+#bodyGround,
+#bodyMainly,
+#headStripe,
+#menuStripe,
+#menuDrawer,
+#footStripe,
+#footDrawer {
+  box-sizing: border-box;
+}
+
+#bodyMainly {
+  overflow-y: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  gap: 1rem;
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+}
+
+#bodyGround {
+  display: grid;
+  grid-template-rows: var(--size-stripe-head) 1fr var(--size-stripe-foot);
+}
+
+#menuStripe,
+#headStripe,
+#footStripe {
+  display: flex;
+  align-items: center;
+}
+
+#menuStripe {
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: var(--layout-padding-stripeMenu);
+  gap: var(--layout-flexGap-stripeMenu);
+  z-index: var(--layer-stripe-menu);
+}
+
+#headStripe,
+#footStripe {
+  padding: var(--layout-padding-stripeHeFo);
+  justify-content: space-between;
+}
+
+#menuDrawer,
+#footDrawer {
+  bottom: 0;
+  transition: transform 0.3s ease;
+  position: fixed;
+  left: var(--size-stripe-menu);
+  display: flex;
+}
+
+.container {
+  flex: 1;
+}
+
+#menuDrawer {
+  transform: translateX(-150%);
+  top: 0;
+  width: var(--size-drawer-menu);
+  z-index: var(--layer-drawer-menu);
+  padding: var(--layout-padding-drawer);
+  overflow-y: auto;
+}
+
+#footDrawer {
+  transform: translateY(150%);
+  right: 0;
+  height: var(--size-drawer-foot);
+  z-index: var(--layer-drawer-foot);
+  padding: var(--layout-padding-drawer);
+  overflow-y: auto;
+}
+
+#menuStripe .button-field {
+  border-radius: var(--button-field-border-radius);
+  padding: var(--button-field-padding);
+  height: var(--button-field-height);
+  width: 100%;
+  display: inline-flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+  gap: var(--button-field-flexGap);
+}
+
+#menuStripe .button-field > button {
+  flex: 1;
+  height: 100%;
+}
+
+#footDrawerToggleShow {
+  border-radius: 0.45rem;
+  padding: 0.25rem;
+}
+
+.deactivated-backdrop {
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(4px);
+  z-index: var(--layer-deactivated);
+  display: none;
+}
+
+.deactivated-backdrop.active {
+  display: block;
+}
+
+.nav-map{
+  text-decoration: none; 
+  user-select: none; 
+  cursor: pointer; 
+}
+.nav-map:hover {
+  text-decoration: underline;
+}
+a.nav-map >span{
+  padding: 3px;
+}
 
 
 
