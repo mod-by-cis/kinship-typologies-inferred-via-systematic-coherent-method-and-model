@@ -1,4 +1,4 @@
-            $$
+# p A.4            $$
             \begin{aligned}
             {\color{firebrick}{ih({\color{mediumblue}{i}})}}
             = & \lfloor \log_2({\color{mediumblue}{i}}) \rfloor
