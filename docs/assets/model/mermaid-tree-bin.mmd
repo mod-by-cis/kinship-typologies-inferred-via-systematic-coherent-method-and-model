@@ -1,0 +1,21 @@
+---
+config:
+layout: elk
+theme: neutral
+---
+graph TD
+1["ROOT <br> 1 →│← 1"]
+1 <--> 2["NODE-L <br> 2 →│← 3"]
+1 <--> 3["NODE-R <br> 3 →│← 2"]
+2 <--> 4["NODE-L <br> 4 →│← 7"]
+2 <--> 5["NODE-R <br> 5 →│← 6"]
+3 <--> 6["NODE-L <br> 6 →│← 5"]
+3 <--> 7["NODE-R <br> 7 →│← 4"]
+
+style 1 fill:#dd74a0,stroke:#333,stroke-width:1px
+style 2 fill:#d18a23,stroke:#333,stroke-width:1px
+style 3 fill:#d18a23,stroke:#333,stroke-width:1px
+style 4 fill:#9ea329,stroke:#333,stroke-width:1px
+style 5 fill:#9ea329,stroke:#333,stroke-width:1px
+style 6 fill:#9ea329,stroke:#333,stroke-width:1px
+style 7 fill:#9ea329,stroke:#333,stroke-width:1px

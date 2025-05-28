@@ -1,2733 +1,949 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 
 <head>
-  <title>Sample page</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/cssB.css">
-  <script type="module" src="js/btnB.js"></script>
+  <title>Matematyka w Genealogi</title>
+  <link rel="stylesheet" href="/assets/css/root-layout.css">
+  <link rel="stylesheet" href="/assets/css/root-color.css">
+  <link rel="stylesheet" href="/assets/css/page-layout.css">
+  <link rel="stylesheet" href="/assets/css/page-color.css">
+  <link rel="stylesheet" href="/assets/css/card-types.css">
+  <link rel="stylesheet" href="/assets/css/math-color.css">
+  <!-- MathJax 3 -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\', '\']],
+        displayMath: [['$$', '$$'], ['\', '\']],
+        colorIsTextColor: true
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/themes/prism-coy.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-typescript.min.js"></script>
 </head>
 
-<body>
-  <div id="boxContainer">
-    <div id="boxHead">
-      <div><a
-          href="https://mod-by-cis.github.io/kinship-typologies-inferred-via-systematic-coherent-method-and-model/">Demo</a>
-      </div>
-      <div><a
-          href="#">readme
-          1-a</a></div>
-      <div><a
-          href="#">readme
-          1-b</a></div>
+<body id="bodyGround" class="body-ground-with-drawer-hide">
+  
+  <nav id="menuStripe" style="grid-area: stripe-menu;">
+    <span class="button-field">
+      <button id="menuDrawerToggleShow" class="drawer-toggle">☰</button>
+      <button id="menuDrawerToggleKeep">┇</button>
+    </span>
+  </nav>
 
+  <aside id="menuDrawer" style="grid-area: drawer-menu;" class="drawer drawer-nav">
+    <p>Menu nawigacji</p>
+  </aside>
+
+  <header id="headStripe" style="grid-area: stripe-head;">
+    <div><strong>Matematyka w Genealogi</strong><br /><small>Systematyczny i spójny model oraz metoda wnioskowania
+        typologii pokrewieństwa.</small></div>
+    <div>🌳</div>
+  </header>
+
+  <footer id="footStripe" style="grid-area: stripe-foot;">
+    <div class="container">
+    <div>Stopka</div>
     </div>
-    <div id="boxMain">
+    <button class="drawer-toggle" id="footDrawerToggleShow">▲</button>
+  </footer>
 
-      <table border=0 cellpadding=0 cellspacing=0 style="border-collapse: collapse;">
-        <tr class="gen-tier-idn gr-title" data-target="2">
-          <th class="name-rows" colspan="51">Gene.Tier.</td>
-        </tr>
-        <tr class="gen-tier-idn base-bin gr-child">
-          <th class="name-row">Gene.Tier.Dec</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">4</td>
-          <th class="name-row">Gene.Tier.Dec</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">5</td>
-          <th class="name-row">Gene.Tier.Dec</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">5</td>
-          <th class="name-row">Gene.Tier.Dec</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">6</td>
-          <td class="cell-row">6</td>
-          <td class="cell-row">12</td>
-          <td class="cell-row">12</td>
-          <td class="cell-row">12</td>
-          <th class="name-row">Gene.Tier.Dec</td>
-          <td class="cell-row">13</td>
-          <td class="cell-row">13</td>
-          <td class="cell-row">13</td>
-          <td class="cell-row">13</td>
-          <td class="cell-row">13</td>
-          <td class="cell-row">13</td>
-          <td class="cell-row">13</td>
-          <td class="cell-row">14</td>
-          <td class="cell-row">14</td>
-          <th class="name-row">Gene.Tier.Dec</td>
-        </tr>
-        <tr class="gen-tier-idn base-dec gr-child">
-          <th class="name-row">Gene.Tier.Bin</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">100</td>
-          <th class="name-row">Gene.Tier.Bin</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">101</td>
-          <th class="name-row">Gene.Tier.Bin</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">101</td>
-          <th class="name-row">Gene.Tier.Bin</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">110</td>
-          <td class="cell-row">110</td>
-          <td class="cell-row">1100</td>
-          <td class="cell-row">1100</td>
-          <td class="cell-row">1100</td>
-          <th class="name-row">Gene.Tier.Bin</td>
-          <td class="cell-row">1101</td>
-          <td class="cell-row">1101</td>
-          <td class="cell-row">1101</td>
-          <td class="cell-row">1101</td>
-          <td class="cell-row">1101</td>
-          <td class="cell-row">1101</td>
-          <td class="cell-row">1101</td>
-          <td class="cell-row">1110</td>
-          <td class="cell-row">1110</td>
-          <th class="name-row">Gene.Tier.Bin</td>
-        </tr>
-
-
-        <tr class="span-sosa-at-tier gr-title" data-target="4">
-          <th class="name-rows" colspan="51">Gene.Sosa.</td>
-        </tr>
-        <tr class="span-sosa-at-tier base-bin gr-child">
-          <th class="name-row">Gene.Sosa.Min.Dec</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">8</td>
-          <td class="cell-row">8</td>
-          <th class="name-row">Gene.Sosa.Min.Dec</td>
-          <td class="cell-row">8</td>
-          <td class="cell-row">8</td>
-          <td class="cell-row">8</td>
-          <td class="cell-row">8</td>
-          <td class="cell-row">8</td>
-          <td class="cell-row">8</td>
-          <td class="cell-row">16</td>
-          <td class="cell-row">16</td>
-          <td class="cell-row">16</td>
-          <th class="name-row">Gene.Sosa.Min.Dec</td>
-          <td class="cell-row">16</td>
-          <td class="cell-row">16</td>
-          <td class="cell-row">16</td>
-          <td class="cell-row">16</td>
-          <td class="cell-row">16</td>
-          <td class="cell-row">16</td>
-          <td class="cell-row">16</td>
-          <td class="cell-row">16</td>
-          <td class="cell-row">16</td>
-          <th class="name-row">Gene.Sosa.Min.Dec</td>
-          <td class="cell-row">16</td>
-          <td class="cell-row">16</td>
-          <td class="cell-row">16</td>
-          <td class="cell-row">16</td>
-          <td class="cell-row">32</td>
-          <td class="cell-row">32</td>
-          <td class="cell-row">2048</td>
-          <td class="cell-row">2048</td>
-          <td class="cell-row">2048</td>
-          <th class="name-row">Gene.Sosa.Min.Dec</td>
-          <td class="cell-row">4096</td>
-          <td class="cell-row">4096</td>
-          <td class="cell-row">4096</td>
-          <td class="cell-row">4096</td>
-          <td class="cell-row">4096</td>
-          <td class="cell-row">4096</td>
-          <td class="cell-row">4096</td>
-          <td class="cell-row">8192</td>
-          <td class="cell-row">8192</td>
-          <th class="name-row">Gene.Sosa.Min.Dec</td>
-        </tr>
-        <tr class="span-sosa-at-tier base-dec gr-child">
-          <th class="name-row">Gene.Sosa.Min.Bin</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">1000</td>
-          <td class="cell-row">1000</td>
-          <th class="name-row">Gene.Sosa.Min.Bin</td>
-          <td class="cell-row">1000</td>
-          <td class="cell-row">1000</td>
-          <td class="cell-row">1000</td>
-          <td class="cell-row">1000</td>
-          <td class="cell-row">1000</td>
-          <td class="cell-row">1000</td>
-          <td class="cell-row">10000</td>
-          <td class="cell-row">10000</td>
-          <td class="cell-row">10000</td>
-          <th class="name-row">Gene.Sosa.Min.Bin</td>
-          <td class="cell-row">10000</td>
-          <td class="cell-row">10000</td>
-          <td class="cell-row">10000</td>
-          <td class="cell-row">10000</td>
-          <td class="cell-row">10000</td>
-          <td class="cell-row">10000</td>
-          <td class="cell-row">10000</td>
-          <td class="cell-row">10000</td>
-          <td class="cell-row">10000</td>
-          <th class="name-row">Gene.Sosa.Min.Bin</td>
-          <td class="cell-row">10000</td>
-          <td class="cell-row">10000</td>
-          <td class="cell-row">10000</td>
-          <td class="cell-row">10000</td>
-          <td class="cell-row">100000</td>
-          <td class="cell-row">100000</td>
-          <td class="cell-row">100000000000</td>
-          <td class="cell-row">100000000000</td>
-          <td class="cell-row">100000000000</td>
-          <th class="name-row">Gene.Sosa.Min.Bin</td>
-          <td class="cell-row">1000000000000</td>
-          <td class="cell-row">1000000000000</td>
-          <td class="cell-row">1000000000000</td>
-          <td class="cell-row">1000000000000</td>
-          <td class="cell-row">1000000000000</td>
-          <td class="cell-row">1000000000000</td>
-          <td class="cell-row">1000000000000</td>
-          <td class="cell-row">10000000000000</td>
-          <td class="cell-row">10000000000000</td>
-          <th class="name-row">Gene.Sosa.Min.Bin</td>
-        </tr>
-        <tr class="span-sosa-at-tier base-bin gr-child">
-          <th class="name-row">Gene.Sosa.Max.Dec</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">7</td>
-          <td class="cell-row">7</td>
-          <td class="cell-row">7</td>
-          <td class="cell-row">7</td>
-          <td class="cell-row">15</td>
-          <td class="cell-row">15</td>
-          <th class="name-row">Gene.Sosa.Max.Dec</td>
-          <td class="cell-row">15</td>
-          <td class="cell-row">15</td>
-          <td class="cell-row">15</td>
-          <td class="cell-row">15</td>
-          <td class="cell-row">15</td>
-          <td class="cell-row">15</td>
-          <td class="cell-row">31</td>
-          <td class="cell-row">31</td>
-          <td class="cell-row">31</td>
-          <th class="name-row">Gene.Sosa.Max.Dec</td>
-          <td class="cell-row">31</td>
-          <td class="cell-row">31</td>
-          <td class="cell-row">31</td>
-          <td class="cell-row">31</td>
-          <td class="cell-row">31</td>
-          <td class="cell-row">31</td>
-          <td class="cell-row">31</td>
-          <td class="cell-row">31</td>
-          <td class="cell-row">31</td>
-          <th class="name-row">Gene.Sosa.Max.Dec</td>
-          <td class="cell-row">31</td>
-          <td class="cell-row">31</td>
-          <td class="cell-row">31</td>
-          <td class="cell-row">31</td>
-          <td class="cell-row">63</td>
-          <td class="cell-row">63</td>
-          <td class="cell-row">4095</td>
-          <td class="cell-row">4095</td>
-          <td class="cell-row">4095</td>
-          <th class="name-row">Gene.Sosa.Max.Dec</td>
-          <td class="cell-row">8191</td>
-          <td class="cell-row">8191</td>
-          <td class="cell-row">8191</td>
-          <td class="cell-row">8191</td>
-          <td class="cell-row">8191</td>
-          <td class="cell-row">8191</td>
-          <td class="cell-row">8191</td>
-          <td class="cell-row">16383</td>
-          <td class="cell-row">16383</td>
-          <th class="name-row">Gene.Sosa.Max.Dec</td>
-        </tr>
-        <tr class="span-sosa-at-tier base-dec gr-child">
-          <th class="name-row">Gene.Sosa.Max.Bin</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">111</td>
-          <td class="cell-row">111</td>
-          <td class="cell-row">111</td>
-          <td class="cell-row">111</td>
-          <td class="cell-row">1111</td>
-          <td class="cell-row">1111</td>
-          <th class="name-row">Gene.Sosa.Max.Bin</td>
-          <td class="cell-row">1111</td>
-          <td class="cell-row">1111</td>
-          <td class="cell-row">1111</td>
-          <td class="cell-row">1111</td>
-          <td class="cell-row">1111</td>
-          <td class="cell-row">1111</td>
-          <td class="cell-row">11111</td>
-          <td class="cell-row">11111</td>
-          <td class="cell-row">11111</td>
-          <th class="name-row">Gene.Sosa.Max.Bin</td>
-          <td class="cell-row">11111</td>
-          <td class="cell-row">11111</td>
-          <td class="cell-row">11111</td>
-          <td class="cell-row">11111</td>
-          <td class="cell-row">11111</td>
-          <td class="cell-row">11111</td>
-          <td class="cell-row">11111</td>
-          <td class="cell-row">11111</td>
-          <td class="cell-row">11111</td>
-          <th class="name-row">Gene.Sosa.Max.Bin</td>
-          <td class="cell-row">11111</td>
-          <td class="cell-row">11111</td>
-          <td class="cell-row">11111</td>
-          <td class="cell-row">11111</td>
-          <td class="cell-row">111111</td>
-          <td class="cell-row">111111</td>
-          <td class="cell-row">111111000000</td>
-          <td class="cell-row">111111000000</td>
-          <td class="cell-row">111111000000</td>
-          <th class="name-row">Gene.Sosa.Max.Bin</td>
-          <td class="cell-row">1111110000000</td>
-          <td class="cell-row">1111110000000</td>
-          <td class="cell-row">1111110000000</td>
-          <td class="cell-row">1111110000000</td>
-          <td class="cell-row">1111110000000</td>
-          <td class="cell-row">1111110000000</td>
-          <td class="cell-row">1111110000000</td>
-          <td class="cell-row">11111100000000</td>
-          <td class="cell-row">11111100000000</td>
-          <th class="name-row">Gene.Sosa.Max.Bin</td>
-        </tr>
-
-
-        <tr class="sort-sosa-at-tier-first0 gr-title" data-target="4">
-          <th class="name-rows" colspan="51">Gene.Sort[0].</td>
-        </tr>
-        <tr class="sort-sosa-at-tier-first0 base-dec gr-child">
-          <th class="name-row">Gene.Sort[0].Nor.Dec</td>
-          <td class="cell-row">0</td>
-          <td class="cell-row">0</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">0</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">0</td>
-          <td class="cell-row">1</td>
-          <th class="name-row">Gene.Sort[0].Nor.Dec</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">6</td>
-          <td class="cell-row">7</td>
-          <td class="cell-row">0</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">2</td>
-          <th class="name-row">Gene.Sort[0].Nor.Dec</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">6</td>
-          <td class="cell-row">7</td>
-          <td class="cell-row">8</td>
-          <td class="cell-row">9</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">11</td>
-          <th class="name-row">Gene.Sort[0].Nor.Dec</td>
-          <td class="cell-row">12</td>
-          <td class="cell-row">13</td>
-          <td class="cell-row">14</td>
-          <td class="cell-row">15</td>
-          <td class="cell-row">0</td>
-          <td class="cell-row">12</td>
-          <td class="cell-row">2045</td>
-          <td class="cell-row">2046</td>
-          <td class="cell-row">2047</td>
-          <th class="name-row">Gene.Sort[0].Nor.Dec</td>
-          <td class="cell-row">0</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">4092</td>
-          <td class="cell-row">4093</td>
-          <td class="cell-row">4094</td>
-          <td class="cell-row">4095</td>
-          <td class="cell-row">0</td>
-          <td class="cell-row">1</td>
-          <th class="name-row">Gene.Sort[0].Nor.Dec</td>
-        </tr>
-        <tr class="sort-sosa-at-tier-first0 base-bin gr-child">
-          <th class="name-row">Gene.Sort[0].Nor.Bin</td>
-          <td class="cell-row">0</td>
-          <td class="cell-row">0</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">0</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">0</td>
-          <td class="cell-row">1</td>
-          <th class="name-row">Gene.Sort[0].Nor.Bin</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">110</td>
-          <td class="cell-row">111</td>
-          <td class="cell-row">0</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10</td>
-          <th class="name-row">Gene.Sort[0].Nor.Bin</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">110</td>
-          <td class="cell-row">111</td>
-          <td class="cell-row">1000</td>
-          <td class="cell-row">1001</td>
-          <td class="cell-row">1010</td>
-          <td class="cell-row">1011</td>
-          <th class="name-row">Gene.Sort[0].Nor.Bin</td>
-          <td class="cell-row">1100</td>
-          <td class="cell-row">1101</td>
-          <td class="cell-row">1110</td>
-          <td class="cell-row">1111</td>
-          <td class="cell-row">0</td>
-          <td class="cell-row">1100</td>
-          <td class="cell-row">11111111101</td>
-          <td class="cell-row">11111111110</td>
-          <td class="cell-row">11111111111</td>
-          <th class="name-row">Gene.Sort[0].Nor.Bin</td>
-          <td class="cell-row">0</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">111111000000</td>
-          <td class="cell-row">111111000000</td>
-          <td class="cell-row">111111000000</td>
-          <td class="cell-row">111111000000</td>
-          <td class="cell-row">0</td>
-          <td class="cell-row">1</td>
-          <th class="name-row">Gene.Sort[0].Nor.Bin</td>
-        </tr>
-        <tr class="sort-sosa-at-tier-first0 base-dec gr-child">
-          <th class="name-row">Gene.Sort[0].Rev.Dec</td>
-          <td class="cell-row">0</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">0</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">0</td>
-          <td class="cell-row">7</td>
-          <td class="cell-row">6</td>
-          <th class="name-row">Gene.Sort[0].Rev.Dec</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">0</td>
-          <td class="cell-row">15</td>
-          <td class="cell-row">14</td>
-          <td class="cell-row">13</td>
-          <th class="name-row">Gene.Sort[0].Rev.Dec</td>
-          <td class="cell-row">12</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">9</td>
-          <td class="cell-row">8</td>
-          <td class="cell-row">7</td>
-          <td class="cell-row">6</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">4</td>
-          <th class="name-row">Gene.Sort[0].Rev.Dec</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">0</td>
-          <td class="cell-row">31</td>
-          <td class="cell-row">19</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">0</td>
-          <th class="name-row">Gene.Sort[0].Rev.Dec</td>
-          <td class="cell-row">4095</td>
-          <td class="cell-row">4094</td>
-          <td class="cell-row">4093</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">0</td>
-          <td class="cell-row">8191</td>
-          <td class="cell-row">8190</td>
-          <th class="name-row">Gene.Sort[0].Rev.Dec</td>
-        </tr>
-        <tr class="sort-sosa-at-tier-first0 base-bin gr-child">
-          <th class="name-row">Gene.Sort[0].Rev.Bin</td>
-          <td class="cell-row">0</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">0</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">0</td>
-          <td class="cell-row">111</td>
-          <td class="cell-row">110</td>
-          <th class="name-row">Gene.Sort[0].Rev.Bin</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">0</td>
-          <td class="cell-row">1111</td>
-          <td class="cell-row">1110</td>
-          <td class="cell-row">1101</td>
-          <th class="name-row">Gene.Sort[0].Rev.Bin</td>
-          <td class="cell-row">1100</td>
-          <td class="cell-row">1011</td>
-          <td class="cell-row">1010</td>
-          <td class="cell-row">1001</td>
-          <td class="cell-row">1000</td>
-          <td class="cell-row">111</td>
-          <td class="cell-row">110</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">100</td>
-          <th class="name-row">Gene.Sort[0].Rev.Bin</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">0</td>
-          <td class="cell-row">11111</td>
-          <td class="cell-row">10011</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">0</td>
-          <th class="name-row">Gene.Sort[0].Rev.Bin</td>
-          <td class="cell-row">111111000000</td>
-          <td class="cell-row">111111000000</td>
-          <td class="cell-row">111111000000</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">0</td>
-          <td class="cell-row">1111110000000</td>
-          <td class="cell-row">1111110000000</td>
-          <th class="name-row">Gene.Sort[0].Rev.Bin</td>
-        </tr>
-
-
-        <tr class="sort-sosa-at-tier-first1 gr-title" data-target="4">
-          <th class="name-rows" colspan="51">Gene.Sort[1].</td>
-        </tr>
-        <tr class="sort-sosa-at-tier-first1 base-dec gr-child">
-          <th class="name-row">Gene.Sort[1].Nor.Dec</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">2</td>
-          <th class="name-row">Gene.Sort[1].Nor.Dec</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">6</td>
-          <td class="cell-row">7</td>
-          <td class="cell-row">8</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">3</td>
-          <th class="name-row">Gene.Sort[1].Nor.Dec</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">6</td>
-          <td class="cell-row">7</td>
-          <td class="cell-row">8</td>
-          <td class="cell-row">9</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">12</td>
-          <th class="name-row">Gene.Sort[1].Nor.Dec</td>
-          <td class="cell-row">13</td>
-          <td class="cell-row">14</td>
-          <td class="cell-row">15</td>
-          <td class="cell-row">16</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">13</td>
-          <td class="cell-row">2046</td>
-          <td class="cell-row">2047</td>
-          <td class="cell-row">2048</td>
-          <th class="name-row">Gene.Sort[1].Nor.Dec</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">4093</td>
-          <td class="cell-row">4094</td>
-          <td class="cell-row">4095</td>
-          <td class="cell-row">4096</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">2</td>
-          <th class="name-row">Gene.Sort[1].Nor.Dec</td>
-        </tr>
-        <tr class="sort-sosa-at-tier-first1 base-bin gr-child">
-          <th class="name-row">Gene.Sort[1].Nor.Bin</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10</td>
-          <th class="name-row">Gene.Sort[1].Nor.Bin</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">110</td>
-          <td class="cell-row">111</td>
-          <td class="cell-row">1000</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">11</td>
-          <th class="name-row">Gene.Sort[1].Nor.Bin</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">110</td>
-          <td class="cell-row">111</td>
-          <td class="cell-row">1000</td>
-          <td class="cell-row">1001</td>
-          <td class="cell-row">1010</td>
-          <td class="cell-row">1011</td>
-          <td class="cell-row">1100</td>
-          <th class="name-row">Gene.Sort[1].Nor.Bin</td>
-          <td class="cell-row">1101</td>
-          <td class="cell-row">1110</td>
-          <td class="cell-row">1111</td>
-          <td class="cell-row">10000</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">1101</td>
-          <td class="cell-row">11111111110</td>
-          <td class="cell-row">11111111111</td>
-          <td class="cell-row">100000000000</td>
-          <th class="name-row">Gene.Sort[1].Nor.Bin</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">111111000000</td>
-          <td class="cell-row">111111000000</td>
-          <td class="cell-row">111111000000</td>
-          <td class="cell-row">1000000000000</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10</td>
-          <th class="name-row">Gene.Sort[1].Nor.Bin</td>
-        </tr>
-        <tr class="sort-sosa-at-tier-first1 base-dec gr-child">
-          <th class="name-row">Gene.Sort[1].Rev.Dec</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">8</td>
-          <td class="cell-row">7</td>
-          <th class="name-row">Gene.Sort[1].Rev.Dec</td>
-          <td class="cell-row">6</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">16</td>
-          <td class="cell-row">15</td>
-          <td class="cell-row">14</td>
-          <th class="name-row">Gene.Sort[1].Rev.Dec</td>
-          <td class="cell-row">13</td>
-          <td class="cell-row">12</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">9</td>
-          <td class="cell-row">8</td>
-          <td class="cell-row">7</td>
-          <td class="cell-row">6</td>
-          <td class="cell-row">5</td>
-          <th class="name-row">Gene.Sort[1].Rev.Dec</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">32</td>
-          <td class="cell-row">20</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">1</td>
-          <th class="name-row">Gene.Sort[1].Rev.Dec</td>
-          <td class="cell-row">4096</td>
-          <td class="cell-row">4095</td>
-          <td class="cell-row">4094</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">8192</td>
-          <td class="cell-row">8191</td>
-          <th class="name-row">Gene.Sort[1].Rev.Dec</td>
-        </tr>
-        <tr class="sort-sosa-at-tier-first1 base-bin gr-child">
-          <th class="name-row">Gene.Sort[1].Rev.Bin</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">1000</td>
-          <td class="cell-row">111</td>
-          <th class="name-row">Gene.Sort[1].Rev.Bin</td>
-          <td class="cell-row">110</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10000</td>
-          <td class="cell-row">1111</td>
-          <td class="cell-row">1110</td>
-          <th class="name-row">Gene.Sort[1].Rev.Bin</td>
-          <td class="cell-row">1101</td>
-          <td class="cell-row">1100</td>
-          <td class="cell-row">1011</td>
-          <td class="cell-row">1010</td>
-          <td class="cell-row">1001</td>
-          <td class="cell-row">1000</td>
-          <td class="cell-row">111</td>
-          <td class="cell-row">110</td>
-          <td class="cell-row">101</td>
-          <th class="name-row">Gene.Sort[1].Rev.Bin</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">100000</td>
-          <td class="cell-row">10100</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">1</td>
-          <th class="name-row">Gene.Sort[1].Rev.Bin</td>
-          <td class="cell-row">1000000000000</td>
-          <td class="cell-row">111111000000</td>
-          <td class="cell-row">111111000000</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10000000000000</td>
-          <td class="cell-row">1111110000000</td>
-          <th class="name-row">Gene.Sort[1].Rev.Bin</td>
-        </tr>
-
-
-        <tr class="kid-sosa gr-title" data-target="5">
-          <th class="name-rows" colspan="51">Sosa.Kid.</td>
-        </tr>
-        <tr class="kid-sosa base-sex gr-child">
-          <th class="name-row">Sosa.Kid.Sex</td>
-          <td class="cell-row">⚥</td>
-          <td class="cell-row">⚥</td>
-          <td class="cell-row">⚥</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <th class="name-row">Sosa.Kid.Sex</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♀</td>
-          <th class="name-row">Sosa.Kid.Sex</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <th class="name-row">Sosa.Kid.Sex</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <th class="name-row">Sosa.Kid.Sex</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <th class="name-row">Sosa.Kid.Sex</td>
-        </tr>
-        <tr class="kid-sosa base-dec gr-child">
-          <th class="name-row">Sosa.Kid.Nor.Dec</td>
-          <td class="cell-row">0</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">4</td>
-          <th class="name-row">Sosa.Kid.Nor.Dec</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">6</td>
-          <td class="cell-row">6</td>
-          <td class="cell-row">7</td>
-          <td class="cell-row">7</td>
-          <td class="cell-row">8</td>
-          <td class="cell-row">8</td>
-          <td class="cell-row">9</td>
-          <th class="name-row">Sosa.Kid.Nor.Dec</td>
-          <td class="cell-row">9</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">12</td>
-          <td class="cell-row">12</td>
-          <td class="cell-row">13</td>
-          <td class="cell-row">13</td>
-          <th class="name-row">Sosa.Kid.Nor.Dec</td>
-          <td class="cell-row">14</td>
-          <td class="cell-row">14</td>
-          <td class="cell-row">15</td>
-          <td class="cell-row">15</td>
-          <td class="cell-row">16</td>
-          <td class="cell-row">22</td>
-          <td class="cell-row">2046</td>
-          <td class="cell-row">2047</td>
-          <td class="cell-row">2047</td>
-          <th class="name-row">Sosa.Kid.Nor.Dec</td>
-          <td class="cell-row">2048</td>
-          <td class="cell-row">2048</td>
-          <td class="cell-row">2049</td>
-          <td class="cell-row">4094</td>
-          <td class="cell-row">4094</td>
-          <td class="cell-row">4095</td>
-          <td class="cell-row">4095</td>
-          <td class="cell-row">4096</td>
-          <td class="cell-row">4096</td>
-          <th class="name-row">Sosa.Kid.Nor.Dec</td>
-        </tr>
-        <tr class="kid-sosa base-bin gr-child">
-          <th class="name-row">Sosa.Kid.Nor.Bin</td>
-          <td class="cell-row">0</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">100</td>
-          <th class="name-row">Sosa.Kid.Nor.Bin</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">110</td>
-          <td class="cell-row">110</td>
-          <td class="cell-row">111</td>
-          <td class="cell-row">111</td>
-          <td class="cell-row">1000</td>
-          <td class="cell-row">1000</td>
-          <td class="cell-row">1001</td>
-          <th class="name-row">Sosa.Kid.Nor.Bin</td>
-          <td class="cell-row">1001</td>
-          <td class="cell-row">1010</td>
-          <td class="cell-row">1010</td>
-          <td class="cell-row">1011</td>
-          <td class="cell-row">1011</td>
-          <td class="cell-row">1100</td>
-          <td class="cell-row">1100</td>
-          <td class="cell-row">1101</td>
-          <td class="cell-row">1101</td>
-          <th class="name-row">Sosa.Kid.Nor.Bin</td>
-          <td class="cell-row">1110</td>
-          <td class="cell-row">1110</td>
-          <td class="cell-row">1111</td>
-          <td class="cell-row">1111</td>
-          <td class="cell-row">10000</td>
-          <td class="cell-row">10110</td>
-          <td class="cell-row">11111111110</td>
-          <td class="cell-row">11111111111</td>
-          <td class="cell-row">11111111111</td>
-          <th class="name-row">Sosa.Kid.Nor.Bin</td>
-          <td class="cell-row">100000000000</td>
-          <td class="cell-row">100000000000</td>
-          <td class="cell-row">100000000000</td>
-          <td class="cell-row">111111000000</td>
-          <td class="cell-row">111111000000</td>
-          <td class="cell-row">111111000000</td>
-          <td class="cell-row">111111000000</td>
-          <td class="cell-row">1000000000000</td>
-          <td class="cell-row">1000000000000</td>
-          <th class="name-row">Sosa.Kid.Nor.Bin</td>
-        </tr>
-        <tr class="kid-sosa base-dec gr-child">
-          <th class="name-row">Sosa.Kid.Rev.Dec</td>
-          <td class="cell-row">0</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">7</td>
-          <td class="cell-row">7</td>
-          <th class="name-row">Sosa.Kid.Rev.Dec</td>
-          <td class="cell-row">6</td>
-          <td class="cell-row">6</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">15</td>
-          <td class="cell-row">15</td>
-          <td class="cell-row">14</td>
-          <th class="name-row">Sosa.Kid.Rev.Dec</td>
-          <td class="cell-row">14</td>
-          <td class="cell-row">13</td>
-          <td class="cell-row">13</td>
-          <td class="cell-row">12</td>
-          <td class="cell-row">12</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">10</td>
-          <th class="name-row">Sosa.Kid.Rev.Dec</td>
-          <td class="cell-row">9</td>
-          <td class="cell-row">9</td>
-          <td class="cell-row">8</td>
-          <td class="cell-row">8</td>
-          <td class="cell-row">31</td>
-          <td class="cell-row">25</td>
-          <td class="cell-row">1025</td>
-          <td class="cell-row">1024</td>
-          <td class="cell-row">1024</td>
-          <th class="name-row">Sosa.Kid.Rev.Dec</td>
-          <td class="cell-row">4095</td>
-          <td class="cell-row">4095</td>
-          <td class="cell-row">4094</td>
-          <td class="cell-row">2049</td>
-          <td class="cell-row">2049</td>
-          <td class="cell-row">2048</td>
-          <td class="cell-row">2048</td>
-          <td class="cell-row">8191</td>
-          <td class="cell-row">8191</td>
-          <th class="name-row">Sosa.Kid.Rev.Dec</td>
-        </tr>
-        <tr class="kid-sosa base-bin gr-child">
-          <th class="name-row">Sosa.Kid.Rev.Bin</td>
-          <td class="cell-row">0</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">111</td>
-          <td class="cell-row">111</td>
-          <th class="name-row">Sosa.Kid.Rev.Bin</td>
-          <td class="cell-row">110</td>
-          <td class="cell-row">110</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">1111</td>
-          <td class="cell-row">1111</td>
-          <td class="cell-row">1110</td>
-          <th class="name-row">Sosa.Kid.Rev.Bin</td>
-          <td class="cell-row">1110</td>
-          <td class="cell-row">1101</td>
-          <td class="cell-row">1101</td>
-          <td class="cell-row">1100</td>
-          <td class="cell-row">1100</td>
-          <td class="cell-row">1011</td>
-          <td class="cell-row">1011</td>
-          <td class="cell-row">1010</td>
-          <td class="cell-row">1010</td>
-          <th class="name-row">Sosa.Kid.Rev.Bin</td>
-          <td class="cell-row">1001</td>
-          <td class="cell-row">1001</td>
-          <td class="cell-row">1000</td>
-          <td class="cell-row">1000</td>
-          <td class="cell-row">11111</td>
-          <td class="cell-row">11001</td>
-          <td class="cell-row">10000000001</td>
-          <td class="cell-row">10000000000</td>
-          <td class="cell-row">10000000000</td>
-          <th class="name-row">Sosa.Kid.Rev.Bin</td>
-          <td class="cell-row">111111000000</td>
-          <td class="cell-row">111111000000</td>
-          <td class="cell-row">111111000000</td>
-          <td class="cell-row">100000000000</td>
-          <td class="cell-row">100000000000</td>
-          <td class="cell-row">100000000000</td>
-          <td class="cell-row">100000000000</td>
-          <td class="cell-row">1111110000000</td>
-          <td class="cell-row">1111110000000</td>
-          <th class="name-row">Sosa.Kid.Rev.Bin</td>
-        </tr>
-
-
-        <tr class="ego-sosa gr-title" data-target="5">
-          <th class="name-rows" colspan="51">Sosa.Ego.</td>
-        </tr>
-        <tr class="ego-sosa base-sex gr-child">
-          <th class="name-row">Sosa.Ego.Sex</td>
-          <td class="cell-row">⚥</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♀</td>
-          <th class="name-row">Sosa.Ego.Sex</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♂</td>
-          <th class="name-row">Sosa.Ego.Sex</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♀</td>
-          <th class="name-row">Sosa.Ego.Sex</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♀</td>
-          <th class="name-row">Sosa.Ego.Sex</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♀</td>
-          <th class="name-row">Sosa.Ego.Sex</td>
-        </tr>
-        <tr class="ego-sosa base-dec gr-child">
-          <th class="name-row">Sosa.Ego.Nor.Dec</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">6</td>
-          <td class="cell-row">7</td>
-          <td class="cell-row">8</td>
-          <td class="cell-row">9</td>
-          <th class="name-row">Sosa.Ego.Nor.Dec</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">12</td>
-          <td class="cell-row">13</td>
-          <td class="cell-row">14</td>
-          <td class="cell-row">15</td>
-          <td class="cell-row">16</td>
-          <td class="cell-row">17</td>
-          <td class="cell-row">18</td>
-          <th class="name-row">Sosa.Ego.Nor.Dec</td>
-          <td class="cell-row">19</td>
-          <td class="cell-row">20</td>
-          <td class="cell-row">21</td>
-          <td class="cell-row">22</td>
-          <td class="cell-row">23</td>
-          <td class="cell-row">24</td>
-          <td class="cell-row">25</td>
-          <td class="cell-row">26</td>
-          <td class="cell-row">27</td>
-          <th class="name-row">Sosa.Ego.Nor.Dec</td>
-          <td class="cell-row">28</td>
-          <td class="cell-row">29</td>
-          <td class="cell-row">30</td>
-          <td class="cell-row">31</td>
-          <td class="cell-row">32</td>
-          <td class="cell-row">44</td>
-          <td class="cell-row">4093</td>
-          <td class="cell-row">4094</td>
-          <td class="cell-row">4095</td>
-          <th class="name-row">Sosa.Ego.Nor.Dec</td>
-          <td class="cell-row">4096</td>
-          <td class="cell-row">4097</td>
-          <td class="cell-row">4098</td>
-          <td class="cell-row">8188</td>
-          <td class="cell-row">8189</td>
-          <td class="cell-row">8190</td>
-          <td class="cell-row">8191</td>
-          <td class="cell-row">8192</td>
-          <td class="cell-row">8193</td>
-          <th class="name-row">Sosa.Ego.Nor.Dec</td>
-        </tr>
-        <tr class="ego-sosa base-bin gr-child">
-          <th class="name-row">Sosa.Ego.Nor.Bin</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">110</td>
-          <td class="cell-row">111</td>
-          <td class="cell-row">1000</td>
-          <td class="cell-row">1001</td>
-          <th class="name-row">Sosa.Ego.Nor.Bin</td>
-          <td class="cell-row">1010</td>
-          <td class="cell-row">1011</td>
-          <td class="cell-row">1100</td>
-          <td class="cell-row">1101</td>
-          <td class="cell-row">1110</td>
-          <td class="cell-row">1111</td>
-          <td class="cell-row">10000</td>
-          <td class="cell-row">10001</td>
-          <td class="cell-row">10010</td>
-          <th class="name-row">Sosa.Ego.Nor.Bin</td>
-          <td class="cell-row">10011</td>
-          <td class="cell-row">10100</td>
-          <td class="cell-row">10101</td>
-          <td class="cell-row">10110</td>
-          <td class="cell-row">10111</td>
-          <td class="cell-row">11000</td>
-          <td class="cell-row">11001</td>
-          <td class="cell-row">11010</td>
-          <td class="cell-row">11011</td>
-          <th class="name-row">Sosa.Ego.Nor.Bin</td>
-          <td class="cell-row">11100</td>
-          <td class="cell-row">11101</td>
-          <td class="cell-row">11110</td>
-          <td class="cell-row">11111</td>
-          <td class="cell-row">100000</td>
-          <td class="cell-row">101100</td>
-          <td class="cell-row">111111000000</td>
-          <td class="cell-row">111111000000</td>
-          <td class="cell-row">111111000000</td>
-          <th class="name-row">Sosa.Ego.Nor.Bin</td>
-          <td class="cell-row">1000000000000</td>
-          <td class="cell-row">1000000000000</td>
-          <td class="cell-row">1000000000000</td>
-          <td class="cell-row">1111110000000</td>
-          <td class="cell-row">1111110000000</td>
-          <td class="cell-row">1111110000000</td>
-          <td class="cell-row">1111110000000</td>
-          <td class="cell-row">10000000000000</td>
-          <td class="cell-row">10000000000000</td>
-          <th class="name-row">Sosa.Ego.Nor.Bin</td>
-        </tr>
-        <tr class="ego-sosa base-dec gr-child">
-          <th class="name-row">Sosa.Ego.Rev.Dec</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">7</td>
-          <td class="cell-row">6</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">15</td>
-          <td class="cell-row">14</td>
-          <th class="name-row">Sosa.Ego.Rev.Dec</td>
-          <td class="cell-row">13</td>
-          <td class="cell-row">12</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">9</td>
-          <td class="cell-row">8</td>
-          <td class="cell-row">31</td>
-          <td class="cell-row">30</td>
-          <td class="cell-row">29</td>
-          <th class="name-row">Sosa.Ego.Rev.Dec</td>
-          <td class="cell-row">28</td>
-          <td class="cell-row">27</td>
-          <td class="cell-row">26</td>
-          <td class="cell-row">25</td>
-          <td class="cell-row">24</td>
-          <td class="cell-row">23</td>
-          <td class="cell-row">22</td>
-          <td class="cell-row">21</td>
-          <td class="cell-row">20</td>
-          <th class="name-row">Sosa.Ego.Rev.Dec</td>
-          <td class="cell-row">19</td>
-          <td class="cell-row">18</td>
-          <td class="cell-row">17</td>
-          <td class="cell-row">16</td>
-          <td class="cell-row">63</td>
-          <td class="cell-row">51</td>
-          <td class="cell-row">2050</td>
-          <td class="cell-row">2049</td>
-          <td class="cell-row">2048</td>
-          <th class="name-row">Sosa.Ego.Rev.Dec</td>
-          <td class="cell-row">8191</td>
-          <td class="cell-row">8190</td>
-          <td class="cell-row">8189</td>
-          <td class="cell-row">4099</td>
-          <td class="cell-row">4098</td>
-          <td class="cell-row">4097</td>
-          <td class="cell-row">4096</td>
-          <td class="cell-row">16383</td>
-          <td class="cell-row">16382</td>
-          <th class="name-row">Sosa.Ego.Rev.Dec</td>
-        </tr>
-        <tr class="ego-sosa base-bin gr-child">
-          <th class="name-row">Sosa.Ego.Rev.Bin</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">111</td>
-          <td class="cell-row">110</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">1111</td>
-          <td class="cell-row">1110</td>
-          <th class="name-row">Sosa.Ego.Rev.Bin</td>
-          <td class="cell-row">1101</td>
-          <td class="cell-row">1100</td>
-          <td class="cell-row">1011</td>
-          <td class="cell-row">1010</td>
-          <td class="cell-row">1001</td>
-          <td class="cell-row">1000</td>
-          <td class="cell-row">11111</td>
-          <td class="cell-row">11110</td>
-          <td class="cell-row">11101</td>
-          <th class="name-row">Sosa.Ego.Rev.Bin</td>
-          <td class="cell-row">11100</td>
-          <td class="cell-row">11011</td>
-          <td class="cell-row">11010</td>
-          <td class="cell-row">11001</td>
-          <td class="cell-row">11000</td>
-          <td class="cell-row">10111</td>
-          <td class="cell-row">10110</td>
-          <td class="cell-row">10101</td>
-          <td class="cell-row">10100</td>
-          <th class="name-row">Sosa.Ego.Rev.Bin</td>
-          <td class="cell-row">10011</td>
-          <td class="cell-row">10010</td>
-          <td class="cell-row">10001</td>
-          <td class="cell-row">10000</td>
-          <td class="cell-row">111111</td>
-          <td class="cell-row">110011</td>
-          <td class="cell-row">100000000000</td>
-          <td class="cell-row">100000000000</td>
-          <td class="cell-row">100000000000</td>
-          <th class="name-row">Sosa.Ego.Rev.Bin</td>
-          <td class="cell-row">1111110000000</td>
-          <td class="cell-row">1111110000000</td>
-          <td class="cell-row">1111110000000</td>
-          <td class="cell-row">1000000000000</td>
-          <td class="cell-row">1000000000000</td>
-          <td class="cell-row">1000000000000</td>
-          <td class="cell-row">1000000000000</td>
-          <td class="cell-row">11111100000000</td>
-          <td class="cell-row">11111100000000</td>
-          <th class="name-row">Sosa.Ego.Rev.Bin</td>
-        </tr>
-
-
-        <tr class="dad-sosa gr-title" data-target="5">
-          <th class="name-rows" colspan="51">Sosa.Dad.</td>
-        </tr>
-        <tr class="dad-sosa base-sex gr-child">
-          <th class="name-row">Sosa.Dad.Sex</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <th class="name-row">Sosa.Dad.Sex</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <th class="name-row">Sosa.Dad.Sex</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <th class="name-row">Sosa.Dad.Sex</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <th class="name-row">Sosa.Dad.Sex</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <td class="cell-row">♂</td>
-          <th class="name-row">Sosa.Dad.Sex</td>
-        </tr>
-        <tr class="dad-sosa base-dec gr-child">
-          <th class="name-row">Sosa.Dad.Nor.Dec</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">6</td>
-          <td class="cell-row">8</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">12</td>
-          <td class="cell-row">14</td>
-          <td class="cell-row">16</td>
-          <td class="cell-row">18</td>
-          <th class="name-row">Sosa.Dad.Nor.Dec</td>
-          <td class="cell-row">20</td>
-          <td class="cell-row">22</td>
-          <td class="cell-row">24</td>
-          <td class="cell-row">26</td>
-          <td class="cell-row">28</td>
-          <td class="cell-row">30</td>
-          <td class="cell-row">32</td>
-          <td class="cell-row">34</td>
-          <td class="cell-row">36</td>
-          <th class="name-row">Sosa.Dad.Nor.Dec</td>
-          <td class="cell-row">38</td>
-          <td class="cell-row">40</td>
-          <td class="cell-row">42</td>
-          <td class="cell-row">44</td>
-          <td class="cell-row">46</td>
-          <td class="cell-row">48</td>
-          <td class="cell-row">50</td>
-          <td class="cell-row">52</td>
-          <td class="cell-row">54</td>
-          <th class="name-row">Sosa.Dad.Nor.Dec</td>
-          <td class="cell-row">56</td>
-          <td class="cell-row">58</td>
-          <td class="cell-row">60</td>
-          <td class="cell-row">62</td>
-          <td class="cell-row">64</td>
-          <td class="cell-row">88</td>
-          <td class="cell-row">8186</td>
-          <td class="cell-row">8188</td>
-          <td class="cell-row">8190</td>
-          <th class="name-row">Sosa.Dad.Nor.Dec</td>
-          <td class="cell-row">8192</td>
-          <td class="cell-row">8194</td>
-          <td class="cell-row">8196</td>
-          <td class="cell-row">16376</td>
-          <td class="cell-row">16378</td>
-          <td class="cell-row">16380</td>
-          <td class="cell-row">16382</td>
-          <td class="cell-row">16384</td>
-          <td class="cell-row">16386</td>
-          <th class="name-row">Sosa.Dad.Nor.Dec</td>
-        </tr>
-        <tr class="dad-sosa base-bin gr-child">
-          <th class="name-row">Sosa.Dad.Nor.Bin</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">110</td>
-          <td class="cell-row">1000</td>
-          <td class="cell-row">1010</td>
-          <td class="cell-row">1100</td>
-          <td class="cell-row">1110</td>
-          <td class="cell-row">10000</td>
-          <td class="cell-row">10010</td>
-          <th class="name-row">Sosa.Dad.Nor.Bin</td>
-          <td class="cell-row">10100</td>
-          <td class="cell-row">10110</td>
-          <td class="cell-row">11000</td>
-          <td class="cell-row">11010</td>
-          <td class="cell-row">11100</td>
-          <td class="cell-row">11110</td>
-          <td class="cell-row">100000</td>
-          <td class="cell-row">100010</td>
-          <td class="cell-row">100100</td>
-          <th class="name-row">Sosa.Dad.Nor.Bin</td>
-          <td class="cell-row">100110</td>
-          <td class="cell-row">101000</td>
-          <td class="cell-row">101010</td>
-          <td class="cell-row">101100</td>
-          <td class="cell-row">101110</td>
-          <td class="cell-row">110000</td>
-          <td class="cell-row">110010</td>
-          <td class="cell-row">110100</td>
-          <td class="cell-row">110110</td>
-          <th class="name-row">Sosa.Dad.Nor.Bin</td>
-          <td class="cell-row">111000</td>
-          <td class="cell-row">111010</td>
-          <td class="cell-row">111100</td>
-          <td class="cell-row">111110</td>
-          <td class="cell-row">1000000</td>
-          <td class="cell-row">1011000</td>
-          <td class="cell-row">1111110000000</td>
-          <td class="cell-row">1111110000000</td>
-          <td class="cell-row">1111110000000</td>
-          <th class="name-row">Sosa.Dad.Nor.Bin</td>
-          <td class="cell-row">10000000000000</td>
-          <td class="cell-row">10000000000000</td>
-          <td class="cell-row">10000000000000</td>
-          <td class="cell-row">11111100000000</td>
-          <td class="cell-row">11111100000000</td>
-          <td class="cell-row">11111100000000</td>
-          <td class="cell-row">11111100000000</td>
-          <td class="cell-row">100000000000000</td>
-          <td class="cell-row">100000000000000</td>
-          <th class="name-row">Sosa.Dad.Nor.Bin</td>
-        </tr>
-        <tr class="dad-sosa base-dec gr-child">
-          <th class="name-row">Sosa.Dad.Rev.Dec</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">7</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">15</td>
-          <td class="cell-row">13</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">9</td>
-          <td class="cell-row">31</td>
-          <td class="cell-row">29</td>
-          <th class="name-row">Sosa.Dad.Rev.Dec</td>
-          <td class="cell-row">27</td>
-          <td class="cell-row">25</td>
-          <td class="cell-row">23</td>
-          <td class="cell-row">21</td>
-          <td class="cell-row">19</td>
-          <td class="cell-row">17</td>
-          <td class="cell-row">63</td>
-          <td class="cell-row">61</td>
-          <td class="cell-row">59</td>
-          <th class="name-row">Sosa.Dad.Rev.Dec</td>
-          <td class="cell-row">57</td>
-          <td class="cell-row">55</td>
-          <td class="cell-row">53</td>
-          <td class="cell-row">51</td>
-          <td class="cell-row">49</td>
-          <td class="cell-row">47</td>
-          <td class="cell-row">45</td>
-          <td class="cell-row">43</td>
-          <td class="cell-row">41</td>
-          <th class="name-row">Sosa.Dad.Rev.Dec</td>
-          <td class="cell-row">39</td>
-          <td class="cell-row">37</td>
-          <td class="cell-row">35</td>
-          <td class="cell-row">33</td>
-          <td class="cell-row">127</td>
-          <td class="cell-row">103</td>
-          <td class="cell-row">4101</td>
-          <td class="cell-row">4099</td>
-          <td class="cell-row">4097</td>
-          <th class="name-row">Sosa.Dad.Rev.Dec</td>
-          <td class="cell-row">16383</td>
-          <td class="cell-row">16381</td>
-          <td class="cell-row">16379</td>
-          <td class="cell-row">8199</td>
-          <td class="cell-row">8197</td>
-          <td class="cell-row">8195</td>
-          <td class="cell-row">8193</td>
-          <td class="cell-row">32767</td>
-          <td class="cell-row">32765</td>
-          <th class="name-row">Sosa.Dad.Rev.Dec</td>
-        </tr>
-        <tr class="dad-sosa base-bin gr-child">
-          <th class="name-row">Sosa.Dad.Rev.Bin</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">111</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">1111</td>
-          <td class="cell-row">1101</td>
-          <td class="cell-row">1011</td>
-          <td class="cell-row">1001</td>
-          <td class="cell-row">11111</td>
-          <td class="cell-row">11101</td>
-          <th class="name-row">Sosa.Dad.Rev.Bin</td>
-          <td class="cell-row">11011</td>
-          <td class="cell-row">11001</td>
-          <td class="cell-row">10111</td>
-          <td class="cell-row">10101</td>
-          <td class="cell-row">10011</td>
-          <td class="cell-row">10001</td>
-          <td class="cell-row">111111</td>
-          <td class="cell-row">111101</td>
-          <td class="cell-row">111011</td>
-          <th class="name-row">Sosa.Dad.Rev.Bin</td>
-          <td class="cell-row">111001</td>
-          <td class="cell-row">110111</td>
-          <td class="cell-row">110101</td>
-          <td class="cell-row">110011</td>
-          <td class="cell-row">110001</td>
-          <td class="cell-row">101111</td>
-          <td class="cell-row">101101</td>
-          <td class="cell-row">101011</td>
-          <td class="cell-row">101001</td>
-          <th class="name-row">Sosa.Dad.Rev.Bin</td>
-          <td class="cell-row">100111</td>
-          <td class="cell-row">100101</td>
-          <td class="cell-row">100011</td>
-          <td class="cell-row">100001</td>
-          <td class="cell-row">1111111</td>
-          <td class="cell-row">1100111</td>
-          <td class="cell-row">1000000000000</td>
-          <td class="cell-row">1000000000000</td>
-          <td class="cell-row">1000000000000</td>
-          <th class="name-row">Sosa.Dad.Rev.Bin</td>
-          <td class="cell-row">11111100000000</td>
-          <td class="cell-row">11111100000000</td>
-          <td class="cell-row">11111100000000</td>
-          <td class="cell-row">10000000000000</td>
-          <td class="cell-row">10000000000000</td>
-          <td class="cell-row">10000000000000</td>
-          <td class="cell-row">10000000000000</td>
-          <td class="cell-row">111111000000000</td>
-          <td class="cell-row">111111000000000</td>
-          <th class="name-row">Sosa.Dad.Rev.Bin</td>
-        </tr>
-
-        <tr class="dad-line gr-title" data-target="8">
-          <th class="name-rows" colspan="51">Line.Dad.</td>
-        </tr>
-        <tr class="dad-line base-dec gr-child">
-          <th class="name-row">Line.Dad.Gene.Dec</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">4</td>
-          <th class="name-row">Line.Dad.Gene.Dec</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">4</td>
-          <th class="name-row">Line.Dad.Gene.Dec</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">5</td>
-          <th class="name-row">Line.Dad.Gene.Dec</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">12</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">12</td>
-          <th class="name-row">Line.Dad.Gene.Dec</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">13</td>
-          <td class="cell-row">12</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">13</td>
-          <td class="cell-row">12</td>
-          <td class="cell-row">13</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">14</td>
-          <th class="name-row">Line.Dad.Gene.Dec</td>
-        </tr>
-        <tr class="dad-line base-bin gr-child">
-          <th class="name-row">Line.Dad.Gene.Bin</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">100</td>
-          <th class="name-row">Line.Dad.Gene.Bin</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">100</td>
-          <th class="name-row">Line.Dad.Gene.Bin</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">101</td>
-          <th class="name-row">Line.Dad.Gene.Bin</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">1100</td>
-          <td class="cell-row">1011</td>
-          <td class="cell-row">1100</td>
-          <th class="name-row">Line.Dad.Gene.Bin</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">1101</td>
-          <td class="cell-row">1100</td>
-          <td class="cell-row">1011</td>
-          <td class="cell-row">1101</td>
-          <td class="cell-row">1100</td>
-          <td class="cell-row">1101</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">1110</td>
-          <th class="name-row">Line.Dad.Gene.Bin</td>
-        </tr>
-        <tr class="dad-line base-dec gr-child">
-          <th class="name-row">Line.Dad.Tier.Dec</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">7</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">9</td>
-          <th class="name-row">Line.Dad.Tier.Dec</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">13</td>
-          <td class="cell-row">7</td>
-          <td class="cell-row">15</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">17</td>
-          <td class="cell-row">9</td>
-          <th class="name-row">Line.Dad.Tier.Dec</td>
-          <td class="cell-row">19</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">21</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">23</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">25</td>
-          <td class="cell-row">13</td>
-          <td class="cell-row">27</td>
-          <th class="name-row">Line.Dad.Tier.Dec</td>
-          <td class="cell-row">7</td>
-          <td class="cell-row">29</td>
-          <td class="cell-row">15</td>
-          <td class="cell-row">31</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">4093</td>
-          <td class="cell-row">2047</td>
-          <td class="cell-row">4095</td>
-          <th class="name-row">Line.Dad.Tier.Dec</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">4097</td>
-          <td class="cell-row">2049</td>
-          <td class="cell-row">2047</td>
-          <td class="cell-row">8189</td>
-          <td class="cell-row">4095</td>
-          <td class="cell-row">8191</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">8193</td>
-          <th class="name-row">Line.Dad.Tier.Dec</td>
-        </tr>
-        <tr class="dad-line base-bin gr-child">
-          <th class="name-row">Line.Dad.Tier.Bin</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">111</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">1001</td>
-          <th class="name-row">Line.Dad.Tier.Bin</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">1011</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">1101</td>
-          <td class="cell-row">111</td>
-          <td class="cell-row">1111</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10001</td>
-          <td class="cell-row">1001</td>
-          <th class="name-row">Line.Dad.Tier.Bin</td>
-          <td class="cell-row">10011</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">10101</td>
-          <td class="cell-row">1011</td>
-          <td class="cell-row">10111</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">11001</td>
-          <td class="cell-row">1101</td>
-          <td class="cell-row">11011</td>
-          <th class="name-row">Line.Dad.Tier.Bin</td>
-          <td class="cell-row">111</td>
-          <td class="cell-row">11101</td>
-          <td class="cell-row">1111</td>
-          <td class="cell-row">11111</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">1011</td>
-          <td class="cell-row">111111000000</td>
-          <td class="cell-row">11111111111</td>
-          <td class="cell-row">111111000000</td>
-          <th class="name-row">Line.Dad.Tier.Bin</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">1000000000000</td>
-          <td class="cell-row">100000000000</td>
-          <td class="cell-row">11111111111</td>
-          <td class="cell-row">1111110000000</td>
-          <td class="cell-row">111111000000</td>
-          <td class="cell-row">1111110000000</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10000000000000</td>
-          <th class="name-row">Line.Dad.Tier.Bin</td>
-        </tr>
-        <tr class="dad-line base-dec gr-child">
-          <th class="name-row">Line.Dad.Name.Dec</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">6</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">8</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">10</td>
-          <th class="name-row">Line.Dad.Name.Dec</td>
-          <td class="cell-row">6</td>
-          <td class="cell-row">12</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">14</td>
-          <td class="cell-row">8</td>
-          <td class="cell-row">16</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">18</td>
-          <td class="cell-row">10</td>
-          <th class="name-row">Line.Dad.Name.Dec</td>
-          <td class="cell-row">20</td>
-          <td class="cell-row">6</td>
-          <td class="cell-row">22</td>
-          <td class="cell-row">12</td>
-          <td class="cell-row">24</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">26</td>
-          <td class="cell-row">14</td>
-          <td class="cell-row">28</td>
-          <th class="name-row">Line.Dad.Name.Dec</td>
-          <td class="cell-row">8</td>
-          <td class="cell-row">30</td>
-          <td class="cell-row">16</td>
-          <td class="cell-row">32</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">12</td>
-          <td class="cell-row">4094</td>
-          <td class="cell-row">2048</td>
-          <td class="cell-row">4096</td>
-          <th class="name-row">Line.Dad.Name.Dec</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">4098</td>
-          <td class="cell-row">2050</td>
-          <td class="cell-row">2048</td>
-          <td class="cell-row">8190</td>
-          <td class="cell-row">4096</td>
-          <td class="cell-row">8192</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">8194</td>
-          <th class="name-row">Line.Dad.Name.Dec</td>
-        </tr>
-        <tr class="dad-line base-bin gr-child">
-          <th class="name-row">Line.Dad.Name.Bin</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">110</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">1000</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">1010</td>
-          <th class="name-row">Line.Dad.Name.Bin</td>
-          <td class="cell-row">110</td>
-          <td class="cell-row">1100</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">1110</td>
-          <td class="cell-row">1000</td>
-          <td class="cell-row">10000</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">10010</td>
-          <td class="cell-row">1010</td>
-          <th class="name-row">Line.Dad.Name.Bin</td>
-          <td class="cell-row">10100</td>
-          <td class="cell-row">110</td>
-          <td class="cell-row">10110</td>
-          <td class="cell-row">1100</td>
-          <td class="cell-row">11000</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">11010</td>
-          <td class="cell-row">1110</td>
-          <td class="cell-row">11100</td>
-          <th class="name-row">Line.Dad.Name.Bin</td>
-          <td class="cell-row">1000</td>
-          <td class="cell-row">11110</td>
-          <td class="cell-row">10000</td>
-          <td class="cell-row">100000</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">1100</td>
-          <td class="cell-row">111111000000</td>
-          <td class="cell-row">100000000000</td>
-          <td class="cell-row">1000000000000</td>
-          <th class="name-row">Line.Dad.Name.Bin</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">1000000000000</td>
-          <td class="cell-row">100000000000</td>
-          <td class="cell-row">100000000000</td>
-          <td class="cell-row">1111110000000</td>
-          <td class="cell-row">1000000000000</td>
-          <td class="cell-row">10000000000000</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">10000000000000</td>
-          <th class="name-row">Line.Dad.Name.Bin</td>
-        </tr>
-        <tr class="dad-line base-dec gr-child">
-          <th class="name-row">Line.Dad.Sort.Dec</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">1</td>
-          <th class="name-row">Line.Dad.Sort.Dec</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">2</td>
-          <th class="name-row">Line.Dad.Sort.Dec</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">1</td>
-          <th class="name-row">Line.Dad.Sort.Dec</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">6</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">1</td>
-          <th class="name-row">Line.Dad.Sort.Dec</td>
-          <td class="cell-row">13</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">14</td>
-          <td class="cell-row">1</td>
-          <th class="name-row">Line.Dad.Sort.Dec</td>
-        </tr>
-        <tr class="dad-line base-bin gr-child">
-          <th class="name-row">Line.Dad.Sort.Bin</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">1</td>
-          <th class="name-row">Line.Dad.Sort.Bin</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10</td>
-          <th class="name-row">Line.Dad.Sort.Bin</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">1</td>
-          <th class="name-row">Line.Dad.Sort.Bin</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">110</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">1</td>
-          <th class="name-row">Line.Dad.Sort.Bin</td>
-          <td class="cell-row">1101</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">1110</td>
-          <td class="cell-row">1</td>
-          <th class="name-row">Line.Dad.Sort.Bin</td>
-        </tr>
-
-
-        <tr class="mom-sosa gr-title" data-target="5">
-          <th class="name-rows" colspan="51">Sosa.Mom.</td>
-        </tr>
-        <tr class="mom-sosa base-sex gr-child">
-          <th class="name-row">Sosa.Mom.Sex</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <th class="name-row">Sosa.Mom.Sex</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <th class="name-row">Sosa.Mom.Sex</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <th class="name-row">Sosa.Mom.Sex</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <th class="name-row">Sosa.Mom.Sex</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <td class="cell-row">♀</td>
-          <th class="name-row">Sosa.Mom.Sex</td>
-        </tr>
-        <tr class="mom-sosa base-dec gr-child">
-          <th class="name-row">Sosa.Mom.Nor.Dec</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">7</td>
-          <td class="cell-row">9</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">13</td>
-          <td class="cell-row">15</td>
-          <td class="cell-row">17</td>
-          <td class="cell-row">19</td>
-          <th class="name-row">Sosa.Mom.Nor.Dec</td>
-          <td class="cell-row">21</td>
-          <td class="cell-row">23</td>
-          <td class="cell-row">25</td>
-          <td class="cell-row">27</td>
-          <td class="cell-row">29</td>
-          <td class="cell-row">31</td>
-          <td class="cell-row">33</td>
-          <td class="cell-row">35</td>
-          <td class="cell-row">37</td>
-          <th class="name-row">Sosa.Mom.Nor.Dec</td>
-          <td class="cell-row">39</td>
-          <td class="cell-row">41</td>
-          <td class="cell-row">43</td>
-          <td class="cell-row">45</td>
-          <td class="cell-row">47</td>
-          <td class="cell-row">49</td>
-          <td class="cell-row">51</td>
-          <td class="cell-row">53</td>
-          <td class="cell-row">55</td>
-          <th class="name-row">Sosa.Mom.Nor.Dec</td>
-          <td class="cell-row">57</td>
-          <td class="cell-row">59</td>
-          <td class="cell-row">61</td>
-          <td class="cell-row">63</td>
-          <td class="cell-row">65</td>
-          <td class="cell-row">89</td>
-          <td class="cell-row">8187</td>
-          <td class="cell-row">8189</td>
-          <td class="cell-row">8191</td>
-          <th class="name-row">Sosa.Mom.Nor.Dec</td>
-          <td class="cell-row">8193</td>
-          <td class="cell-row">8195</td>
-          <td class="cell-row">8197</td>
-          <td class="cell-row">16377</td>
-          <td class="cell-row">16379</td>
-          <td class="cell-row">16381</td>
-          <td class="cell-row">16383</td>
-          <td class="cell-row">16385</td>
-          <td class="cell-row">16387</td>
-          <th class="name-row">Sosa.Mom.Nor.Dec</td>
-        </tr>
-        <tr class="mom-sosa base-bin gr-child">
-          <th class="name-row">Sosa.Mom.Nor.Bin</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">111</td>
-          <td class="cell-row">1001</td>
-          <td class="cell-row">1011</td>
-          <td class="cell-row">1101</td>
-          <td class="cell-row">1111</td>
-          <td class="cell-row">10001</td>
-          <td class="cell-row">10011</td>
-          <th class="name-row">Sosa.Mom.Nor.Bin</td>
-          <td class="cell-row">10101</td>
-          <td class="cell-row">10111</td>
-          <td class="cell-row">11001</td>
-          <td class="cell-row">11011</td>
-          <td class="cell-row">11101</td>
-          <td class="cell-row">11111</td>
-          <td class="cell-row">100001</td>
-          <td class="cell-row">100011</td>
-          <td class="cell-row">100101</td>
-          <th class="name-row">Sosa.Mom.Nor.Bin</td>
-          <td class="cell-row">100111</td>
-          <td class="cell-row">101001</td>
-          <td class="cell-row">101011</td>
-          <td class="cell-row">101101</td>
-          <td class="cell-row">101111</td>
-          <td class="cell-row">110001</td>
-          <td class="cell-row">110011</td>
-          <td class="cell-row">110101</td>
-          <td class="cell-row">110111</td>
-          <th class="name-row">Sosa.Mom.Nor.Bin</td>
-          <td class="cell-row">111001</td>
-          <td class="cell-row">111011</td>
-          <td class="cell-row">111101</td>
-          <td class="cell-row">111111</td>
-          <td class="cell-row">1000001</td>
-          <td class="cell-row">1011001</td>
-          <td class="cell-row">1111110000000</td>
-          <td class="cell-row">1111110000000</td>
-          <td class="cell-row">1111110000000</td>
-          <th class="name-row">Sosa.Mom.Nor.Bin</td>
-          <td class="cell-row">10000000000000</td>
-          <td class="cell-row">10000000000000</td>
-          <td class="cell-row">10000000000000</td>
-          <td class="cell-row">11111100000000</td>
-          <td class="cell-row">11111100000000</td>
-          <td class="cell-row">11111100000000</td>
-          <td class="cell-row">11111100000000</td>
-          <td class="cell-row">100000000000000</td>
-          <td class="cell-row">100000000000000</td>
-          <th class="name-row">Sosa.Mom.Nor.Bin</td>
-        </tr>
-        <tr class="mom-sosa base-dec gr-child">
-          <th class="name-row">Sosa.Mom.Rev.Dec</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">6</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">14</td>
-          <td class="cell-row">12</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">8</td>
-          <td class="cell-row">30</td>
-          <td class="cell-row">28</td>
-          <th class="name-row">Sosa.Mom.Rev.Dec</td>
-          <td class="cell-row">26</td>
-          <td class="cell-row">24</td>
-          <td class="cell-row">22</td>
-          <td class="cell-row">20</td>
-          <td class="cell-row">18</td>
-          <td class="cell-row">16</td>
-          <td class="cell-row">62</td>
-          <td class="cell-row">60</td>
-          <td class="cell-row">58</td>
-          <th class="name-row">Sosa.Mom.Rev.Dec</td>
-          <td class="cell-row">56</td>
-          <td class="cell-row">54</td>
-          <td class="cell-row">52</td>
-          <td class="cell-row">50</td>
-          <td class="cell-row">48</td>
-          <td class="cell-row">46</td>
-          <td class="cell-row">44</td>
-          <td class="cell-row">42</td>
-          <td class="cell-row">40</td>
-          <th class="name-row">Sosa.Mom.Rev.Dec</td>
-          <td class="cell-row">38</td>
-          <td class="cell-row">36</td>
-          <td class="cell-row">34</td>
-          <td class="cell-row">32</td>
-          <td class="cell-row">126</td>
-          <td class="cell-row">102</td>
-          <td class="cell-row">4100</td>
-          <td class="cell-row">4098</td>
-          <td class="cell-row">4096</td>
-          <th class="name-row">Sosa.Mom.Rev.Dec</td>
-          <td class="cell-row">16382</td>
-          <td class="cell-row">16380</td>
-          <td class="cell-row">16378</td>
-          <td class="cell-row">8198</td>
-          <td class="cell-row">8196</td>
-          <td class="cell-row">8194</td>
-          <td class="cell-row">8192</td>
-          <td class="cell-row">32766</td>
-          <td class="cell-row">32764</td>
-          <th class="name-row">Sosa.Mom.Rev.Dec</td>
-        </tr>
-        <tr class="mom-sosa base-bin gr-child">
-          <th class="name-row">Sosa.Mom.Rev.Bin</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">110</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">1110</td>
-          <td class="cell-row">1100</td>
-          <td class="cell-row">1010</td>
-          <td class="cell-row">1000</td>
-          <td class="cell-row">11110</td>
-          <td class="cell-row">11100</td>
-          <th class="name-row">Sosa.Mom.Rev.Bin</td>
-          <td class="cell-row">11010</td>
-          <td class="cell-row">11000</td>
-          <td class="cell-row">10110</td>
-          <td class="cell-row">10100</td>
-          <td class="cell-row">10010</td>
-          <td class="cell-row">10000</td>
-          <td class="cell-row">111110</td>
-          <td class="cell-row">111100</td>
-          <td class="cell-row">111010</td>
-          <th class="name-row">Sosa.Mom.Rev.Bin</td>
-          <td class="cell-row">111000</td>
-          <td class="cell-row">110110</td>
-          <td class="cell-row">110100</td>
-          <td class="cell-row">110010</td>
-          <td class="cell-row">110000</td>
-          <td class="cell-row">101110</td>
-          <td class="cell-row">101100</td>
-          <td class="cell-row">101010</td>
-          <td class="cell-row">101000</td>
-          <th class="name-row">Sosa.Mom.Rev.Bin</td>
-          <td class="cell-row">100110</td>
-          <td class="cell-row">100100</td>
-          <td class="cell-row">100010</td>
-          <td class="cell-row">100000</td>
-          <td class="cell-row">1111110</td>
-          <td class="cell-row">1100110</td>
-          <td class="cell-row">1000000000000</td>
-          <td class="cell-row">1000000000000</td>
-          <td class="cell-row">1000000000000</td>
-          <th class="name-row">Sosa.Mom.Rev.Bin</td>
-          <td class="cell-row">11111100000000</td>
-          <td class="cell-row">11111100000000</td>
-          <td class="cell-row">11111100000000</td>
-          <td class="cell-row">10000000000000</td>
-          <td class="cell-row">10000000000000</td>
-          <td class="cell-row">10000000000000</td>
-          <td class="cell-row">10000000000000</td>
-          <td class="cell-row">111111000000000</td>
-          <td class="cell-row">111111000000000</td>
-          <th class="name-row">Sosa.Mom.Rev.Bin</td>
-        </tr>
-
-
-        <tr class="mom-line gr-title" data-target="8">
-          <th class="name-rows" colspan="51">Line.Mom.</td>
-        </tr>
-        <tr class="mom-line base-dec gr-child">
-          <th class="name-row">Line.Mom.Gene.Dec</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">3</td>
-          <th class="name-row">Line.Mom.Gene.Dec</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">5</td>
-          <th class="name-row">Line.Mom.Gene.Dec</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">3</td>
-          <th class="name-row">Line.Mom.Gene.Dec</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">6</td>
-          <td class="cell-row">6</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">12</td>
-          <td class="cell-row">1</td>
-          <th class="name-row">Line.Mom.Gene.Dec</td>
-          <td class="cell-row">13</td>
-          <td class="cell-row">12</td>
-          <td class="cell-row">13</td>
-          <td class="cell-row">13</td>
-          <td class="cell-row">12</td>
-          <td class="cell-row">13</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">14</td>
-          <td class="cell-row">13</td>
-          <th class="name-row">Line.Mom.Gene.Dec</td>
-        </tr>
-        <tr class="mom-line base-bin gr-child">
-          <th class="name-row">Line.Mom.Gene.Bin</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">11</td>
-          <th class="name-row">Line.Mom.Gene.Bin</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">101</td>
-          <th class="name-row">Line.Mom.Gene.Bin</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">11</td>
-          <th class="name-row">Line.Mom.Gene.Bin</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">110</td>
-          <td class="cell-row">110</td>
-          <td class="cell-row">1011</td>
-          <td class="cell-row">1100</td>
-          <td class="cell-row">1</td>
-          <th class="name-row">Line.Mom.Gene.Bin</td>
-          <td class="cell-row">1101</td>
-          <td class="cell-row">1100</td>
-          <td class="cell-row">1101</td>
-          <td class="cell-row">1101</td>
-          <td class="cell-row">1100</td>
-          <td class="cell-row">1101</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">1110</td>
-          <td class="cell-row">1101</td>
-          <th class="name-row">Line.Mom.Gene.Bin</td>
-        </tr>
-        <tr class="mom-line base-dec gr-child">
-          <th class="name-row">Line.Mom.Tier.Dec</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">7</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">15</td>
-          <td class="cell-row">7</td>
-          <th class="name-row">Line.Mom.Tier.Dec</td>
-          <td class="cell-row">13</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">9</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">31</td>
-          <td class="cell-row">15</td>
-          <td class="cell-row">29</td>
-          <th class="name-row">Line.Mom.Tier.Dec</td>
-          <td class="cell-row">7</td>
-          <td class="cell-row">27</td>
-          <td class="cell-row">13</td>
-          <td class="cell-row">25</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">23</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">21</td>
-          <td class="cell-row">5</td>
-          <th class="name-row">Line.Mom.Tier.Dec</td>
-          <td class="cell-row">19</td>
-          <td class="cell-row">9</td>
-          <td class="cell-row">17</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">63</td>
-          <td class="cell-row">51</td>
-          <td class="cell-row">1025</td>
-          <td class="cell-row">2049</td>
-          <td class="cell-row">1</td>
-          <th class="name-row">Line.Mom.Tier.Dec</td>
-          <td class="cell-row">8191</td>
-          <td class="cell-row">4095</td>
-          <td class="cell-row">8189</td>
-          <td class="cell-row">4099</td>
-          <td class="cell-row">2049</td>
-          <td class="cell-row">4097</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">16383</td>
-          <td class="cell-row">8191</td>
-          <th class="name-row">Line.Mom.Tier.Dec</td>
-        </tr>
-        <tr class="mom-line base-bin gr-child">
-          <th class="name-row">Line.Mom.Tier.Bin</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">111</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">1111</td>
-          <td class="cell-row">111</td>
-          <th class="name-row">Line.Mom.Tier.Bin</td>
-          <td class="cell-row">1101</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">1011</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">1001</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">11111</td>
-          <td class="cell-row">1111</td>
-          <td class="cell-row">11101</td>
-          <th class="name-row">Line.Mom.Tier.Bin</td>
-          <td class="cell-row">111</td>
-          <td class="cell-row">11011</td>
-          <td class="cell-row">1101</td>
-          <td class="cell-row">11001</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">10111</td>
-          <td class="cell-row">1011</td>
-          <td class="cell-row">10101</td>
-          <td class="cell-row">101</td>
-          <th class="name-row">Line.Mom.Tier.Bin</td>
-          <td class="cell-row">10011</td>
-          <td class="cell-row">1001</td>
-          <td class="cell-row">10001</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">111111</td>
-          <td class="cell-row">110011</td>
-          <td class="cell-row">10000000001</td>
-          <td class="cell-row">100000000000</td>
-          <td class="cell-row">1</td>
-          <th class="name-row">Line.Mom.Tier.Bin</td>
-          <td class="cell-row">1111110000000</td>
-          <td class="cell-row">111111000000</td>
-          <td class="cell-row">1111110000000</td>
-          <td class="cell-row">1000000000000</td>
-          <td class="cell-row">100000000000</td>
-          <td class="cell-row">1000000000000</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">11111100000000</td>
-          <td class="cell-row">1111110000000</td>
-          <th class="name-row">Line.Mom.Tier.Bin</td>
-        </tr>
-        <tr class="mom-line base-dec gr-child">
-          <th class="name-row">Line.Mom.Name.Dec</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">9</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">7</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">17</td>
-          <td class="cell-row">9</td>
-          <th class="name-row">Line.Mom.Name.Dec</td>
-          <td class="cell-row">15</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">13</td>
-          <td class="cell-row">7</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">33</td>
-          <td class="cell-row">17</td>
-          <td class="cell-row">31</td>
-          <th class="name-row">Line.Mom.Name.Dec</td>
-          <td class="cell-row">9</td>
-          <td class="cell-row">29</td>
-          <td class="cell-row">15</td>
-          <td class="cell-row">27</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">25</td>
-          <td class="cell-row">13</td>
-          <td class="cell-row">23</td>
-          <td class="cell-row">7</td>
-          <th class="name-row">Line.Mom.Name.Dec</td>
-          <td class="cell-row">21</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">19</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">65</td>
-          <td class="cell-row">53</td>
-          <td class="cell-row">1027</td>
-          <td class="cell-row">2051</td>
-          <td class="cell-row">3</td>
-          <th class="name-row">Line.Mom.Name.Dec</td>
-          <td class="cell-row">8193</td>
-          <td class="cell-row">4097</td>
-          <td class="cell-row">8191</td>
-          <td class="cell-row">4101</td>
-          <td class="cell-row">2051</td>
-          <td class="cell-row">4099</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">16385</td>
-          <td class="cell-row">8193</td>
-          <th class="name-row">Line.Mom.Name.Dec</td>
-        </tr>
-        <tr class="mom-line base-bin gr-child">
-          <th class="name-row">Line.Mom.Name.Bin</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">1001</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">111</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">10001</td>
-          <td class="cell-row">1001</td>
-          <th class="name-row">Line.Mom.Name.Bin</td>
-          <td class="cell-row">1111</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">1101</td>
-          <td class="cell-row">111</td>
-          <td class="cell-row">1011</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">100001</td>
-          <td class="cell-row">10001</td>
-          <td class="cell-row">11111</td>
-          <th class="name-row">Line.Mom.Name.Bin</td>
-          <td class="cell-row">1001</td>
-          <td class="cell-row">11101</td>
-          <td class="cell-row">1111</td>
-          <td class="cell-row">11011</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">11001</td>
-          <td class="cell-row">1101</td>
-          <td class="cell-row">10111</td>
-          <td class="cell-row">111</td>
-          <th class="name-row">Line.Mom.Name.Bin</td>
-          <td class="cell-row">10101</td>
-          <td class="cell-row">1011</td>
-          <td class="cell-row">10011</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">1000001</td>
-          <td class="cell-row">110101</td>
-          <td class="cell-row">10000000011</td>
-          <td class="cell-row">100000000000</td>
-          <td class="cell-row">11</td>
-          <th class="name-row">Line.Mom.Name.Bin</td>
-          <td class="cell-row">10000000000000</td>
-          <td class="cell-row">1000000000000</td>
-          <td class="cell-row">1111110000000</td>
-          <td class="cell-row">1000000000000</td>
-          <td class="cell-row">100000000000</td>
-          <td class="cell-row">1000000000000</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">100000000000000</td>
-          <td class="cell-row">10000000000000</td>
-          <th class="name-row">Line.Mom.Name.Bin</td>
-        </tr>
-        <tr class="mom-line base-dec gr-child">
-          <th class="name-row">Line.Mom.Sort.Dec</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">2</td>
-          <th class="name-row">Line.Mom.Sort.Dec</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">1</td>
-          <th class="name-row">Line.Mom.Sort.Dec</td>
-          <td class="cell-row">3</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">4</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">3</td>
-          <th class="name-row">Line.Mom.Sort.Dec</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">5</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">12</td>
-          <th class="name-row">Line.Mom.Sort.Dec</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">2</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">13</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">2</td>
-          <th class="name-row">Line.Mom.Sort.Dec</td>
-        </tr>
-        <tr class="mom-line base-bin gr-child">
-          <th class="name-row">Line.Mom.Sort.Bin</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10</td>
-          <th class="name-row">Line.Mom.Sort.Bin</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">1</td>
-          <th class="name-row">Line.Mom.Sort.Bin</td>
-          <td class="cell-row">11</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">100</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">11</td>
-          <th class="name-row">Line.Mom.Sort.Bin</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">101</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">1100</td>
-          <th class="name-row">Line.Mom.Sort.Bin</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">1101</td>
-          <td class="cell-row">1</td>
-          <td class="cell-row">10</td>
-          <th class="name-row">Line.Mom.Sort.Bin</td>
-        </tr>
-      </table>
-
-    </div>
+  <aside id="footDrawer" style="grid-area: drawer-foot;" class="drawer drawer-footer">
+    <div class="container">
+    <p>Rozszerzona stopka</p>
   </div>
+  </aside>
+
+<!--############################################################################-->
+
+  <main id="bodyMainly" style="grid-area: body-mainly;">
+
+    <section class="card card-600">
+      <div>
+        <span class="card-code">A.0:</span>
+        <span class="card-name">GRAF DRZEWA BINARNEGO.</span>
+      </div>
+      <article class="card-main">
+        <div id="mermaID01"> </div>
+      </article>
+    </section>
+
+    <section class="card card-600">
+      <div>
+        <span class="card-code">A.1:</span>
+        <span class="card-name">OPIS GRAFU DRZEWA BINARNEGO.</span>
+      </div>
+      <article class="card-main">
+        <p>
+          Zrównoważone, posortowane drzewo binarne, o rozmiarze <span class="mix">»total=7«</span>
+          <i><small>(liczba węzłów w drzewie)</small></i> i wysokości <span class="ih">»ih=2«</span> <i><small>(poziom
+              wysokości drzewa
+              zdefiniowany jako liczba krawędzi lub połączeń od najwyższego węzła <strong>ROOT</strong>
+              do najdalszego węzła liścia)</small></i> z węzłem głównym, którego wartość wynosi <span
+            class="i">»i=1«</span>.
+        </p>
+      </article>
+    </section>
+    
+    <section class="card card-300">
+      <div>
+        <span class="card-code">A.2:</span>
+        <span class="card-name">WSTĘP.</span>
+      </div>
+      <article class="card-main">
+        <p>Rzeczą oczywistą jest, że wobec różnorodności modeli rodzinnych niezwykle trudne byłoby skonstruowanie systemu,
+          który
+          mógłby znaleźć zastosowanie inne niż jako ogólny indeks o charakterze pomocniczym. Osoby identyfikowane są za
+          pomocą
+          imion i nazwisk, zatem nie zachodzi potrzeba przypisywania im sztywnych identyfikatorów – chyba że w ramach
+          lokalnych
+          systemów bazodanowych, gdzie stosuje się np. GUID lub UUID. Kwestia ta jednak wykracza poza zakres niniejszego
+          opracowania.
+        </p>
+      </article>
+    </section>
+    
+    <section class="card card-300">
+      <div>
+        <span class="card-code">A.3:</span>
+        <span class="card-name">CEL.</span>
+      </div>
+      <article class="card-main">
+        <p>Jaki zatem cel miałby przyświecać tworzeniu takiego systemu? Główną funkcją systemu pozycyjnego jest umożliwienie
+          klasyfikacji typów relacji pokrewieństwa w sposób jednoznaczny i uporządkowany. Dzięki temu możliwe staje się
+          precyzyjne
+          rozpoznanie, czy dana osoba jest np. bratem cioteczno-stryjecznym, czy też bratem wujeczno-ciotecznym. O ile
+          określenie
+          bliskich relacji pokrewieństwa nie nastręcza zwykle trudności, o tyle identyfikacja więzi dalszych wymaga już
+          systematyzującego narzędzia analitycznego. Takie sprawne, strukturalne porządkowanie osób według rodzaju
+          pokrewieństwa
+          okazuje się kluczowe zwłaszcza w genealogii genetycznej — w procesach dedukcji potencjalnych relacji, ustalania
+          stopnia
+          pokrewieństwa oraz w identyfikacji wspólnych fragmentów centy-morganowych dziedziczonych po określonych liniach
+          wspólnych
+          przodków.
+        </p>
+      </article>
+    </section>
+    
+    
+    <section class="card card-720">
+      <div>
+        <span class="card-code">A.4:</span>
+        <span class="card-name">OBLICZENIA.</span>
+      </div>
+      <article class="card-main">
+        <p>
+          <span class="math">
+            $$
+            \begin{aligned}
+            {\color{firebrick}{ih({\color{mediumblue}{i}})}}
+            = & \lfloor \log_2({\color{mediumblue}{i}}) \rfloor
+            \quad & \forall\, {\color{mediumblue}{i}}\,\in \{ {\color{mediumblue}{iLR}},\, {\color{mediumblue}{iRL}} \} \subset \mathbb{N}_{+}
+            \\ \\
+            \color{darkorchid}{\text{MAX}(\color{firebrick}{ih(\color{mediumblue}{i})})} = &
+            \color{darkorchid}{\text{total}(\color{firebrick}{ih(\color{mediumblue}{i})})} = \\
+            & \quad = 2^{({\color{firebrick}{ih}}+1)} - 1
+            \quad & \forall \, {\color{firebrick}{ih}} \in \mathbb{N}_{0}
+            \\ \\
+            \color{darkorchid}{\text{MIN}(\color{firebrick}{ih(\color{mediumblue}{i})})} = &
+            \color{darkorchid}{\text{count}(\color{firebrick}{ih(\color{mediumblue}{i})})} = \\
+            & \quad = 2^{\color{firebrick}{ih}}
+            \quad & \forall \, {\color{firebrick}{ih}} \in \mathbb{N}_{0}
+            \\ \\
+            \color{darkorchid}{\text{MIX}(\color{firebrick}{ih(\color{mediumblue}{i})})} = &
+            \color{darkorchid}{\text{MIN}(\color{firebrick}{ih(\color{mediumblue}{i})})} +
+            \color{darkorchid}{\text{MAX}(\color{firebrick}{ih(\color{mediumblue}{i})})} = \\
+            = & \, (\color{mediumblue}{iLR} + \color{mediumblue}{iRL}) = \\
+            & \quad = 3 \cdot 2^{\color{firebrick}{ih}} - 1
+            \quad & \forall \, {\color{firebrick}{ih}} \in \mathbb{N}_{0}
+            \end{aligned}
+            $$
+          </span>
+        </p>
+      </article>
+    </section>
+
+    <section class="card card-400">
+    
+      <div>
+        <span class="card-code">A.5:</span>
+        <span class="card-name">OPIS OBLICZEŃ</span>
+      </div>
+      <article class="card-main">
+        <ul>
+          <li>
+            <strong>
+              <span class="mix">MAX(</span>
+              <span class="ih">ih(</span>
+              <span class="i">i</span>
+              <span class="ih">)</span>
+              <span class="mix">)</span>
+              <span> = </span>
+              <span class="mix">total(</span>
+              <span class="ih">ih(</span>
+              <span class="i">i</span>
+              <span class="ih">)</span>
+              <span class="mix">)</span>
+            </strong>
+            <span> — określa ilość wszystkich węzłów oraz wartość najwyższego indeksu węzła
+              na poziomie danej wysokości.
+            </span>
+          </li>
+          <li>
+            <strong>
+              <span class="mix">MIN(</span>
+              <span class="ih">ih(</span>
+              <span class="i">i</span>
+              <span class="ih">)</span>
+              <span class="mix">)</span>
+              <span> = </span>
+              <span class="mix">count(</span>
+              <span class="ih">ih(</span>
+              <span class="i">i</span>
+              <span class="ih">)</span>
+              <span class="mix">)</span>
+            </strong>
+            <span> — określa ilość węzłów na danym poziomie oraz wartość najniższego indeksu węzła.
+            </span>
+          </li>
+          <li>
+            <strong>
+              <span class="mix">MIX(</span>
+              <span class="ih">ih(</span>
+              <span class="i">i</span>
+              <span class="ih">)</span>
+              <span class="mix">)</span>
+              <span> = </span>
+              <span class="mix">MIN(</span>
+              <span class="ih">ih(</span>
+              <span class="i">i</span>
+              <span class="ih">)</span>
+              <span class="mix">)</span>
+              <span> + </span>
+              <span class="mix">MAX(</span>
+              <span class="ih">ih(</span>
+              <span class="i">i</span>
+              <span class="ih">)</span>
+              <span class="mix">)</span>
+              <span> = </span>
+              <span class="i">iLR</span>
+              <span> + </span>
+              <span class="i">iRL</span>
+            </strong>
+            <span> —wartość stała dla poziomu, suma MIN i MAX lub suma indeksów LR+RL.</span>
+          </li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="card card-720">
+      <div>
+        <span class="card-code">A.6:</span>
+        <span class="card-name">WĘDROWANIE PO DRZEWIE</span>
+      </div>
+      <article class="card-main">
+        <p>
+          <span class="math">
+            $$
+            \begin{aligned}
+            \color{lightseagreen}{\text{child}_{\text{LEFT}}({\color{mediumblue}{i}})} &=
+            \begin{cases}
+            2 \cdot {\color{mediumblue}{i}} & \quad \text{dla } {\color{mediumblue}{i}}
+            = {\color{mediumblue}{i_{LR}}} \\
+            2 \cdot {\color{mediumblue}{i}} + 1 & \quad \text{dla } {\color{mediumblue}{i}}
+            = {\color{mediumblue}{i_{RL}}}
+            \end{cases}
+            \\\\
+            \color{lightseagreen}{\text{child}_{\text{RIGHT}}({\color{mediumblue}{i}})} &=
+            \begin{cases}
+            2 \cdot {\color{mediumblue}{i}} + 1 & \quad \text{dla } {\color{mediumblue}{i}} = \color{mediumblue}{i_{LR}} \\
+            2 \cdot {\color{mediumblue}{i}} & \quad \text{dla } {\color{mediumblue}{i}} = \color{mediumblue}{i_{RL}}
+            \end{cases}
+            \\\\
+            \color{lightseagreen}{\text{parent}({\color{mediumblue}{i}})} &=
+            \begin{cases}
+            \varnothing & \quad \text{dla } {\color{mediumblue}{i}} < 2 \\ \left\lfloor \dfrac{{\color{mediumblue}{i}}}{2}
+              \right\rfloor & \quad \text{dla } {\color{mediumblue}{i}} \geq 2 \end{cases} \quad \text{gdzie }
+              {\color{mediumblue}{i}} \in \{ \color{mediumblue}{i_{LR}}, \color{mediumblue}{i_{RL}} \}
+              \\\\
+            \color{lightseagreen}{\text{sibling}({\color{mediumblue}{i}})} &=
+            \begin{cases}
+            \varnothing & \quad \text{dla } {\color{mediumblue}{i}} < 2 \\ {\color{mediumblue}{i}} + 1 & \quad \text{dla }
+              {\color{mediumblue}{i}}=\color{mediumblue}{i_{LR}} \land {\color{mediumblue}{i}} \bmod 2=0 \\ {\color{mediumblue}{i}}
+              - 1 & \quad \text{dla } {\color{mediumblue}{i}}=\color{mediumblue}{i_{LR}} \land {\color{mediumblue}{i}} \bmod 2=1 \\
+              {\color{mediumblue}{i}} - 1 & \quad \text{dla } {\color{mediumblue}{i}}=\color{mediumblue}{i_{RL}} \land
+              {\color{mediumblue}{i}} \bmod 2=0 \\ {\color{mediumblue}{i}} + 1 & \quad \text{dla }
+              {\color{mediumblue}{i}}=\color{mediumblue}{i_{RL}} \land {\color{mediumblue}{i}} \bmod 2=1 \end{cases}
+            \end{aligned}
+            $$
+          </span>
+        </p>
+      </article>
+    </section>
+
+    <section class="card card-720">
+    
+      <div>
+        <span class="card-code">A.7</span>
+        <span class="card-name">OBLICZANIE INDEKSU ODWROTNEGO</span>
+      </div>
+      <article class="card-main">
+        <p>
+          <span class="math">
+            $$
+            \begin{aligned}
+            \color{mediumblue}{i_{RL}(\color{mediumblue}{i_{LR}})} &=
+            \color{darkorchid}{mix(\color{firebrick}{ih({\color{mediumblue}{i}})})} - \color{mediumblue}{i_{LR}} \\
+            \color{mediumblue}{i_{LR}(\color{mediumblue}{i_{RL}})} &=
+            \color{darkorchid}{mix(\color{firebrick}{ih({\color{mediumblue}{i}})})} - \color{mediumblue}{i_{RL}}
+            \end{aligned}
+            $$
+          </span>
+        </p>
+      </article>
+    </section>
+
+    <section class="card card-400">
+      <div>
+        <span class="card-code">A.8:</span>
+        <span class="card-name">DODATKOWY INDEKS</span>
+      </div>
+      <article class="card-main">
+        <p>
+          <span>Uniwersalnym indeksem dokładnie wskazującym na miejsce, po odpowiednim przeliczeniu jest</span>
+          <span class="i">iLR</span> oraz <span class="i">iRL</span>
+          <span>, jednakowoż dla wygody, co w pełni z niego już wynika, wprowadzamy</span>
+          <span class="i">i<span class="ih">h</span>INC</span>
+          <span> oraz </span>
+          <span class="i">i<span class="ih">h</span>DEC</span>
+          <span>, które w obrębie konkretnego poziomu-wysokości</span>
+          <span class="ih">ih</span>
+          <span>, wprowadzają indeks lokalny w jegoż obrębie.</span>
+        </p>
+      </article>
+    </section>
+
+    <section class="card card-720">
+      <div>
+        <span class="card-code">A.9:</span>
+        <span class="card-name">WYLICZENIA DODATKOWYCH INDEKSÓW</span>
+      </div>
+      <article class="card-main">
+        <p>
+          <span class="math">
+            $$
+            \begin{aligned}
+            {\color{mediumblue}{i h INC}} &= {\color{mediumblue}{iLR}} -
+            {\color{darkorchid}{MIN({\color{firebrick}{ih({{\color{mediumblue}{i}}})})}}} \\
+            {\color{mediumblue}{i h DEC}} &= {\color{mediumblue}{iRL}} -
+            {\color{darkorchid}{MIN({\color{firebrick}{ih({{\color{mediumblue}{i}}})})}}}
+            \end{aligned}
+            $$
+          </span>
+        </p>
+      </article>
+    </section>
+    <section class="card card-full">
+      <div>
+        <span class="card-code">A.A:</span>
+        <span class="card-name">SKRYPT W TYPESCRIPT.</span>
+      </div>
+      <article class="card-main">
+        <p>
+          <pre><code class="language-typescript">
+  type NodeConstructor&lt;T&gt; = new (node: number, X?: "XM" | "XW") =&gt; T;
+
+  class Node {
+    ihINC: number; // iLR: number;
+    ihDEC: number; // iRL: number;
+    ih: number; // lvX: number;
+    MAX: number; // MAX: number;
+    MIN: number; // MIN: number;
+    MIX: number; // MIX: number;
+    iRL: number; // XM: number;
+    iLR: number; // XW: number;
+
+    constructor(node: number, X: "XM" | "XW" = "XM") {
+      if (typeof node !== "number" || !Number.isInteger(node) || node &lt;= 0) {
+        throw new Error("Parametr node musi być dodatnią liczbą całkowitą.");
+      }
+      const height = Math.floor(Math.log2(node));
+      const nodeMAX = 1 * Math.pow(2, height + 1) - 1;
+      const nodeMIN = 1 * Math.pow(2, height + 0) - 0;
+      const nodeMIX = 3 * Math.pow(2, height + 0) - 1;
+
+      const nodeXM = X == "XM" ? node :  nodeMIX - node;
+      const nodeXW = X == "XM" ? nodeMIX - node :  node;
+      const sortXM_LR = nodeXM - nodeMIN;
+      const sortXW_RL = nodeXW - nodeMIN;
+
+      this.ihINC = sortXM_LR;
+      this.ihDEC = sortXW_RL;
+      this.ih = height;
+      this.MAX = nodeMAX;
+      this.MIN = nodeMIN;
+      this.MIX = nodeMIX;
+      this.iLR = nodeXM;
+      this.iRL = nodeXW;
+    }
+
+    static ofRange&lt;T extends Node&gt;(
+      this: NodeConstructor&lt;T&gt;,
+      A: number,
+      Z: number,
+      X: "XM" | "XW" = "XM",
+    ): T[] {
+      const OUT: T[] = [];
+      for (let i = A; i &lt;= Z; i++) {
+        OUT.push(new this(i, X));
+      }
+      return OUT;
+    }
+
+    static ofMulti&lt;T extends Node&gt;(
+      this: NodeConstructor&lt;T&gt;,
+      R: string,
+      X: "XM" | "XW" = "XM",
+    ): T[] {
+      const RANGE = ((input: string): number[] =&gt; {
+        const result = new Set&lt;number&gt;();
+
+        for (const token of input.trim().split(" ")) {
+          if (!token) continue;
+
+          if (token.includes("..")) {
+            const [start, end] = token.split("..").map(Number);
+            if (Number.isInteger(start) && Number.isInteger(end)) {
+              const step = start &lt;= end ? 1 : -1;
+              for (let i = start; step &gt; 0 ? i &lt;= end : i &gt;= end; i += step) {
+                result.add(i);
+              }
+            }
+          } else {
+            const num = Number(token);
+            if (Number.isInteger(num)) {
+              result.add(num);
+            }
+          }
+        }
+
+        return [...result].sort((a, b) =&gt; a - b);
+      })(R);
+
+      const OUT: T[] = [];
+      for (const i of RANGE) {
+        OUT.push(new this(i, X));
+      }
+      return OUT;
+    }
+  }
+    </code></pre>
+        </p>
+      </article>
+    </section>
+    <section class="card card-full">
+      <div>
+        <span class="card-code">A.B:</span>
+        <span class="card-name">PODSUMOWANIE NA GRAFIE.</span>
+      </div>
+      <article class="card-main">
+        <div id="mermaID02"> </div>
+      </article>
+    </section>
+
+<!--##################################################################################3-->
+<section class="card card-300">
+
+  <div>
+    <span class="card-code">B.0:</span>
+    <span class="card-name">WSTĘP DO KONCEPCJI LINII</span>
+  </div>
+  <article class="card-main">
+    <p>
+      Kluczowym aspektem w procesie określania przynależności do danej linii genealogicznej jest zmienna <span
+        class="j">j</span>, która wyznacza numer linii, oraz zmienna <span class="jh">jh</span>, wskazująca na położenie
+      w
+      pionowej strukturze pokrewieństwa, tj. wysokość poziomu w obrębie tej linii. Zmienne pomocnicze <span
+        class="jsort">jSort</span> oraz <span class="jhsort">jhSort</span> pełnią funkcję wspomagającą w porządkowaniu i
+      jednoznacznym wyznaczaniu tych relacji, lecz same nie stanowią podstawy klasyfikacyjnej.
+    </p>
+  </article>
+</section>
+    <section class="card card-full">
+      <div>
+        <span class="card-code">B.1-L:</span>
+        <span class="card-name">LINIE SILNIE LEWE</span>
+      </div>
+      <article class="card-main">
+        <div id="mermaID03"> </div>
+      </article>
+    </section>
+
+    <section class="card card-full">
+      <div>
+        <span class="card-code">B.1-R:</span>
+        <span class="card-name">LINIE SILNIE PRAWE</span>
+      </div>
+      <article class="card-main">
+        <div id="mermaID04"> </div>
+      </article>
+    </section>
+
+
+
+
+
+    <section class="card card-720">
+      <div>
+        <span class="card-code">B.2:</span>
+        <span class="card-name">OBLICZENIA (część 1)</span>
+      </div>
+      <article class="card-main">
+        <p><strong>WYJAŚNIENIE:</strong> <span
+            style="background-color: white;padding: 0.3rem; border-radius: 0.5rem;">v2(x)</span> to 2-adyczna waluacja liczby
+          całkowitej dodatniej x (liczba zer na końcu binarnej reprezentacji x>0).</p>
+        
+        <p>
+          <span class="math">
+            $$
+            \begin{aligned}
+            {\color{darkgoldenrod}{jhLL({\color{mediumblue}{i}})}} & =
+            \begin{cases}
+            {\color{firebrick}{ih({\color{mediumblue}{i}})}}
+            & \quad \text{dla } {\color{mediumblue}{iLR}} = 0 \\
+            v_2({\color{mediumblue}{iLR}})
+            & \quad \text{dla } {\color{mediumblue}{iLR}} \neq 0 \\
+            \end{cases}
+            \\\\
+            {\color{darkgoldenrod}{jhRR({\color{mediumblue}{i}})}} & =
+            \begin{cases}
+            {\color{firebrick}{ih({\color{mediumblue}{i}})}}
+            & \quad \text{dla } {\color{mediumblue}{iRL}} = 0 \\
+            v_2({\color{mediumblue}{iRL}})
+            & \quad \text{dla } {\color{mediumblue}{iRL}} \neq 0 \\
+            \end{cases}
+            \end{aligned}
+            $$
+          </span>
+        </p>
+        <p>
+          <span class="math">
+            $$
+            \begin{aligned}
+            {\color{mediumpurple}{jSortLL({\color{mediumblue}{i}})}} & =
+            \dfrac{{\color{mediumblue}{iLR}}}{2^{v_2({\color{mediumblue}{iLR}})}}
+            \\\\
+            {\color{royalblue}{jLL({\color{mediumblue}{i}})}} & =
+            {\color{mediumpurple}{jSortLL({\color{mediumblue}{i}})}} + 1
+            \\\\
+            {\color{sienna}{jhSortLL({\color{mediumblue}{i}})}} & =
+            \lfloor \log_2({\color{mediumpurple}{jSortLL({\color{mediumblue}{i}})}}) \rfloor
+            \\\\
+            {\color{mediumpurple}{jSortRR({\color{mediumblue}{i}})}} & =
+            \dfrac{{\color{mediumblue}{iRL}}}{2^{v_2({\color{mediumblue}{iRL}})}}
+            \\\\
+            {\color{royalblue}{jRR({\color{mediumblue}{i}})}} & =
+            {\color{mediumpurple}{jSortRR({\color{mediumblue}{i}})}} + 2
+            \\\\
+            {\color{sienna}{jhSortRR({\color{mediumblue}{i}})}} & =
+            \lfloor \log_2({\color{mediumpurple}{jSortRR({\color{mediumblue}{i}})}}) \rfloor
+            \end{aligned}
+            $$
+          </span>
+        </p>
+      </article>
+    </section>
+
+    
+
+
+    <section class="card card-full">
+    
+      <div>
+        <span class="card-code">B.3:</span>
+        <span class="card-name">SKRYPT W TYPESCRIPT.</span>
+      </div>
+      <article class="card-main">
+        <pre><code class="language-typescript">
+  class NodeLine extends Node {
+    jhSortLL: number;   //iM: number;    
+    jhLL   : number; //lvLM: number;   
+    jLL    : number;   //LM: number;    
+    jSortLL : number;  //LM_: number;      
+  
+    jhSortRR: number;   //iW: number;    
+    jhRR   : number; //lvLW: number;   
+    jRR    : number;   //LW: number;    
+    jSortRR : number;  //LW_: number;   
+    
+    constructor(node: number, X: &quot;XM&quot; | &quot;XW&quot; = &quot;XM&quot;){
+      super(node, X);
+      function v2adic(x: number): number {
+        if (typeof x !== &quot;number&quot; || !Number.isInteger(x) || x &lt;= 0) {
+          throw new Error(&quot;Parametr x musi być dodatnią liczbą całkowitą.&quot;);
+        }
+  
+        // x &amp; -x to 2^k, więc log2 tego da dokładnie k
+        return Math.log2(x &amp; -x);
+      }
+  
+      function v2adic_precision(x: number): number {
+        if (typeof x !== &quot;number&quot; || !Number.isInteger(x) || x &lt;= 0) {
+          throw new Error(&quot;Parametr x musi być dodatnią liczbą całkowitą.&quot;);
+        }
+        let r = 0;
+        let t = true;
+        const e = Array.from(x.toString(2));
+        let l = e.length;
+        while (l &gt; 0 &amp;&amp; t) {
+          if (e[l - 1] == &quot;0&quot;) {
+            r++;
+          } else {
+            t = false;
+          }
+          l--;
+        }
+        return r;
+      }
+  
+      this.jhLL = (this.iLR == 0 ? this.ih + 1 : v2adic(this.iLR) + 1) - 1;
+      this.jhRR = (this.iRL == 0 ? this.ih + 1 : v2adic(this.iRL) + 1) - 1;
+  
+      this.jSortLL = this.iLR / Math.pow(2, v2adic(this.iLR));
+      this.jSortRR = this.iRL / Math.pow(2, v2adic(this.iRL));
+  
+      this.jLL = this.jSortLL + 1;
+      this.jRR = this.jSortRR + 2;
+  
+      this.jhSortLL = Math.floor(Math.log2(this.jSortLL));
+      this.jhSortRR = Math.floor(Math.log2(this.jSortRR));
+    }
+  }
+                  </code></pre>
+      </article>
+    </section>
+
+
+    <section class="card card-400">
+      <div>
+        <span class="card-code">C.0-1:</span>
+        <span class="card-name">ODNIESIENIE DO GENEALOGII.</span>
+      </div>
+      <article class="card-main">
+        <p>
+          Zastosowany identyfikator osoby <span class="i">i</span> wykazuje pełną zgodność z konwencją przyjętą w
+          <strong>systemie SOSA</strong> (szczegóły zostaną przedstawione w kolejnej sekcji). <br />
+          Osoba wyjściowa — tzw. probant — otrzymuje identyfikator <span class="i">i = 1</span>. Dalsze osoby w drzewie
+          genealogicznym przyporządkowywane są w sposób systematyczny: mężczyznom odpowiadają wartości parzyste (<span
+            class="i">i mod 2 = 0</span>), natomiast kobietom — nieparzyste (<span class="i">i mod 2 = 1</span>).<br />
+          Parametr <span class="ih">ih</span> określa odległość pokoleniową względem probanta: <span class="ih">ih = 0</span>
+          dla probanta, <span class="ih">ih = 1</span> dla jego rodziców, <span class="ih">ih = 2</span> dla dziadków
+          itd.<br />
+          Reguły przydzielania identyfikatorów są deterministyczne: ojciec osoby <span class="i">i</span> otrzymuje
+          identyfikator <span class="i">2 × i</span>, matka — <span class="i">2 × i + 1</span>, zaś dziecko — <span class="i">⌊i
+            / 2⌋</span>.
+        </p>
+        
+        <p>
+          Analogiczne zasady obowiązują przy konstruowaniu tzw. linii genealogicznych. W tym kontekście <span class="jh">jh =
+            0</span> przypisuje się osobie będącej probantem danej linii, tj. najbliższemu znanemu przodkowi, od którego dana
+          linia jest śledzona. <br />
+          Linie <span class="j">jLL (jL)</span> obrazują przekaz dziedziczny od ojca do dzieci (zarówno synów, jak i córek),
+          co można interpretować jako transmisję nazwiska rodowego bądź autosomalnego DNA o rodowodzie
+          patrylinearno-pokrewieńczym. Natomiast linie <span class="j">jRR (jR)</span> opisują przekaz od matki do dzieci,
+          także w zakresie DNA autosomalnego.
+          </p>
+      </article>
+    </section>
+    <section class="card card-400">
+      <div>
+        <span class="card-code">C.0-2:</span>
+        <span class="card-name">ODNIESIENIE DO GENEALOGII</span>
+      </div>
+      <article class="card-main">
+        <p>
+          <strong>Dlaczego parametr <span class="jh">jh = 0</span> jest tak znaczący?</strong><br />
+          Ponieważ linie te, oprócz aspektów genealogicznych, mają również odniesienie do biologii molekularnej: linie
+          ojcowskie odwzorowują dziedziczenie haplogrupy chromosomu Y (przekazywanego wyłącznie z ojca na syna), a linie
+          matczyne — dziedziczenie mitochondrialnego DNA (przekazywanego przez matkę wszystkim dzieciom). Z tego względu
+          kobieta nie może zapoczątkować linii Y-DNA, co czyni poprawne określenie punktu początkowego (<span class="jh">jh
+            =
+            0</span>) niezbędnym dla zachowania spójności reprezentacji dziedziczenia.<br />
+          Każda wartość <span class="jh">jh</span> oznacza zatem liczbę pokoleń, które dzielą daną osobę od probanta danej
+          linii — nie zaś od protoplasty linii jako takiej.
+        </p>
+    
+        <p><strong>Co najistotniejsze, wszystkie wspomniane informacje — zarówno <span class="ih">ih</span>, jak i <span
+              class="jh">jh</span> — są zawarte implicytnie w strukturze identyfikatora <span class="i">i</span>. Przy
+            zastosowaniu odpowiednich wzorów możliwe jest ich dynamiczne wyprowadzenie, bez konieczności jawnego
+            zapisu.</strong></p>
+      </article>
+    </section>
+
+    <section class="card card-full">
+      <div>
+        <span class="card-code">C.1-1:</span>
+        <span class="card-name">PRZYKŁAD.</span>
+      </div>
+      <article class="card-main">
+        <div id="mermaID05"> </div>
+      </article>
+    </section>
+
+    <section class="card card-full">
+      <div>
+        <span class="card-code">C.1-2:</span>
+        <span class="card-name">WYJAŚNIENIE DO PRZYKŁADU.</span>
+      </div>
+      <article class="card-main">
+        <ul>
+          <li>
+            <span style="background-color: white;padding: 0.3rem; border-radius: 0.5rem;">iLR</span>
+            <span> — zostało skrócone do — </span>
+            <span style="background-color: white;padding: 0.3rem; border-radius: 0.5rem;">i</span>
+            .
+          </li>
+          <li>
+            <span style="background-color: white;padding: 0.3rem; border-radius: 0.5rem;">jLL</span>
+            <span> — zostało skrócone do — </span>
+            <span style="background-color: white;padding: 0.3rem; border-radius: 0.5rem;">jL</span>
+            .
+          </li>
+          <li>
+            <span style="background-color: white;padding: 0.3rem; border-radius: 0.5rem;">jhLL</span>
+            <span> — zostało skrócone do — </span>
+            <span style="background-color: white;padding: 0.3rem; border-radius: 0.5rem;">jhL</span>
+            .
+          </li>
+          <li>
+            <span style="background-color: white;padding: 0.3rem; border-radius: 0.5rem;">jRR</span>
+            <span> — zostało skrócone do — </span>
+            <span style="background-color: white;padding: 0.3rem; border-radius: 0.5rem;">jR</span>
+            .
+          </li>
+          <li>
+            <span style="background-color: white;padding: 0.3rem; border-radius: 0.5rem;">jhRR</span>
+            <span> — zostało skrócone do — </span>
+            <span style="background-color: white;padding: 0.3rem; border-radius: 0.5rem;">jhR</span>
+            .
+          </li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="card card-300">
+      <div>
+        <span class="card-code">C.2-1:</span>
+        <span class="card-name">HISTORIA</span>
+      </div>
+      <article class="card-main">
+        <p>Zarys historyczny metody numeracji przodków Aitzing-Sosa-Galton-Kekulé von Stradonitz, znanej jako Ahnentafel
+          a także SOSA</p>
+        <p>Rozpowszechnienie i ugruntowanie omawianego systemu genealogicznego jest rezultatem działalności czterech kluczowych
+          postaci historycznych, których wkład rozciągał się na przestrzeni kilku stuleci:</p>
+      </article>
+    </section>
+
+    <section class="card card-720">
+      <div>
+        <span class="card-code">C.2-2:</span>
+        <span class="card-name">HISTORIA (von Aitzing (Eytzing))</span>
+      </div>
+      <article class="card-main">
+        <p><strong>-&gt; 1590 &lt;-</strong> Prekursorem systemu był <strong>Michael Freiherr von Aitzing (Eytzing)</strong>
+          (ur. ok. 1530 r. na zamku Schrattenthal [48°42'52"N 15°54'21"E], zm. w 1598 r. w Bonn [50°44'N 7°06'E]). Ten
+          dolnoaustriacki arystokrata, wyznania katolickiego, był erudytą, pisarzem oraz pionierem w dziedzinach genealogii i
+          wczesnego dziennikarstwa. Około 1550 roku podjął studia prawnicze na Uniwersytecie w Leuven (Belgia), gdzie rozwijał
+          również zainteresowania w zakresie kartografii, matematyki, historii i filologii [ISBN 978-3-902684-35-6, s. 50]. Już
+          w 1553 roku opublikował swoje pierwsze dzieło, podręcznik retoryki pt. <em>Artis oratiae tabulae</em>. Aitzing odbywał
+          liczne podróże i cechował się biegłą znajomością wielu języków starożytnych i nowożytnych, takich jak greka, łacina,
+          hebrajski, hiszpański, włoski i flamandzki [ISBN 3-7616-0858-6, s. 481]. Po ukończeniu studiów powrócił do Wiednia,
+          gdzie cesarz Ferdynand I mianował go "nadwornym sługą"; służył również jego następcom, Maksymilianowi II i Rudolfowi
+          II, jako radca i szambelan do 1576 roku. W 1563 roku Aitzing, będący małżonkiem przedstawicielki rodu Fuggerów
+          (wpływowej szwabskiej rodziny tkacko-kupieckiej z Augsburga), uczestniczył w Soborze Trydenckim w imieniu cesarza, a w
+          1566 roku wziął udział w sejmie augsburskim. W 1568 roku był naocznym świadkiem egzekucji Lamorala, hrabiego Egmont, w
+          Brukseli, gdzie, jak się przypuszcza, przebywał w charakterze "tajnego obserwatora" dworu austriackiego ["Allgemeine
+          Deutsche Biographie", Band 5, Duncker & Humblot, Leipzig 1877, s. 777]. Następnie sam został tamże uwięziony,
+          prawdopodobnie z przyczyn politycznych. Po uwolnieniu, w 1581 roku osiadł w Kolonii, gdzie kontynuował działalność
+          pisarską. Aitzing opracował kartograficzny wizerunek Ziemi Świętej, który został wyryty w miedzi przez Fransa
+          Hogenberga w 1582 roku. Rozgłos przyniosło mu łacińskojęzyczne dzieło <em>Leo Belgicus</em>, opublikowane po raz
+          pierwszy w 1583 roku. Kluczowym dla genealogii okazało się jednak wydanie w Kolonii w 1590 roku pracy <em>Thesaurus
+            principum hac aetate in Europa viventium, quo progenitores eorum tam paterni quam materni simul ac fratres et
+            sorores inde ab origine reconduntur, usque ad annum a Christo nato</em>. W publikacji tej po raz pierwszy
+          zastosowano drukowaną numerację przodków według systemu, który w późniejszym okresie zyskał miano metody
+          Sosa-Stradonitza. Mimo sukcesów publicystycznych, Aitzing doświadczał w Kolonii znacznych trudności materialnych.
+          Ostatecznie przyjął zaproszenie elektora i arcybiskupa Bawarii, Ernsta, udając się do Bonn, gdzie zmarł w 1598 roku
+          jako jego historiograf.</p>
+      </article>
+    </section>
+
+    <section class="card card-300">
+      <div>
+        <span class="card-code">C.2-3:</span>
+        <span class="card-name">HISTORIA (Sosa)</span>
+      </div>
+      <article class="card-main">
+        <p><strong>-&gt; 1676 &lt;-</strong> Kolejną znaczącą postacią był <strong>Jerónimo de Sosa</strong> (ur. w XVII w., zm.
+          w 1711 r.). Ten hiszpański franciszkanin, profesor teologii w królewskim klasztorze Santa Maria la Nova w Neapolu, był
+          również cenionym genealogiem. W swoim opublikowanym w 1676 roku dziele genealogicznym <em>Noticia de la Gran Casa de
+            los marqueses de Villafranca</em>, de Sosa świadomie zastosował i spopularyzował metodę numeracji przodków, którą
+          prawie sto lat wcześniej zainicjował Michael Freiherr von Aitzing.</p>
+      </article>
+    </section>
+
+    
+    <section class="card card-720">
+      <div>
+        <span class="card-code">C.2-4:</span>
+        <span class="card-name">HISTORIA (Galton)</span>
+      </div>
+      <article class="card-main">
+        <p><strong>-&gt; 1883 &lt;-</strong> Wkład w rozwój myśli genealogicznej, choć w szerszym kontekście swoich badań,
+          wniósł <strong>Sir Francis Galton</strong> (ur. w 1822 r. w Sparbrook, Birmingham, zm. w 1911 r. w Haslemere, Surrey).
+          Ten brytyjski polihistor, pionier eugeniki (twórca samego terminu), antropolog, geograf, eksplorator, wynalazca,
+          meteorolog, statystyk, psycholog i genealog, był przyrodnim kuzynem Karola Darwina. Dorobek pisarski Galtona obejmuje
+          ponad 340 artykułów i książek. Wprowadził on fundamentalne dla statystyki koncepcje korelacji i regresji do średniej.
+          Jako pierwszy zastosował metody statystyczne do badania różnic indywidualnych oraz dziedziczenia inteligencji, a także
+          wprowadził kwestionariusze i ankiety do gromadzenia danych o społecznościach ludzkich, które były mu niezbędne do prac
+          genealogicznych, biograficznych oraz badań antropometrycznych. Był pionierem eugeniki, formułując ten termin i jego
+          założenia. Jego książka <em>Hereditary Genius</em> (1869) stanowiła pierwszą próbę naukowego, opartego na metodach
+          nauk społecznych, zbadania dziedziczności geniuszu. Jako badacz umysłu ludzkiego stworzył podwaliny psychometrii
+          (nauki o pomiarze zdolności umysłowych), psychologii różnic indywidualnych oraz leksykalnej hipotezy osobowości.
+          Opracował metodę klasyfikacji odcisków palców, która okazała się niezwykle użyteczna w kryminalistyce. Będąc
+          inicjatorem meteorologii naukowej, opracował pierwszą mapę pogody, zaproponował teorię antycyklonów i jako pierwszy
+          ustanowił kompletny zapis krótkoterminowych zjawisk klimatycznych w skali europejskiej. Nie piastował stałej profesury
+          uniwersyteckiej, a większość badań prowadził samodzielnie. Jego liczne zasługi zostały formalnie uznane, gdy w wieku
+          87 lat otrzymał tytuł szlachecki (Sir). Galton ukuł termin "eugenika" (rozumiana jako sztuczna selekcja mająca na celu
+          doskonalenie rasy ludzkiej) w 1883 roku, a wiele ze swoich obserwacji i wniosków, w tym o charakterze genealogicznym,
+          zawarł w książce <em>Inquiries into Human Faculty and Its Development</em>. Jego prace, promujące systematyczne
+          podejście do badania dziedziczności, pośrednio przyczyniły się do zainteresowania metodami organizacji danych
+          genealogicznych.</p>
+      </article>
+    </section>
+
+    
+    <section class="card card-300">
+      <div>
+        <span class="card-code">C.2-5:</span>
+        <span class="card-name">HISTORIA (Kekulé von Stradonitz)</span>
+      </div>
+      <article class="card-main">
+        <p><strong>-&gt; 1898 &lt;-</strong> Ostateczne skodyfikowanie i szerokie spopularyzowanie systemu przypisuje się
+          <strong>Stephanowi Kekulé von Stradonitz</strong> (ur. w 1863 r. w Gandawie, zm. w 1933 r. w Berlinie). Ten niemiecki
+          prawnik, prywatny uczony, heraldyk i genealog, pochodził z czeskiej rodziny szlacheckiej; w 1895 roku został
+          nobilitowany w Niemczech przez cesarza Wilhelma II (przydomek "von Stradonitz" nawiązuje do Stradonic koło Kłodna,
+          miejsca pochodzenia jego patrylinearnych przodków). W 1898 roku Kekulé von Stradonitz opublikował swoją interpretację
+          metody Aitzinga (Eytzingera), Sosy i, być może niezależnie, koncepcji zbliżonych do Galtona, w monumentalnym dziele
+          <em>Ahnentafel-Atlas. Ahnentafeln zu 32 Ahnen der Regenten Europas und ihrer Gemahlinnen</em> (Berlin: J. A.
+          Stargardt, 1898–1904). Publikacja ta, zawierająca 79 tablic genealogicznych władców Europy i ich małżonek, w
+          decydujący sposób przyczyniła się do ugruntowania omawianej metody jako najpowszechniej stosowanej w naukach
+          genealogicznych. Od tego czasu system ten jest szeroko znany jako metoda Sosa-Stradonitza lub, z języka niemieckiego,
+          Ahnentafel.
+        </p>
+      </article>
+    </section>
+
+    <section class="card card-full">
+      <div>
+        <span class="card-code">C.3-1:</span>
+        <span class="card-name">OGRANICZENIA (brak redukcji)</span>
+      </div>
+      <article class="card-main">
+        <p>Za potencjalne ograniczenie można by uznać brak redukcji numeracji w przypadku tzw. ubytku przodków (sytuacji,
+            gdy ta sama osoba pojawia się w wielu liniach genealogicznych). Choć na pierwszy rzut oka może to wydawać się
+            problemem (np. pozorną redundancją), takie powielenie numeracji jest w rzeczywistości celowym założeniem systemu.
+            Ten sam przodek, występując w różnych gałęziach drzewa genealogicznego, pełni w każdej z nich unikalną funkcję w
+            kontekście danej ścieżki ancestralnej. Dlatego też odrębne, choć zwielokrotnione, oznaczenie każdego wystąpienia
+            przodka jest istotne dla zachowania ciągłości, integralności i analitycznej przejrzystości każdej linii
+            genealogicznej.
+        </p>
+      </article>
+    </section>
+
+    <section class="card card-300">
+      <div>
+        <span class="card-code">C.3-2:</span>
+        <span class="card-name">HISTORIA</span>
+      </div>
+      <article class="card-main">
+    
+      </article>
+    </section>
+
+
+    <section class="card card-300">
+      <div>
+        <span class="card-code">C.2-1:</span>
+        <span class="card-name">HISTORIA</span>
+      </div>
+      <article class="card-main">
+        
+      </article>
+    </section>
+
+    <section class="card card-300">
+      <div>
+        <span class="card-code">C.2-1:</span>
+        <span class="card-name">HISTORIA</span>
+      </div>
+      <article class="card-main">
+    
+      </article>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </main>
+
+  <div id="mainBackdrop" class="deactivated-backdrop" ></div>  
+  <script src="/assets/js/root-layout.js"></script>
+  <script type="module">
+    import { renderMermaidFromFile } from "/assets/js/mermaid-render.js";
+    renderMermaidFromFile("mermaID01", "/assets/model/mermaid-tree-bin.mmd");
+    renderMermaidFromFile("mermaID02", "/assets/model/mermaid-tree-bin-finish.mmd");
+    renderMermaidFromFile("mermaID03", "/assets/model/mermaid-tree-bin-line-left.mmd");
+    renderMermaidFromFile("mermaID04", "/assets/model/mermaid-tree-bin-line-right.mmd");
+    renderMermaidFromFile("mermaID05", "/assets/model/mermaid-tree-bin-family.mmd");
+  </script>
 </body>
 
 </html>

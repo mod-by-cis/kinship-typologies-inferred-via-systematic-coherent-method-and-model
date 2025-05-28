@@ -1,0 +1,83 @@
+:root {
+  --bg: oklch(0.92 0.022 260.12);
+  --bg-math: oklch(0.97 0.022 260.12);
+  --text: oklch(0.12 0.022 260.12);
+  --graf-ih0: oklch(0.69 0.1388 355);
+  --graf-ih1: oklch(0.69 0.1388 70);
+  --graf-ih2: oklch(0.69 0.1388 112);
+  --graf-ih3: oklch(0.69 0.1388 150);
+  --math-border: oklch(0.92 0.052 260.12);
+  --math-tt: black;
+  --math-ih: firebrick;
+  --math-jh: darkgoldenrod;
+  --math-i: mediumblue;
+  --math-j: royalblue;
+  --math-mix: darkorchid;
+  --math-j-sort: mediumpurple;
+  --math-jh-sort: sienna;
+  --math-to-fam: lightseagreen;
+}
+
+code,
+pre {
+  padding: 0.5em;
+  border-radius: 0.3em;
+  display: block;
+  overflow-x: auto;
+}
+
+.ih {
+  color: var(--math-ih);
+  font-weight: bold;
+}
+
+.i {
+  color: var(--math-i);
+  font-weight: bold;
+}
+
+.jh {
+  color: var(--math-jh);
+  font-weight: bold;
+}
+
+.j {
+  color: var(--math-j);
+  font-weight: bold;
+}
+
+.jhsort {
+  color: var(--math-jh-sort);
+  font-weight: bold;
+}
+
+.jsort {
+  color: var(--math-j-sort);
+  font-weight: bold;
+}
+
+.mix {
+  color: var(--math-mix);
+  font-weight: bold;
+}
+
+.tt {
+  color: var(--math-tt);
+  font-weight: bold;
+}
+
+.bg-ih0 {
+  background-color: var(--graf-ih0);
+}
+
+.bg-ih2 {
+  background-color: var(--graf-ih2);
+}
+
+.bg-ih3 {
+  background-color: var(--graf-ih3);
+}
+
+.bg-ih4 {
+  background-color: var(--graf-ih4);
+}

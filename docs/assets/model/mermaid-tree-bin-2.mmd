@@ -1,0 +1,20 @@
+---
+config:
+  layout: dagre
+  theme: redux
+  look: neo
+---
+graph TD
+    i1:::ih0 <==> i2:::ih1 & i3:::ih1
+    i2 <==> i4:::ih2 & i5:::ih2
+    i3 <==> i6:::ih2 & i7:::ih2
+    i1@{ shape: trap-b, label: "ROOT <br> iLR=1 →│← iRL=1"}
+    i2@{ shape: trap-b, label: "NODE-L <br> iLR=2 →│← iRL=3"}
+    i3@{ shape: trap-b, label: "NODE-R <br> iLR=3 →│← iRL=2"}
+    i4@{ shape: trap-b, label: "NODE-L <br> iLR=4 →│← iRL=7"}
+    i5@{ shape: trap-b, label: "NODE-R <br> iLR=5 →│← iRL=6"}
+    i6@{ shape: trap-b, label: "NODE-L <br> iLR=6 →│← iRL=5"}
+    i7@{ shape: trap-b, label: "NODE-R <br> iLR=7 →│← iRL=4"} 
+    classDef ih0 stroke-width:4px, stroke-dasharray:0, fill:#dd74a0
+    classDef ih1 stroke-width:4px, stroke-dasharray:0, fill:#d18a23
+    classDef ih2 stroke-width:4px, stroke-dasharray:0, fill:#9ea329

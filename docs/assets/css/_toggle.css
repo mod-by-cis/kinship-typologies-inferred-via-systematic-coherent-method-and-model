@@ -1,0 +1,34 @@
+@import "./_size.css";
+
+.body-ground-with-drawer-hide {
+  grid-template-columns: var(--size-stripe-menu) 1fr;
+  grid-template-areas:
+    "stripe-menu stripe-head"
+    "stripe-menu body-mainly"
+    "stripe-menu stripe-foot";
+}
+
+.body-ground-with-drawer-show {
+  grid-template-columns: var(--size-stripe-menu) var(--size-drawer-menu) 1fr;
+  grid-template-areas:
+    "stripe-menu drawer-menu stripe-head"
+    "stripe-menu drawer-menu body-mainly"
+    "stripe-menu drawer-menu stripe-foot";
+}
+
+#menuDrawer.pinned {
+  position: static;
+  transform: none;
+  box-shadow: none;
+  left: unset !important;
+  grid-area: nav-drawer;
+  height: 100%;
+}
+
+#menuDrawer.open {
+  transform: translateX(0);
+}
+
+#footDrawer.open{
+  transform: translateY(0);
+}

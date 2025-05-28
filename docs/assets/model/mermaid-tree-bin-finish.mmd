@@ -1,0 +1,37 @@
+---
+config:
+  layout: elk
+  theme: neutral
+---
+graph TD
+  01["iLR = 1 <br /> iRL = 1  <br /> ih = 0 <br /> ihINC = 0 <br /> ihDEC = 0 <br /> MAX = 1 <br /> MIN = 1 <br /> MIX = 2"]
+  01 <--> 02["iLR = 2 <br /> iRL = 3 <br /> ih = 1 <br /> ihINC = 0 <br /> ihDEC = 1 <br /> MAX = 3 <br /> MIN = 2 <br /> MIX = 5"]
+  01 <--> 03["iLR = 3 <br /> iRL = 2 <br /> ih = 1 <br /> ihINC = 1 <br /> ihDEC = 0 <br /> MAX = 3 <br /> MIN = 2 <br /> MIX = 5"]
+  02 <--> 04["iLR = 4 <br /> iRL = 7 <br /> ih = 2 <br /> ihINC = 0 <br /> ihDEC = 3 <br /> MAX = 7 <br /> MIN = 4 <br /> MIX = 11"]
+  02 <--> 05["iLR = 5 <br /> iRL = 6 <br /> ih = 2 <br /> ihINC = 1 <br /> ihDEC = 2 <br /> MAX = 7 <br /> MIN = 4 <br /> MIX = 11"]
+  03 <--> 06["iLR = 6 <br /> iRL = 5 <br /> ih = 2 <br /> ihINC = 2 <br /> ihDEC = 1 <br /> MAX = 7 <br /> MIN = 4 <br /> MIX = 11"]
+  03 <--> 07["iLR = 7 <br /> iRL = 4 <br /> ih = 2 <br /> ihINC = 3 <br /> ihDEC = 0 <br /> MAX = 7 <br /> MIN = 4 <br /> MIX = 11"]
+  04 <--> 08["iLR = 8 <br /> iRL = 15 <br /> ih = 3 <br /> ihINC = 0 <br /> ihDEC = 7 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
+  04 <--> 09["iLR = 9 <br /> iRL = 14 <br /> ih = 3 <br /> ihINC = 1 <br /> ihDEC = 6 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
+  05 <--> 10["iLR = 10 <br /> iRL = 13 <br /> ih = 3 <br /> ihINC = 2 <br /> ihDEC = 5 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
+  05 <--> 11["iLR = 11 <br /> iRL = 12 <br /> ih = 3 <br /> ihINC = 3 <br /> ihDEC = 4 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
+  06 <--> 12["iLR = 12 <br /> iRL = 11 <br /> ih = 3 <br /> ihINC = 4 <br /> ihDEC = 3 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
+  06 <--> 13["iLR = 13 <br /> iRL = 10 <br /> ih = 3 <br /> ihINC = 5 <br /> ihDEC = 2 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
+  07 <--> 14["iLR = 14 <br /> iRL = 9 <br /> ih = 3 <br /> ihINC = 6 <br /> ihDEC = 1 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
+  07 <--> 15["iLR = 15 <br /> iRL = 8 <br /> ih = 3 <br /> ihINC = 7 <br /> ihDEC = 0 <br /> MAX = 15 <br /> MIN = 8 <br /> MIX = 23"]
+
+  style 01 fill:#dd74a0,stroke:#333,stroke-width:1px
+  style 02 fill:#d18a23,stroke:#333,stroke-width:1px
+  style 03 fill:#d18a23,stroke:#333,stroke-width:1px
+  style 04 fill:#9ea329,stroke:#333,stroke-width:1px
+  style 05 fill:#9ea329,stroke:#333,stroke-width:1px
+  style 06 fill:#9ea329,stroke:#333,stroke-width:1px
+  style 07 fill:#9ea329,stroke:#333,stroke-width:1px
+  style 08 fill:#52b36c,stroke:#333,stroke-width:1px
+  style 09 fill:#52b36c,stroke:#333,stroke-width:1px
+  style 10 fill:#52b36c,stroke:#333,stroke-width:1px
+  style 11 fill:#52b36c,stroke:#333,stroke-width:1px
+  style 12 fill:#52b36c,stroke:#333,stroke-width:1px
+  style 13 fill:#52b36c,stroke:#333,stroke-width:1px
+  style 14 fill:#52b36c,stroke:#333,stroke-width:1px
+  style 15 fill:#52b36c,stroke:#333,stroke-width:1px

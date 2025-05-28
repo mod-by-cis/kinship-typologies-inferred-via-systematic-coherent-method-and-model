@@ -1,0 +1,21 @@
+---
+config:
+layout: elk
+theme: neutral
+---
+graph TD
+1["ROOT <br>iLR=1, iRL=1<br>jLL=2<br>jhLL=0<br>jSortLL=1<br>jhSortLL=0"]
+1 <--> 2["NODE-L <br>iLR=2, iRL=3<br>jLL=2<br>jhLL=1<br>jSortLL=1<br>jhSortLL=0"]
+1 <--> 3["NODE-R <br>iLR=3, iRL=2<br>jLL=4<br>jhLL=0<br>jSortLL=3<br>jhSortLL=1"]
+2 <--> 4["NODE-L <br>iLR=4, iRL=7<br>jLL=2<br>jhLL=2<br>jSortLL=1<br>jhSortLL=0"]
+2 <--> 5["NODE-R <br>iLR=5, iRL=6<br>jLL=6<br>jhLL=0<br>jSortLL=5<br>jhSortLL=2"]
+3 <--> 6["NODE-L <br>iLR=6, iRL=5<br>jLL=4<br>jhLL=1<br>jSortLL=3<br>jhSortLL=1"]
+3 <--> 7["NODE-R <br>iLR=7, iRL=4<br>jLL=8<br>jhLL=0<br>jSortLL=7<br>jhSortLL=2"]
+
+style 1 fill:#dd74a0,stroke:#333,stroke-width:1px
+style 2 fill:#d18a23,stroke:#333,stroke-width:1px
+style 3 fill:#d18a23,stroke:#333,stroke-width:1px
+style 4 fill:#9ea329,stroke:#333,stroke-width:1px
+style 5 fill:#9ea329,stroke:#333,stroke-width:1px
+style 6 fill:#9ea329,stroke:#333,stroke-width:1px
+style 7 fill:#9ea329,stroke:#333,stroke-width:1px

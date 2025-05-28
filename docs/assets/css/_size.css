@@ -1,0 +1,23 @@
+:root {
+  --size-stripe-head: 50px;
+  --size-stripe-foot: 30px;
+  --size-stripe-menu: 60px;
+  --size-drawer-menu: 300px;
+  --size-drawer-foot: 40%;
+
+  --layer-stripe-menu: 1004;
+  --layer-drawer-menu: 1003;
+  --layer-drawer-foot: 1002;
+  --layer-stripe-foot: 1001;
+  --layer-deactivated: 1000;
+
+  --layout-padding-stripeMenu: 0 !important;
+  --layout-padding-drawer: 10px;
+  --layout-padding-stripeHeFo: 0 15px;
+  --layout-flexGap-stripeMenu: 10px;
+
+  --button-field-border-radius: 0.45rem;
+  --button-field-padding: 0.25rem;
+  --button-field-flexGap: 0.1rem;
+  --button-field-height: 50px;
+}

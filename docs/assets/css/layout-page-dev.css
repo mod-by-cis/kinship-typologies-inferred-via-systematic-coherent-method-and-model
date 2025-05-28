@@ -1,0 +1,32 @@
+#bodyGround,
+#bodyMainly,
+#headStripe,
+#menuStripe,
+#menuDrawer,
+#footStripe,
+#footDrawer {
+  border-width: 6px;
+  border-style: solid;
+}
+
+#bodyGround {
+  border-color: darkgreen;
+}
+#bodyMainly {
+  border-color: lightseagreen;
+}
+#headStripe {
+  border-color: brown;
+}
+#menuStripe {
+  border-color: rebeccapurple;
+}
+#menuDrawer {
+  border-color: mediumorchid;
+}
+#footStripe {
+  border-color: darkkhaki;
+}
+#footDrawer {
+  border-color: darkgoldenrod;
+}
