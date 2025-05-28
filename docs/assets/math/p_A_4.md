@@ -1,7 +1,7 @@
 # p A.4            
 
 $$
-            \begin{aligned}
+\begin{aligned}
             {\color{firebrick}{ih({\color{mediumblue}{i}})}}
             = & \lfloor \log_2({\color{mediumblue}{i}}) \rfloor
             \quad & \forall\, {\color{mediumblue}{i}}\,\in \{ {\color{mediumblue}{iLR}},\, {\color{mediumblue}{iRL}} \} \subset \mathbb{N}_{+}
@@ -22,5 +22,5 @@ $$
             = & \, (\color{mediumblue}{iLR} + \color{mediumblue}{iRL}) = \\
             & \quad = 3 \cdot 2^{\color{firebrick}{ih}} - 1
             \quad & \forall \, {\color{firebrick}{ih}} \in \mathbb{N}_{0}
-            \end{aligned}
+\end{aligned}
 $$
