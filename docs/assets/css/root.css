@@ -427,3 +427,70 @@ section.card > div:nth-child(1) > span.card-name {
   color: var(--color-zero-ground);
   border-bottom-color: var(--color-zero-ground);
 }
+
+
+
+
+code,
+pre {
+  padding: 0.5em;
+  border-radius: 0.3em;
+  display: block;
+  overflow-x: auto;
+}
+
+.ih {
+  color: var(--math-ih);
+  font-weight: bold;
+}
+
+.i {
+  color: var(--math-i);
+  font-weight: bold;
+}
+
+.jh {
+  color: var(--math-jh);
+  font-weight: bold;
+}
+
+.j {
+  color: var(--math-j);
+  font-weight: bold;
+}
+
+.jhsort {
+  color: var(--math-jh-sort);
+  font-weight: bold;
+}
+
+.jsort {
+  color: var(--math-j-sort);
+  font-weight: bold;
+}
+
+.mix {
+  color: var(--math-mix);
+  font-weight: bold;
+}
+
+.tt {
+  color: var(--math-tt);
+  font-weight: bold;
+}
+
+.bg-ih0 {
+  background-color: var(--graf-ih0);
+}
+
+.bg-ih2 {
+  background-color: var(--graf-ih2);
+}
+
+.bg-ih3 {
+  background-color: var(--graf-ih3);
+}
+
+.bg-ih4 {
+  background-color: var(--graf-ih4);
+}
