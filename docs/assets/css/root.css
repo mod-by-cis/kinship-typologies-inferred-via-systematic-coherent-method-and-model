@@ -29,6 +29,24 @@
   --button-field-padding: 0.25rem;
   --button-field-flexGap: 0.1rem;
   --button-field-height: 50px;
+
+  --bg: oklch(0.92 0.022 260.12);
+  --bg-math: oklch(0.97 0.022 260.12);
+  --text: oklch(0.12 0.022 260.12);
+  --graf-ih0: oklch(0.69 0.1388 355);
+  --graf-ih1: oklch(0.69 0.1388 70);
+  --graf-ih2: oklch(0.69 0.1388 112);
+  --graf-ih3: oklch(0.69 0.1388 150);
+  --math-border: oklch(0.92 0.052 260.12);
+  --math-tt: black;
+  --math-ih: firebrick;
+  --math-jh: darkgoldenrod;
+  --math-i: mediumblue;
+  --math-j: royalblue;
+  --math-mix: darkorchid;
+  --math-j-sort: mediumpurple;
+  --math-jh-sort: sienna;
+  --math-to-fam: lightseagreen;
 }
 
 .body-ground-with-drawer-hide {
