@@ -109,3 +109,18 @@ color-mix(in oklch, var(--color-zero-ground) 70%, white);
 .deactivated-backdrop {
   background-color: var(--color-backdrop);
 }
+
+a.nav-map >span{
+  background-color: color-mix(
+  in oklch,
+  var(--color-oklch-Black) 20%,
+  transparent
+);
+}
+.nav-map:link,
+.nav-map:visited,
+.nav-map:hover,
+.nav-map:active,
+a.nav-map>span {
+  color: white !important;
+}

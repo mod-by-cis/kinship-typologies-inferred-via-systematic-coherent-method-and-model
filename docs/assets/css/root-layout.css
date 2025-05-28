@@ -125,3 +125,15 @@ body {
 .deactivated-backdrop.active {
   display: block;
 }
+
+.nav-map{
+  text-decoration: none; 
+  user-select: none; 
+  cursor: pointer; 
+}
+.nav-map:hover {
+  text-decoration: underline;
+}
+a.nav-map >span{
+  padding: 3px;
+}
