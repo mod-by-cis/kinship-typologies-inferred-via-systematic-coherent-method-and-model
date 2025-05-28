@@ -63,3 +63,130 @@
 #footDrawer.open{
   transform: translateY(0);
 }
+
+
+
+
+
+
+
+
+#bodyGround {
+  background-color: var(--color-zero-ground);
+}
+
+#headStripe,
+#menuStripe,
+#footStripe {
+  box-shadow: var(--shadow-little-1);
+}
+
+#menuDrawer,
+#footDrawer {
+  box-shadow: var(--shadow-strong-1);
+  background-color: var(--color-zero-ground);
+}
+
+#headStripe {
+  background-color: color-mix(
+    in oklch,
+    var(--color-oklch-White) 70%,
+    transparent
+  );
+}
+
+#headStripe strong {
+  color: var(--color-zero-ground);
+}
+
+#headStripe small {
+  color: color-mix(in oklch, var(--color-zero-ground) 70%, transparent);
+}
+
+#menuStripe {
+  background-color: var(--color-zero-ground);
+}
+
+#menuStripe .button-field > button {
+  background-color: color-mix(
+    in oklch,
+    var(--color-oklch-White) 70%,
+    transparent
+  );
+  color: color-mix(
+    in oklch,
+    var(--color-oklch-Black) 50%,
+    transparent
+  );
+}
+
+#menuStripe .button-field > button:hover {
+  background-color: color-mix(
+    in oklch,
+    var(--color-oklch-White) 40%,
+    transparent
+  );
+  color: color-mix(
+    in oklch,
+    var(--color-oklch-White) 90%,
+    transparent
+  );
+}
+
+#menuDrawer {
+  background-color: color-mix(
+    in oklch,
+    var(--color-oklch-Black) 5%,
+    var(--color-zero-ground)
+  );
+  color: color-mix(
+    in oklch,
+    var(--color-oklch-White) 50%,
+    transparent
+  );
+}
+
+#footStripe {
+  background-color: color-mix(
+    in oklch,
+    var(--color-oklch-Black) 30%,
+    transparent
+  );
+  color: color-mix(
+    in oklch,
+    var(--color-oklch-White) 50%,
+    transparent
+  );
+}
+
+#footDrawer {
+  background-color: color-mix(
+    in oklch,
+    var(--color-oklch-Black) 30%,
+    transparent
+  );
+  color: color-mix(
+    in oklch,
+    var(--color-oklch-White) 70%,
+    transparent
+  );
+}
+
+.deactivated-backdrop {
+  background-color: var(--color-backdrop);
+}
+
+a.nav-map >span{
+  background-color: color-mix(
+  in oklch,
+  var(--color-oklch-Black) 20%,
+  transparent
+);
+}
+.nav-map:link,
+.nav-map:visited,
+.nav-map:hover,
+.nav-map:active,
+a.nav-map>span {
+  color: white !important;
+}
