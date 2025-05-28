@@ -1,1 +1,10 @@
-.
+:root {
+  --color-oklch-Black: oklch(0 0 0);
+  --color-oklch-GreyB: oklch(0.3 0 0);
+  --color-oklch-GreyW: oklch(0.6 0 0);
+  --color-oklch-White: oklch(1 0 0);
+  --color-zero-ground: oklch(36.65% 44.08% 160.01);
+  --shadow-little-1: 2px 0 6px rgba(0, 0, 0, 0.4);
+  --shadow-strong-1: 2px 0 6px rgba(0, 0, 0, 0.6);
+  --color-backdrop: rgba(0, 0, 0, 0.3);
+}
