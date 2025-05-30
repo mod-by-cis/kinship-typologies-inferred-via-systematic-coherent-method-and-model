@@ -41,9 +41,10 @@ $$
   \\
   
   \end{align*}
-  
-  
-  \\\\
+  $$
+
+  $$
+  \\
   \begin{array}{r|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c} 
   
   \bbox[cornflowerblue,8px]{i} & 
@@ -127,7 +128,6 @@ $$
   \bbox[darkkhaki,8px]{\dotsc} \\ 
   
   \end{array}
-  
-  
+  \\
   
 $$
