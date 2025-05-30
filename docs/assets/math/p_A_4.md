@@ -1,3 +1,4 @@
+
 $$
 \begin{align*}
   \\\underset{ \bbox[cornflowerblue,4px]{\mathcal{i}} \in \mathbb{N}^{+} }{\forall}
@@ -143,65 +144,57 @@ $$
   
 $$
 
-$$
-\begin{equation}
- \left.\begin{aligned}
-        childL\;\bbox[cornflowerblue,8px]{i} = 2  \cdot \bbox[cornflowerblue,8px]{i}&\\
-        childR\;\bbox[cornflowerblue,8px]{i} = 2  \cdot \bbox[cornflowerblue,8px]{i}+1&
-       \end{aligned}
- \right\}
- \quad\bbox[cornflowerblue,8px]{i},\,\bbox[mediumpurple,8px]{j}\geq1\quad 
-\left\{\begin{aligned}
-        &2 \cdot \bbox[mediumpurple,8px]{j}=childL\;\bbox[mediumpurple,8px]{j} \\
-        &2 \cdot \bbox[mediumpurple,8px]{j}+1=childR\;\bbox[mediumpurple,8px]{j}\\
-       \end{aligned}
- \right.
-\end{equation}
-$$
 
 $$
-\begin{equation}
- \left.\begin{aligned}
-        parent\;\bbox[cornflowerblue,8px]{i} = \left\lfloor \dfrac{{\bbox[cornflowerblue,8px]{i}}}{2}\right\rfloor&
-       \end{aligned}
- \right\}
- \quad\bbox[cornflowerblue,8px]{i},\,\bbox[mediumpurple,8px]{j}\geq2\quad 
-\left\{\begin{aligned}
-        &\left\lfloor \dfrac{{\bbox[mediumpurple,8px]{j}}}{2}\right\rfloor=parent\;\bbox[mediumpurple,8px]{j}\\
-       \end{aligned}
- \right.
-\end{equation}
-$$
+\begin{align*}
+  \overbrace{
+   \underbrace{2  \cdot \bbox[cornflowerblue,8px]{i}}_\text{childL}\quad
+   \underbrace{2  \cdot \bbox[cornflowerblue,8px]{i}+1}_\text{childR}
+  }^{\bbox[cornflowerblue,8px]{i}\geq1}\quad
+
+\underbrace{
+  \overbrace{
+   \left\lfloor \dfrac{{\bbox[cornflowerblue,8px]{i}}}{2}\right\rfloor
+  }^{\bbox[cornflowerblue,8px]{i}\geq2}
+}_\text{parent}\quad
+
+\underbrace{
+\overbrace{
+  \overbrace{
+   \bbox[cornflowerblue,8px]{i}+1
+  }^{\bbox[cornflowerblue,8px]{i}\,mod\,2\,=\,0}\quad
+
+  \overbrace{
+   \bbox[cornflowerblue,8px]{i}-1
+  }^{\bbox[cornflowerblue,8px]{i}\,mod\,2\,=\,1}}^{\bbox[cornflowerblue,8px]{i}\geq2}
+}_\text{sibling} \\
 
 
-$$
-\begin{equation}
- \left.\begin{aligned}
-        silbing\;\bbox[cornflowerblue,8px]{i} = \bbox[cornflowerblue,8px]{i}+1&
-       \end{aligned}
- \right\}
- \quad\underset{(\bbox[cornflowerblue,8px]{i},\,\bbox[mediumpurple,8px]{j})\,mod\,2\,=\,0}{\bbox[cornflowerblue,8px]{i},\,\bbox[mediumpurple,8px]{j}\geq2}\quad 
-\left\{\begin{aligned}
-        &\bbox[mediumpurple,8px]{j}-1=silbing\;\bbox[mediumpurple,8px]{j}\\
-       \end{aligned}
- \right.
-\end{equation}
-$$
+  \overbrace{
+   \underbrace{2  \cdot \bbox[mediumpurple,8px]{j}+1}_\text{childL}\quad
+   \underbrace{2  \cdot \bbox[mediumpurple,8px]{j}}_\text{childR}
+  }^{\bbox[mediumpurple,8px]{j}\geq1}\quad
 
-$$
-\begin{equation}
- \left.\begin{aligned}
-        silbing\;\bbox[cornflowerblue,8px]{i} = \bbox[cornflowerblue,8px]{i}-1&
-       \end{aligned}
- \right\}
- \quad\underset{(\bbox[cornflowerblue,8px]{i},\,\bbox[mediumpurple,8px]{j})\,mod\,2\,=\,1}{\bbox[cornflowerblue,8px]{i},\,\bbox[mediumpurple,8px]{j}\geq2}\quad 
-\left\{\begin{aligned}
-        &\bbox[mediumpurple,8px]{j}+1=silbing\;\bbox[mediumpurple,8px]{j}\\
-       \end{aligned}
- \right.
-\end{equation}
-$$
+\underbrace{
+  \overbrace{
+   \left\lfloor \dfrac{{\bbox[mediumpurple,8px]{j}}}{2}\right\rfloor
+  }^{\bbox[mediumpurple,8px]{j}\geq2}
+}_\text{parent}\quad
 
+\underbrace{
+\overbrace{
+  \overbrace{
+   \bbox[mediumpurple,8px]{j}-1
+  }^{\bbox[mediumpurple,8px]{j}\,mod\,2\,=\,0}\quad
+
+  \overbrace{
+   \bbox[mediumpurple,8px]{j}+1
+  }^{\bbox[mediumpurple,8px]{j}\,mod\,2\,=\,1}}^{\bbox[mediumpurple,8px]{j}\geq2}
+}_\text{sibling} \\
+
+
+\end{align*}
+$$
 
 
 
