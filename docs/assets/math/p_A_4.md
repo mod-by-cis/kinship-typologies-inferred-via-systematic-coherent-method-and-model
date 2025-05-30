@@ -174,3 +174,34 @@ $$
 $$
 
 
+$$
+\begin{equation}
+ \left.\begin{aligned}
+        silbing\;\bbox[cornflowerblue,8px]{i} = \bbox[cornflowerblue,8px]{i}+1&
+       \end{aligned}
+ \right\}
+ \quad\underset{(\bbox[cornflowerblue,8px]{i},\,\bbox[mediumpurple,8px]{j})\,mod\,2\,=\,0}{\bbox[cornflowerblue,8px]{i},\,\bbox[mediumpurple,8px]{j}\geq2}\quad 
+\left\{\begin{aligned}
+        &\bbox[mediumpurple,8px]{j}-1=silbing\;\bbox[mediumpurple,8px]{j}\\
+       \end{aligned}
+ \right.
+\end{equation}
+$$
+
+$$
+\begin{equation}
+ \left.\begin{aligned}
+        silbing\;\bbox[cornflowerblue,8px]{i} = \bbox[cornflowerblue,8px]{i}-1&
+       \end{aligned}
+ \right\}
+ \quad\underset{(\bbox[cornflowerblue,8px]{i},\,\bbox[mediumpurple,8px]{j})\,mod\,2\,=\,1}{\bbox[cornflowerblue,8px]{i},\,\bbox[mediumpurple,8px]{j}\geq2}\quad 
+\left\{\begin{aligned}
+        &\bbox[mediumpurple,8px]{j}+1=silbing\;\bbox[mediumpurple,8px]{j}\\
+       \end{aligned}
+ \right.
+\end{equation}
+$$
+
+
+
+
