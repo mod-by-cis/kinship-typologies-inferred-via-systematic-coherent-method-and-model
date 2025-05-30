@@ -32,11 +32,11 @@ $$
   \Big)
   \\
   \\
-  \bbox[darkkhaki,8px]{\mathcal{min}}\,+\,\bbox[darkkhaki,8px]{\mathcal{max}}&=\bbox[palevioletred,8px]{\mathcal{mix}}\;
+  \bbox[darkkhaki,8px]{\mathcal{min}}\,+\,\bbox[darkkhaki,8px]{\mathcal{max}}&=\bbox[palevioletred,8px]{\mathcal{mix}}\;\quad
   \bbox[darkkhaki,8px]{\mathcal{min}} =\, 2^{\bbox[yellowgreen,4px]{\mathcal{h}}}\; 
   \bbox[darkkhaki,8px]{\mathcal{max}}=\, 2^{(\bbox[yellowgreen,4px]{\mathcal{h}}+1)}-1\; 
   \\
-  &\quad\quad\bbox[yellowgreen,8px]{\mathcal{h}}=\,\lfloor\log_2(\bbox[cornflowerblue,4px]{\mathcal{i}}\lor
+    \bbox[cornflowerblue,8px]{\mathcal{i}}\,+\,\bbox[mediumpurple,8px]{\mathcal{j}}&=\bbox[palevioletred,8px]{\mathcal{mix}}\;\quad\bbox[yellowgreen,8px]{\mathcal{h}}=\,\lfloor\log_2(\bbox[cornflowerblue,4px]{\mathcal{i}}\lor
   \bbox[mediumpurple,3px]{\mathcal{j}})\rfloor
   \\
   
