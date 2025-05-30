@@ -85,21 +85,7 @@ $$
   \bbox[palevioletred,8px]{23} & 
   \bbox[palevioletred,8px]{23} & 
   \bbox[palevioletred,8px]{23} & 
-  \bbox[palevioletred,8px]{\dotsc} \\ \hline
-  
-  \bbox[yellowgreen,8px]{h} & 
-  \bbox[yellowgreen,8px]{0} && 
-  \bbox[yellowgreen,8px]{1} & 
-  \bbox[yellowgreen,8px]{1} && 
-  \bbox[yellowgreen,8px]{2} & 
-  \bbox[yellowgreen,8px]{2} & 
-  \bbox[yellowgreen,8px]{2} & 
-  \bbox[yellowgreen,8px]{2} && 
-  \bbox[yellowgreen,8px]{3} & 
-  \bbox[yellowgreen,8px]{3} & 
-  \bbox[yellowgreen,8px]{3} & 
-  \bbox[yellowgreen,8px]{\dotsc} \\ \hline
-  
+  \bbox[palevioletred,8px]{\dotsc} \\ \hline  
   
   \bbox[darkkhaki,8px]{min} & 
   \bbox[darkkhaki,8px]{1} && 
@@ -125,7 +111,20 @@ $$
   \bbox[darkkhaki,8px]{15} & 
   \bbox[darkkhaki,8px]{15} & 
   \bbox[darkkhaki,8px]{15} & 
-  \bbox[darkkhaki,8px]{\dotsc} \\ 
+  \bbox[darkkhaki,8px]{\dotsc} \\ \hline
+  
+  \bbox[yellowgreen,8px]{h} & 
+  \bbox[yellowgreen,8px]{0} && 
+  \bbox[yellowgreen,8px]{1} & 
+  \bbox[yellowgreen,8px]{1} && 
+  \bbox[yellowgreen,8px]{2} & 
+  \bbox[yellowgreen,8px]{2} & 
+  \bbox[yellowgreen,8px]{2} & 
+  \bbox[yellowgreen,8px]{2} && 
+  \bbox[yellowgreen,8px]{3} & 
+  \bbox[yellowgreen,8px]{3} & 
+  \bbox[yellowgreen,8px]{3} & 
+  \bbox[yellowgreen,8px]{\dotsc} \\ 
   
   \end{array}
   \\
