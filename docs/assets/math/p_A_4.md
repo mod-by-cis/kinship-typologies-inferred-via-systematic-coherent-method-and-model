@@ -5,7 +5,7 @@ $$
   \Big(
   \bbox[darkkhaki,6px]{\mathcal{min}} \leq 
   \bbox[mediumpurple,6px]{\mathcal{j}} \leq
-  \bbox[darkkhaki,6px]{\mathcal{max}} \land
+  \bbox[darkkhaki,6px]{\mathcal{max}}\quad\land\quad
   \bbox[mediumpurple,6px]{\mathcal{j}} =
   \bbox[yellowgreen,6px]{\mathcal{mix}} -
   \bbox[cornflowerblue,6px]{\mathcal{i}}
@@ -15,7 +15,7 @@ $$
   \Big(
   \bbox[darkkhaki,6px]{\mathcal{min}} \leq 
   \bbox[cornflowerblue,6px]{\mathcal{i}} \leq
-  \bbox[darkkhaki,6px]{\mathcal{max}} \land
+  \bbox[darkkhaki,6px]{\mathcal{max}}\quad\land\quad
   \bbox[cornflowerblue,6px]{\mathcal{i}} =
   \bbox[yellowgreen,6px]{\mathcal{mix}} -
   \bbox[mediumpurple,6px]{\mathcal{j}}
@@ -141,6 +141,36 @@ $$
   \end{array}
   \\
   
+$$
+
+$$
+\begin{equation}
+ \left.\begin{aligned}
+        childL\;\bbox[cornflowerblue,8px]{i} = 2  \cdot \bbox[cornflowerblue,8px]{i}&\\
+        childR\;\bbox[cornflowerblue,8px]{i} = 2  \cdot \bbox[cornflowerblue,8px]{i}+1&
+       \end{aligned}
+ \right\}
+ \quad\bbox[cornflowerblue,8px]{i},\,\bbox[mediumpurple,8px]{j}\geq1\quad 
+\left\{\begin{aligned}
+        &2 \cdot \bbox[mediumpurple,8px]{j}=childL\;\bbox[mediumpurple,8px]{j} \\
+        &2 \cdot \bbox[mediumpurple,8px]{j}+1=childR\;\bbox[mediumpurple,8px]{j}\\
+       \end{aligned}
+ \right.
+\end{equation}
+$$
+
+$$
+\begin{equation}
+ \left.\begin{aligned}
+        parent\;\bbox[cornflowerblue,8px]{i} = \left\lfloor \dfrac{{\bbox[cornflowerblue,8px]{i}}}{2}\right\rfloor&
+       \end{aligned}
+ \right\}
+ \quad\bbox[cornflowerblue,8px]{i},\,\bbox[mediumpurple,8px]{j}\geq2\quad 
+\left\{\begin{aligned}
+        &\left\lfloor \dfrac{{\bbox[mediumpurple,8px]{j}}}{2}\right\rfloor=parent\;\bbox[mediumpurple,8px]{j}\\
+       \end{aligned}
+ \right.
+\end{equation}
 $$
 
 
