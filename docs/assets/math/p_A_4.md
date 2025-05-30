@@ -1,42 +1,41 @@
 $$
-
-
 \begin{align*}
-  \\
-  \underset{
-    \bbox[cornflowerblue,4px]{\mathcal{i}} \in \mathbb{N}^{+}
-  }{\forall}
-  \;\underset{
-    \bbox[mediumpurple,4px]{\mathcal{j}}\in \,\mathbb{N}^{+} 
-  }{\exists!}& 
-  \Big(\bbox[darkkhaki,6px]{\mathcal{min}} 
-  \leq \bbox[mediumpurple,6px]{\mathcal{j}} \leq
+  \\\underset{ \bbox[cornflowerblue,4px]{\mathcal{i}} \in \mathbb{N}^{+} }{\forall}
+  \;\underset{ \bbox[mediumpurple,4px]{\mathcal{j}}\in \,\mathbb{N}^{+}  }{\exists!}& 
+  \Big(
+  \bbox[darkkhaki,6px]{\mathcal{min}} \leq 
+  \bbox[mediumpurple,6px]{\mathcal{j}} \leq
   \bbox[darkkhaki,6px]{\mathcal{max}} \land
   \bbox[mediumpurple,6px]{\mathcal{j}} =
   \bbox[palevioletred,6px]{\mathcal{mix}} -
   \bbox[cornflowerblue,6px]{\mathcal{i}}
   \Big)
-  \\
-  \underset{
-    \bbox[mediumpurple,4px]{\mathcal{j}} \in \mathbb{N}^{+}
-  }{\forall}
-  \;\underset{
-    \bbox[cornflowerblue,4px]{\mathcal{i}}\in \,\mathbb{N}^{+}
-  }{\exists!}& 
-  \Big(\bbox[darkkhaki,6px]{\mathcal{min}} 
-  \leq \bbox[cornflowerblue,6px]{\mathcal{i}} \leq
+  \\\underset{ \bbox[mediumpurple,4px]{\mathcal{j}} \in \mathbb{N}^{+} }{\forall}
+  \;\underset{ \bbox[cornflowerblue,4px]{\mathcal{i}}\in \,\mathbb{N}^{+} }{\exists!}& 
+  \Big(
+  \bbox[darkkhaki,6px]{\mathcal{min}} \leq 
+  \bbox[cornflowerblue,6px]{\mathcal{i}} \leq
   \bbox[darkkhaki,6px]{\mathcal{max}} \land
   \bbox[cornflowerblue,6px]{\mathcal{i}} =
   \bbox[palevioletred,6px]{\mathcal{mix}} -
   \bbox[mediumpurple,6px]{\mathcal{j}}
   \Big)
-  \\
-  \\
-  \bbox[darkkhaki,8px]{\mathcal{min}}\,+\,\bbox[darkkhaki,8px]{\mathcal{max}}&=\bbox[palevioletred,8px]{\mathcal{mix}}\;\quad
-  \bbox[darkkhaki,8px]{\mathcal{min}} =\, 2^{\bbox[yellowgreen,4px]{\mathcal{h}}}\; 
+  \\ 
+\end{align*}
+$$
+
+$$
+\begin{align*}
+  \bbox[darkkhaki,8px]{\mathcal{min}}\,&+\,
+  \bbox[darkkhaki,8px]{\mathcal{max}}=
+  \bbox[palevioletred,8px]{\mathcal{mix}}\;\quad
+  &\bbox[darkkhaki,8px]{\mathcal{min}} =\, 2^{\bbox[yellowgreen,4px]{\mathcal{h}}}\; 
   \bbox[darkkhaki,8px]{\mathcal{max}}=\, 2^{(\bbox[yellowgreen,4px]{\mathcal{h}}+1)}-1\; 
   \\
-    \bbox[cornflowerblue,8px]{\mathcal{i}}\,+\,\bbox[mediumpurple,8px]{\mathcal{j}}&=\bbox[palevioletred,8px]{\mathcal{mix}}\;\quad\bbox[yellowgreen,8px]{\mathcal{h}}=\,\lfloor\log_2(\bbox[cornflowerblue,4px]{\mathcal{i}}\lor
+  \bbox[cornflowerblue,8px]{\mathcal{i}}\,&+\,
+  \bbox[mediumpurple,8px]{\mathcal{j}}=
+  \bbox[palevioletred,8px]{\mathcal{mix}}\;\quad
+  &\bbox[yellowgreen,8px]{\mathcal{h}}=\,\lfloor\log_2(\bbox[cornflowerblue,4px]{\mathcal{i}}\lor
   \bbox[mediumpurple,3px]{\mathcal{j}})\rfloor
   \\
   
