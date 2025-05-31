@@ -6,17 +6,26 @@
   <title>Matematyka w Genealogi</title>
   <link rel="stylesheet" href="style.css">
   <!-- MathJax 4 -->
-  <script>
-    window.MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\', '\']],
-        displayMath: [['$$', '$$'], ['\', '\']]
-      },
-      svg: {
-        fontCache: 'global'
-      }
-    };
-  </script>
+ 
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$']],
+      displayMath: [['$$', '$$']]
+    },
+    svg: {
+      fontCache: 'global'
+    }
+  };
+
+  // Tymczasowy fix – usuń colorIsTextColor, jeśli gdzieś został dodany przez MathJax
+  Object.defineProperty(Object.prototype, 'colorIsTextColor', {
+    configurable: true,
+    enumerable: false,
+    get: function() { return undefined; },
+    set: function(_) {}
+  });
+</script>
   <script async src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0-beta.7/tex-svg.js"></script>
 </head>
 <body      id="bodyGround">
