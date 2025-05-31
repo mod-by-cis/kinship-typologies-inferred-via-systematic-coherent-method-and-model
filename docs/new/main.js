@@ -5,7 +5,6 @@ import {
   data_from_i,
   data_from_j
 } from "./scripts/calc-math-main.js";
-import { consoleLOG } from "../../mods/sosa-v4/utilConsoleLog.ts";
 
 let stateExpand = true;
 
