@@ -2,7 +2,7 @@ import * as uDOM from "./scripts/utils-dom.js";
 import insertContentToArticle from './scripts/insert-article.js';
 import insertMathJaxFromFile  from './scripts/insert-mathjax-from-file.js';
 
-let stateExpand = true;
+let stateExpand = false;
 
 const UX = {
   bodyGround:document.getElementById("bodyGround"),
