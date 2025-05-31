@@ -1,0 +1,241 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /*border: solid 1px grey;*/
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+#bodyGround {
+  display: grid;
+  grid-template-rows: 50px 1fr 40px;
+  grid-template-columns: 70px 1fr;
+  background-color: white;
+  gap: 5px;
+}
+
+#bodyGround.expandSHOW {
+  grid-template-areas:
+    "stripe-menu stripe-head"
+    "stripe-menu body-mainly"
+    "stripe-menu stripe-foot";
+}
+#bodyGround.expandHIDE {
+  grid-template-areas:
+    "body-mainly body-mainly"
+    "body-mainly body-mainly"
+    "body-mainly body-mainly";
+}
+
+#bodyMainly {
+  grid-area: body-mainly;
+  display: flex;
+  flex-flow: row wrap;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 20px;
+  gap: 20px;
+  background-color: white;
+}
+
+#headStripe {
+  grid-area: stripe-head;
+  background-color: rosybrown;
+}
+
+#footStripe {
+  grid-area: stripe-foot;
+  background-color: rosybrown;
+}
+
+#menuExpand {
+  box-sizing: content-box;
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  height: 60px;
+  width: 60px;
+  z-index: 1001;
+  border-radius: 30px;
+  opacity: 20%;
+
+  &:hover {
+    opacity: 50%;
+  }
+  &:active {
+    opacity: 90%;
+  }
+}
+
+#menuStripe {
+  grid-area: stripe-menu;
+  display: flex;
+  flex-flow: column nowrap;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background-color: white;
+}
+#menuStripe > li {
+  width: 100%;
+}
+
+#menuDrawer {
+  display: none;
+}
+
+#footDrawer {
+  display: none;
+}
+
+.article-card {
+  background-color: antiquewhite;
+  flex-grow: 1;
+  flex-shrink: 1;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.article-card > header {
+  background-color: antiquewhite;
+  display: flex;
+  flex-flow: row nowrap;
+  border-top-left-radius: 15px;
+  border-bottom-right-radius: 10px;
+}
+.article-card > header > .article-nrid {
+  background-color: white;
+  color: black;
+  display: flex;
+  flex-flow: row nowrap;
+  border-top-left-radius: 15px;
+  padding-left: 10px;
+  padding-right: 5px;
+  padding-top: 5px;
+  font-weight: bold;
+}
+.article-card > header > .article-name {
+  display: flex;
+  border-bottom: solid white 4px;
+  padding-left: 10px;
+  padding-right: 5px;
+  padding-top: 5px;
+  flex-flow: row wrap;
+  font-weight: bold;
+}
+.article-card > main {
+  display: flex;
+  flex-flow: column nowrap;
+  margin-left: 10px;
+  gap: 10px;
+}
+.article-card > main > section {
+  border-radius: 10px;
+  margin: 5px;
+  padding: 10px;
+  background-color: white;
+  overflow-x: auto;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  width: 3em;
+  height: 3rem;
+  accent-color: rosybrown;
+}
+
+input[type="number"] {
+  height: 6rem;
+  width: 8rem;
+  font-size: 3rem;
+  accent-color: rosybrown;
+
+  &::placeholder {
+    font-size: 0.6rem;
+  }
+
+  /* 🔽 Dla WebKit (Chrome, Safari, Edge) */
+  -moz-appearance: textfield; /* Firefox */
+  -webkit-appearance: none; /* Chrome/Safari */
+  appearance: none;
+
+  /* 🔽 Ukrywa WebKitowe przyciski */
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+.number-input-panel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.number-input-buton {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.number-input-buton svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: white;
+}
+
+.number-input-buton.increment {
+  background-color: #007bff; /* niebieski */
+}
+
+.number-input-buton.decrement {
+  background-color: #dc3545; /* czerwony */
+}
+
+.math-core-calculator-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.math-core-calculator-inputs {
+  border: 2px dashed rgb(185 185 185);
+  padding: 2px;
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 0.5rem;
+}
+
+.math-core-calculator-box-radio-group {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+}
+
+.math-core-calculator-box-inputs {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 2rem;
+}

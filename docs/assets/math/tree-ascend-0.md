@@ -1,0 +1,58 @@
+
+$$
+\begin{align*}
+  \\\underset{ \bbox[cornflowerblue,4px]{\mathcal{i}} \in \mathbb{N}^{+} }{\forall}
+  \;\underset{ \bbox[mediumpurple,4px]{\mathcal{j}}\in \,\mathbb{N}^{+}  }{\exists!}& 
+  \Big(
+  \bbox[darkkhaki,6px]{\mathcal{min}} \leq 
+  \bbox[mediumpurple,6px]{\mathcal{j}} \leq
+  \bbox[darkkhaki,6px]{\mathcal{max}}\quad\land\quad
+  \bbox[mediumpurple,6px]{\mathcal{j}} =
+  \bbox[yellowgreen,6px]{\mathcal{mix}} -
+  \bbox[cornflowerblue,6px]{\mathcal{i}}
+  \Big)
+  \\\underset{ \bbox[mediumpurple,4px]{\mathcal{j}} \in \mathbb{N}^{+} }{\forall}
+  \;\underset{ \bbox[cornflowerblue,4px]{\mathcal{i}}\in \,\mathbb{N}^{+} }{\exists!}& 
+  \Big(
+  \bbox[darkkhaki,6px]{\mathcal{min}} \leq 
+  \bbox[cornflowerblue,6px]{\mathcal{i}} \leq
+  \bbox[darkkhaki,6px]{\mathcal{max}}\quad\land\quad
+  \bbox[cornflowerblue,6px]{\mathcal{i}} =
+  \bbox[yellowgreen,6px]{\mathcal{mix}} -
+  \bbox[mediumpurple,6px]{\mathcal{j}}
+  \Big)
+  \\ 
+\end{align*}
+$$
+
+$$
+\begin{align*}
+  \bbox[darkkhaki,8px]{\mathcal{min}}\,&+\,
+  \bbox[darkkhaki,8px]{\mathcal{max}}=
+  \bbox[yellowgreen,8px]{\mathcal{mix}}\;\quad
+  &\bbox[darkkhaki,8px]{\mathcal{min}} =\, 2^{\bbox[silver,4px]{\mathcal{h}}}\; 
+  \bbox[darkkhaki,8px]{\mathcal{max}}=\, 2^{(\bbox[silver,4px]{\mathcal{h}}+1)}-1\; 
+  \\
+  \bbox[cornflowerblue,8px]{\mathcal{i}}\,&+\,
+  \bbox[mediumpurple,8px]{\mathcal{j}}=
+  \bbox[yellowgreen,8px]{\mathcal{mix}}\;\quad
+  &\bbox[silver,8px]{\mathcal{h}}=\,\lfloor\log_2(\bbox[cornflowerblue,4px]{\mathcal{i}}\lor
+  \bbox[mediumpurple,3px]{\mathcal{j}})\rfloor
+  \\
+  
+  \end{align*}
+  $$
+
+$$
+
+\begin{align*}
+&\operatorname{adic}_{2V}(x)\;=\;\max \left\{ \;k \in \mathbb{N} : 2^k \mid x \right\} \\[1ex]
+
+&\bbox[turquoise,8px]{\mathcal{n}} = \operatorname{adic}_{2V}(\bbox[cornflowerblue,4px]{\mathcal{i}}), \quad\quad\quad
+\bbox[palevioletred,8px]{\mathcal{v}} = \operatorname{adic}_{2V}(\bbox[mediumpurple,4px]{\mathcal{j}}) \\[1ex]
+
+&\bbox[powderblue,8px]{\mathcal{m}} = \left( \frac{\bbox[cornflowerblue,4px]{\mathcal{i}}}{2^{\bbox[turquoise,4px]{\mathcal{n}}}} \right) + 1, \quad
+\bbox[plum,8px]{\mathcal{w}} = \left( \frac{\bbox[mediumpurple,4px]{\mathcal{j}}}{2^{\bbox[palevioletred,4px]{\mathcal{v}}}} \right) + 2
+\end{align*}
+$$
+

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matematyka w Genealogi</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- MathJax 4 -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\', '\']],
+        displayMath: [['$$', '$$'], ['\', '\']],
+        colorIsTextColor: true
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0-beta.7/tex-svg.js"></script>
+</head>
+<body      id="bodyGround">
+  <main    id="bodyMainly">
+    <article id="mathCoreDEFINITION" class="article-card"></article>
+    <article id="mathCoreTreeGoFAMS" class="article-card"></article>
+    <article id="apletBasicMathCore" class="article-card"></article>
+    <article id="mathCoreResultTABS" class="article-card"></article>
+
+  </main>
+  <header  id="headStripe"> headStripe </header>
+  <footer  id="footStripe"> footStripe </footer>
+  <input   id="menuExpand" type="button" value="HIDE"/> 
+  <ul     id="menuStripe"> menuStripe </ul>
+  <aside   id="menuDrawer"> menuDrawer </aside>
+  <aside   id="footDrawer"> footDrawer </aside>
+  <script type="module" src="main.js"></script>
+</body>
+</html>

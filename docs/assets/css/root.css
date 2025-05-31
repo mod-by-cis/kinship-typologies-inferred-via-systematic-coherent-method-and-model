@@ -49,12 +49,77 @@
   --math-to-fam: lightseagreen;
 }
 
-.math-box{
-  width: 100%;
+/* ******************************
+ * USTAWIENIA WYŚWIETLANIA SEKCJI
+ */
+#TEST {
+  border: solid 4px red;
+  width: 1800px;
 }
-.math-box > .math{
-  overflow-x: auto;
+
+#bodyMainly .card {
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-flow: column nowrap;
+  border-top-right-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+  border-bottom-left-radius: 1.5rem;
 }
+
+section.card > div:nth-child(1) {
+  height: 40px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+section.card > div:nth-child(1) > span.card-code,
+section.card > div:nth-child(1) > span.card-name {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  padding-left: 8px;
+  padding-right: 0.5rem;
+}
+
+section.card > div:nth-child(1) > span.card-code {
+  padding-top: 1px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  border-top-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+
+section.card > div:nth-child(1) > span.card-name {
+  padding-top: 8px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-bottom-style: double;
+  border-bottom-width: 4px;
+}
+article.card-main {
+  flex: 1;
+  margin-left: 0.7rem;
+  margin-right: 0.7rem;
+  margin-bottom: 0.7rem;
+  margin-top: 0.2rem;
+  overflow: hidden;
+  display: flex;
+  flex-flow: column nowrap;
+}
+article.card-main > div {
+  overflow-x: scroll;
+}
+article.card-main > p {
+  line-height: 1.45rem;
+  text-indent: 2rem;
+  text-align: justify;
+  text-align-last: left;
+}
+
 .card-full {
   flex: 1 1 100%;
 }
@@ -74,7 +139,12 @@
   flex: 1 1 400px;
 }
 
-
+.math-box {
+  width: 100%;
+}
+.math-box > .math {
+  overflow-x: auto;
+}
 .body-ground-with-drawer-hide {
   grid-template-columns: var(--size-stripe-menu) 1fr;
   grid-template-areas:
@@ -104,11 +174,9 @@
   transform: translateX(0);
 }
 
-#footDrawer.open{
+#footDrawer.open {
   transform: translateY(0);
 }
-
-
 
 * {
   box-sizing: border-box;
@@ -235,80 +303,17 @@ body {
   display: block;
 }
 
-.nav-map{
-  text-decoration: none; 
-  user-select: none; 
-  cursor: pointer; 
+.nav-map {
+  text-decoration: none;
+  user-select: none;
+  cursor: pointer;
 }
 .nav-map:hover {
   text-decoration: underline;
 }
-a.nav-map >span{
+a.nav-map > span {
   padding: 3px;
 }
-
-
-
-#bodyMainly .card {
-  padding: 0;
-  overflow-x: hidden;
-  display: flex;
-  flex-flow: column nowrap;
-  border-top-right-radius: 1.5rem;
-  border-bottom-right-radius: 1.5rem;
-  border-bottom-left-radius: 1.5rem;
-}
-
-section.card > div:nth-child(1) {
-  height: 40px;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  align-items: stretch;
-}
-
-section.card > div:nth-child(1) > span.card-code,
-section.card > div:nth-child(1) > span.card-name {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-  padding-left: 8px;
-  padding-right: 0.5rem;
-}
-
-section.card > div:nth-child(1) > span.card-code {
-  padding-top: 1px;
-  font-weight: bold;
-  font-size: 1.5rem;
-  border-top-right-radius: 1rem;
-  border-bottom-left-radius: 1rem;
-}
-
-section.card > div:nth-child(1) > span.card-name {
-  padding-top: 8px;
-  font-weight: bold;
-  font-size: 1.2rem;
-  border-bottom-style: double;
-  border-bottom-width: 4px;
-}
-article.card-main {
-  margin-left: 0.7rem;
-  margin-right: 0.7rem;
-  margin-bottom: 0.7rem;
-  margin-top: 0.2rem;
-}
-article.card-main > p {
-  line-height: 1.45rem;
-  text-indent: 2rem;
-  text-align: justify;
-  text-align-last: left;
-}
-
-
-
-
-
 
 #bodyGround {
   background-color: var(--color-zero-ground);
@@ -415,23 +420,20 @@ article.card-main > p {
   background-color: var(--color-backdrop);
 }
 
-a.nav-map >span{
+a.nav-map > span {
   background-color: color-mix(
-  in oklch,
-  var(--color-oklch-Black) 20%,
-  transparent
-);
+    in oklch,
+    var(--color-oklch-Black) 20%,
+    transparent
+  );
 }
 .nav-map:link,
 .nav-map:visited,
 .nav-map:hover,
 .nav-map:active,
-a.nav-map>span {
+a.nav-map > span {
   color: white !important;
 }
-
-
-
 
 #bodyMainly section {
   background-color: color-mix(
@@ -453,9 +455,6 @@ section.card > div:nth-child(1) > span.card-name {
   color: var(--color-zero-ground);
   border-bottom-color: var(--color-zero-ground);
 }
-
-
-
 
 code,
 pre {
