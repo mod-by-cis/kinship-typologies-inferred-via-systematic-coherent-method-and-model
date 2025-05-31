@@ -1,6 +1,6 @@
 import * as f from './calc-math-functions.js';
 
-function from_i(i) {
+function data_from_i(i) {
   const h = f.calc_h_from_i_or_j(i);
   const min = f.calc_min_from_h(h);
   const max = f.calc_max_from_h(h);
@@ -13,7 +13,7 @@ function from_i(i) {
   return {m,n,w,v,i,j,h,mix,min,max};
 }
 
-function from_j(j) {
+function data_from_j(j) {
   const h = f.calc_h_from_i_or_j(j);
   const min = f.calc_min_from_h(h);
   const max = f.calc_max_from_h(h);
@@ -26,11 +26,11 @@ function from_j(j) {
   return {m,n,w,v,i,j,h,mix,min,max};  
 }
 
-function from_m_and_n(m,n) {
+function data_from_m_and_n(m,n) {
   
 }
 
 
-function from_w_and_v(m,n) {
+function data_from_w_and_v(m,n) {
   
 }

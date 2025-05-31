@@ -1,8 +1,12 @@
 import * as uDOM from "./scripts/utils-dom.js";
 import insertContentToArticle from './scripts/insert-article.js';
 import insertMathJaxFromFile  from './scripts/insert-mathjax-from-file.js';
+import {
+  data_from_i,
+  data_from_j
+} from "./scripts/calc-math-main.js";
 
-let stateExpand = false;
+let stateExpand = true;
 
 const UX = {
   bodyGround:document.getElementById("bodyGround"),
@@ -176,13 +180,41 @@ insertContentToArticle(
       // PRZYCISK
       const calcBtn = document.createElement('button');
       calcBtn.textContent = 'Oblicz';
-      calcBtn.type = 'button';
+      calcBtn.type = 'button';      
 
       // WYNIK
       const resultBox = document.createElement('div');
       resultBox.id = 'result-box';
       resultBox.className = 'result';
       resultBox.style.marginTop = '1rem';
+
+      calcBtn.addEventListener('click', () => {
+        resultBox.textContent = ''; // Czyść poprzedni wynik
+      
+        const selectedMode = currentMode;
+      
+        if (selectedMode === 'i') {
+          const val = parseInt(inputs['i'][0].el.value, 10);
+          if (!Number.isInteger(val) || val <= 0) {
+            resultBox.textContent = 'Błąd: podaj liczbę naturalną większą od zera (i)';
+            return;
+          }
+          const result = data_from_i(val);
+          resultBox.textContent = JSON.stringify(result, null, 2);
+        }
+      
+        if (selectedMode === 'j') {
+          const val = parseInt(inputs['j'][0].el.value, 10);
+          if (!Number.isInteger(val) || val <= 0) {
+            resultBox.textContent = 'Błąd: podaj liczbę naturalną większą od zera (j)';
+            return;
+          }
+          const result = data_from_j(val);
+          resultBox.textContent = JSON.stringify(result, null, 2);
+        }
+      
+        // W przyszłości: obsługa m&n i w&v
+      });
 
       // Dołączenie wszystkiego
       boxINPUT.appendChild(radioGroup);
