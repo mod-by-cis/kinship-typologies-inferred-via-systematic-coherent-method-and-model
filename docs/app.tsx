@@ -189,6 +189,32 @@ export function App() {
           );
         },
       },
+
+{
+        var: "kiZ",
+        val: (currentM) => {
+          const i__Array = currentM.get("i");
+          MathF.testSomNotOfValsArray("i", i__Array, "isNotValNaturalPos");
+          // i__Array - nie ma szans być undefined, bo kontrola jest w MathF.testSomNotOfValsArray('i',i__Array,"isNotValNaturalPos");!
+          return i__Array.map((val_i, _index) =>
+            MathF.pow2Affine(1, 1, -1, val_i as number,MathF.val2Adic)
+          );
+        },
+      },
+      {
+        var: "kjZ",
+        val: (currentM) => {
+          const j__Array = currentM.get("j");
+          MathF.testSomNotOfValsArray("j", j__Array, "isNotValNaturalPos");
+          // i__Array - nie ma szans być undefined, bo kontrola jest w MathF.testSomNotOfValsArray('i',i__Array,"isNotValNaturalPos");!
+          return j__Array.map((val_j, _index) =>
+            MathF.pow2Affine(1, 1, -1, val_j as number,MathF.val2Adic)
+          );
+        },
+      },
+
+
+
       {
         var: "li",
         val: (currentM) => {
