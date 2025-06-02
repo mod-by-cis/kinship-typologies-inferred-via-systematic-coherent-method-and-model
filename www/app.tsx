@@ -332,6 +332,10 @@ export function App() {
             <li>【hi】 =【i】 -【hA】</li>
             <li>【hj】 =【hZ】 -【i】</li>
             <li>【j】 =【hAZ】 -【i】</li>
+          </ul>
+        </p>
+        <p>
+          <ul>
             <li>
               【ki】 = waluacja dwu-adyczna liczby naturalnej dodatniej [i]
             </li>
