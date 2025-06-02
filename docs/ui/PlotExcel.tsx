@@ -100,7 +100,7 @@ export function PlotExcel(
   } else if (type === "row") {
     // Tabela transponowana: klucze mapy jako nagłówki wierszy
     return (
-      <table className={tableClassName}>
+      <table className={'plot-row-data1 '+ tableClassName}>
         {caption && <caption>{caption}</caption>}
         {/* Można dodać <thead> z nagłówkami kolumn, jeśli są potrzebne, np. "Parametr", "Wartość 1", "Wartość 2", ... */}
         {/* Dla uproszczenia, pomijamy <thead> tutaj, a pierwszy <th> w każdym wierszu działa jako nagłówek wiersza */}
