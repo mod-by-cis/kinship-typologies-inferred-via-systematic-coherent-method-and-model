@@ -364,7 +364,7 @@ export function App() {
           <br />
           <h3>Rezultat obliczeń:</h3>
           <PlotExcel
-            class="plot-row-data1"
+            tableClassName="plot-row-data1"
             data={resultM.value}
             type="row"
             caption="Wyniki obliczeń."
