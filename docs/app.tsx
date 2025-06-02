@@ -59,7 +59,7 @@ export function App() {
           // h__Array - nie ma szans być undefined, MathF.testSomNotOfValsArray('h',h__Array,"isNotValNaturalPosWithZero");!
 
           return h__Array.map((val_h, _index) =>
-            MathF.pow2Affine(val_h as number, 1, 0, 0)
+            MathF.pow2Affine(1, 0, 0,val_h as number)
           );
         },
       },
@@ -75,7 +75,7 @@ export function App() {
           // h__Array - nie ma szans być undefined, MathF.testSomNotOfValsArray('h',h__Array,"isNotValNaturalPosWithZero");!
 
           return h__Array.map((val_h, _index) =>
-            MathF.pow2Affine(val_h as number, 1, 1, -1)
+            MathF.pow2Affine( 1, 1, -1,val_h as number)
           );
         },
       },
@@ -91,7 +91,7 @@ export function App() {
           // h__Array - nie ma szans być undefined, MathF.testSomNotOfValsArray('h',h__Array,"isNotValNaturalPosWithZero");!
 
           return h__Array.map((val_h, _index) =>
-            MathF.pow2Affine(val_h as number, 1.5, 1, -1)
+            MathF.pow2Affine(1.5, 1, -1, val_h as number)
           );
         },
       },
@@ -140,7 +140,7 @@ export function App() {
           // h__Array - nie ma szans być undefined, MathF.testSomNotOfValsArray('h',h__Array,"isNotValNaturalPosWithZero");!
 
           return i__Array.map((val_i, index) =>
-            MathF.pow2Affine(MathF.floorLog2(val_i as number), 1.5, 1, -1) -
+            MathF.pow2Affine(1.5, 1, -1,MathF.floorLog2(val_i as number)) -
             (val_i as number)
           );
         },
@@ -174,7 +174,7 @@ export function App() {
           MathF.testSomNotOfValsArray("i", i__Array, "isNotValNaturalPos");
           // i__Array - nie ma szans być undefined, bo kontrola jest w MathF.testSomNotOfValsArray('i',i__Array,"isNotValNaturalPos");!
           return i__Array.map((val_i, _index) =>
-            MathF.pow2Affine_val2Adic(val_i as number, 1, 0, 0)
+            MathF.pow2Affine(1, 0, 0, val_i as number,MathF.val2Adic)
           );
         },
       },
@@ -185,7 +185,7 @@ export function App() {
           MathF.testSomNotOfValsArray("j", j__Array, "isNotValNaturalPos");
           // i__Array - nie ma szans być undefined, bo kontrola jest w MathF.testSomNotOfValsArray('i',i__Array,"isNotValNaturalPos");!
           return j__Array.map((val_j, _index) =>
-            MathF.pow2Affine_val2Adic(val_j as number, 1, 0, 0)
+            MathF.pow2Affine(1, 0, 0, val_j as number,MathF.val2Adic)
           );
         },
       },
@@ -197,7 +197,7 @@ export function App() {
           // i__Array - nie ma szans być undefined, bo kontrola jest w MathF.testSomNotOfValsArray('i',i__Array,"isNotValNaturalPos");!
           return i__Array.map((val_i, _index) =>
             (val_i as number) /
-            MathF.pow2Affine_val2Adic(val_i as number, 1, 0, 0)
+            MathF.pow2Affine(1, 0, 0, val_i as number,MathF.val2Adic)
           );
         },
       },
@@ -209,7 +209,7 @@ export function App() {
           // i__Array - nie ma szans być undefined, bo kontrola jest w MathF.testSomNotOfValsArray('i',i__Array,"isNotValNaturalPos");!
           return j__Array.map((val_j, _index) =>
             (val_j as number) /
-            MathF.pow2Affine_val2Adic(val_j as number, 1, 0, 0)
+            MathF.pow2Affine(1, 0, 0, val_j as number,MathF.val2Adic)
           );
         },
       },
@@ -221,7 +221,7 @@ export function App() {
           // i__Array - nie ma szans być undefined, bo kontrola jest w MathF.testSomNotOfValsArray('i',i__Array,"isNotValNaturalPos");!
           return i__Array.map((val_i, _index) =>
             ((val_i as number) /
-              MathF.pow2Affine_val2Adic(val_i as number, 1, 0, 0)) + 1
+              MathF.pow2Affine(1, 0, 0,val_i as number, MathF.val2Adic)) + 1
           );
         },
       },
@@ -233,7 +233,7 @@ export function App() {
           // i__Array - nie ma szans być undefined, bo kontrola jest w MathF.testSomNotOfValsArray('i',i__Array,"isNotValNaturalPos");!
           return j__Array.map((val_j, _index) =>
             ((val_j as number) /
-              MathF.pow2Affine_val2Adic(val_j as number, 1, 0, 0)) + 2
+              MathF.pow2Affine(1, 0, 0,val_j as number, MathF.val2Adic)) + 2
           );
         },
       },
