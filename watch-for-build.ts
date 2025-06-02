@@ -1,5 +1,5 @@
 // watch.ts
-const folderToWatch = "./www/";
+const folderToWatch = "./docs/";
 const watchExtensions = [".ts", ".tsx"];
 
 const debounce = (fn: () => void, delay = 100) => {

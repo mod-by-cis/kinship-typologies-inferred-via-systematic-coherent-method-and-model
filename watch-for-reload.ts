@@ -29,7 +29,7 @@ function broadcastReload() {
   }
 }
 
-const watcher = Deno.watchFs("./www", { recursive: true });
+const watcher = Deno.watchFs("./docs", { recursive: true });
 
 Deno.serve({
   port: 35729,

@@ -1,9 +1,9 @@
 import * as esbuild from "https://deno.land/x/esbuild@v0.25.5/mod.js";
 
 await esbuild.build({
-  entryPoints: ["./www/main.tsx"],
+  entryPoints: ["./docs/main.tsx"],
   bundle: true,
-  outfile: "./www/main.js",
+  outfile: "./docs/main.js",
   format: "esm",
   minify: false,
   sourcemap: "inline",
