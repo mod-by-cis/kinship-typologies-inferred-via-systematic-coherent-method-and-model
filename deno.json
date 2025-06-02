@@ -1,0 +1,16 @@
+{"compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact",
+    "strict": true,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ]
+  },
+  "tasks": {
+    "watch": "deno run -A watch-for-build.ts",
+    "build": "deno run -A esbuild.ts",
+    "serve": "deno run --allow-net --allow-read --watch server.ts"
+  }
+}

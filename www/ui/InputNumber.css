@@ -1,0 +1,84 @@
+/* src/components/InputNumber/InputNumber.css */
+
+/* Gwarantuje, że te style zadziałają TYLKO wewnątrz elementu z klasą .preact-input-number-scoped */
+
+/*.preact-input-number-scoped .preact-input-number-scoped__input {
+  height: 6rem;
+  width: 8rem;
+  font-size: 3rem;
+  accent-color: rosybrown;
+  -moz-appearance: textfield;
+  -webkit-appearance: none;
+  appearance: none;
+}*/
+
+/* Domyślnie blokuj zaznaczanie tekstu dla całego kontenera InputNumber */
+.inputnumber-container {
+  -webkit-user-select: none; /* Safari, Chrome, Opera, Edge */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer (starsze wersje Edge) */
+  user-select: none; /* Standardowa właściwość */
+}
+
+/* Zezwól na zaznaczanie tekstu TYLKO dla elementu input HTML wewnątrz kontenera */
+/* Używamy nieco bardziej specyficznego selektora, aby mieć pewność nadpisania */
+.inputnumber-container .inputnumber-html-input {
+  -webkit-user-select: text; /* Pozwala na zaznaczanie tekstu */
+  -moz-user-select: text; /* Pozwala na zaznaczanie tekstu */
+  -ms-user-select: text; /* Pozwala na zaznaczanie tekstu */
+  user-select: text; /* Standardowa właściwość pozwalająca na zaznaczanie */
+}
+
+.inputnumber-svg-button[data-name="btn-choose"] > [data-name="btn-fill"] {
+  fill: #919191;
+}
+.inputnumber-svg-button[data-name="btn-increment"] > [data-name="btn-fill"] {
+  fill: #21597f;
+}
+.inputnumber-svg-button[data-name="btn-decrement"] > [data-name="btn-fill"] {
+  fill: #b21010;
+}
+
+.inputnumber-svg-button[data-name="btn-choose"] > [data-name="btn-border-fill"],
+.inputnumber-svg-button[data-name="btn-increment"]
+  > [data-name="btn-border-fill"],
+.inputnumber-svg-button[data-name="btn-decrement"]
+  > [data-name="btn-border-fill"] {
+  fill: #000000;
+}
+
+.inputnumber-svg-button[data-name="btn-choose"] > [data-name="btn-fill"],
+.inputnumber-svg-button[data-name="btn-increment"] > [data-name="btn-fill"],
+.inputnumber-svg-button[data-name="btn-decrement"] > [data-name="btn-fill"] {
+  cursor: pointer;
+  &:hover {
+    fill: #000000;
+  }
+  &:active {
+    filter: invert(1);
+  }
+}
+
+.inputnumber-html-input {
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+  border: 1px solid #000;
+  background-color: #919191;
+  color: #fff;
+  -moz-appearance: textfield;
+  -webkit-appearance: none;
+  appearance: none;
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  &:hover,
+  &:active {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    color: #000;
+  }
+}
