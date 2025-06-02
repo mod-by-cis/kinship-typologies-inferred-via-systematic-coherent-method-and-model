@@ -9,9 +9,9 @@ import {
   type ExcelSetsGet,
   type ExcelSetsSet,
   initRangeFirstStepLast,
-  initRangeFirstStepSize,
+  //initRangeFirstStepSize,
 } from "./logic/calculateExcel.ts";
-import { floorLog2 } from "./logic/mathFunc.ts";
+import * as MathF from "./logic/mathFunc.ts";
 import { PlotExcel } from "./ui/PlotExcel.tsx";
 
 //const resultM = signal<ExcelResults>(new Map<string, ExcelNestedN>());
@@ -40,27 +40,41 @@ export function App() {
         var: "h",
         val: (currentM) => {
           const iArray = currentM.get("i");
-          if (!Array.isArray(iArray)) {
-            throw new Error(
-              "Zmienne 'i'  muszą być tablicami dla tej operacji sumowania.",
-            );
-          }
-          if (iArray.some(isNaN)) {
-            throw new Error(
-              "Wszystkie elementy w tablicach 'i' muszą być liczbami.",
-            );
-          }
-          if (
-            iArray.some((val) =>
-              typeof val !== "number" || !Number.isInteger(val) || val <= 0
-            )
-          ) {
-            throw new Error(
-              "Wszystkie elementy w tablicy 'i' muszą być liczbami naturalnymi dodatnimi (większymi od 0).",
-            );
-          }
+          MathF.testSomNotOfValsArray("i", iArray, "isNotValNaturalPos");
+          // iArray - nie ma szans być undefined, bo kontrola jest w MathF.testSomNotOfValsArray('i',iArray,"isNotValNaturalPos");!
+          return iArray.map((val_i, _index) =>
+            MathF.floorLog2(val_i as number)
+          );
+        },
+      },
+      {
+        var: "hA",
+        val: (currentM) => {
+          const hArray = currentM.get("h");
+          MathF.testSomNotOfValsArray(
+            "h",
+            hArray,
+            "isNotValNaturalPosWithZero",
+          );
+          // hArray - nie ma szans być undefined, MathF.testSomNotOfValsArray('h',hArray,"isNotValNaturalPosWithZero");!
 
-          return iArray.map((val_i, _index) => floorLog2(val_i as number));
+          return hArray.map((val_h, _index) => MathF.pow2(val_h as number));
+        },
+      },
+      {
+        var: "hZ",
+        val: (currentM) => {
+          const hArray = currentM.get("h");
+          MathF.testSomNotOfValsArray(
+            "h",
+            hArray,
+            "isNotValNaturalPosWithZero",
+          );
+          // hArray - nie ma szans być undefined, MathF.testSomNotOfValsArray('h',hArray,"isNotValNaturalPosWithZero");!
+
+          return hArray.map((val_h, _index) =>
+            MathF.pow2_lastBeforeNext(val_h as number)
+          );
         },
       },
     ];
@@ -88,8 +102,7 @@ export function App() {
 
   return (
     <main>
-      <h1>floor(log₂(i)) dla przedziału [i]</h1>
-      <h1>2floor(log₂(i)) dla przedziału [i]</h1>
+      <h1>Matematyka w genealogii.</h1>
       <div
         style={{
           display: "flex",
@@ -149,17 +162,26 @@ export function App() {
             aria-label="Wartość końcowa przedziału"
           />
         </fieldset>
+        <p>
+          <ul>
+            <li>h = floor(log₂(i)) ||| dla przedziału [i]</li>
+            <li>hA = pow(2,h) ||| dla przedziału [h]</li>
+            <li>hZ = pow(2,h+1)-1 ||| dla przedziału [h]</li>
+          </ul>
+        </p>
       </div>
       {resultM.value.size > 0 && (
         <>
-          <h3>Tabela standardowa (type="col"):</h3>
+          {
+            /*<h3>Tabela standardowa (type="col"):</h3>
           <PlotExcel
             data={resultM.value}
             type="col"
             caption="Wyniki obliczeń"
-          />
+          />*/
+          }
           <br />
-          <h3>Tabela transponowana (type="row"):</h3>
+          <h3>Rezultat obliczeń:</h3>
           <PlotExcel
             data={resultM.value}
             type="row"
