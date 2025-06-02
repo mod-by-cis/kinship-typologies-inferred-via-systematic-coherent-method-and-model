@@ -279,6 +279,7 @@ export function App() {
           Policz
         </button>
         <fieldset
+          class="fieldset-inputs-number"
           style={{
             border: "3px solid #6c757d",
             borderRadius: "8px",
@@ -288,7 +289,6 @@ export function App() {
             display: "flex",
             alignItems: "flex-start",
             gap: "40px",
-            flexFlow: "row nowrap",
           }}
         >
           <legend
