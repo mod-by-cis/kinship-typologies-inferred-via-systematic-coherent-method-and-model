@@ -14,3 +14,9 @@ td, th {
   border: 1px solid #aaa;
   padding: 0.5rem;
 }
+
+
+.fieldset-inputs-number{
+  flex-flow: column nowrap;
+}
+
