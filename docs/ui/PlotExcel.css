@@ -33,6 +33,11 @@
     color: black;
 }
 
+.plot-row-data1 > tbody >tr:nth-child(10) {
+    background-color: turquoise;
+    color: black;
+}
+
 .plot-row-data1 > tbody >tr:nth-child(15) {
     background-color: powderblue;
     color: black;
