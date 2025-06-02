@@ -6,11 +6,22 @@ export function floorLog2(x:number):number {
 export function pow2(x:number):number {
   return Math.pow(2,x);
 }
+export function pow2Affine(
+  a: number,
+  b: number,
+  c: number,
+  x: number,
+  f?: (val: number) => number // Opcjonalny argument callback
+): number {
+  const processedX = f ? f(x) : x; // Jeśli f istnieje, zastosuj je do x, w przeciwnym razie użyj x
+  return a * 2 ** (processedX + b) + c;
+}
 
-
+/*
 export function pow2Affine(x: number, a: number, b: number, c: number): number {
   return a * 2 ** (x + b) + c;
 }
+*/
 
 //  waluacja dwu-adyczna liczby naturalnej dodatniej 
 //  czyli największą potęgę liczby 2, która dzieli x
