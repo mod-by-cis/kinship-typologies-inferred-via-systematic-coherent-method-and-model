@@ -39,10 +39,10 @@ export function App() {
       {
         var: "h",
         val: (currentM) => {
-          const iArray = currentM.get("i");
-          MathF.testSomNotOfValsArray("i", iArray, "isNotValNaturalPos");
-          // iArray - nie ma szans być undefined, bo kontrola jest w MathF.testSomNotOfValsArray('i',iArray,"isNotValNaturalPos");!
-          return iArray.map((val_i, _index) =>
+          const i__Array = currentM.get("i");
+          MathF.testSomNotOfValsArray("i", i__Array, "isNotValNaturalPos");
+          // i__Array - nie ma szans być undefined, bo kontrola jest w MathF.testSomNotOfValsArray('i',i__Array,"isNotValNaturalPos");!
+          return i__Array.map((val_i, _index) =>
             MathF.floorLog2(val_i as number)
           );
         },
@@ -50,30 +50,190 @@ export function App() {
       {
         var: "hA",
         val: (currentM) => {
-          const hArray = currentM.get("h");
+          const h__Array = currentM.get("h");
           MathF.testSomNotOfValsArray(
             "h",
-            hArray,
+            h__Array,
             "isNotValNaturalPosWithZero",
           );
-          // hArray - nie ma szans być undefined, MathF.testSomNotOfValsArray('h',hArray,"isNotValNaturalPosWithZero");!
+          // h__Array - nie ma szans być undefined, MathF.testSomNotOfValsArray('h',h__Array,"isNotValNaturalPosWithZero");!
 
-          return hArray.map((val_h, _index) => MathF.pow2(val_h as number));
+          return h__Array.map((val_h, _index) =>
+            MathF.pow2Affine(val_h as number, 1, 0, 0)
+          );
         },
       },
       {
         var: "hZ",
         val: (currentM) => {
-          const hArray = currentM.get("h");
+          const h__Array = currentM.get("h");
           MathF.testSomNotOfValsArray(
             "h",
-            hArray,
+            h__Array,
             "isNotValNaturalPosWithZero",
           );
-          // hArray - nie ma szans być undefined, MathF.testSomNotOfValsArray('h',hArray,"isNotValNaturalPosWithZero");!
+          // h__Array - nie ma szans być undefined, MathF.testSomNotOfValsArray('h',h__Array,"isNotValNaturalPosWithZero");!
 
-          return hArray.map((val_h, _index) =>
-            MathF.pow2_lastBeforeNext(val_h as number)
+          return h__Array.map((val_h, _index) =>
+            MathF.pow2Affine(val_h as number, 1, 1, -1)
+          );
+        },
+      },
+      {
+        var: "hAZ",
+        val: (currentM) => {
+          const h__Array = currentM.get("h");
+          MathF.testSomNotOfValsArray(
+            "h",
+            h__Array,
+            "isNotValNaturalPosWithZero",
+          );
+          // h__Array - nie ma szans być undefined, MathF.testSomNotOfValsArray('h',h__Array,"isNotValNaturalPosWithZero");!
+
+          return h__Array.map((val_h, _index) =>
+            MathF.pow2Affine(val_h as number, 1.5, 1, -1)
+          );
+        },
+      },
+      {
+        var: "hi",
+        val: (currentM) => {
+          const i__Array = currentM.get("i");
+          MathF.testSomNotOfValsArray("i", i__Array, "isNotValNaturalPos");
+          const hA__Array = currentM.get("hA");
+          MathF.testSomNotOfValsArray(
+            "hA",
+            hA__Array,
+            "isNotValNaturalPos",
+          );
+          // h__Array - nie ma szans być undefined, MathF.testSomNotOfValsArray('h',h__Array,"isNotValNaturalPosWithZero");!
+
+          return i__Array.map((val_i, index) =>
+            (val_i as number) - hA__Array[index]
+          );
+        },
+      },
+      {
+        var: "hj",
+        val: (currentM) => {
+          const i__Array = currentM.get("i");
+          MathF.testSomNotOfValsArray("i", i__Array, "isNotValNaturalPos");
+          const hZ__Array = currentM.get("hZ");
+          MathF.testSomNotOfValsArray(
+            "hZ",
+            hZ__Array,
+            "isNotValNaturalPos",
+          );
+          // h__Array - nie ma szans być undefined, MathF.testSomNotOfValsArray('h',h__Array,"isNotValNaturalPosWithZero");!
+
+          return i__Array.map((val_i, index) =>
+            hZ__Array[index] - (val_i as number)
+          );
+        },
+      },
+      {
+        var: "j",
+        val: (currentM) => {
+          const i__Array = currentM.get("i");
+          MathF.testSomNotOfValsArray("i", i__Array, "isNotValNaturalPos");
+
+          // h__Array - nie ma szans być undefined, MathF.testSomNotOfValsArray('h',h__Array,"isNotValNaturalPosWithZero");!
+
+          return i__Array.map((val_i, index) =>
+            MathF.pow2Affine(MathF.floorLog2(val_i as number), 1.5, 1, -1) -
+            (val_i as number)
+          );
+        },
+      },
+      {
+        var: "ki",
+        val: (currentM) => {
+          const i__Array = currentM.get("i");
+          MathF.testSomNotOfValsArray("i", i__Array, "isNotValNaturalPos");
+          // i__Array - nie ma szans być undefined, bo kontrola jest w MathF.testSomNotOfValsArray('i',i__Array,"isNotValNaturalPos");!
+          return i__Array.map((val_i, _index) =>
+            MathF.val2Adic(val_i as number)
+          );
+        },
+      },
+      {
+        var: "kj",
+        val: (currentM) => {
+          const j__Array = currentM.get("j");
+          MathF.testSomNotOfValsArray("j", j__Array, "isNotValNaturalPos");
+          // i__Array - nie ma szans być undefined, bo kontrola jest w MathF.testSomNotOfValsArray('i',i__Array,"isNotValNaturalPos");!
+          return j__Array.map((val_j, _index) =>
+            MathF.val2Adic(val_j as number)
+          );
+        },
+      },
+      {
+        var: "kiA",
+        val: (currentM) => {
+          const i__Array = currentM.get("i");
+          MathF.testSomNotOfValsArray("i", i__Array, "isNotValNaturalPos");
+          // i__Array - nie ma szans być undefined, bo kontrola jest w MathF.testSomNotOfValsArray('i',i__Array,"isNotValNaturalPos");!
+          return i__Array.map((val_i, _index) =>
+            MathF.pow2Affine_val2Adic(val_i as number, 1, 0, 0)
+          );
+        },
+      },
+      {
+        var: "kjA",
+        val: (currentM) => {
+          const j__Array = currentM.get("j");
+          MathF.testSomNotOfValsArray("j", j__Array, "isNotValNaturalPos");
+          // i__Array - nie ma szans być undefined, bo kontrola jest w MathF.testSomNotOfValsArray('i',i__Array,"isNotValNaturalPos");!
+          return j__Array.map((val_j, _index) =>
+            MathF.pow2Affine_val2Adic(val_j as number, 1, 0, 0)
+          );
+        },
+      },
+      {
+        var: "li",
+        val: (currentM) => {
+          const i__Array = currentM.get("i");
+          MathF.testSomNotOfValsArray("i", i__Array, "isNotValNaturalPos");
+          // i__Array - nie ma szans być undefined, bo kontrola jest w MathF.testSomNotOfValsArray('i',i__Array,"isNotValNaturalPos");!
+          return i__Array.map((val_i, _index) =>
+            (val_i as number) /
+            MathF.pow2Affine_val2Adic(val_i as number, 1, 0, 0)
+          );
+        },
+      },
+      {
+        var: "lj",
+        val: (currentM) => {
+          const j__Array = currentM.get("j");
+          MathF.testSomNotOfValsArray("j", j__Array, "isNotValNaturalPos");
+          // i__Array - nie ma szans być undefined, bo kontrola jest w MathF.testSomNotOfValsArray('i',i__Array,"isNotValNaturalPos");!
+          return j__Array.map((val_j, _index) =>
+            (val_j as number) /
+            MathF.pow2Affine_val2Adic(val_j as number, 1, 0, 0)
+          );
+        },
+      },
+      {
+        var: "mi",
+        val: (currentM) => {
+          const i__Array = currentM.get("i");
+          MathF.testSomNotOfValsArray("i", i__Array, "isNotValNaturalPos");
+          // i__Array - nie ma szans być undefined, bo kontrola jest w MathF.testSomNotOfValsArray('i',i__Array,"isNotValNaturalPos");!
+          return i__Array.map((val_i, _index) =>
+            ((val_i as number) /
+              MathF.pow2Affine_val2Adic(val_i as number, 1, 0, 0)) + 1
+          );
+        },
+      },
+      {
+        var: "wj",
+        val: (currentM) => {
+          const j__Array = currentM.get("j");
+          MathF.testSomNotOfValsArray("j", j__Array, "isNotValNaturalPos");
+          // i__Array - nie ma szans być undefined, bo kontrola jest w MathF.testSomNotOfValsArray('i',i__Array,"isNotValNaturalPos");!
+          return j__Array.map((val_j, _index) =>
+            ((val_j as number) /
+              MathF.pow2Affine_val2Adic(val_j as number, 1, 0, 0)) + 2
           );
         },
       },
@@ -164,9 +324,26 @@ export function App() {
         </fieldset>
         <p>
           <ul>
-            <li>h = floor(log₂(i)) ||| dla przedziału [i]</li>
-            <li>hA = pow(2,h) ||| dla przedziału [h]</li>
-            <li>hZ = pow(2,h+1)-1 ||| dla przedziału [h]</li>
+            <li>【i】</li>
+            <li>【h】 = floor(log₂(i)) ||| dla przedziału [i]</li>
+            <li>【hA】 = 2**h ||| dla przedziału [h]</li>
+            <li>【hZ】 = 2**(h+1)-1 ||| dla przedziału [h]</li>
+            <li>【hAZ】 =3*2**h-1 = 1.5*2**(h+1)-1 ||| dla przedziału [h]</li>
+            <li>【hi】 =【i】 -【hA】</li>
+            <li>【hj】 =【hZ】 -【i】</li>
+            <li>【j】 =【hAZ】 -【i】</li>
+            <li>
+              【ki】 = waluacja dwu-adyczna liczby naturalnej dodatniej [i]
+            </li>
+            <li>
+              【kj】 = waluacja dwu-adyczna liczby naturalnej dodatniej [j]
+            </li>
+            <li>【kiA】 = 2**【ki】</li>
+            <li>【kjA】 = 2**【kj】</li>
+            <li>【li】 =【i】/【kiA】</li>
+            <li>【lj】 =【j】/【kjA】</li>
+            <li>【m】 =【li】+1</li>
+            <li>【w】 =【lj】+2</li>
           </ul>
         </p>
       </div>
