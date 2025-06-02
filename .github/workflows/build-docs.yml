@@ -1,0 +1,39 @@
+name: Build docs with esbuild
+
+on:
+  push:
+    branches:
+      - main2 # Twoja główna gałąź
+    paths:
+      - 'docs/**/*.ts'
+      - 'docs/**/*.tsx'
+      - 'esbuild.ts' # Skrypt budujący również jako trigger
+  workflow_dispatch: # Umożliwia ręczne uruchomienie
+
+permissions:
+  contents: write # Potrzebne do zapisania zmian (commit + push)
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v2 # Zgodnie z https://github.com/denoland/setup-deno
+        with:
+          deno-version: 2.3.5 # Twoja wersja Deno
+
+      - name: Run esbuild
+        run: deno run -A ./esbuild.ts # Użyj -A lub określ konkretne uprawnienia
+
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "docs: auto-build main.js"
+          file_pattern: docs/main.js # Śledzony plik. Jeśli sourcemap jest osobno, dodaj go tutaj.
+          # Opcjonalnie: dostosuj autora commita
+          # commit_user_name: GitHub Actions Bot
+          # commit_user_email: actions@github.com
+          # Akcja domyślnie commituje na gałąź, która wywołała workflow.
