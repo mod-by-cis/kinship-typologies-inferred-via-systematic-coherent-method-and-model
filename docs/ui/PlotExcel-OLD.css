@@ -1,0 +1,54 @@
+.plot-row-data1{
+  border: solid gray 2px;
+}
+
+ .plot-row-data1 > tbody >tr:nth-child(1){
+    background-color: cornflowerblue;
+    color: black;
+}
+
+.plot-row-data1 > tbody >tr:nth-child(2){
+    background-color: silver;
+    color: black;
+}
+
+.plot-row-data1 > tbody >tr:nth-child(3),
+.plot-row-data1 > tbody >tr:nth-child(4) {
+    background-color: darkkhaki;
+    color: black;
+}
+
+.plot-row-data1 > tbody >tr:nth-child(5) {
+    background-color: yellowgreen;
+    color: black;
+}
+
+.plot-row-data1 > tbody >tr:nth-child(8) {
+    background-color: mediumpurple;
+    color: black;
+}
+
+.plot-row-data1 > tbody >tr:nth-child(9) {
+    background-color: turquoise;
+    color: black;
+}
+
+.plot-row-data1 > tbody >tr:nth-child(10) {
+    background-color: palevioletred;
+    color: black;
+}
+
+.plot-row-data1 > tbody >tr:nth-child(17) {
+    background-color: powderblue;
+    color: black;
+}
+
+.plot-row-data1 > tbody >tr:nth-child(18) {
+    background-color: plum;
+    color: black;
+}
+
+
+
+
+
