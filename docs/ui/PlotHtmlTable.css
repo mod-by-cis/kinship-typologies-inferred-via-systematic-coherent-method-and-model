@@ -1,6 +1,8 @@
 .table-val-type--i {
   background-color: cornflowerblue;
   color: black;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .table-val-type--hi,
@@ -8,6 +10,8 @@
 .table-val-type--h {
   background-color: silver;
   color: black;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .table-val-type--hA,
@@ -18,36 +22,50 @@
 .table-val-type--kjZ {
   background-color: darkkhaki;
   color: black;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .table-val-type--hAZ {
   background-color: yellowgreen;
   color: black;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .table-val-type--j {
   background-color: mediumpurple;
   color: black;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .table-val-type--ki {
   background-color: turquoise;
   color: black;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .table-val-type--kj {
   background-color: palevioletred;
   color: black;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .table-val-type--li,
 .table-val-type--mi {
   background-color: powderblue;
   color: black;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .table-val-type--lj,
 .table-val-type--wj {
   background-color: plum;
   color: black;
+  text-align: center;
+  vertical-align: middle;
 }
