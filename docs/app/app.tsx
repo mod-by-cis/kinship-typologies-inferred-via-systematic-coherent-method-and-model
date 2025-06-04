@@ -132,6 +132,7 @@ export function App() {
             aria-label="Wartość końcowa przedziału"
           />
         </fieldset>
+</div>
         <InputChipsList
           availableValues={new Map<string, number>([
             ["h", 1],
@@ -191,7 +192,7 @@ export function App() {
             console.log(plotSet.value);
           }}
         />
-      </div>
+      
       <div>
         <input
           type="checkbox"
