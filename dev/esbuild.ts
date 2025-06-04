@@ -3,7 +3,7 @@ import * as esbuild from "https://deno.land/x/esbuild@v0.25.5/mod.js";
 await esbuild.build({
   entryPoints: ["docs/main.tsx"],
   bundle: true,
-  outfile: "docs/main.js",
+  outfile: "docs/gen/main.js",
   format: "esm",
   minify: true,
   sourcemap: "inline",

@@ -31,6 +31,14 @@ export function PlotHtmlTable(
   const headerRow = isColMode ? data[0] : data.map((row) => row[0]);
   const bodyRows = isColMode ? data.slice(1) : data.map((row) => row.slice(1));
 
+  function keyID(key: string | number): string {
+    key = `${key}`;
+    return typeof key === "string" &&
+        key !== "=||" &&
+        key !== ""
+      ? key.replaceAll("【", "").replaceAll("】", "") as string
+      : "noneNONE";
+  }
   return (
     <table
       className={`${isColMode ? "plot-col-data1" : "plot-row-data1"} ${
@@ -46,9 +54,7 @@ export function PlotHtmlTable(
               {/* Nagłówki */}
               <tr>
                 {headerRow.map((key, colIndex) => {
-                  const keyStr = typeof key === "string" && key !== "=||"
-                    ? key
-                    : "NNOONNEE";
+                  const keyStr = keyID(key);
                   return (
                     <th
                       className={`table-val-type--${keyStr} ${
@@ -65,10 +71,7 @@ export function PlotHtmlTable(
               {bodyRows.map((row, rowIndex) => (
                 <tr key={`row-${rowIndex}`}>
                   {row.map((cell, colIndex) => {
-                    const key = typeof headerRow[colIndex] === "string" &&
-                        headerRow[colIndex] !== "=||"
-                      ? headerRow[colIndex] as string
-                      : "NNOONNEE";
+                    const key = keyID(headerRow[colIndex]);
                     return (
                       <td
                         className={`table-val-type--${key} ${
@@ -87,9 +90,7 @@ export function PlotHtmlTable(
           : (
             <>
               {data.map((row, rowIndex) => {
-                const key = typeof row[0] === "string" && row[0] !== "=||"
-                  ? row[0]
-                  : "NNOONNEE";
+                const key = keyID(row[0]);
                 return (
                   <tr
                     className={`table-val-type--${key}`}

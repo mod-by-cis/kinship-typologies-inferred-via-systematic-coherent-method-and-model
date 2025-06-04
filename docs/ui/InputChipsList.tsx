@@ -47,7 +47,6 @@ export function InputChipsList(props: InputChipsListProps) {
   } = props;
 
   const mode3 = useSignal<Mode>("View");
-  //const [mode, setMode] = useState<Mode>("View");
 
   const [selected, setSelected] = useState<string[]>([...defaultValues]);
 

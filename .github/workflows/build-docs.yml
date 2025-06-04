@@ -26,13 +26,13 @@ jobs:
           deno-version: 2.3.5 # Twoja wersja Deno
 
       - name: Run esbuild
-        run: deno run -A ./esbuild.ts # Użyj -A lub określ konkretne uprawnienia
+        run: deno run -A ./dev/esbuild.ts # Użyj -A lub określ konkretne uprawnienia
 
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "docs: auto-build main.js"
-          file_pattern: docs/main.js # Śledzony plik. Jeśli sourcemap jest osobno, dodaj go tutaj.
+          file_pattern: docs/gen/main.js # Śledzony plik. Jeśli sourcemap jest osobno, dodaj go tutaj.
           # Opcjonalnie: dostosuj autora commita
           # commit_user_name: GitHub Actions Bot
           # commit_user_email: actions@github.com

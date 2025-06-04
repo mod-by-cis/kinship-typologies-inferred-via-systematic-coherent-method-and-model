@@ -1,18 +1,18 @@
 /** @jsxRuntime automatic */
 /** @jsxImportSource https://esm.sh/preact@10.26.8 */
 import { signal, useSignal } from "https://esm.sh/@preact/signals@2.2.0";
-import { InputNumber } from "./ui/InputNumber.tsx"; // Upewnij się, że ścieżka jest poprawna
-import { InputChipsList } from "./ui/InputChipsList.tsx";
+import { InputNumber } from "../ui/InputNumber.tsx"; // Upewnij się, że ścieżka jest poprawna
+import { InputChipsList } from "../ui/InputChipsList.tsx";
 import {
   type ExcelNestedN,
   type ExcelResults,
   ExcelResultSortingOutputAtTable,
   initRangeFirstStepLast,
   initRangeFirstStepSize,
-} from "./logic/calculateExcel.ts";
-import * as MathF from "./logic/mathFunc.ts";
-import { PlotHtmlTable } from "./ui/PlotExcel.tsx";
-import generTable1 from "./data/generTable1.ts";
+} from "../logic/calculateExcel.ts";
+import * as MathF from "../logic/mathFunc.ts";
+import { PlotHtmlTable } from "../ui/PlotHtmlTable.tsx";
+import generTable1 from "../data/generTable1.ts";
 
 type StatePlotMap = Map<string, (number | boolean)[]>;
 
