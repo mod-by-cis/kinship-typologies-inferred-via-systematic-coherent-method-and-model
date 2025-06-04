@@ -141,6 +141,67 @@ const range1_alt = initRangeFirstStepSizeAlternative(5, 2, 10);
 console.log("Range 1 Alt (items: 5, step: 2, startAt: 10):", range1_alt);
 */
 
+
+
+export function ExcelResultSortingOutputAtTable(
+  mode: "ROW" | "COL",
+  sort: string[],
+  data: ExcelResults,
+): (string | number)[][] {
+  const result: (string | number)[][] = [];
+
+  // Nagłówki (pierwszy wiersz lub kolumna)
+  const headers = sort.map((key) => key === "=||" ? "" : `【${key}】`);
+
+  result.push(headers); // pierwszy wiersz to nagłówki
+
+  // Zakładamy, że wszystkie tablice mają tę samą długość
+  const rowCount = Math.max(
+    ...sort.map((key) =>
+      Array.isArray(data.get(key)) ? (data.get(key) as number[]).length : 0
+    ),
+  );
+
+  for (let row = 0; row < rowCount; row++) {
+    const rowData: (string | number)[] = [];
+
+    for (const key of sort) {
+      if (key === "=||") {
+        rowData.push("");
+      } else {
+        const colData = data.get(key);
+        if (Array.isArray(colData)) {
+          rowData.push((colData as number[])[row] ?? "");
+        } else {
+          rowData.push("");
+        }
+      }
+    }
+
+    result.push(rowData);
+  }
+
+  function transposeTABLE<T>(matrix: T[][]): T[][] {
+    if (matrix.length === 0) return [];
+    const rows = matrix.length;
+    const cols = matrix[0].length;
+  
+    const result: T[][] = Array.from({ length: cols }, () => new Array<T>(rows));
+  
+    for (let i = 0; i < rows; i++) {
+      for (let j = 0; j < cols; j++) {
+        result[j][i] = matrix[i][j];
+      }
+    }
+  
+    return result;
+  }
+  
+  return mode != "COL" ? transposeTABLE(result) : result;
+}
+
+
+
 export default Excel;
 
 // --- Przykład użycia ---

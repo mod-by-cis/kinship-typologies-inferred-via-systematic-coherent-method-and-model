@@ -277,6 +277,9 @@ export function InputChipsList(props: InputChipsListProps) {
                   onDragStartAvailable(e as unknown as DragEvent, chip)}
                 onDragEnd={(e) => onDragEndAvailable(e as unknown as DragEvent)}
                 class="inputchips-chips inputchips-chips-available"
+                style={{
+                  cursor: "pointer",
+                }}
               >
                 {chip}
                 {mode === "Click" && (

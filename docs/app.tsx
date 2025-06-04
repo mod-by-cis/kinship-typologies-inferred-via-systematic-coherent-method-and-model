@@ -2,18 +2,16 @@
 /** @jsxImportSource https://esm.sh/preact@10.26.8 */
 import { signal, useSignal } from "https://esm.sh/@preact/signals@2.2.0";
 import { InputNumber } from "./ui/InputNumber.tsx"; // Upewnij się, że ścieżka jest poprawna
-import { InputChipsList, InputChipsMode } from "./ui/InputChipsList.tsx";
+import { InputChipsList } from "./ui/InputChipsList.tsx";
 import {
-  //Excel,
   type ExcelNestedN,
   type ExcelResults,
-  //type ExcelSetsGet,
-  //type ExcelSetsSet,
+  ExcelResultSortingOutputAtTable,
   initRangeFirstStepLast,
   initRangeFirstStepSize,
 } from "./logic/calculateExcel.ts";
 import * as MathF from "./logic/mathFunc.ts";
-import { PlotExcel } from "./ui/PlotExcel.tsx";
+import { PlotHtmlTable } from "./ui/PlotExcel.tsx";
 import generTable1 from "./data/generTable1.ts";
 
 type StatePlotMap = Map<string, (number | boolean)[]>;
@@ -25,37 +23,12 @@ export function App() {
   const to = useSignal(10);
   const resultM = useSignal<ExcelResults>(new Map<string, ExcelNestedN>());
   const resultS = generTable1(initRangeFirstStepSize(1, 1, 15));
-  console.log(resultS);
+  console.log("RES_MAP", resultS);
   const plotRow = useSignal(true);
-  const selectedChips = useSignal<string[]>([]);
+  const plotSet = useSignal<string[]>([]);
 
   /*const plotMap = useSignal<StatePlotMap>(new Map<string, (number | boolean)[]>(
-    [
-      ["h",[true,8]],
-      ["i",[true,4]],
-      ["j",[true,15]],
-      //" ",
-      ["hi",[true,5]],
-      ["hj",[true,14]],
-      //" ",
-      ["ki",[true,1]],
-      ["mi",[true,2]],
-      ["li",[true,3]],
-      //" ",
-      ["lj",[true,16]],
-      ["wj",[true,17]],
-      ["kj",[true,18]],
-      //" ",
-      ["hA",[true,9]],
-      ["hZ",[true,10]],
-      ["hAZ",[true,11]],
-      //" ",
-      ["kiA",[true,6]],
-      ["kjA",[true,13]],
-      //" ",
-      ["kiZ",[true,7]],
-      ["kjZ",[true,12]],
-    ]
+
   ));*/
   const calculate = () => {
     // Upewnij się, że wartości są liczbami przed pętlą
@@ -155,34 +128,65 @@ export function App() {
             aria-label="Wartość końcowa przedziału"
           />
         </fieldset>
-        <p>
-          <ul>
-            <li>【i】</li>
-            <li>【h】 = floor(log₂(i)) ||| dla przedziału [i]</li>
-            <li>【hA】 = 2**h ||| dla przedziału [h]</li>
-            <li>【hZ】 = 2**(h+1)-1 ||| dla przedziału [h]</li>
-            <li>【hAZ】 =3*2**h-1 = 1.5*2**(h+1)-1 ||| dla przedziału [h]</li>
-            <li>【hi】 =【i】 -【hA】</li>
-            <li>【hj】 =【hZ】 -【i】</li>
-            <li>【j】 =【hAZ】 -【i】</li>
-          </ul>
-        </p>
-        <p>
-          <ul>
-            <li>
-              【ki】 = waluacja dwu-adyczna liczby naturalnej dodatniej [i]
-            </li>
-            <li>
-              【kj】 = waluacja dwu-adyczna liczby naturalnej dodatniej [j]
-            </li>
-            <li>【kiA】 = 2**【ki】</li>
-            <li>【kjA】 = 2**【kj】</li>
-            <li>【li】 =【i】/【kiA】</li>
-            <li>【lj】 =【j】/【kjA】</li>
-            <li>【m】 =【li】+1</li>
-            <li>【w】 =【lj】+2</li>
-          </ul>
-        </p>
+        <InputChipsList
+          availableValues={new Map<string, number>([
+            ["h", 1],
+            ["i", 1],
+            ["j", 1],
+            //" ",
+            ["hi", 1],
+            ["hj", 1],
+            //" ",
+            ["ki", 1],
+            ["mi", 1],
+            ["li", 1],
+            //" ",
+            ["lj", 1],
+            ["wj", 1],
+            ["kj", 1],
+            //" ",
+            ["hA", 1],
+            ["hZ", 1],
+            ["hAZ", 1],
+            //" ",
+            ["kiA", 1],
+            ["kjA", 1],
+            //" ",
+            ["kiZ", 1],
+            ["kjZ", 1],
+            //" ",
+            ["=||", 20],
+          ])}
+          defaultValues={[
+            "ki",
+            "mi",
+            "li",
+            "i",
+            "hi",
+            "kiA",
+            "kiZ",
+            "=||",
+            "h",
+            "hA",
+            "hZ",
+            "hAZ",
+            "=||",
+            "kjZ",
+            "kjA",
+            "hj",
+            "j",
+            "lj",
+            "wj",
+            "kj",
+          ]}
+          values={plotSet.value}
+          titleAvailable="Dostępne:"
+          titleSelected="Wybrane:"
+          onChange={(val) => {
+            plotSet.value = val;
+            console.log(plotSet.value);
+          }}
+        />
       </div>
       <div>
         <input
@@ -195,56 +199,52 @@ export function App() {
         <label for="PlotPosition">{plotRow.value ? "Row" : "Col"}</label>
       </div>
       <br />
-      <InputChipsList
-        availableValues={new Map<string, number>([
-          ["🍎 Jabłko", 2],
-          ["🍌 Banan", 3],
-          ["🍓 Truskawka", 1],
-          ["🥝 Kiwi", 2],
-        ])}
-        defaultValues={["🍌 Banan", "🍎 Jabłko"]}
-        values={selectedChips.value}
-        titleAvailable="Dostępne:"
-        titleSelected="Wybrane:"
-        onChange={(val) => {
-          selectedChips.value = val;
-          console.log(selectedChips.value);
-        }}
-      />
+      <br />
       <br />
 
       {resultM.value.size > 0 && (
         <>
           <h3>Rezultat obliczeń:</h3>
-          <PlotExcel
-            data={resultM.value}
-            type={plotRow.value ? "row" : "col"}
-            sort={[
-              "ki",
-              "mi",
-              "li",
-              "i",
-              "hi",
-              "kiA",
-              "kiZ",
-              //" ",
-              "h",
-              "hA",
-              "hZ",
-              "hAZ",
-              //" ",
-              "kjZ",
-              "kjA",
-              "hj",
-              "j",
-              "lj",
-              "wj",
-              "kj",
-            ]}
+          <PlotHtmlTable
+            data={ExcelResultSortingOutputAtTable(
+              plotRow.value ? "ROW" : "COL",
+              plotSet.value,
+              resultM.value,
+            )}
+            mode={plotRow.value ? "ROW" : "COL"}
             caption="Wyniki obliczeń."
           />
         </>
       )}
+
+      <p>
+        <ul>
+          <li>【i】</li>
+          <li>【h】 = floor(log₂(i)) ||| dla przedziału [i]</li>
+          <li>【hA】 = 2**h ||| dla przedziału [h]</li>
+          <li>【hZ】 = 2**(h+1)-1 ||| dla przedziału [h]</li>
+          <li>【hAZ】 =3*2**h-1 = 1.5*2**(h+1)-1 ||| dla przedziału [h]</li>
+          <li>【hi】 =【i】 -【hA】</li>
+          <li>【hj】 =【hZ】 -【i】</li>
+          <li>【j】 =【hAZ】 -【i】</li>
+        </ul>
+      </p>
+      <p>
+        <ul>
+          <li>
+            【ki】 = waluacja dwu-adyczna liczby naturalnej dodatniej [i]
+          </li>
+          <li>
+            【kj】 = waluacja dwu-adyczna liczby naturalnej dodatniej [j]
+          </li>
+          <li>【kiA】 = 2**【ki】</li>
+          <li>【kjA】 = 2**【kj】</li>
+          <li>【li】 =【i】/【kiA】</li>
+          <li>【lj】 =【j】/【kjA】</li>
+          <li>【m】 =【li】+1</li>
+          <li>【w】 =【lj】+2</li>
+        </ul>
+      </p>
     </main>
   );
 }

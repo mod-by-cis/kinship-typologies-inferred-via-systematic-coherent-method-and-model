@@ -35,21 +35,21 @@
 .inputchips-chips {
   display: flex; /* flex */
   align-items: center; /* items-center */
-  gap: 0.25rem; /* gap-1 (4px) */
-  padding-left: 0.5rem; /* px-2 (8px) */
-  padding-right: 0.5rem;
-  padding-top: 0.25rem; /* py-1 (4px) */
-  padding-bottom: 0.25rem;
+  gap: 0.55rem; /* gap-1 (4px) */
+  padding-left: 0.75rem; /* px-2 (8px) */
+  padding-right: 0.75rem;
+  padding-top: 0.55rem; /* py-1 (4px) */
+  padding-bottom: 0.55rem;
   border-radius: 9999px; /* rounded-full */
-  font-size: 0.875rem; /* text-sm */
+  font-size: 1.125rem; /* text-sm */
   line-height: 1.25rem; /* domyślny line-height dla text-sm */
   color: inherit; /* kolor tekstu pozostaje domyślny */
   user-select: none;
   -webkit-user-select: none; /* Safari */
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
-  cursor: -webkit-grab;
-  cursor: grab;
+  /*cursor: -webkit-grab;
+  cursor: grab;*/
 }
 
 .inputchips-chips-available {
