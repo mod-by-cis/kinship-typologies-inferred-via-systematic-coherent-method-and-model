@@ -15,7 +15,10 @@ import { PlotHtmlTable } from "../ui/PlotHtmlTable.tsx";
 import generTable1 from "../data/generTable1.ts";
 
 
-import { defaultOrderingTable1} from "../config/default.ts";
+import { 
+  defaultOrderingTable1,
+  defaultPropsValsTable1
+} from "../config/default.ts";
 
 
 type StatePlotMap = Map<string, (number | boolean)[]>;
@@ -138,34 +141,7 @@ export function App() {
         </fieldset>
 </div>
         <InputChipsList
-          availableValues={new Map<string, number>([
-            ["h", 1],
-            ["i", 1],
-            ["j", 1],
-            //" ",
-            ["hi", 1],
-            ["hj", 1],
-            //" ",
-            ["ki", 1],
-            ["mi", 1],
-            ["li", 1],
-            //" ",
-            ["lj", 1],
-            ["wj", 1],
-            ["kj", 1],
-            //" ",
-            ["hA", 1],
-            ["hZ", 1],
-            ["hAZ", 1],
-            //" ",
-            ["kiA", 1],
-            ["kjA", 1],
-            //" ",
-            ["kiZ", 1],
-            ["kjZ", 1],
-            //" ",
-            ["=||", 20],
-          ])}
+          availableValues={defaultPropsValsTable1}
           defaultValues={defaultOrderingTable1}
           values={plotSet.value}
           titleAvailable="Dostępne:"
