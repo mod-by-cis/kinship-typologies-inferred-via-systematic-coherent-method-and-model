@@ -1,1 +1,2 @@
+cd ../..
 deno task watch

@@ -3,16 +3,17 @@
 import { signal, useSignal } from "https://esm.sh/@preact/signals@2.2.0";
 import { InputNumber } from "./ui/InputNumber.tsx"; // Upewnij się, że ścieżka jest poprawna
 import {
-  Excel,
+  //Excel,
   type ExcelNestedN,
   type ExcelResults,
-  type ExcelSetsGet,
-  type ExcelSetsSet,
+  //type ExcelSetsGet,
+  //type ExcelSetsSet,
   initRangeFirstStepLast,
-  //initRangeFirstStepSize,
+  initRangeFirstStepSize,
 } from "./logic/calculateExcel.ts";
 import * as MathF from "./logic/mathFunc.ts";
 import { PlotExcel } from "./ui/PlotExcel.tsx";
+import generTable1 from "./data/generTable1.ts";
 
 //const resultM = signal<ExcelResults>(new Map<string, ExcelNestedN>());
 
@@ -20,6 +21,9 @@ export function App() {
   const from = useSignal(1);
   const to = useSignal(10);
   const resultM = useSignal<ExcelResults>(new Map<string, ExcelNestedN>());
+  const resultS = generTable1(initRangeFirstStepSize(1, 1, 15));
+  console.log(resultS);
+  const plotRow = useSignal(true);
 
   const calculate = () => {
     // Upewnij się, że wartości są liczbami przed pętlą
@@ -29,242 +33,13 @@ export function App() {
       return;
     }
 
-    const mathEnter: ExcelSetsSet[] = [
-      {
-        var: "i",
-        val: initRangeFirstStepLast(Number(from.value), 1, Number(to.value)),
-      },
-    ];
-    const mathCalcs: ExcelSetsGet[] = [
-      {
-        var: "h",
-        val: (currentM) => {
-          const i__Array = currentM.get("i");
-          MathF.testSomNotOfValsArray("i", i__Array, "isNotValNaturalPos");
-          // i__Array - nie ma szans być undefined, bo kontrola jest w MathF.testSomNotOfValsArray('i',i__Array,"isNotValNaturalPos");!
-          return i__Array.map((val_i, _index) =>
-            MathF.floorLog2(val_i as number)
-          );
-        },
-      },
-      {
-        var: "hA",
-        val: (currentM) => {
-          const h__Array = currentM.get("h");
-          MathF.testSomNotOfValsArray(
-            "h",
-            h__Array,
-            "isNotValNaturalPosWithZero",
-          );
-          // h__Array - nie ma szans być undefined, MathF.testSomNotOfValsArray('h',h__Array,"isNotValNaturalPosWithZero");!
+    resultM.value = generTable1(
+      initRangeFirstStepLast(Number(from.value), 1, Number(to.value)),
+    );
+  };
 
-          return h__Array.map((val_h, _index) =>
-            MathF.pow2Affine(1, 0, 0,val_h as number)
-          );
-        },
-      },
-      {
-        var: "hZ",
-        val: (currentM) => {
-          const h__Array = currentM.get("h");
-          MathF.testSomNotOfValsArray(
-            "h",
-            h__Array,
-            "isNotValNaturalPosWithZero",
-          );
-          // h__Array - nie ma szans być undefined, MathF.testSomNotOfValsArray('h',h__Array,"isNotValNaturalPosWithZero");!
-
-          return h__Array.map((val_h, _index) =>
-            MathF.pow2Affine( 1, 1, -1,val_h as number)
-          );
-        },
-      },
-      {
-        var: "hAZ",
-        val: (currentM) => {
-          const h__Array = currentM.get("h");
-          MathF.testSomNotOfValsArray(
-            "h",
-            h__Array,
-            "isNotValNaturalPosWithZero",
-          );
-          // h__Array - nie ma szans być undefined, MathF.testSomNotOfValsArray('h',h__Array,"isNotValNaturalPosWithZero");!
-
-          return h__Array.map((val_h, _index) =>
-            MathF.pow2Affine(1.5, 1, -1, val_h as number)
-          );
-        },
-      },
-      {
-        var: "hi",
-        val: (currentM) => {
-          const i__Array = currentM.get("i");
-          MathF.testSomNotOfValsArray("i", i__Array, "isNotValNaturalPos");
-          const hA__Array = currentM.get("hA");
-          MathF.testSomNotOfValsArray(
-            "hA",
-            hA__Array,
-            "isNotValNaturalPos",
-          );
-          // h__Array - nie ma szans być undefined, MathF.testSomNotOfValsArray('h',h__Array,"isNotValNaturalPosWithZero");!
-
-          return i__Array.map((val_i, index) =>
-            (val_i as number) - hA__Array[index]
-          );
-        },
-      },
-      {
-        var: "hj",
-        val: (currentM) => {
-          const i__Array = currentM.get("i");
-          MathF.testSomNotOfValsArray("i", i__Array, "isNotValNaturalPos");
-          const hZ__Array = currentM.get("hZ");
-          MathF.testSomNotOfValsArray(
-            "hZ",
-            hZ__Array,
-            "isNotValNaturalPos",
-          );
-          // h__Array - nie ma szans być undefined, MathF.testSomNotOfValsArray('h',h__Array,"isNotValNaturalPosWithZero");!
-
-          return i__Array.map((val_i, index) =>
-            hZ__Array[index] - (val_i as number)
-          );
-        },
-      },
-      {
-        var: "j",
-        val: (currentM) => {
-          const i__Array = currentM.get("i");
-          MathF.testSomNotOfValsArray("i", i__Array, "isNotValNaturalPos");
-
-          // h__Array - nie ma szans być undefined, MathF.testSomNotOfValsArray('h',h__Array,"isNotValNaturalPosWithZero");!
-
-          return i__Array.map((val_i, index) =>
-            MathF.pow2Affine(1.5, 1, -1,MathF.floorLog2(val_i as number)) -
-            (val_i as number)
-          );
-        },
-      },
-      {
-        var: "ki",
-        val: (currentM) => {
-          const i__Array = currentM.get("i");
-          MathF.testSomNotOfValsArray("i", i__Array, "isNotValNaturalPos");
-          // i__Array - nie ma szans być undefined, bo kontrola jest w MathF.testSomNotOfValsArray('i',i__Array,"isNotValNaturalPos");!
-          return i__Array.map((val_i, _index) =>
-            MathF.val2Adic(val_i as number)
-          );
-        },
-      },
-      {
-        var: "kj",
-        val: (currentM) => {
-          const j__Array = currentM.get("j");
-          MathF.testSomNotOfValsArray("j", j__Array, "isNotValNaturalPos");
-          // i__Array - nie ma szans być undefined, bo kontrola jest w MathF.testSomNotOfValsArray('i',i__Array,"isNotValNaturalPos");!
-          return j__Array.map((val_j, _index) =>
-            MathF.val2Adic(val_j as number)
-          );
-        },
-      },
-      {
-        var: "kiA",
-        val: (currentM) => {
-          const i__Array = currentM.get("i");
-          MathF.testSomNotOfValsArray("i", i__Array, "isNotValNaturalPos");
-          // i__Array - nie ma szans być undefined, bo kontrola jest w MathF.testSomNotOfValsArray('i',i__Array,"isNotValNaturalPos");!
-          return i__Array.map((val_i, _index) =>
-            MathF.pow2Affine(1, 0, 0, val_i as number,MathF.val2Adic)
-          );
-        },
-      },
-      {
-        var: "kjA",
-        val: (currentM) => {
-          const j__Array = currentM.get("j");
-          MathF.testSomNotOfValsArray("j", j__Array, "isNotValNaturalPos");
-          // i__Array - nie ma szans być undefined, bo kontrola jest w MathF.testSomNotOfValsArray('i',i__Array,"isNotValNaturalPos");!
-          return j__Array.map((val_j, _index) =>
-            MathF.pow2Affine(1, 0, 0, val_j as number,MathF.val2Adic)
-          );
-        },
-      },
-
-{
-        var: "kiZ",
-        val: (currentM) => {
-          const i__Array = currentM.get("i");
-          MathF.testSomNotOfValsArray("i", i__Array, "isNotValNaturalPos");
-          // i__Array - nie ma szans być undefined, bo kontrola jest w MathF.testSomNotOfValsArray('i',i__Array,"isNotValNaturalPos");!
-          return i__Array.map((val_i, _index) =>
-            MathF.pow2Affine(1, 1, -1, val_i as number,MathF.val2Adic)
-          );
-        },
-      },
-      {
-        var: "kjZ",
-        val: (currentM) => {
-          const j__Array = currentM.get("j");
-          MathF.testSomNotOfValsArray("j", j__Array, "isNotValNaturalPos");
-          // i__Array - nie ma szans być undefined, bo kontrola jest w MathF.testSomNotOfValsArray('i',i__Array,"isNotValNaturalPos");!
-          return j__Array.map((val_j, _index) =>
-            MathF.pow2Affine(1, 1, -1, val_j as number,MathF.val2Adic)
-          );
-        },
-      },
-
-
-
-      {
-        var: "li",
-        val: (currentM) => {
-          const i__Array = currentM.get("i");
-          MathF.testSomNotOfValsArray("i", i__Array, "isNotValNaturalPos");
-          // i__Array - nie ma szans być undefined, bo kontrola jest w MathF.testSomNotOfValsArray('i',i__Array,"isNotValNaturalPos");!
-          return i__Array.map((val_i, _index) =>
-            (val_i as number) /
-            MathF.pow2Affine(1, 0, 0, val_i as number,MathF.val2Adic)
-          );
-        },
-      },
-      {
-        var: "lj",
-        val: (currentM) => {
-          const j__Array = currentM.get("j");
-          MathF.testSomNotOfValsArray("j", j__Array, "isNotValNaturalPos");
-          // i__Array - nie ma szans być undefined, bo kontrola jest w MathF.testSomNotOfValsArray('i',i__Array,"isNotValNaturalPos");!
-          return j__Array.map((val_j, _index) =>
-            (val_j as number) /
-            MathF.pow2Affine(1, 0, 0, val_j as number,MathF.val2Adic)
-          );
-        },
-      },
-      {
-        var: "mi",
-        val: (currentM) => {
-          const i__Array = currentM.get("i");
-          MathF.testSomNotOfValsArray("i", i__Array, "isNotValNaturalPos");
-          // i__Array - nie ma szans być undefined, bo kontrola jest w MathF.testSomNotOfValsArray('i',i__Array,"isNotValNaturalPos");!
-          return i__Array.map((val_i, _index) =>
-            ((val_i as number) /
-              MathF.pow2Affine(1, 0, 0,val_i as number, MathF.val2Adic)) + 1
-          );
-        },
-      },
-      {
-        var: "wj",
-        val: (currentM) => {
-          const j__Array = currentM.get("j");
-          MathF.testSomNotOfValsArray("j", j__Array, "isNotValNaturalPos");
-          // i__Array - nie ma szans być undefined, bo kontrola jest w MathF.testSomNotOfValsArray('i',i__Array,"isNotValNaturalPos");!
-          return j__Array.map((val_j, _index) =>
-            ((val_j as number) /
-              MathF.pow2Affine(1, 0, 0,val_j as number, MathF.val2Adic)) + 2
-          );
-        },
-      },
-    ];
-    resultM.value = Excel(mathEnter, mathCalcs);
+  const changePos = () => {
+    plotRow.value = !plotRow.value;
   };
 
   // Handler dla onValueChange, który odzwierciedla zachowanie `+(e.currentTarget.value)`
@@ -377,22 +152,44 @@ export function App() {
           </ul>
         </p>
       </div>
+      <div>
+        <input
+          type="checkbox"
+          id="PlotPosition"
+          name="PlotPosition"
+          checked={plotRow.value}
+          onClick={changePos}
+        />
+        <label for="PlotPosition">{plotRow.value ? "Row" : "Col"}</label>
+      </div>
       {resultM.value.size > 0 && (
         <>
-          {
-            /*<h3>Tabela standardowa (type="col"):</h3>
-          <PlotExcel
-            data={resultM.value}
-            type="col"
-            caption="Wyniki obliczeń"
-          />*/
-          }
-          <br />
           <h3>Rezultat obliczeń:</h3>
           <PlotExcel
-            tableClassName="plot-row-data1"
             data={resultM.value}
-            type="row"
+            type={plotRow.value ? "row" : "col"}
+            sort={[
+              "ki",
+              "mi",
+              "li",
+              "i",
+              "hi",
+              "kiA",
+              "kiZ",
+              //" ",
+              "h",
+              "hA",
+              "hZ",
+              "hAZ",
+              //" ",
+              "kjZ",
+              "kjA",
+              "hj",
+              "j",
+              "lj",
+              "wj",
+              "kj",
+            ]}
             caption="Wyniki obliczeń."
           />
         </>

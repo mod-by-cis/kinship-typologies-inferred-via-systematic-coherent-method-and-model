@@ -7,7 +7,7 @@ on:
     paths:
       - 'docs/**/*.ts'
       - 'docs/**/*.tsx'
-      - 'esbuild.ts' # Skrypt budujący również jako trigger
+      - 'dev/esbuild.ts' # Skrypt budujący również jako trigger
   workflow_dispatch: # Umożliwia ręczne uruchomienie
 
 permissions:

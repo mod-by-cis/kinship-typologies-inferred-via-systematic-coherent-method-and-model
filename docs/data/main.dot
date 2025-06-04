@@ -1,0 +1,199 @@
+digraph G {
+  node1 [label = <
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+    <TR><TD COLSPAN="2">i=1</TD><TD COLSPAN="2">h=0</TD><TD COLSPAN="2">j=1</TD></TR>
+    <TR><TD>mi=2</TD><TD COLSPAN="2">ki=0</TD><TD COLSPAN="2">kj=0</TD><TD>wj=3</TD></TR>
+    </TABLE>
+    >;shape = box;];
+  node2 [label = <
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+    <TR><TD COLSPAN="2">i=2</TD><TD COLSPAN="2">h=1</TD><TD COLSPAN="2">j=3</TD></TR>
+    <TR><TD>mi=2</TD><TD COLSPAN="2">ki=1</TD><TD COLSPAN="2">kj=0</TD><TD>wj=5</TD></TR>
+    </TABLE>
+    >;shape = box;];
+  node3 [label = <
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+    <TR><TD COLSPAN="2">i=3</TD><TD COLSPAN="2">h=1</TD><TD COLSPAN="2">j=2</TD></TR>
+    <TR><TD>mi=4</TD><TD COLSPAN="2">ki=0</TD><TD COLSPAN="2">kj=1</TD><TD>wj=3</TD></TR>
+    </TABLE>
+    >;shape = box;];
+  node4 [label = <
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+    <TR><TD COLSPAN="2">i=4</TD><TD COLSPAN="2">h=2</TD><TD COLSPAN="2">j=7</TD></TR>
+    <TR><TD>mi=2</TD><TD COLSPAN="2">ki=2</TD><TD COLSPAN="2">kj=0</TD><TD>wj=9</TD></TR>
+    </TABLE>
+    >;shape = box;];
+  node5 [label = <
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+    <TR><TD COLSPAN="2">i=5</TD><TD COLSPAN="2">h=2</TD><TD COLSPAN="2">j=6</TD></TR>
+    <TR><TD>mi=6</TD><TD COLSPAN="2">ki=0</TD><TD COLSPAN="2">kj=1</TD><TD>wj=5</TD></TR>
+    </TABLE>
+    >;shape = box;];
+  node6 [label = <
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+    <TR><TD COLSPAN="2">i=6</TD><TD COLSPAN="2">h=2</TD><TD COLSPAN="2">j=5</TD></TR>
+    <TR><TD>mi=4</TD><TD COLSPAN="2">ki=1</TD><TD COLSPAN="2">kj=0</TD><TD>wj=7</TD></TR>
+    </TABLE>
+    >;shape = box;];
+  node7 [label = <
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+    <TR><TD COLSPAN="2">i=7</TD><TD COLSPAN="2">h=2</TD><TD COLSPAN="2">j=4</TD></TR>
+    <TR><TD>mi=8</TD><TD COLSPAN="2">ki=0</TD><TD COLSPAN="2">kj=2</TD><TD>wj=3</TD></TR>
+    </TABLE>
+    >;shape = box;];
+  node8 [label = <
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+    <TR><TD COLSPAN="2">i=8</TD><TD COLSPAN="2">h=3</TD><TD COLSPAN="2">j=15</TD></TR>
+    <TR><TD>mi=2</TD><TD COLSPAN="2">ki=3</TD><TD COLSPAN="2">kj=0</TD><TD>wj=17</TD></TR>
+    </TABLE>
+    >;shape = box;];
+  node9 [label = <
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+    <TR><TD COLSPAN="2">i=9</TD><TD COLSPAN="2">h=3</TD><TD COLSPAN="2">j=14</TD></TR>
+    <TR><TD>mi=10</TD><TD COLSPAN="2">ki=0</TD><TD COLSPAN="2">kj=1</TD><TD>wj=9</TD></TR>
+    </TABLE>
+    >;shape = box;];
+  node10 [label = <
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+    <TR><TD COLSPAN="2">i=10</TD><TD COLSPAN="2">h=3</TD><TD COLSPAN="2">j=13</TD></TR>
+    <TR><TD>mi=6</TD><TD COLSPAN="2">ki=1</TD><TD COLSPAN="2">kj=0</TD><TD>wj=15</TD></TR>
+    </TABLE>
+    >;shape = box;];
+  node11 [label = <
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+    <TR><TD COLSPAN="2">i=11</TD><TD COLSPAN="2">h=3</TD><TD COLSPAN="2">j=12</TD></TR>
+    <TR><TD>mi=12</TD><TD COLSPAN="2">ki=0</TD><TD COLSPAN="2">kj=2</TD><TD>wj=5</TD></TR>
+    </TABLE>
+    >;shape = box;];
+  node12 [label = <
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+    <TR><TD COLSPAN="2">i=12</TD><TD COLSPAN="2">h=3</TD><TD COLSPAN="2">j=11</TD></TR>
+    <TR><TD>mi=4</TD><TD COLSPAN="2">ki=2</TD><TD COLSPAN="2">kj=0</TD><TD>wj=13</TD></TR>
+    </TABLE>
+    >;shape = box;];
+  node13 [label = <
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+    <TR><TD COLSPAN="2">i=13</TD><TD COLSPAN="2">h=3</TD><TD COLSPAN="2">j=10</TD></TR>
+    <TR><TD>mi=14</TD><TD COLSPAN="2">ki=0</TD><TD COLSPAN="2">kj=1</TD><TD>wj=7</TD></TR>
+    </TABLE>
+    >;shape = box;];
+  node14 [label = <
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+    <TR><TD COLSPAN="2">i=14</TD><TD COLSPAN="2">h=3</TD><TD COLSPAN="2">j=9</TD></TR>
+    <TR><TD>mi=8</TD><TD COLSPAN="2">ki=1</TD><TD COLSPAN="2">kj=0</TD><TD>wj=11</TD></TR>
+    </TABLE>
+    >;shape = box;];
+  node15 [label = <
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+    <TR><TD COLSPAN="2">i=15</TD><TD COLSPAN="2">h=3</TD><TD COLSPAN="2">j=8</TD></TR>
+    <TR><TD>mi=16</TD><TD COLSPAN="2">ki=0</TD><TD COLSPAN="2">kj=3</TD><TD>wj=3</TD></TR>
+    </TABLE>
+    >;shape = box;];
+  
+  
+  node1 -> node2 [label = "M"; color = "#F89FBB"; fontcolor = "#B5627D"; penwidth = 4; decorate = true;];
+  node1 -> node3 [label = "W"; color = "#C0B0FF"; fontcolor = "#8373BC"; penwidth = 4; decorate = true;];
+  node2 -> node1 [label = "N"; color = "#BEBEBE"; fontcolor = "#808080"; penwidth = 4; decorate = true;];
+  node3 -> node1 [label = "N"; color = "#BEBEBE"; fontcolor = "#808080"; penwidth = 4; decorate = true;];
+  
+  
+  node2 -> node4 [label = "M"; color = "#F89FBB"; fontcolor = "#B5627D"; penwidth = 4; decorate = true;];
+  node2 -> node5 [label = "W"; color = "#C0B0FF"; fontcolor = "#8373BC"; penwidth = 4; decorate = true;];
+  node4 -> node2 [label = "N"; color = "#BEBEBE"; fontcolor = "#808080"; penwidth = 4; decorate = true;];
+  node5 -> node2 [label = "N"; color = "#BEBEBE"; fontcolor = "#808080"; penwidth = 4; decorate = true;];
+  
+  
+  node3 -> node6 [label = "M"; color = "#F89FBB"; fontcolor = "#B5627D"; penwidth = 4; decorate = true;];
+  node3 -> node7 [label = "W"; color = "#C0B0FF"; fontcolor = "#8373BC"; penwidth = 4; decorate = true;];
+  node6 -> node3 [label = "N"; color = "#BEBEBE"; fontcolor = "#808080"; penwidth = 4; decorate = true;];
+  node7 -> node3 [label = "N"; color = "#BEBEBE"; fontcolor = "#808080"; penwidth = 4; decorate = true;];
+  
+  
+  node4 -> node8 [label = "M"; color = "#F89FBB"; fontcolor = "#B5627D"; penwidth = 4; decorate = true;];
+  node4 -> node9 [label = "W"; color = "#C0B0FF"; fontcolor = "#8373BC"; penwidth = 4; decorate = true;];
+  node8 -> node4 [label = "N"; color = "#BEBEBE"; fontcolor = "#808080"; penwidth = 4; decorate = true;];
+  node9 -> node4 [label = "N"; color = "#BEBEBE"; fontcolor = "#808080"; penwidth = 4; decorate = true;];
+  
+  
+  node5 -> node10 [label = "M"; color = "#F89FBB"; fontcolor = "#B5627D"; penwidth = 4; decorate = true;];
+  node5 -> node11 [label = "W"; color = "#C0B0FF"; fontcolor = "#8373BC"; penwidth = 4; decorate = true;];
+  node10 -> node5 [label = "N"; color = "#BEBEBE"; fontcolor = "#808080"; penwidth = 4; decorate = true;];
+  node11 -> node5 [label = "N"; color = "#BEBEBE"; fontcolor = "#808080"; penwidth = 4; decorate = true;];
+  
+  
+  node6 -> node12 [label = "M"; color = "#F89FBB"; fontcolor = "#B5627D"; penwidth = 4; decorate = true;];
+  node6 -> node13 [label = "W"; color = "#C0B0FF"; fontcolor = "#8373BC"; penwidth = 4; decorate = true;];
+  node12 -> node6 [label = "N"; color = "#BEBEBE"; fontcolor = "#808080"; penwidth = 4; decorate = true;];
+  node13 -> node6 [label = "N"; color = "#BEBEBE"; fontcolor = "#808080"; penwidth = 4; decorate = true;];
+  
+  
+  node7 -> node14 [label = "M"; color = "#F89FBB"; fontcolor = "#B5627D"; penwidth = 4; decorate = true;];
+  node7 -> node15 [label = "W"; color = "#C0B0FF"; fontcolor = "#8373BC"; penwidth = 4; decorate = true;];
+  node14 -> node7 [label = "N"; color = "#BEBEBE"; fontcolor = "#808080"; penwidth = 4; decorate = true;];
+  node15 -> node7 [label = "N"; color = "#BEBEBE"; fontcolor = "#808080"; penwidth = 4; decorate = true;];
+  
+  
+  node1 -> node2 [label = "I+"; color = "#E0B767"; fontcolor = "#A07923"; penwidth = 2; constraint = false;];
+  node2 -> node3 [label = "I+"; color = "#E0B767"; fontcolor = "#A07923"; penwidth = 2;];
+  node3 -> node4 [label = "I+"; color = "#E0B767"; fontcolor = "#A07923"; penwidth = 2; constraint = false;];
+  node4 -> node5 [label = "I+"; color = "#E0B767"; fontcolor = "#A07923"; penwidth = 2;];
+  node5 -> node6 [label = "I+"; color = "#E0B767"; fontcolor = "#A07923"; penwidth = 2;];
+  node6 -> node7 [label = "I+"; color = "#E0B767"; fontcolor = "#A07923"; penwidth = 2;];
+  node7 -> node8 [label = "I+"; color = "#E0B767"; fontcolor = "#A07923"; penwidth = 2; constraint = false;];
+  node8 -> node9 [label = "I+"; color = "#E0B767"; fontcolor = "#A07923"; penwidth = 2;];
+  node9 -> node10 [label = "I+"; color = "#E0B767"; fontcolor = "#A07923"; penwidth = 2;];
+  node10 -> node11 [label = "I+"; color = "#E0B767"; fontcolor = "#A07923"; penwidth = 2;];
+  node11 -> node12 [label = "I+"; color = "#E0B767"; fontcolor = "#A07923"; penwidth = 2;];
+  node12 -> node13 [label = "I+"; color = "#E0B767"; fontcolor = "#A07923"; penwidth = 2;];
+  node13 -> node14 [label = "I+"; color = "#E0B767"; fontcolor = "#A07923"; penwidth = 2;];
+  node14 -> node15 [label = "I+"; color = "#E0B767"; fontcolor = "#A07923"; penwidth = 2;];
+  
+  node1 -> node3 [label = "J+"; color = "#A3CD82"; fontcolor = "#678E45"; penwidth = 2; constraint = false;];
+  node3 -> node2 [label = "J+"; color = "#A3CD82"; fontcolor = "#678E45"; penwidth = 2;];
+  node2 -> node7 [label = "J+"; color = "#A3CD82"; fontcolor = "#678E45"; penwidth = 2; constraint = false;];
+  node7 -> node6 [label = "J+"; color = "#A3CD82"; fontcolor = "#678E45"; penwidth = 2;];
+  node6 -> node5 [label = "J+"; color = "#A3CD82"; fontcolor = "#678E45"; penwidth = 2;];
+  node5 -> node4 [label = "J+"; color = "#A3CD82"; fontcolor = "#678E45"; penwidth = 2;];
+  node4 -> node15 [label = "J+"; color = "#A3CD82"; fontcolor = "#678E45"; penwidth = 2; constraint = false;];
+  node15 -> node14 [label = "J+"; color = "#A3CD82"; fontcolor = "#678E45"; penwidth = 2;];
+  node14 -> node13 [label = "J+"; color = "#A3CD82"; fontcolor = "#678E45"; penwidth = 2;];
+  node13 -> node12 [label = "J+"; color = "#A3CD82"; fontcolor = "#678E45"; penwidth = 2;];
+  node12 -> node11 [label = "J+"; color = "#A3CD82"; fontcolor = "#678E45"; penwidth = 2;];
+  node11 -> node10 [label = "J+"; color = "#A3CD82"; fontcolor = "#678E45"; penwidth = 2;];
+  node10 -> node9 [label = "J+"; color = "#A3CD82"; fontcolor = "#678E45"; penwidth = 2;];
+  node9 -> node8 [label = "J+"; color = "#A3CD82"; fontcolor = "#678E45"; penwidth = 2;];
+  
+  
+  
+  subgraph cluster0 {
+    label = "h=0";
+    rank = same;
+    node1;
+  }
+  subgraph cluster1 {
+    label = "h=1";
+    rank = same;
+    node2;
+    node3;
+  }
+  subgraph cluster2 {
+    label = "h=2";
+    rank = same;
+    node4;
+    node5;
+    node6;
+    node7;
+  }
+  subgraph cluster3 {
+    label = "h=3";
+    rank = same;
+    node8;
+    node9;
+    node10;
+    node11;
+    node12;
+    node13;
+    node14;
+    node15;
+  }
+}

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  xmlns="http://www.w3.org/2000/svg"-->
+
+<svg viewBox="0 0 243 99">
+  
+  <g fill="#eee">
+    <path d="M183,0h-63v12h-60v12H0v51h60v12h60v12h123V0h-60ZM183,3h57v21h-57V3ZM123,12V3h57v21h-57v-12ZM63,24v-9h57v21h-57v-12ZM120,51v9h-57v-21h57v12ZM3,27h57v21H3v-21ZM60,72H3v-21h57v21ZM120,72v12h-57v-21h57v9ZM180,96h-57v-21h57v21ZM240,96h-57v-21h57v21ZM240,72h-117v-21h117v21ZM123,48v-21h117v21h-117Z" />
+  </g>
+  
+  <g fill="#ddd">  
+    <g transform="translate(3 0)">
+      <rect x="0" y="27" width="57" height="21"/>
+      <rect x="0" y="51" width="57" height="21"/>  
+    </g>    
+    <g transform="translate(63 0)">
+      <rect x="0" y="15" width="57" height="21"/>
+      <rect x="0" y="39" width="57" height="21"/>
+      <rect x="0" y="63" width="57" height="21"/>    
+    </g>    
+    <g transform="translate(123 0)">
+      <rect x="0" y="3"  width="57"  height="21"/>
+      <rect x="0" y="27" width="117" height="21"/>
+      <rect x="0" y="51" width="117" height="21"/>
+      <rect x="0" y="75" width="57"  height="21"/>  
+    </g>   
+    <g transform="translate(183 0)">
+      <rect x="0" y="3"  width="57" height="21"/>
+      <rect x="0" y="75" width="57" height="21"/>  
+    </g>    
+  </g>
+    
+  <g fill="#999" font-size="18">    
+    <g transform="translate(8 0)">
+      <text data-name="hi_"><tspan x="0" y="43">hi</tspan><tspan x="16" y="43">=</tspan></text>
+      <text data-name="hj_"><tspan x="0" y="67">hj</tspan><tspan x="16" y="67">=</tspan></text>
+    </g>
+    <g transform="translate(68 0)">
+      <text data-name="i_"><tspan x="0" y="31">i</tspan><tspan x="11" y="31">=</tspan></text>
+      <text data-name="h_"><tspan x="0" y="55">h</tspan><tspan x="11" y="55">=</tspan></text>
+      <text data-name="j_"><tspan x="0" y="79">j</tspan><tspan x="11" y="79">=</tspan></text>
+    </g>
+    <g transform="translate(126 0)">
+      <text data-name="li_"><tspan x="0" y="19">li</tspan><tspan x="16" y="19">=</tspan></text>
+      <text data-name="lj_"><tspan x="0" y="91">lj</tspan><tspan x="16" y="91">=</tspan></text>
+    </g>
+    <g transform="translate(156 0)">
+      <text data-name="ki_"><tspan x="0" y="43">ki</tspan><tspan x="18" y="43">=</tspan></text>
+      <text data-name="kj_"><tspan x="0" y="67">kj</tspan><tspan x="18" y="67">=</tspan></text>
+    </g>
+    <g transform="translate(186 0)">
+      <text data-name="mi_"><tspan x="0" y="19">mi</tspan><tspan x="19" y="19">=</tspan></text>
+      <text data-name="wj_"><tspan x="0" y="91">wj</tspan><tspan x="19" y="91">=</tspan></text>
+    </g>
+  </g>  
+  
+  <g fill="#000" font-size="18">    
+    <g transform="translate(8 0)">
+      <text data-name="hi"><tspan x="28" y="43">99</tspan></text>
+      <text data-name="hj"><tspan x="28" y="67">99</tspan></text>
+    </g>
+    <g transform="translate(68 0)">
+      <text data-name="i"><tspan x="26" y="31">99</tspan></text>
+      <text data-name="h"><tspan x="26" y="55">99</tspan></text>
+      <text data-name="j"><tspan x="26" y="79">99</tspan></text>
+    </g>
+    <g transform="translate(126 0)">
+      <text data-name="li"><tspan x="31" y="19">99</tspan></text>
+      <text data-name="lj"><tspan x="31" y="91">99</tspan></text>
+    </g>
+    <g transform="translate(156 0)">
+      <text data-name="ki"><tspan x="31" y="43">99</tspan></text>
+      <text data-name="kj"><tspan x="31" y="67">99</tspan></text>
+    </g>
+    <g transform="translate(186 0)">
+      <text data-name="mi"><tspan x="30" y="19">99</tspan></text>
+      <text data-name="wj"><tspan x="31" y="91">99</tspan></text>
+    </g>
+  </g>
+  
+</svg>

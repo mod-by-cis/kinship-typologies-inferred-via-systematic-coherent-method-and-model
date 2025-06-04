@@ -11,6 +11,7 @@ type ExcelResults = Map<string, NestedNumberArray>;
 interface PlotExcelProps {
   data: ExcelResults;
   type: "row" | "col"; // Orientacja tabeli: "row" (dane w wierszach), "col" (dane w kolumnach)
+  sort?:string[]; //Opcjonalny Kolejność danych
   caption?: string; // Opcjonalny podpis tabeli
   tableClassName?: string; // Opcjonalna klasa CSS dla tabeli
   thClassName?: string; // Opcjonalna klasa CSS dla komórek th
@@ -35,14 +36,14 @@ const formatCellValue = (value: NestedNumberArray | undefined): string => {
 };
 
 export function PlotExcel(
-  { data, type, caption, tableClassName, thClassName, tdClassName }:
+  { data, sort, type, caption, tableClassName, thClassName, tdClassName }:
     PlotExcelProps,
 ): JSX.Element | null {
   if (!data || data.size === 0) {
     return <p>Brak danych do wyświetlenia.</p>; // Lub null, jeśli nie chcesz nic renderować
   }
 
-  const keys = Array.from(data.keys());
+  const keys = sort ?? Array.from(data.keys());
 
   // Ustalenie maksymalnej długości serii danych (dla wyrównania tabeli)
   let maxLength = 0;
@@ -66,12 +67,17 @@ export function PlotExcel(
   if (type === "col") {
     // Standardowa tabela: klucze mapy jako nagłówki kolumn
     return (
-      <table className={tableClassName}>
+      <table className={"plot-col-data1 " + (tableClassName ?? "")}>
         {caption && <caption>{caption}</caption>}
         <thead>
           <tr>
             {keys.map((key) => (
-              <th className={thClassName} key={key}>【{key}】</th>
+              <th
+                className={`table-val-type--${key} ` + (thClassName ?? "")}
+                key={key}
+              >
+                【{key}】
+              </th>
             ))}
           </tr>
         </thead>
@@ -87,7 +93,10 @@ export function PlotExcel(
                   cellContent = formatCellValue(series);
                 }
                 return (
-                  <td className={tdClassName} key={`${key}-row-${rowIndex}`}>
+                  <td
+                    className={`table-val-type--${key} ` + (tdClassName ?? "")}
+                    key={`${key}-row-${rowIndex}`}
+                  >
                     {cellContent}
                   </td>
                 );
@@ -100,7 +109,7 @@ export function PlotExcel(
   } else if (type === "row") {
     // Tabela transponowana: klucze mapy jako nagłówki wierszy
     return (
-      <table className={'plot-row-data1 '+ tableClassName}>
+      <table className={"plot-row-data1 " + (tableClassName ?? "")}>
         {caption && <caption>{caption}</caption>}
         {/* Można dodać <thead> z nagłówkami kolumn, jeśli są potrzebne, np. "Parametr", "Wartość 1", "Wartość 2", ... */}
         {/* Dla uproszczenia, pomijamy <thead> tutaj, a pierwszy <th> w każdym wierszu działa jako nagłówek wiersza */}
@@ -108,7 +117,10 @@ export function PlotExcel(
           {keys.map((key) => {
             const series = data.get(key);
             return (
-              <tr key={`series-row-${key}`}>
+              <tr
+                className={`table-val-type--${key}`}
+                key={`series-row-${key}`}
+              >
                 <th scope="row" className={thClassName}>【{key}】</th>{" "}
                 {/* Nagłówek wiersza */}
                 {Array.from({ length: maxLength }).map((_, colIndex) => {

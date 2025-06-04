@@ -1,11 +1,11 @@
 import * as esbuild from "https://deno.land/x/esbuild@v0.25.5/mod.js";
 
 await esbuild.build({
-  entryPoints: ["./docs/main.tsx"],
+  entryPoints: ["docs/main.tsx"],
   bundle: true,
-  outfile: "./docs/main.js",
+  outfile: "docs/main.js",
   format: "esm",
-  minify: false,
+  minify: true,
   sourcemap: "inline",
   target: ["esnext"],
   jsxFactory: "h",

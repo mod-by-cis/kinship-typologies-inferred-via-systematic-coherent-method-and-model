@@ -3,14 +3,17 @@
     "jsxImportSource": "preact",
     "strict": true,
     "lib": [
+      "deno.ns",
+      "deno.window",
+      "dom.asynciterable",
       "dom",
       "dom.iterable",
       "esnext"
     ]
   },
   "tasks": {
-    "watch": "deno run -A watch-for-build.ts",
-    "build": "deno run -A esbuild.ts",
-    "serve": "deno run --allow-net --allow-read --watch server.ts"
+    "watch": "deno run -A ./dev/watch-for-build.ts",
+    "build": "deno run -A ./dev/esbuild.ts",
+    "serve": "deno run --allow-net --allow-read --watch ./dev/server.ts"
   }
 }
