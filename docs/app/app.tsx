@@ -14,6 +14,10 @@ import * as MathF from "../logic/mathFunc.ts";
 import { PlotHtmlTable } from "../ui/PlotHtmlTable.tsx";
 import generTable1 from "../data/generTable1.ts";
 
+
+import { defaultOrderingTable1} from "../config/default.ts";
+
+
 type StatePlotMap = Map<string, (number | boolean)[]>;
 
 //const resultM = signal<ExcelResults>(new Map<string, ExcelNestedN>());
@@ -162,28 +166,7 @@ export function App() {
             //" ",
             ["=||", 20],
           ])}
-          defaultValues={[
-            "ki",
-            "mi",
-            "li",
-            "i",
-            "hi",
-            "kiA",
-            "kiZ",
-            "=||",
-            "h",
-            "hA",
-            "hZ",
-            "hAZ",
-            "=||",
-            "kjZ",
-            "kjA",
-            "hj",
-            "j",
-            "lj",
-            "wj",
-            "kj",
-          ]}
+          defaultValues={defaultOrderingTable1}
           values={plotSet.value}
           titleAvailable="Dostępne:"
           titleSelected="Wybrane:"
