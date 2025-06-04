@@ -1,0 +1,143 @@
+/* 
+./ui/InputChipsList.css
+*/
+/* 
+=== CHIPS BUTTON ===
+*/
+
+.inputchips-chips-button {
+  border-radius: 9999px; /* rounded-full */
+  width: 1.25rem; /* w-5 (20px) */
+  height: 1.25rem; /* h-5 (20px) */
+  font-size: 0.75rem; /* text-xs */
+  line-height: 1rem; /* domyślny line-height dla text-xs */
+  display: inline-flex; /* często przy małych elementach, żeby text-xs miało sens */
+  align-items: center; /* wycentrowanie tekstu, jeśli jest */
+  justify-content: center;
+  color: inherit; /* zachowanie koloru tekstu */
+  cursor: -webkit-pointer;
+  cursor: pointer;
+}
+.inputchips-chips-button-add {
+  background-color: #86efac; /* bg-green-300 */
+}
+.inputchips-chips-button-del {
+  background-color: #f87171; /* bg-red-400 */
+}
+.inputchips-chips-button-ord {
+  background-color: #fde68a; /* bg-yellow-300 */
+}
+
+/* 
+=== CHIPS ===
+*/
+
+.inputchips-chips {
+  display: flex; /* flex */
+  align-items: center; /* items-center */
+  gap: 0.25rem; /* gap-1 (4px) */
+  padding-left: 0.5rem; /* px-2 (8px) */
+  padding-right: 0.5rem;
+  padding-top: 0.25rem; /* py-1 (4px) */
+  padding-bottom: 0.25rem;
+  border-radius: 9999px; /* rounded-full */
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.25rem; /* domyślny line-height dla text-sm */
+  color: inherit; /* kolor tekstu pozostaje domyślny */
+  user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.inputchips-chips-available {
+  background-color: #e5e7eb; /* bg-gray-200 */
+}
+.inputchips-chips-selected {
+  background-color: #bfdbfe; /* bg-blue-200 */
+}
+
+/* 
+=== CHIPS LIST ===
+*/
+
+.inputchips-list-box {
+  display: flex; /* flex */
+  flex-wrap: wrap; /* flex-wrap */
+  gap: 0.5rem; /* gap-2 = 8px */
+}
+
+.inputchips-list-title {
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.25rem; /* Tailwind default for text-sm */
+  color: #6b7280; /* text-gray-500 */
+  margin-bottom: 0.25rem; /* mb-1 */
+  user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+.inputchips-list {
+  border-width: 2px; /* 'border-2' */
+  border-style: dashed; /* 'border-dashed' */
+  border-color: currentColor; /* Tailwind używa aktualnego koloru tekstu, jeśli nie podano innego */
+  padding: 0.5rem; /* 'p-2' = 8px */
+  border-radius: 0.25rem; /* 'rounded' */
+}
+
+/* 
+=== CHIPS MODE ===
+*/
+
+.inputchips-mode-button {
+  border-radius: 0.25rem; /* 'rounded' */
+  padding-left: 0.5rem; /* 'px-2' */
+  padding-right: 0.5rem;
+  padding-top: 0.25rem; /* 'py-1' */
+  padding-bottom: 0.25rem;
+  background-color: #3b82f6; /* 'bg-blue-500' */
+  color: white; /* 'text-white' */
+  user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  cursor: -webkit-pointer;
+  cursor: pointer;
+}
+.inputchips-mode-label {
+  font-size: 0.875rem; /* 'text-sm' */
+  line-height: 1.25rem; /* Tailwind dodaje też line-height */
+  color: #4b5563; /* 'text-gray-600' */
+  user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+}
+.inputchips-mode {
+  display: flex; /* 'flex' */
+  align-items: center; /* 'items-center' */
+  flex-flow: column nowrap;
+  justify-content: space-evenly;
+  gap: 0.5rem; /* 'gap-2' = 8px */
+}
+
+/* 
+=== CHIPS CONTAINER ===
+*/
+.inputchips-container {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem; /* Tailwind gap-2 = 0.5rem = 8px */
+}
+.inputchips-container-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* Tailwind gap-2 = 0.5rem = 8px */
+}
+
+/* 
+===  ===  ===  ===  ===  ===  ===  ===  ===  ===
+*/

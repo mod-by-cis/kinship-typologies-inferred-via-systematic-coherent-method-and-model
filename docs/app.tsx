@@ -2,6 +2,7 @@
 /** @jsxImportSource https://esm.sh/preact@10.26.8 */
 import { signal, useSignal } from "https://esm.sh/@preact/signals@2.2.0";
 import { InputNumber } from "./ui/InputNumber.tsx"; // Upewnij się, że ścieżka jest poprawna
+import { InputChipsList } from "./ui/InputChipsList.tsx";
 import {
   //Excel,
   type ExcelNestedN,
@@ -15,6 +16,8 @@ import * as MathF from "./logic/mathFunc.ts";
 import { PlotExcel } from "./ui/PlotExcel.tsx";
 import generTable1 from "./data/generTable1.ts";
 
+type StatePlotMap = Map<string, (number | boolean)[]>;
+
 //const resultM = signal<ExcelResults>(new Map<string, ExcelNestedN>());
 
 export function App() {
@@ -24,7 +27,36 @@ export function App() {
   const resultS = generTable1(initRangeFirstStepSize(1, 1, 15));
   console.log(resultS);
   const plotRow = useSignal(true);
+  const selectedChips = useSignal<string[]>([]);
 
+  /*const plotMap = useSignal<StatePlotMap>(new Map<string, (number | boolean)[]>(
+    [
+      ["h",[true,8]],
+      ["i",[true,4]],
+      ["j",[true,15]],
+      //" ",
+      ["hi",[true,5]],
+      ["hj",[true,14]],
+      //" ",
+      ["ki",[true,1]],
+      ["mi",[true,2]],
+      ["li",[true,3]],
+      //" ",
+      ["lj",[true,16]],
+      ["wj",[true,17]],
+      ["kj",[true,18]],
+      //" ",
+      ["hA",[true,9]],
+      ["hZ",[true,10]],
+      ["hAZ",[true,11]],
+      //" ",
+      ["kiA",[true,6]],
+      ["kjA",[true,13]],
+      //" ",
+      ["kiZ",[true,7]],
+      ["kjZ",[true,12]],
+    ]
+  ));*/
   const calculate = () => {
     // Upewnij się, że wartości są liczbami przed pętlą
     if (isNaN(Number(from.value)) || isNaN(Number(to.value))) {
@@ -162,6 +194,25 @@ export function App() {
         />
         <label for="PlotPosition">{plotRow.value ? "Row" : "Col"}</label>
       </div>
+      <br />
+      <InputChipsList
+        availableValues={new Map<string, number>([
+          ["🍎 Jabłko", 2],
+          ["🍌 Banan", 3],
+          ["🍓 Truskawka", 1],
+          ["🥝 Kiwi", 2],
+        ])}
+        defaultValues={["🍌 Banan", "🍎 Jabłko"]}
+        values={selectedChips.value}
+        titleAvailable="Dostępne:"
+        titleSelected="Wybrane:"
+        onChange={(val) => {
+          selectedChips.value = val;
+          console.log(selectedChips.value);
+        }}
+      />
+      <br />
+
       {resultM.value.size > 0 && (
         <>
           <h3>Rezultat obliczeń:</h3>
