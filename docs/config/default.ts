@@ -1,0 +1,1 @@
+//./docs/config/default.ts
