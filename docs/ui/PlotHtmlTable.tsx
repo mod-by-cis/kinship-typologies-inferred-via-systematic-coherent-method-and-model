@@ -39,6 +39,13 @@ export function PlotHtmlTable(
       ? key.replaceAll("【", "").replaceAll("】", "") as string
       : "noneNONE";
   }
+  function ifNULL(valueCell: string | number, keyID: string): string {
+    return typeof valueCell == "number"
+      ? keyID
+      : valueCell == "string" && valueCell.length > 0
+      ? keyID
+      : "noneNONE";
+  }
   return (
     <table
       className={`${isColMode ? "plot-col-data1" : "plot-row-data1"} ${
@@ -54,7 +61,7 @@ export function PlotHtmlTable(
               {/* Nagłówki */}
               <tr>
                 {headerRow.map((key, colIndex) => {
-                  const keyStr = keyID(key);
+                  const keyStr = ifNULL(key, keyID(key));
                   return (
                     <th
                       className={`table-val-type--${keyStr} ${
@@ -71,7 +78,7 @@ export function PlotHtmlTable(
               {bodyRows.map((row, rowIndex) => (
                 <tr key={`row-${rowIndex}`}>
                   {row.map((cell, colIndex) => {
-                    const key = keyID(headerRow[colIndex]);
+                    const key = ifNULL(cell, keyID(headerRow[colIndex]));
                     return (
                       <td
                         className={`table-val-type--${key} ${
@@ -90,18 +97,23 @@ export function PlotHtmlTable(
           : (
             <>
               {data.map((row, rowIndex) => {
+                // ! nie jestem pewien
                 const key = keyID(row[0]);
                 return (
-                  <tr
-                    className={`table-val-type--${key}`}
-                    key={`series-row-${key}`}
-                  >
-                    <th scope="row" className={thClassName}>
+                  <tr key={`series-row-${key}`}>
+                    <th
+                      scope="row"
+                      className={`table-val-type--${ifNULL(row[0], key)} ${
+                        thClassName ?? ""
+                      }`}
+                    >
                       {row[0]}
                     </th>
                     {row.slice(1).map((cell, colIndex) => (
                       <td
-                        className={tdClassName}
+                        className={`table-val-type--${ifNULL(cell, key)} ${
+                          tdClassName ?? ""
+                        }`}
                         key={`${key}-col-${colIndex}`}
                       >
                         {cell}
