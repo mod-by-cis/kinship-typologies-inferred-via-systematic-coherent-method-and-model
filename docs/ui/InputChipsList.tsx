@@ -8,7 +8,7 @@ import {
   useState,
 } from "https://esm.sh/preact@10.26.8/hooks";
 import { JSX } from "https://esm.sh/preact@10.26.8";
-
+import { signal, useSignal } from "https://esm.sh/@preact/signals@2.2.0";
 type Mode = "View" | "Drag" | "Click";
 
 interface InputChipsListProps {
@@ -46,9 +46,8 @@ export function InputChipsList(props: InputChipsListProps) {
     onChange = () => {},
   } = props;
 
-  const [mode, setMode] = useState<Mode>("View");
-  // Lepiej bez oddzielnego modeTitle, tylko generuj dynamicznie z mode
-  // const [modeTitle, setModeTitle] = useState("View");
+  const mode3 = useSignal<Mode>("View");
+  //const [mode, setMode] = useState<Mode>("View");
 
   const [selected, setSelected] = useState<string[]>([...defaultValues]);
 
@@ -79,34 +78,28 @@ export function InputChipsList(props: InputChipsListProps) {
 
   // Toggle mode cycling: View -> Drag -> Click -> View ...
   const toggleMode = () => {
-    /*
-    setMode((prev) => {
-      if (prev === "View") {
-        setModeTitle(titleModeDrag);
-        return "Drag";
-      } else if (prev === "Drag") {
-        setModeTitle(titleModeClick);
-        return "Click";
-      } else {
-        setModeTitle(titleModeView);
-        return "View";
-      }
-    });*/
-    setMode((prev) => {
-      if (prev === "View") return "Drag";
-      if (prev === "Drag") return "Click";
-      return "View";
-    });
+    if (mode3.value === "View") {
+      mode3.value = "Drag";
+    } else if (mode3.value === "Drag") {
+      mode3.value = "Click";
+    } else {
+      mode3.value = "View";
+    }
+    //setMode((prev) => {
+    //  if (prev === "View") return "Drag";
+    //  if (prev === "Drag") return "Click";
+    //  return "View";
+    //});
   };
 
   // Click handlers (only active in Click mode)
   const handleAdd = (val: string) => {
-    if (mode !== "Click") return; // Blokada poza trybem Click
+    if (mode3.value !== "Click") return; // Blokada poza trybem Click
     setSelected([...selected, val]);
   };
 
   const handleRemove = (index: number) => {
-    if (mode !== "Click") return; // Blokada poza trybem Click
+    if (mode3.value !== "Click") return; // Blokada poza trybem Click
     setSelected((prev) => {
       const copy = [...prev];
       copy.splice(index, 1);
@@ -115,7 +108,7 @@ export function InputChipsList(props: InputChipsListProps) {
   };
 
   const handleMoveLeft = (index: number) => {
-    if (mode !== "Click") return; // Blokada poza trybem Click
+    if (mode3.value !== "Click") return; // Blokada poza trybem Click
     if (index <= 0) return;
     setSelected((prev) => {
       const copy = [...prev];
@@ -125,7 +118,7 @@ export function InputChipsList(props: InputChipsListProps) {
   };
 
   const handleMoveRight = (index: number) => {
-    if (mode !== "Click") return; // Blokada poza trybem Click
+    if (mode3.value !== "Click") return; // Blokada poza trybem Click
     if (index >= selected.length - 1) return;
     setSelected((prev) => {
       const copy = [...prev];
@@ -144,7 +137,7 @@ export function InputChipsList(props: InputChipsListProps) {
 
   // Handlery dla elementów dostępnych (available chips)
   const onDragStartAvailable = (e: DragEvent, chip: string) => {
-    if (mode !== "Drag") {
+    if (mode3.value !== "Drag") {
       e.preventDefault();
       return;
     }
@@ -159,7 +152,7 @@ export function InputChipsList(props: InputChipsListProps) {
 
   // Handlery dla elementów wybranych (selected chips)
   const onDragStartSelected = (e: DragEvent, index: number) => {
-    if (mode !== "Drag") {
+    if (mode3.value !== "Drag") {
       e.preventDefault();
       return;
     }
@@ -175,7 +168,7 @@ export function InputChipsList(props: InputChipsListProps) {
   // Obszar upuszczania - pole selected chips
   const onDropSelected = (e: DragEvent, targetIndex: number | null = null) => {
     e.preventDefault();
-    if (mode !== "Drag") return;
+    if (mode3.value !== "Drag") return;
 
     // Przeciągnięto chip z available
     if (dragAvailableChip.current !== null) {
@@ -211,7 +204,7 @@ export function InputChipsList(props: InputChipsListProps) {
   };
 
   const onDragOverSelected = (e: DragEvent) => {
-    if (mode === "Drag") {
+    if (mode3.value === "Drag") {
       e.preventDefault(); // pozwól na drop
     }
   };
@@ -219,7 +212,7 @@ export function InputChipsList(props: InputChipsListProps) {
   // Obszar upuszczania - pole available chips (do usuwania z selected)
   const onDropAvailable = (e: DragEvent) => {
     e.preventDefault();
-    if (mode !== "Drag") return;
+    if (mode3.value !== "Drag") return;
 
     if (dragIndex.current !== null) {
       // Usuń z selected (co oznacza "przeniesienie" na available)
@@ -237,7 +230,7 @@ export function InputChipsList(props: InputChipsListProps) {
   };
 
   const onDragOverAvailable = (e: DragEvent) => {
-    if (mode === "Drag") {
+    if (mode3.value === "Drag") {
       e.preventDefault();
     }
   };
@@ -255,7 +248,7 @@ export function InputChipsList(props: InputChipsListProps) {
           class="inputchips-mode-button"
         >
           {titleModeButton}:<br />
-          {titleMode.get(mode)}
+          {titleMode.get(mode3.value)}
         </button>
       </div>
 
@@ -272,17 +265,19 @@ export function InputChipsList(props: InputChipsListProps) {
             {remaining.map((chip, i) => (
               <span
                 key={`rem-${chip}-${i}`}
-                draggable={mode === "Drag"}
+                data-input-edit={mode3.value === "View"
+                  ? "View"
+                  : mode3.value === "Drag"
+                  ? "Drag"
+                  : "Click"}
+                draggable={mode3.value === "Drag"}
                 onDragStart={(e) =>
                   onDragStartAvailable(e as unknown as DragEvent, chip)}
                 onDragEnd={(e) => onDragEndAvailable(e as unknown as DragEvent)}
                 class="inputchips-chips inputchips-chips-available"
-                style={{
-                  cursor: "pointer",
-                }}
               >
                 {chip}
-                {mode === "Click" && (
+                {mode3.value === "Click" && (
                   <button
                     onClick={() => handleAdd(chip)}
                     class="inputchips-chips-button inputchips-chips-button-add"
@@ -307,22 +302,27 @@ export function InputChipsList(props: InputChipsListProps) {
             {selected.map((chip, i) => (
               <span
                 key={`sel-${chip}-${i}`}
-                draggable={mode === "Drag"}
+                draggable={mode3.value === "Drag"}
+                data-input-edit={mode3.value === "View"
+                  ? "View"
+                  : mode3.value === "Drag"
+                  ? "Drag"
+                  : "Click"}
                 onDragStart={(e) =>
                   onDragStartSelected(e as unknown as DragEvent, i)}
                 onDragEnd={(e) => onDragEndSelected(e as unknown as DragEvent)}
                 onDrop={(e) => {
-                  if (mode === "Drag") {
+                  if (mode3.value === "Drag") {
                     e.preventDefault();
                     onDropSelected(e, i);
                   }
                 }}
                 onDragOver={(e) => {
-                  if (mode === "Drag") e.preventDefault();
+                  if (mode3.value === "Drag") e.preventDefault();
                 }}
                 class="inputchips-chips inputchips-chips-selected"
               >
-                {mode === "Click" && (
+                {mode3.value === "Click" && (
                   <>
                     {i > 0 && (
                       <button
@@ -343,7 +343,7 @@ export function InputChipsList(props: InputChipsListProps) {
                   </>
                 )}
                 {chip}
-                {mode === "Click" && (
+                {mode3.value === "Click" && (
                   <>
                     <button
                       onClick={() => handleRemove(i)}

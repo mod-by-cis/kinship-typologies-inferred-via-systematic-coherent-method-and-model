@@ -52,6 +52,16 @@
   cursor: grab;*/
 }
 
+.inputchips-chips[data-input-mode="Click"] {
+  cursor: default;
+}
+
+.inputchips-chips[data-input-mode="Drag"] {
+  cursor: grabbing;
+}
+.inputchips-chips[data-input-mode="View"] {
+  cursor: none;
+}
 .inputchips-chips-available {
   background-color: #e5e7eb; /* bg-gray-200 */
 }

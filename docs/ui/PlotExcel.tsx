@@ -2,7 +2,6 @@
 /** @jsxImportSource https://esm.sh/preact@10.26.8 */
 
 import { JSX } from "https://esm.sh/preact@10.26.8";
-import { signal, useSignal } from "https://esm.sh/@preact/signals@2.2.0";
 
 export function PlotHtmlTable(
   props: {
