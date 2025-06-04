@@ -25,6 +25,7 @@ export function App() {
   const resultS = generTable1(initRangeFirstStepSize(1, 1, 15));
   console.log("RES_MAP", resultS);
   const plotRow = useSignal(true);
+  const plotSplit = useSignal(true);
   const plotSet = useSignal<string[]>([]);
 
   /*const plotMap = useSignal<StatePlotMap>(new Map<string, (number | boolean)[]>(
@@ -45,6 +46,9 @@ export function App() {
 
   const changePos = () => {
     plotRow.value = !plotRow.value;
+  };
+  const changeSplit = () => {
+    plotSplit.value = !plotSplit.value;
   };
 
   // Handler dla onValueChange, który odzwierciedla zachowanie `+(e.currentTarget.value)`
@@ -197,6 +201,16 @@ export function App() {
           onClick={changePos}
         />
         <label for="PlotPosition">{plotRow.value ? "Row" : "Col"}</label>
+        <input
+          type="checkbox"
+          id="PlotSplitGeneration"
+          name="PlotSplitGeneration"
+          checked={plotSplit.value}
+          onClick={changeSplit}
+        />
+        <label for="PlotSplitGeneration">
+          {plotRow.value ? "split-h" : "nonstop"}
+        </label>
       </div>
       <br />
       <br />
@@ -210,6 +224,7 @@ export function App() {
               plotRow.value ? "ROW" : "COL",
               plotSet.value,
               resultM.value,
+              plotSplit.value,
             )}
             mode={plotRow.value ? "ROW" : "COL"}
             caption="Wyniki obliczeń."

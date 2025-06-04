@@ -147,8 +147,11 @@ export function ExcelResultSortingOutputAtTable(
   mode: "ROW" | "COL",
   sort: string[],
   data: ExcelResults,
+  part: boolean = false
 ): (string | number)[][] {
-  const result: (string | number)[][] = [];
+  let result: (string | number)[][] = [];
+
+  const TRIM = data.get("h") as number[] | undefined;
 
   // Nagłówki (pierwszy wiersz lub kolumna)
   const headers = sort.map((key) => key === "=||" ? "" : `【${key}】`);
@@ -161,6 +164,9 @@ export function ExcelResultSortingOutputAtTable(
       Array.isArray(data.get(key)) ? (data.get(key) as number[]).length : 0
     ),
   );
+
+  // ! coto
+  let lastTrimValue: number | undefined = TRIM?.[0];
 
   for (let row = 0; row < rowCount; row++) {
     const rowData: (string | number)[] = [];
@@ -178,8 +184,21 @@ export function ExcelResultSortingOutputAtTable(
       }
     }
 
+    if (part && TRIM !== undefined && row > 0) {
+      const currentTrimValue = TRIM[row];
+      if (currentTrimValue !== lastTrimValue) {
+        // Wstawiamy pusty wiersz jako separator
+        result.push(new Array(headers.length).fill(""));
+      }
+      lastTrimValue = currentTrimValue;
+    }
+
     result.push(rowData);
-  }
+  }  
+  result = mode != "COL" ? transposeTABLE(result) : result;
+  console.log("result",result);
+  return result;
+}
 
   function transposeTABLE<T>(matrix: T[][]): T[][] {
     if (matrix.length === 0) return [];
@@ -196,10 +215,6 @@ export function ExcelResultSortingOutputAtTable(
   
     return result;
   }
-  
-  return mode != "COL" ? transposeTABLE(result) : result;
-}
-
 
 
 export default Excel;
