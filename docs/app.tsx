@@ -2,7 +2,7 @@
 /** @jsxImportSource https://esm.sh/preact@10.26.8 */
 import { signal, useSignal } from "https://esm.sh/@preact/signals@2.2.0";
 import { InputNumber } from "./ui/InputNumber.tsx"; // Upewnij się, że ścieżka jest poprawna
-import { InputChipsList } from "./ui/InputChipsList.tsx";
+import { InputChipsList, InputChipsMode } from "./ui/InputChipsList.tsx";
 import {
   //Excel,
   type ExcelNestedN,

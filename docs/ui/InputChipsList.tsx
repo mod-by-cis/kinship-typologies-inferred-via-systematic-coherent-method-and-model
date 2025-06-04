@@ -17,11 +17,21 @@ interface InputChipsListProps {
   defaultValues?: string[];
   titleAvailable?: string;
   titleSelected?: string;
-  titleModeView?: string;
-  titleModeDrag?: string;
-  titleModeClick?: string;
+  titleMode?: Map<"View" | "Drag" | "Click", string>;
   titleModeButton?: string;
   onChange?: (updated: string[]) => void;
+}
+
+export function InputChipsMode(
+  View: string = "View",
+  Drag: string = "Drag",
+  Click: string = "Click",
+): Map<"View" | "Drag" | "Click", string> {
+  return new Map<"View" | "Drag" | "Click", string>([
+    ["View", View],
+    ["Drag", Drag],
+    ["Click", Click],
+  ]);
 }
 
 export function InputChipsList(props: InputChipsListProps) {
@@ -29,9 +39,7 @@ export function InputChipsList(props: InputChipsListProps) {
     titleAvailable,
     titleSelected,
     titleModeButton = "Mode",
-    titleModeView = "View",
-    titleModeDrag = "Drag",
-    titleModeClick = "Click",
+    titleMode = InputChipsMode(),
     availableValues,
     values,
     defaultValues = [],
@@ -39,7 +47,9 @@ export function InputChipsList(props: InputChipsListProps) {
   } = props;
 
   const [mode, setMode] = useState<Mode>("View");
-  const [modeTitle, setModeTitle] = useState("View");
+  // Lepiej bez oddzielnego modeTitle, tylko generuj dynamicznie z mode
+  // const [modeTitle, setModeTitle] = useState("View");
+
   const [selected, setSelected] = useState<string[]>([...defaultValues]);
 
   // compute available list
@@ -67,8 +77,9 @@ export function InputChipsList(props: InputChipsListProps) {
     onChange([...selected]);
   }, [selected]);
 
-  // toggle mode
+  // Toggle mode cycling: View -> Drag -> Click -> View ...
   const toggleMode = () => {
+    /*
     setMode((prev) => {
       if (prev === "View") {
         setModeTitle(titleModeDrag);
@@ -80,15 +91,22 @@ export function InputChipsList(props: InputChipsListProps) {
         setModeTitle(titleModeView);
         return "View";
       }
+    });*/
+    setMode((prev) => {
+      if (prev === "View") return "Drag";
+      if (prev === "Drag") return "Click";
+      return "View";
     });
   };
 
-  // click handlers
+  // Click handlers (only active in Click mode)
   const handleAdd = (val: string) => {
+    if (mode !== "Click") return; // Blokada poza trybem Click
     setSelected([...selected, val]);
   };
 
   const handleRemove = (index: number) => {
+    if (mode !== "Click") return; // Blokada poza trybem Click
     setSelected((prev) => {
       const copy = [...prev];
       copy.splice(index, 1);
@@ -97,6 +115,7 @@ export function InputChipsList(props: InputChipsListProps) {
   };
 
   const handleMoveLeft = (index: number) => {
+    if (mode !== "Click") return; // Blokada poza trybem Click
     if (index <= 0) return;
     setSelected((prev) => {
       const copy = [...prev];
@@ -106,6 +125,7 @@ export function InputChipsList(props: InputChipsListProps) {
   };
 
   const handleMoveRight = (index: number) => {
+    if (mode !== "Click") return; // Blokada poza trybem Click
     if (index >= selected.length - 1) return;
     setSelected((prev) => {
       const copy = [...prev];
@@ -114,17 +134,128 @@ export function InputChipsList(props: InputChipsListProps) {
     });
   };
 
+  // ----------- Drag & Drop logic (aktywny tylko w trybie Drag) -----------
+
+  // Przechowuje indeks przeciąganego elementu z selected lub null
+  const dragIndex = useRef<number | null>(null);
+
+  // Przechowuje chip przeciągany z available (który jeszcze nie jest w selected)
+  const dragAvailableChip = useRef<string | null>(null);
+
+  // Handlery dla elementów dostępnych (available chips)
+  const onDragStartAvailable = (e: DragEvent, chip: string) => {
+    if (mode !== "Drag") {
+      e.preventDefault();
+      return;
+    }
+    dragAvailableChip.current = chip;
+    e.dataTransfer?.setData("text/plain", chip);
+    e.dataTransfer!.effectAllowed = "copy";
+  };
+
+  const onDragEndAvailable = (e: DragEvent) => {
+    dragAvailableChip.current = null;
+  };
+
+  // Handlery dla elementów wybranych (selected chips)
+  const onDragStartSelected = (e: DragEvent, index: number) => {
+    if (mode !== "Drag") {
+      e.preventDefault();
+      return;
+    }
+    dragIndex.current = index;
+    e.dataTransfer?.setData("text/plain", selected[index]);
+    e.dataTransfer!.effectAllowed = "move";
+  };
+
+  const onDragEndSelected = (e: DragEvent) => {
+    dragIndex.current = null;
+  };
+
+  // Obszar upuszczania - pole selected chips
+  const onDropSelected = (e: DragEvent, targetIndex: number | null = null) => {
+    e.preventDefault();
+    if (mode !== "Drag") return;
+
+    // Przeciągnięto chip z available
+    if (dragAvailableChip.current !== null) {
+      // Dodaj go na koniec (lub na wskazane miejsce)
+      setSelected((prev) => {
+        const newSelected = [...prev];
+        if (targetIndex === null || targetIndex >= newSelected.length) {
+          newSelected.push(dragAvailableChip.current!);
+        } else {
+          newSelected.splice(targetIndex, 0, dragAvailableChip.current!);
+        }
+        return newSelected;
+      });
+      dragAvailableChip.current = null;
+      return;
+    }
+
+    // Przeciągnięto chip z selected (zmiana kolejności)
+    if (dragIndex.current !== null) {
+      const fromIndex = dragIndex.current;
+      const toIndex = targetIndex !== null ? targetIndex : selected.length - 1;
+
+      if (fromIndex === toIndex) return;
+
+      setSelected((prev) => {
+        const copy = [...prev];
+        const [moved] = copy.splice(fromIndex, 1);
+        copy.splice(toIndex, 0, moved);
+        return copy;
+      });
+      dragIndex.current = null;
+    }
+  };
+
+  const onDragOverSelected = (e: DragEvent) => {
+    if (mode === "Drag") {
+      e.preventDefault(); // pozwól na drop
+    }
+  };
+
+  // Obszar upuszczania - pole available chips (do usuwania z selected)
+  const onDropAvailable = (e: DragEvent) => {
+    e.preventDefault();
+    if (mode !== "Drag") return;
+
+    if (dragIndex.current !== null) {
+      // Usuń z selected (co oznacza "przeniesienie" na available)
+      const indexToRemove = dragIndex.current;
+      setSelected((prev) => {
+        const copy = [...prev];
+        copy.splice(indexToRemove, 1);
+        return copy;
+      });
+      dragIndex.current = null;
+    }
+
+    // Nie ma sensu przeciągać z available na available - ignorujemy
+    dragAvailableChip.current = null;
+  };
+
+  const onDragOverAvailable = (e: DragEvent) => {
+    if (mode === "Drag") {
+      e.preventDefault();
+    }
+  };
+
+  // ----------- Renderowanie -----------
+
   return (
-    <div class="inputchips-container">
+    <div
+      class="inputchips-container"
+      style={{ maxWidth: "600px" }}
+    >
       <div class="inputchips-mode">
-        <span class="inputchips-mode-label">
-          {titleModeButton}:
-        </span>
         <button
           onClick={toggleMode}
           class="inputchips-mode-button"
         >
-          {modeTitle}
+          {titleModeButton}:<br />
+          {titleMode.get(mode)}
         </button>
       </div>
 
@@ -133,10 +264,18 @@ export function InputChipsList(props: InputChipsListProps) {
           {titleAvailable && (
             <div class="inputchips-list-title">{titleAvailable}</div>
           )}
-          <div class="inputchips-list-box">
-            {remaining.map((chip, idx) => (
+          <div
+            class="inputchips-list-box"
+            onDrop={onDropAvailable}
+            onDragOver={onDragOverAvailable}
+          >
+            {remaining.map((chip, i) => (
               <span
-                key={`rem-${chip}-${idx}`}
+                key={`rem-${chip}-${i}`}
+                draggable={mode === "Drag"}
+                onDragStart={(e) =>
+                  onDragStartAvailable(e as unknown as DragEvent, chip)}
+                onDragEnd={(e) => onDragEndAvailable(e as unknown as DragEvent)}
                 class="inputchips-chips inputchips-chips-available"
               >
                 {chip}
@@ -157,25 +296,42 @@ export function InputChipsList(props: InputChipsListProps) {
           {titleSelected && (
             <div class="inputchips-list-title">{titleSelected}</div>
           )}
-          <div class="inputchips-list-box">
-            {selected.map((chip, index) => (
+          <div
+            class="inputchips-list-box"
+            onDrop={(e) => onDropSelected(e)}
+            onDragOver={onDragOverSelected}
+          >
+            {selected.map((chip, i) => (
               <span
-                key={`sel-${chip}-${index}`}
+                key={`sel-${chip}-${i}`}
+                draggable={mode === "Drag"}
+                onDragStart={(e) =>
+                  onDragStartSelected(e as unknown as DragEvent, i)}
+                onDragEnd={(e) => onDragEndSelected(e as unknown as DragEvent)}
+                onDrop={(e) => {
+                  if (mode === "Drag") {
+                    e.preventDefault();
+                    onDropSelected(e, i);
+                  }
+                }}
+                onDragOver={(e) => {
+                  if (mode === "Drag") e.preventDefault();
+                }}
                 class="inputchips-chips inputchips-chips-selected"
               >
                 {mode === "Click" && (
                   <>
-                    {index > 0 && (
+                    {i > 0 && (
                       <button
-                        onClick={() => handleMoveLeft(index)}
+                        onClick={() => handleMoveLeft(i)}
                         class="inputchips-chips-button inputchips-chips-button-ord"
                       >
                         ←
                       </button>
                     )}
-                    {index < selected.length - 1 && (
+                    {i < selected.length - 1 && (
                       <button
-                        onClick={() => handleMoveRight(index)}
+                        onClick={() => handleMoveRight(i)}
                         class="inputchips-chips-button inputchips-chips-button-ord"
                       >
                         →
@@ -187,7 +343,7 @@ export function InputChipsList(props: InputChipsListProps) {
                 {mode === "Click" && (
                   <>
                     <button
-                      onClick={() => handleRemove(index)}
+                      onClick={() => handleRemove(i)}
                       class="inputchips-chips-button inputchips-chips-button-del"
                     >
                       x
